@@ -1,0 +1,44 @@
+{
+  "id": "BRIDGE_PHYSICS_CHAIN_001",
+  "type": "physics-calculation",
+  "status": "DER",
+  "from": [
+    "UPIlit,1,arxiv",
+    "UPIresearch,1,planck_einstein_2010_13690",
+    "UPIresearch,1,photon_recoil_0812_3139",
+    "UPIresearch,1,photon_recoil_h_over_m_0605125"
+  ],
+  "nodes": [
+    "UPIcalc,1,E_hf",
+    "UPIcalc,1,mass_equivalent",
+    "UPIcalc,1,mass_shell",
+    "UPIcalc,1,frequency_momentum",
+    "UPIcalc,1,velocity",
+    "UPIcalc,1,mirror_8hz",
+    "UPIcalc,1,frequency_8_2hz"
+  ],
+  "relations": [
+    "supports",
+    "derives",
+    "tests",
+    "round-trip-mirror"
+  ],
+  "chain": "f -> E=hf -> m_E=E/c^2; independently, E^2=p^2c^2+m0^2c^4 -> p -> v -> replay f'; for 8.2 Hz also derive wavelength and conditional KK radius.",
+  "examples": {
+    "7.83Hz": {
+      "E_J": 5.18821292745e-33,
+      "mass_equiv_kg": 5.77266540454535e-50
+    },
+    "8Hz": {
+      "E_J": 5.30085612e-33,
+      "mass_equiv_kg": 5.897997859050167e-50
+    },
+    "8.2Hz": {
+      "E_J": 5.4333775229999996e-33,
+      "mass_equiv_kg": 6.045447805526421e-50,
+      "wavelength_m": 36560055.85365854,
+      "kk_radius_n1_km": 5818.71360882554
+    }
+  },
+  "result": "The mathematical chain closes when m0 is an independent invariant mass. Substituting m0=hf/c^2 is only the rest-energy mass-equivalent identity and does not create a new observable."
+}

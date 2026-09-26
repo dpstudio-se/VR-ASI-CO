@@ -1,0 +1,14 @@
+{
+  "id": "SRC_SUNET_CD",
+  "type": "infrastructure_source",
+  "title": "SUNET CD / Swedish University Network",
+  "domain": "research-infrastructure",
+  "status": "EST",
+  "source_url": "https://www.sunet.se/en/",
+  "claims": [
+    "SUNET provides Swedish higher-education and research organizations with network and e-infrastructure services.",
+    "SUNET CD provides high-capacity, redundant network connectivity and dedicated research-data transport."
+  ],
+  "upi_address": "UPIinfra,1,sunet_cd",
+  "note": "Infrastructure/provenance evidence; not evidence for a physical UPI law."
+}

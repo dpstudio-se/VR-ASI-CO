@@ -1,0 +1,19 @@
+{
+  "id": "SRC_SCHUMANN_783",
+  "type": "research_source",
+  "status": "EST",
+  "title": "Earth-ionosphere Schumann resonance around 7.83 Hz",
+  "domain": "geophysics / ELF electromagnetic resonance",
+  "sources": [
+    "https://ntrs.nasa.gov/api/citations/20120008699/downloads/20120008699.pdf",
+    "https://www.nssl.noaa.gov/users/mansell/icae2014/preprints/abstract_short/Price_225.pdf",
+    "https://arxiv.org/abs/1208.4970"
+  ],
+  "claims": [
+    "An ideal thin spherical Earth-ionosphere cavity has eigenfrequencies f_n=(c/(2 pi R))*sqrt(n(n+1)).",
+    "Real Earth-ionosphere resonances are shifted from the ideal cavity values by finite conductivity and propagation effects.",
+    "The first observed Schumann resonance is around 7.8-7.83 Hz."
+  ],
+  "upi_address": "UPIgeo,1,schumann_783",
+  "boundary": "7.83 Hz is an Earth-ionosphere electromagnetic resonance frequency; this source does not identify it as an M-theory frequency."
+}

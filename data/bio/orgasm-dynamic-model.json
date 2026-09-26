@@ -1,0 +1,45 @@
+{
+  "address": "UPI<BIO,1,RES,ORGASM_DYNAMIC>",
+  "title": "Orgasm dynamic response model",
+  "description": "A bounded computational model of sexual climax as a composite dynamical response built from neural excitation, autonomic activation, sensory/rhythmic feedback, and inhibitory control. This record is a hypothesis/model specification, not a claim that orgasm has a universal resonant frequency.",
+  "status": "HYP",
+  "definitions": [
+    "N(t) = normalized neural excitation term.",
+    "A(t) = normalized autonomic activation term.",
+    "R(t,f) = frequency-dependent sensory/resonance model term.",
+    "I(t) = normalized inhibitory/control term.",
+    "S(t) = composite activation state.",
+    "O(t) = bounded model output in [0,1] representing modeled climax intensity."
+  ],
+  "equations": [
+    "S(t) = N(t) + A(t) + R(t,f) - I(t)",
+    "R(t,f) = G(f) * A_r * sin(2*pi*f*t + phi)",
+    "G(f) = 1 / sqrt((f0^2 - f^2)^2 + (2*zeta*f0*f)^2)",
+    "O(t) = 1 / (1 + exp(-k*(S(t) - S_c)))"
+  ],
+  "assumptions": [
+    "All component terms are normalized model variables rather than direct clinical measurements.",
+    "The frequency variable f is a simulation parameter and is not asserted to be a biological law.",
+    "The model describes system dynamics abstractly and does not infer an individual's sexual state.",
+    "A numerical peak in O(t) is a model event, not evidence of a measured orgasm."
+  ],
+  "mechanism": "The model combines excitation, autonomic activation, sensory feedback and inhibition into a single state variable, then maps that state through a sigmoid threshold function. The resonance term is included as a generic dynamical-system component so different frequencies can be compared reproducibly.",
+  "falsification_conditions": [
+    "The model fails its declared software tests for bounded output O(t) in [0,1].",
+    "A defined empirical dataset, if later supplied, systematically contradicts the model predictions under preregistered comparison rules.",
+    "The resonance component adds no reproducible explanatory value relative to a declared null model."
+  ],
+  "confusion_guard": "Do not interpret the simulated O(t) value as a physiological measurement, diagnosis, or universal frequency of orgasm. Simulation is not measurement.",
+  "stop_reason": "",
+  "tags": [
+    "bio",
+    "neuro",
+    "resonance",
+    "dynamical-system",
+    "hypothesis",
+    "software-model"
+  ],
+  "verification_type": "software_test",
+  "information_layer": "ACADEMIC",
+  "version": "0.1.0"
+}

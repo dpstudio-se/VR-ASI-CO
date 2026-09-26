@@ -1,0 +1,14 @@
+{
+  "id": "SRC_SND_RESEARCHDATA",
+  "type": "infrastructure_source",
+  "title": "Swedish National Data Service / Research Data Catalogue",
+  "domain": "research-data",
+  "status": "EST",
+  "source_url": "https://snd.gu.se/en/research-data",
+  "claims": [
+    "SND supports discovery, sharing and reuse of Swedish research data.",
+    "Research-data metadata is used for findability, interoperability and FAIR-oriented reuse."
+  ],
+  "upi_address": "UPIinfra,1,snd_researchdata",
+  "note": "Research-data infrastructure/provenance evidence; not physics validation."
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "ARXIV_PHYSICS_0605125",
+  "type": "paper",
+  "title": "A new photon recoil experiment: towards a determination of the fine structure constant",
+  "arxiv": "physics/0605125",
+  "url": "https://arxiv.org/abs/physics/0605125",
+  "status": "EST",
+  "evidence": {
+    "measured": ["h/m_Cs ratio", "photon recoil"],
+    "method": "atom interferometry with multiphoton Bragg diffraction",
+    "scope": "precision measurement methodology"
+  },
+  "upi_mapping": {
+    "address": "UPIresearch,1,photon_recoil_h_over_m_0605125",
+    "relations": ["h/m", "photon recoil", "atom interferometry"]
+  }
+}

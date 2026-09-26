@@ -1,0 +1,11 @@
+{
+  "id": "SRC_EUROPE_PMC",
+  "type": "scholarly-literature-platform",
+  "status": "EST",
+  "title": "Europe PMC",
+  "domain": "life-sciences-literature",
+  "source_url": "https://europepmc.org/",
+  "function": "Programmatic access to publications, preprints, references, open-access content, grants and annotations.",
+  "upi_address": "UPIlit,1,europe_pmc",
+  "boundary": "Literature index and full-text access are evidence-discovery/provenance functions, not automatic claim validation."
+}

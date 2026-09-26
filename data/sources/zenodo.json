@@ -1,0 +1,11 @@
+{
+  "id": "SRC_ZENODO",
+  "type": "research-output-repository",
+  "status": "EST",
+  "title": "Zenodo",
+  "domain": "research-data-and-outputs",
+  "source_url": "https://zenodo.org/",
+  "function": "Research-output repository layer used for datasets, software and other research objects.",
+  "upi_address": "UPIdata,1,zenodo",
+  "boundary": "Repository deposit provides an auditable research object/provenance record; deposited material still requires scientific assessment."
+}

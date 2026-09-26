@@ -1,0 +1,11 @@
+{
+  "id": "SRC_CROSSREF",
+  "type": "doi_metadata_registry",
+  "status": "EST",
+  "title": "Crossref",
+  "domain": "scholarly-metadata",
+  "source_url": "https://www.crossref.org/",
+  "function": "Structured scholarly metadata and DOI-related discovery via REST API and other delivery mechanisms.",
+  "upi_address": "UPImeta,1,crossref",
+  "boundary": "Deposited metadata describes registered works; it does not establish the truth of their claims."
+}

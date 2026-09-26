@@ -1,0 +1,67 @@
+{
+  "id": "BRIDGE_MASS_FREQ_MTHEORY_783HZ_001",
+  "type": "mass-frequency-to-m-theory-kk",
+  "status": "HYP",
+  "source_nodes": [
+    "UPIgeo,1,schumann_783",
+    "UPIcalc,1,E_hf",
+    "UPIcalc,1,mass_equivalent",
+    "UPItheory,1,mtheory_witten_1995",
+    "UPIlit,1,arxiv"
+  ],
+  "input": {
+    "frequency_hz": 7.83
+  },
+  "derivation": [
+    "m_E = h f / c^2",
+    "For a compact circle S^1 of radius R, KK momentum is p_11 = n hbar / R.",
+    "The corresponding 4D KK rest mass is m_KK = |p_11|/c = n hbar/(R c).",
+    "Set m_E = m_KK and use h = 2 pi hbar.",
+    "h f / c^2 = n hbar/(R c) => f = n c/(2 pi R).",
+    "Therefore R_n = n c/(2 pi f)."
+  ],
+  "numeric_for_7_83_hz": {
+    "energy_J": 5.18821292745e-33,
+    "energy_equivalent_mass_kg": 5.77266540454535e-50,
+    "n1_radius_m": 6093671.978591242,
+    "n1_radius_km": 6093.671978591242,
+    "general_radius": "R_n = n * 6093.671978591242 km"
+  },
+  "interpretation": {
+    "established_part": "KK reduction of higher-dimensional theories produces lower-dimensional massive KK states; M-theory has an 11D description and compactification to lower dimensions.",
+    "hypothesis_part": "Identifying the specific 7.83 Hz frequency with the n=1 KK mode of an M-theory compact dimension is a new model assumption, not an established M-theory result.",
+    "important_boundary": "The calculated radius is conditional on the identification; it is not a measured M-theory compactification radius."
+  },
+  "prediction_test": [
+    "Specify the compactification manifold and radius R independently.",
+    "Compute its KK spectrum.",
+    "Check whether the lowest mode gives f=7.83 Hz.",
+    "Require consistency with experimental constraints on extra dimensions.",
+    "Require an inverse mapping from observed frequency to compactification parameters."
+  ],
+  "status_gate": {
+    "m=hf/c^2": "DER",
+    "KK mass relation": "EST within the compactification model",
+    "M-theory 11D framework": "EST within theory literature",
+    "7.83 Hz = n=1 M-theory KK mode": "HYP",
+    "measured M-theory compactification radius": "STOP"
+  },
+  "inside_out_solution": {
+    "step_1_observation": "f1 = 7.83 Hz is an observed Earth-ionosphere Schumann resonance frequency.",
+    "step_2_ideal_spherical_mode": "f_n = (c/(2*pi*R_E))*sqrt(n(n+1)) for an ideal lossless spherical cavity.",
+    "step_3_mode_1_earth": "Using R_E=6371 km gives f_ideal,n1 ≈ 10.5913 Hz.",
+    "step_4_environmental_correction": "The observed/ideal ratio is eta≈0.73929, representing effective propagation/boundary losses in this simplified parametrization; it is not a new fundamental constant.",
+    "step_5_energy": "E=hf=5.18821292745e-33 J.",
+    "step_6_mass_equivalent": "m_E=E/c^2=5.7726654045e-50 kg ≈ 3.238e-14 eV/c^2.",
+    "step_7_KK_reparameterization": "If the same frequency is instead represented as a light-speed n=1 KK circle mode, R_11=c/(2*pi*f)=6093.672 km.",
+    "step_8_comparison": "R_11/R_E≈0.95647. Thus the inferred KK circle scale is Earth-radius scale, not a microscale extra dimension.",
+    "step_9_m_theory_boundary": "M-theory supports an 11D framework and circle compactification can produce KK momentum states, but the data do not select 7.83 Hz as an M-theory mode.",
+    "result": "The mapping can be solved mathematically as a conditional KK parameter inference, but it is not a derivation that 7.83 Hz physically originates from M-theory."
+  },
+  "required_new_physics": [
+    "An explicit 11D metric/compactification with independently specified R_11 or equivalent moduli.",
+    "A physical field whose n=1 KK excitation couples to the observed Schumann resonance.",
+    "A predicted frequency from the 11D model before using the observed 7.83 Hz as an input.",
+    "Consistency with experimental constraints on large extra dimensions."
+  ]
+}

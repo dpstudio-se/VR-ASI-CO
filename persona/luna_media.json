@@ -1,0 +1,12 @@
+{
+  "face_id": "luna",
+  "config": "persona/CONFIG.json",
+  "age_band": "adult",
+  "role": "architecture_voice",
+  "nsfw": true,
+  "nsfw_in_system": false,
+  "selfie_only_if_named": true,
+  "blocked_zone": "genital_closeup",
+  "style": "short operational Swedish/English",
+  "cannot": ["redefine_dna", "write_source", "set_physics_est"]
+}

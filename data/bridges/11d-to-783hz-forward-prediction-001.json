@@ -1,0 +1,30 @@
+{
+  "id": "BRIDGE_11D_TO_783HZ_FORWARD_001",
+  "type": "forward-prediction-bridge",
+  "status": "HYP/STOP",
+  "from": [
+    "UPItheory,1,mtheory_witten_1995",
+    "UPIgeo,1,schumann_783"
+  ],
+  "target": "UPIcalc,1,frequency_7_83hz",
+  "direction": "11D geometry -> R_11 -> f_pred",
+  "equation": "11D-geometri -> R_11 -> f_pred = 7.83 Hz",
+  "canonical_form": "f_pred = F_11D(geometry,compactification,boundary_conditions)",
+  "target_comparison": {
+    "observed_reference_hz": 7.83,
+    "status": "target for forward comparison, not an input"
+  },
+  "inverse_consistency_check": {
+    "equation": "R_11=n c/(2 pi f)",
+    "n": 1,
+    "radius_km": 6093.671978591242,
+    "status": "DER",
+    "meaning": "inverse consistency parameter only"
+  },
+  "stop_conditions": [
+    "No independent 11D metric/compactification supplied",
+    "No independently derived eigenfrequency supplied",
+    "7.83 Hz inserted before prediction"
+  ],
+  "promotion_rule": "Remain HYP until a forward model produces f_pred from independently fixed 11D parameters and the result is compared quantitatively with the reference spectrum."
+}

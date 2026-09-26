@@ -1,0 +1,49 @@
+{
+  "id": "RESEARCH_SOURCE_FEDERATION_001",
+  "version": "1.0",
+  "status": "EST",
+  "purpose": "Map UPI against arXiv and adjacent scholarly/research-data infrastructure.",
+  "source_classes": {
+    "literature": [
+      "arxiv",
+      "europe_pmc",
+      "nasa_ads"
+    ],
+    "metadata": [
+      "openalex",
+      "crossref",
+      "datacite"
+    ],
+    "research_outputs": [
+      "zenodo",
+      "snd_researchdata"
+    ],
+    "infrastructure": [
+      "sunet_cd",
+      "sunet_snd_api",
+      "snd_metadata_harvesting"
+    ]
+  },
+  "evidence_rule": {
+    "source": "A source can document a claim or provide a research object.",
+    "metadata": "Metadata can establish identity, provenance and relationships.",
+    "infrastructure": "Networks and catalogues can transport/discover data.",
+    "validation": "Scientific validation requires claim-specific evidence and independent verification."
+  },
+  "mapping_to_upi": {
+    "EST": "documented source/infrastructure function",
+    "DER": "mathematical or logical consequence explicitly derived from accepted premises",
+    "HYP": "UPI interpretation not established by the source",
+    "SYM": "structural analogy without demonstrated mechanism",
+    "STOP": "missing measurable quantity, inverse map, domain or evidence"
+  },
+  "current_physics_boundary": {
+    "E_equals_hf": "EST in the defined quantum/spectroscopic domain when sourced to appropriate experimental literature.",
+    "mass_shell": "EST as relativistic relation.",
+    "m_equals_E_over_c2": "DER/EST depending exact formulation and domain.",
+    "mI_equals_hf_over_c2": "HYP as UPI information-mass interpretation; algebraically follows from E=hf and m=E/c2 but does not establish a new observable.",
+    "eight_hz_universal_constant": "STOP unless independently measured/defined for a specific physical system.",
+    "eleven_d_brane_to_upi_resonance": "SYM/STOP until a measurable quantity and invertible mapping are supplied."
+  },
+  "audit_scope": "Source registry and architecture mapping. It does not claim that every paper in each service has been reviewed."
+}

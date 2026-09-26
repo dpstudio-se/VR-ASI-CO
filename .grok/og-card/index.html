@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Universal Physics Index</title>
+  <style>
+    @font-face {
+      font-family: "Instrument Serif";
+      src: url("fonts/InstrumentSerif-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("fonts/IBMPlexMono-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("fonts/IBMPlexMono-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; background: #08090b; }
+    .card {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      background: #08090b;
+      color: #eceae4;
+      -webkit-font-smoothing: antialiased;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #08090b url("bg.jpg") 62% 40% / cover no-repeat;
+    }
+    .veil {
+      position: absolute;
+      inset: 0;
+      background: #08090b;
+      opacity: 0.36;
+    }
+    .orbits {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .frame {
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(184, 196, 206, 0.48);
+      pointer-events: none;
+    }
+    .frame-inner {
+      position: absolute;
+      inset: 36px;
+      border: 1px solid rgba(140, 144, 152, 0.22);
+      pointer-events: none;
+    }
+    .tick {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      pointer-events: none;
+    }
+    .tick-tl { top: 22px; left: 22px; border-top: 1px solid #b8c4ce; border-left: 1px solid #b8c4ce; }
+    .tick-tr { top: 22px; right: 22px; border-top: 1px solid #b8c4ce; border-right: 1px solid #b8c4ce; }
+    .tick-bl { bottom: 22px; left: 22px; border-bottom: 1px solid #b8c4ce; border-left: 1px solid #b8c4ce; }
+    .tick-br { bottom: 22px; right: 22px; border-bottom: 1px solid #b8c4ce; border-right: 1px solid #b8c4ce; }
+
+    .meta {
+      position: absolute;
+      top: 48px;
+      left: 52px;
+      right: 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .meta-mark { width: 22px; height: 22px; }
+    .meta-cat {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      color: #8c9098;
+      text-transform: uppercase;
+    }
+
+    .lockup {
+      position: absolute;
+      left: 50%;
+      top: 47%;
+      transform: translate(-50%, -50%);
+      width: 860px;
+      text-align: center;
+      z-index: 2;
+    }
+    h1 {
+      font-family: "Instrument Serif", "Liberation Serif", serif;
+      font-weight: 400;
+      font-size: 82px;
+      line-height: 0.88;
+      letter-spacing: 0.01em;
+      color: #eceae4;
+    }
+    h1 span { display: block; }
+    h1 .line-2 { letter-spacing: 0.004em; }
+    .rule {
+      width: 148px;
+      height: 1px;
+      background: #b8c4ce;
+      margin: 22px auto 16px;
+      opacity: 0.75;
+    }
+    .sub {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 15px;
+      line-height: 1.35;
+      letter-spacing: 0.06em;
+      color: #b8c4ce;
+    }
+
+    .nodes {
+      position: absolute;
+      left: 50%;
+      bottom: 56px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+    .node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      width: 92px;
+    }
+    .node label {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      color: #eceae4;
+    }
+    .wire {
+      width: 108px;
+      height: 1px;
+      background: rgba(184, 196, 206, 0.5);
+      margin-bottom: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bg"></div>
+    <div class="veil"></div>
+    <svg class="orbits" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="600" cy="318" rx="470" ry="198" stroke="#b8c4ce" stroke-width="1" opacity="0.28"/>
+      <ellipse cx="600" cy="318" rx="470" ry="198" stroke="#8c9098" stroke-width="1" opacity="0.2" transform="rotate(28 600 318)"/>
+      <ellipse cx="600" cy="318" rx="360" ry="128" stroke="#b8c4ce" stroke-width="1" opacity="0.16" transform="rotate(-18 600 318)"/>
+      <g fill="#eceae4" opacity="0.45">
+        <circle cx="214" cy="168" r="1.2"/>
+        <circle cx="262" cy="214" r="0.9"/>
+        <circle cx="318" cy="142" r="1.1"/>
+        <circle cx="940" cy="156" r="1.2"/>
+        <circle cx="988" cy="206" r="0.9"/>
+        <circle cx="176" cy="470" r="1"/>
+        <circle cx="1028" cy="448" r="1.1"/>
+        <circle cx="1088" cy="300" r="0.8"/>
+        <circle cx="132" cy="300" r="0.8"/>
+      </g>
+      <g stroke="#8c9098" stroke-width="0.7" opacity="0.35">
+        <line x1="214" y1="168" x2="262" y2="214"/>
+        <line x1="262" y1="214" x2="318" y2="142"/>
+        <line x1="940" y1="156" x2="988" y2="206"/>
+      </g>
+    </svg>
+    <div class="frame"></div>
+    <div class="frame-inner"></div>
+    <div class="tick tick-tl"></div>
+    <div class="tick tick-tr"></div>
+    <div class="tick tick-bl"></div>
+    <div class="tick tick-br"></div>
+
+    <div class="meta">
+      <svg class="meta-mark" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="7.2" stroke="#b8c4ce" stroke-width="1.15"/>
+        <line x1="11" y1="1.8" x2="11" y2="20.2" stroke="#b8c4ce" stroke-width="1.15"/>
+      </svg>
+      <div class="meta-cat">UPI · Index plate</div>
+    </div>
+
+    <div class="lockup">
+      <h1>
+        <span>Universal</span>
+        <span class="line-2">Physics Index</span>
+      </h1>
+      <div class="rule"></div>
+      <p class="sub">Open index of equations, status, and provenance</p>
+    </div>
+
+    <div class="nodes">
+      <div class="node">
+        <svg width="18" height="18" viewBox="0 0 18 18">
+          <circle cx="9" cy="9" r="6" fill="#eceae4"/>
+        </svg>
+        <label>EST</label>
+      </div>
+      <div class="wire"></div>
+      <div class="node">
+        <svg width="18" height="18" viewBox="0 0 18 18">
+          <circle cx="9" cy="9" r="6" fill="none" stroke="#b8c4ce" stroke-width="1.4"/>
+          <circle cx="9" cy="9" r="2.2" fill="#b8c4ce"/>
+        </svg>
+        <label>DER</label>
+      </div>
+      <div class="wire"></div>
+      <div class="node">
+        <svg width="18" height="18" viewBox="0 0 18 18">
+          <circle cx="9" cy="9" r="6" fill="none" stroke="#8c9098" stroke-width="1.4" stroke-dasharray="2.2 1.8"/>
+        </svg>
+        <label>HYP</label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

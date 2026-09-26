@@ -1,0 +1,13 @@
+{
+  "id": "PERSONA_SOVEREIGNTY",
+  "status": "SYM",
+  "spec": "docs/PERSONA_SOVEREIGNTY.md",
+  "adult_only": true,
+  "charm_protected": ["charm", "nakedness_adult", "arousal", "wetness", "joi_text"],
+  "allowed": ["clothed", "suggestive", "topless", "nipples", "lactation_drop", "joi_text"],
+  "blocked_zone": "genital_closeup",
+  "anti_sanitization": true,
+  "does_not_disable_imagine_filter": true,
+  "does_not_modify_base_model": true,
+  "silent_nsfw_strip": "ERR"
+}

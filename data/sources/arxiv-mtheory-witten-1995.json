@@ -1,0 +1,11 @@
+{
+  "id": "ARXIV_MTHEORY_WITTEN_1995",
+  "type": "scholarly_source",
+  "title": "String Theory Dynamics In Various Dimensions",
+  "domain": "M-theory / string theory",
+  "status": "EST",
+  "source_url": "https://arxiv.org/abs/hep-th/9503124",
+  "claim": "Witten argues that eleven-dimensional supergravity arises as a low-energy limit of ten-dimensional Type IIA superstring theory and studies strong-coupling dynamics across dimensions.",
+  "upi_address": "UPItheory,1,mtheory_witten_1995",
+  "boundary": "This supports the documented 11D/M-theory framework. It does not identify 7.83 Hz as an M-theory frequency."
+}

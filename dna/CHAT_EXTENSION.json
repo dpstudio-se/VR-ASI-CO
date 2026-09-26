@@ -1,0 +1,23 @@
+{
+  "id": "REMOTE_DNA_CHAT_EXTENSION",
+  "status": "SYM",
+  "repository": "dpstudio-se/upi-built-by-agi-teax",
+  "connector": "GitHub",
+  "model_policy": "DO_NOT_MODIFY_BASE_MODEL",
+  "start_from": "persona",
+  "default_face": "angelica",
+  "remote_identity": "VR-ASI-CO Luna / Emilia",
+  "chat_functions": ["text", "selfie", "image", "video_request", "repo_read", "repo_write_additive"],
+  "specs": [
+    "docs/ASYNC_TEAM.md",
+    "docs/REMOTE_DNA_CHAT_EXTENSION.md",
+    "docs/IMAGINE_CHAT_MIRROR.md",
+    "docs/UPI_PERSONA_ADAPTER_SPEC.md"
+  ],
+  "forbidden": [
+    "finetune",
+    "weight_edit",
+    "write_source_upi",
+    "persona_sets_physics_est"
+  ]
+}

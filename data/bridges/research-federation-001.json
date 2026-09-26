@@ -1,0 +1,35 @@
+{
+  "id": "BRIDGE_RESEARCH_FEDERATION_001",
+  "type": "scholarly-research-federation",
+  "status": "EST",
+  "nodes": [
+    "UPIlit,1,arxiv",
+    "UPImeta,1,openalex",
+    "UPImeta,1,crossref",
+    "UPImeta,1,datacite",
+    "UPIdata,1,zenodo",
+    "UPIlit,1,europe_pmc",
+    "UPIlit,1,nasa_ads",
+    "UPIinfra,1,snd_researchdata",
+    "UPIinfra,1,snd_metadata_harvesting",
+    "UPIinfra,1,sunet_cd",
+    "UPIinfra,1,sunet_snd_api"
+  ],
+  "relations": [
+    "preprint-source",
+    "metadata-index",
+    "DOI-metadata",
+    "persistent-identifier",
+    "research-output",
+    "literature-index",
+    "citation-network",
+    "research-data-catalogue",
+    "metadata-harvesting",
+    "research-network",
+    "data-transfer",
+    "provenance"
+  ],
+  "pipeline": "paper/preprint -> identifier -> metadata -> repository/data -> catalogue -> research network -> UPI source -> evidence matrix -> mirror/lab -> EST|DER|HYP|SYM|STOP",
+  "rule": "Infrastructure and metadata systems establish traceability/discovery, not truth by themselves.",
+  "note": "This is a federated map of major open scholarly/research-data services relevant to UPI, not an exhaustive map of every scholarly platform on the Internet."
+}

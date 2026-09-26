@@ -1,0 +1,132 @@
+{
+  "id": "UPI_MASTER_BRIDGE_783HZ",
+  "version": "1.2",
+  "status": "HYP",
+  "title": "UPI master bridge — 7.83 Hz and 8.2 Hz reference frequencies to conditional 11D/M-theory mapping",
+  "reference_frequencies": {
+    "7.83_Hz": {
+      "source_node": "UPIgeo,1,schumann_783",
+      "status": "EST",
+      "energy_J": 5.18821292745e-33,
+      "mass_equivalent_kg": 5.77266540454535e-50,
+      "kk_radius_n1_km": 6093.671978591242
+    },
+    "8.2_Hz": {
+      "source_node": "UPIcalc,1,frequency_8_2hz",
+      "status": "DER",
+      "energy_J": 5.4333775229999996e-33,
+      "mass_equivalent_kg": 6.045447805526421e-50,
+      "kk_radius_n1_km": 5818.71360882554
+    }
+  },
+  "conditional_bridge": {
+    "equations": [
+      "E=h f",
+      "m_E=hf/c^2",
+      "m_KK=n hbar/(R_11 c)",
+      "R_11=n c/(2 pi f)"
+    ],
+    "n": 1,
+    "status": "DER/HYP",
+    "interpretation": "R_11 is an inverse parameter derived after equating the mass-equivalent m_E to a KK mass; it is not an independently measured compactification radius."
+  },
+  "evidence_layers": {
+    "observation": {
+      "node": "UPIgeo,1,schumann_783",
+      "status": "EST",
+      "meaning": "Earth-ionosphere ELF resonance around 7.8–7.83 Hz."
+    },
+    "quantum_relation": {
+      "node": "UPIcalc,1,E_hf",
+      "status": "EST",
+      "equation": "E=hf"
+    },
+    "mass_equivalent": {
+      "node": "UPIcalc,1,mass_equivalent",
+      "status": "DER",
+      "equation": "m_E=hf/c^2"
+    },
+    "relativity": {
+      "node": "UPIcalc,1,mass_shell",
+      "status": "EST",
+      "equation": "E^2=p^2c^2+m0^2c^4"
+    },
+    "kk_bridge": {
+      "node": "UPItheory,1,KK_Mtheory_bridge",
+      "status": "HYP",
+      "equation": "m_KK=n hbar/(R_11 c)",
+      "inferred_relation": "R_11=n c/(2 pi f)"
+    },
+    "m_theory": {
+      "node": "UPItheory,1,mtheory_witten_1995",
+      "status": "EST",
+      "meaning": "11D M-theory framework in cited theoretical literature."
+    },
+    "infrastructure": {
+      "nodes": [
+        "UPIlit,1,arxiv",
+        "UPImeta,1,openalex",
+        "UPImeta,1,crossref",
+        "UPImeta,1,datacite",
+        "UPIdata,1,zenodo",
+        "UPIinfra,1,snd_researchdata",
+        "UPIinfra,1,sunet_cd",
+        "UPIinfra,1,sunet_snd_api",
+        "UPIinfra,1,snd_metadata_harvesting"
+      ],
+      "status": "EST"
+    }
+  },
+  "mirrors": [
+    "f -> E -> E/c^2",
+    "f -> E -> p -> E' -> f'",
+    "f -> m_E -> m_KK -> R_11"
+  ],
+  "epistemic_gate": {
+    "EST": [
+      "Schumann resonance as a geophysical phenomenon",
+      "E=hf in the stated quantum/spectroscopic domain",
+      "relativistic mass-shell relation",
+      "11D/M-theory framework as a theory"
+    ],
+    "DER": [
+      "m_E=hf/c^2",
+      "p from E=hf and mass shell",
+      "R_11=n c/(2 pi f) after equating m_E with a KK mass"
+    ],
+    "HYP": [
+      "identifying 7.83 or 8.2 Hz with an M-theory KK mode",
+      "interpreting m_E as a new information-mass observable",
+      "any specific UPI resonance-storage physical mechanism"
+    ],
+    "SYM": [
+      "shared mathematical structure across geophysics, quantum relations and higher-dimensional theory"
+    ],
+    "STOP": [
+      "claiming either 7.83 Hz or 8.2 Hz is an established M-theory constant",
+      "claiming 6093.67 km or 5818.71 km is a measured compactification radius",
+      "claiming a software mirror is experimental proof of new physics"
+    ]
+  },
+  "decisive_test": "Construct an explicit 11D metric/compactification with independent parameters and derive a frequency before inserting 7.83 Hz or 8.2 Hz as input. Then compare prediction, uncertainty and inverse mapping against the observed/reference spectrum.",
+  "provenance": [
+    "UPIgeo,1,schumann_783",
+    "UPIcalc,1,frequency_8_2hz",
+    "UPItheory,1,mtheory_witten_1995",
+    "UPIlit,1,arxiv",
+    "UPIinfra,1,sunet_cd",
+    "UPIinfra,1,snd_researchdata"
+  ],
+  "scope_note": "Unified UPI hypothesis map; neither the 7.83 Hz nor 8.2 Hz to 11D identification is experimentally established.",
+  "forward_prediction": {
+    "node_id": "UPItheory,1,forward_prediction_11d_783hz",
+    "equation": "11D-geometri -> R_11 -> f_pred = 7.83 Hz",
+    "status": "HYP/STOP",
+    "target_frequency_hz": 7.83,
+    "rule": "Do not insert 7.83 Hz when deriving R_11 or f_pred. 7.83 Hz is only the post-prediction comparison target.",
+    "spec_file": "data/research/UPI_FORWARD_PREDICTION_11D_783HZ.json",
+    "bridge_file": "data/bridges/11d-to-783hz-forward-prediction-001.json",
+    "inverse_consistency_check": "R_11=n c/(2 pi f), n=1 -> 6093.671978591242 km; inverse check only.",
+    "decisive_test": "Fix 11D metric/compactification/boundary parameters independently, derive f_pred, and compare quantitatively with 7.83 Hz and uncertainty."
+  }
+}

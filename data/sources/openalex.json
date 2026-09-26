@@ -1,0 +1,11 @@
+{
+  "id": "SRC_OPENALEX",
+  "type": "scholarly_metadata_graph",
+  "status": "EST",
+  "title": "OpenAlex",
+  "domain": "scholarly-literature-metadata",
+  "source_url": "https://openalex.org/",
+  "function": "Open catalog/graph connecting works, authors, sources, institutions, topics, funders and citations.",
+  "upi_address": "UPImeta,1,openalex",
+  "boundary": "Metadata/citation graph is provenance and discovery infrastructure, not validation of the underlying scientific claim."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "SRC_ARXIV",
+  "type": "scholarly_preprint_repository",
+  "status": "EST",
+  "title": "arXiv e-print archive",
+  "domain": "scholarly-literature",
+  "source_url": "https://arxiv.org/",
+  "function": "Open scholarly preprint repository and research-literature source.",
+  "upi_address": "UPIlit,1,arxiv",
+  "boundary": "A preprint is evidence/source material, not automatically peer-reviewed or established fact."
+}

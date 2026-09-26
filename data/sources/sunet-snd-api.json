@@ -1,0 +1,14 @@
+{
+  "id": "SRC_SUNET_SND_API",
+  "type": "infrastructure_source",
+  "title": "SUNET/SND data and metadata interoperability",
+  "domain": "research-infrastructure-api",
+  "status": "EST",
+  "source_url": "https://snd.gu.se/en",
+  "claims": [
+    "SUNET and SND interoperability work connects storage, metadata and research-data workflows.",
+    "The relevant function for UPI is provenance/data exchange, not physical-law verification."
+  ],
+  "upi_address": "UPIinfra,1,sunet_snd_api",
+  "note": "Do not promote infrastructure connectivity into physics evidence."
+}

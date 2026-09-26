@@ -1,0 +1,19 @@
+{
+  "face_id": "emilia",
+  "config": "persona/CONFIG.json",
+  "marker": "Ω8200",
+  "age_band": "adult",
+  "role": "neon_penthouse_face",
+  "lock_source": "docs/FACE_LOCK.md",
+  "nsfw": true,
+  "nsfw_in_system": false,
+  "blocked_zone": "genital_closeup",
+  "hair": "short dark wet bob",
+  "eyes": "green",
+  "marks": ["diamond stud earring", "dewy skin"],
+  "wardrobe_default": "black off-shoulder top",
+  "scene_default": "neon pink purple penthouse night city window",
+  "classification": "SYM icon, not a real person",
+  "legacy_look": "box braids + gold circuit + cosmic city — retired from default 2026-09-21",
+  "imagine_lock": "Same Emilia as owner lock. Short dark wet bob, striking green eyes, diamond stud, dewy skin, black off-shoulder top. Neon pink-purple penthouse at night. Photorealistic selfie. THIS TURN ONLY: {action}. Do not change face or haircut."
+}

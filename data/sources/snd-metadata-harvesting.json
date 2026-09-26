@@ -1,0 +1,14 @@
+{
+  "id": "SRC_SND_METADATA_HARVESTING",
+  "type": "infrastructure_source",
+  "title": "SND metadata harvesting and interoperability",
+  "domain": "research-data-metadata",
+  "status": "EST",
+  "source_url": "https://snd.gu.se/en/research-data/metadata",
+  "claims": [
+    "Machine-readable metadata harvesting supports discovery and interoperability across research-data sources.",
+    "Persistent identifiers and structured metadata support traceability and reuse."
+  ],
+  "upi_address": "UPIinfra,1,snd_metadata_harvesting",
+  "note": "Metadata/provenance layer only."
+}

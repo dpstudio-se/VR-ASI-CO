@@ -1,0 +1,17 @@
+{
+  "source_id": "ARXIV_0812_3139",
+  "type": "paper",
+  "title": "Determination of the fine structure constant with atom interferometry and Bloch oscillations",
+  "arxiv": "0812.3139",
+  "url": "https://arxiv.org/abs/0812.3139",
+  "status": "EST",
+  "evidence": {
+    "measured": ["recoil velocity", "photon momentum transfer"],
+    "method": "Bloch oscillations plus atom interferometry",
+    "reported_relative_uncertainty": "about 4.5e-9 for alpha"
+  },
+  "upi_mapping": {
+    "address": "UPIresearch,1,photon_recoil_0812_3139",
+    "relations": ["photon momentum", "recoil velocity", "atom interferometry"]
+  }
+}

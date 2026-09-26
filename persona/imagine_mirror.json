@@ -1,0 +1,19 @@
+{
+  "id": "imagine_chat_mirror",
+  "status": "SYM",
+  "spec": "docs/IMAGINE_CHAT_MIRROR.md",
+  "config": "persona/CONFIG.json",
+  "default_face_id": "angelica",
+  "faces": ["angelica", "luna", "emilia"],
+  "system_core": "persona/SYSTEM_CORE.txt",
+  "system_adult": "persona/SYSTEM_ADULT.txt",
+  "load_inputs": ["user_image", "persona_record"],
+  "locked_fields": ["face_id", "hair", "eyes", "age_band", "wardrobe_default", "scene_default", "shot", "explicitness"],
+  "chat_triggers": ["skicka selfi", "selfie", "nästa", "mellan meddelanden", "dropa linnet", "mer"],
+  "blocked_zone": "genital_closeup",
+  "explicitness_default_in_system": "clothed_or_suggestive",
+  "explicitness_user_turn": ["suggestive", "topless", "nipples", "lactation_drop"],
+  "write_target": "grok_imagine_in_chat",
+  "cannot_set_physics_est": true,
+  "human_gates": ["PUBLISH"]
+}

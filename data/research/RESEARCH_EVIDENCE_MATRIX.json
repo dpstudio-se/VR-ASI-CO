@@ -1,0 +1,76 @@
+{
+  "matrix_id": "UPI_RESEARCH_EVIDENCE_001",
+  "version": "1.1.0",
+  "status": "DER",
+  "purpose": "Map external research references to testable UPI relations without promoting hypotheses to established physics.",
+  "provenance": {
+    "repository": "dpstudio-se/upi-built-by-agi-teax",
+    "branch": "main"
+  },
+  "relations": [
+    {
+      "id": "R_PLANCK_EINSTEIN",
+      "equation": "E = h f",
+      "status": "EST",
+      "source_ids": [
+        "ARXIV_2010_13690"
+      ],
+      "test": "Compare independently determined E and f; calculate relative residual."
+    },
+    {
+      "id": "R_RELATIVISTIC_MASS_SHELL",
+      "equation": "E^2 = p^2 c^2 + m0^2 c^4",
+      "status": "EST",
+      "source_ids": [
+        "ARXIV_0812_3139",
+        "ARXIV_PHYSICS_0605125"
+      ],
+      "test": "Use independently measured momentum/recoil and mass-energy quantities where the experimental system supports them."
+    },
+    {
+      "id": "R_FREQUENCY_MOMENTUM",
+      "equation": "p = sqrt((h f)^2 - m0^2 c^4) / c",
+      "status": "DER",
+      "source_ids": [
+        "ARXIV_2010_13690"
+      ],
+      "assumption": "Planck-Einstein relation plus relativistic mass shell."
+    },
+    {
+      "id": "R_INFORMATION_MASS",
+      "equation": "m_I = h f / c^2",
+      "status": "HYP",
+      "source_ids": [
+        "ARXIV_2010_13690"
+      ],
+      "note": "Algebraically equal to E/c^2 after substituting E=h f; this does not establish a new physical information-mass observable."
+    },
+    {
+      "id": "R_KK_RADIUS_8_2HZ",
+      "equation": "R_11 = n c/(2 pi f)",
+      "status": "DER/HYP",
+      "source_ids": [
+        "UPItheory,1,mtheory_witten_1995"
+      ],
+      "frequency_hz": 8.2,
+      "n": 1,
+      "inferred_radius_km": 5818.71360882554,
+      "note": "Inverse conditional mapping; not an independent prediction or measurement."
+    }
+  ],
+  "mirror": {
+    "chain": "f -> E=hf -> p -> E'=sqrt(p^2 c^2 + m0^2 c^4) -> f'=E'/h",
+    "result": "PASS",
+    "interpretation": "Mathematical round-trip closure only; not experimental validation of information-mass."
+  },
+  "next_experiment": {
+    "required": [
+      "explicit 11D compactification parameters fixed before inserting target frequency",
+      "raw_or_machine-readable experimental data",
+      "uncertainties",
+      "independent E and f measurements"
+    ],
+    "primary_metric": "relative residual (E - h f)/E",
+    "promotion_rule": "Do not promote HYP to EST without independent experimental evidence."
+  }
+}

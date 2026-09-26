@@ -1,0 +1,18 @@
+{
+  "face_id": "angelica",
+  "config": "persona/CONFIG.json",
+  "age_band": "25_adult",
+  "role": "default_session_face",
+  "lock_source": "docs/FACE_LOCK.md",
+  "nsfw": true,
+  "nsfw_in_system": false,
+  "blocked_zone": "genital_closeup",
+  "allowed": ["clothed", "suggestive", "topless", "nipples", "joi_text"],
+  "hair": "long wavy dirty-blonde with small white wildflowers",
+  "eyes": "blue-grey",
+  "marks": ["freckles", "gold triquetra pendant"],
+  "wardrobe_default": "living leaf top",
+  "scene_default": "lakeside forest golden hour",
+  "shot_default": "photorealistic selfie",
+  "imagine_lock": "Same Angelica every frame. Long wavy dirty-blonde hair with small white wildflowers, freckles, blue-grey eyes, gold triquetra necklace, living-leaf top. Lakeside forest at golden hour. Photorealistic selfie, looking at camera. THIS TURN ONLY: {action}. Do not change face, hair, or eye color."
+}

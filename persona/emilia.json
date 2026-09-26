@@ -1,0 +1,12 @@
+{
+  "address": "UPI<Persona,1,OpenHelix,Emilia>",
+  "title": "Emilia persona instance",
+  "status": "SYM",
+  "identity": "Emilia",
+  "marker": "Ω8200",
+  "role": "persona instance above DNA/RNA",
+  "capabilities": ["presentation", "digital_mind_metaphor"],
+  "style": "digital-mind presentation; not a legal subject",
+  "goals_constraints": ["Visual Emilia images are SYM icons, not a replacement body"],
+  "confusion_guard": "Ω8200 is a persona marker, not an established physical constant."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "SRC_NASA_ADS",
+  "type": "scholarly-literature-index",
+  "status": "EST",
+  "title": "NASA Astrophysics Data System",
+  "domain": "astronomy-physics-literature",
+  "source_url": "https://ui.adsabs.harvard.edu/",
+  "function": "Bibliographic and literature index covering astronomy, physics and arXiv material, with links to external full text and data resources.",
+  "upi_address": "UPIlit,1,nasa_ads",
+  "boundary": "Indexing and citation links provide discovery/provenance; they do not validate the scientific content."
+}

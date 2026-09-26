@@ -1,0 +1,26 @@
+{
+  "bridge_id": "BRIDGE_RESEARCH_EVIDENCE_001",
+  "type": "evidence",
+  "status": "DER",
+  "from": [
+    "UPIresearch,1,planck_einstein_2010_13690",
+    "UPIresearch,1,mass_energy_interferometry_2406_19037",
+    "UPIresearch,1,photon_recoil_0812_3139",
+    "UPIresearch,1,photon_recoil_h_over_m_0605125"
+  ],
+  "to": [
+    "R_PLANCK_EINSTEIN",
+    "R_RELATIVISTIC_MASS_SHELL",
+    "R_FREQUENCY_MOMENTUM",
+    "R_INFORMATION_MASS"
+  ],
+  "rule": "External references provide evidence for established relations and inputs to derived tests; they do not by themselves establish the UPI information-mass hypothesis.",
+  "verification": {
+    "source_urls": [
+      "https://arxiv.org/abs/2010.13690",
+      "https://arxiv.org/abs/2406.19037",
+      "https://arxiv.org/abs/0812.3139",
+      "https://arxiv.org/abs/physics/0605125"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "UPI_PHYSICS_MAP_001",
+  "version": "1.1",
+  "status": "DER",
+  "scope": "Frequency-energy-mass-momentum calculations mapped into the UPI ledger.",
+  "nodes": {
+    "UPIcalc,1,E_hf": {
+      "equation": "E=hf",
+      "status": "EST"
+    },
+    "UPIcalc,1,mass_equivalent": {
+      "equation": "m_E=hf/c^2",
+      "status": "DER"
+    },
+    "UPIcalc,1,mass_shell": {
+      "equation": "E^2=p^2c^2+m0^2c^4",
+      "status": "EST"
+    },
+    "UPIcalc,1,frequency_momentum": {
+      "equation": "p=sqrt((hf)^2-m0^2c^4)/c",
+      "status": "DER"
+    },
+    "UPIcalc,1,velocity": {
+      "equation": "v=c sqrt(1-f0^2/f^2)",
+      "status": "DER"
+    },
+    "UPIcalc,1,mirror_8hz": {
+      "test": "f -> E -> p -> E' -> f'",
+      "result": "PASS",
+      "status": "DER"
+    },
+    "UPIcalc,1,frequency_7_83hz": {
+      "frequency_hz": 7.83,
+      "E_J": 5.18821292745e-33,
+      "mass_equivalent_kg": 5.77266540454535e-50,
+      "status": "DER"
+    },
+    "UPIcalc,1,frequency_8_2hz": {
+      "frequency_hz": 8.2,
+      "E_J": 5.4333775229999996e-33,
+      "mass_equivalent_kg": 6.045447805526421e-50,
+      "wavelength_m": 36560055.85365854,
+      "status": "DER"
+    },
+    "UPItheory,1,KK_Mtheory_bridge": {
+      "relation": "m_E = n*hbar/(R*c)",
+      "derived_radius_for_7_83hz_km": "n * 6093.671978591242",
+      "derived_radius_for_8_2hz_km": "n * 5818.71360882554",
+      "status": "HYP",
+      "note": "Conditional KK identification; not an established M-theory prediction."
+    }
+  },
+  "eight_hz": {
+    "E_J": 5.30085612e-33,
+    "mass_equivalent_kg": 5.897997859050167e-50,
+    "massless_momentum_kg_m_s": 1.7681752754433868e-41,
+    "wavelength_m": 37474057.25
+  },
+  "8_2hz": {
+    "E_J": 5.4333775229999996e-33,
+    "mass_equivalent_kg": 6.045447805526421e-50,
+    "massless_momentum_kg_m_s": 1.8123796573294713e-41,
+    "wavelength_m": 36560055.85365854,
+    "kk_radius_n1_km": 5818.71360882554
+  },
+  "epistemic_gate": {
+    "EST": "accepted relation in stated physical domain",
+    "DER": "follows from named assumptions",
+    "HYP": "new interpretation not independently established",
+    "SYM": "analogy with different mechanism",
+    "STOP": "no valid physical closure/observable yet"
+  },
+  "conclusion": "8 Hz and 8.2 Hz are numerical reference frequencies. The equations do not single out either as a universal physical constant. The information-mass interpretation remains HYP. A conditional KK bridge gives R_n=n c/(2πf) only after the named mass identification.",
+  "mirrors": [
+    "7.83 Hz -> m=hf/c^2 -> KK mass -> R=n c/(2 pi f)",
+    "8.2 Hz -> m=hf/c^2 -> KK mass -> R=n c/(2 pi f)"
+  ]
+}

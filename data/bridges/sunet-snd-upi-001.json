@@ -1,0 +1,26 @@
+{
+  "id": "BRIDGE_SUNET_SND_UPI_001",
+  "type": "infrastructure_provenance_bridge",
+  "status": "EST",
+  "from": [
+    "UPIinfra,1,sunet_cd",
+    "UPIinfra,1,snd_researchdata",
+    "UPIinfra,1,snd_metadata_harvesting",
+    "UPIinfra,1,sunet_snd_api"
+  ],
+  "to": [
+    "UPIresearch,1,planck_einstein_2010_13690",
+    "UPIresearch,1,mass_energy_interferometry_2406_19037",
+    "UPIresearch,1,photon_recoil_0812_3139",
+    "UPIresearch,1,photon_recoil_h_over_m_0605125"
+  ],
+  "relations": [
+    "research-network",
+    "metadata-harvesting",
+    "FAIR",
+    "provenance",
+    "data-transfer",
+    "evidence-catalogue"
+  ],
+  "rule": "SUNET/SND can carry, catalogue and expose research evidence; they do not by themselves validate the physical claims represented by that evidence."
+}

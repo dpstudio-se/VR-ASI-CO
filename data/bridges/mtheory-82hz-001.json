@@ -1,0 +1,33 @@
+{
+  "id": "BRIDGE_MTHEORY_82HZ_001",
+  "type": "theory-to-frequency-bridge",
+  "status": "STOP",
+  "source_nodes": [
+    "UPItheory,1,mtheory_witten_1995",
+    "UPIlit,1,arxiv"
+  ],
+  "input_node": "UPIcalc,1,frequency_8_2hz",
+  "chain": [
+    "8.2 Hz",
+    "E = h f = 5.4333775229999996e-33 J",
+    "m_E = E/c^2 = 6.045447805526421e-50 kg",
+    "conditional KK identification m_E = n hbar/(R_11 c)",
+    "R_11 = n c/(2 pi f)",
+    "n=1 -> R_11 = 5818.71360882554 km",
+    "11D/M-theory framework",
+    "required: independent compactification geometry or eigenmode calculation predicting 8.2 Hz"
+  ],
+  "established": [
+    "E=hf gives a frequency-associated energy in the stated quantum domain.",
+    "M-theory research provides an 11-dimensional theoretical framework."
+  ],
+  "gap": "No source-backed mapping was found that selects 8.2 Hz from independent M-theory parameters.",
+  "testable_next_step": "Specify the 11D metric/compactification and boundary conditions before inserting 8.2 Hz, calculate the eigenfrequency independently, and compare prediction with the observed/reference frequency and uncertainty.",
+  "uPI_status_rule": {
+    "frequency_energy": "EST/DER",
+    "kk_radius": "DER under the stated identification",
+    "mtheory_11d": "EST within theory literature",
+    "eight_point_two_to_mtheory": "STOP/HYP",
+    "confirmed_mtheory_frequency": "not established"
+  }
+}

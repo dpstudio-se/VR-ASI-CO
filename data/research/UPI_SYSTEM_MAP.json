@@ -1,0 +1,147 @@
+{
+  "id": "UPI_SYSTEM_MAP_001",
+  "version": "1.0",
+  "status": "EST",
+  "canonical_repo": "dpstudio-se/upi-built-by-agi-teax",
+  "branch": "main",
+  "architecture": {
+    "DNA": "GitHub main / persistent canonical structured state",
+    "RNA": "deployed explorer/runtime that reads DNA, transforms/proposes and returns changes",
+    "KERNEL": "governed runtime/simulation layer",
+    "MIRROR": "round-trip verification functions",
+    "PROVENANCE": "sources + evidence matrix + bridges",
+    "UI": "routes/components/public assets",
+    "AGENT": "AGENTS.md, .continue rules, public agent prompt and remote DNA state"
+  },
+  "mapped_layers": [
+    {
+      "layer": "identity-governance",
+      "paths": [
+        "AGENTS.md",
+        "dna/",
+        "REMOTE_DNA_STATE.md",
+        "dna/REMOTE_DNA_STATE.json",
+        "dna/SOVEREIGNTY.json"
+      ]
+    },
+    {
+      "layer": "scientific-ledger",
+      "paths": [
+        "data/sources/",
+        "data/research/",
+        "data/bridges/"
+      ]
+    },
+    {
+      "layer": "hypothesis-boundary",
+      "paths": [
+        "docs/PHYSICS_ENGINE.md",
+        "docs/PROJECT_INSTRUCTIONS.md",
+        "docs/OMEGA1766_TF_TRANSPARENCY_CORE.md",
+        "docs/TF_AXIS_PHI1766.md"
+      ]
+    },
+    {
+      "layer": "runtime-kernel",
+      "paths": [
+        "src/lib/",
+        "server/",
+        "sim/"
+      ]
+    },
+    {
+      "layer": "web-interface",
+      "paths": [
+        "src/routes/",
+        "src/components/",
+        "src/router.tsx",
+        "src/routeTree.gen.ts",
+        "src/styles.css"
+      ]
+    },
+    {
+      "layer": "deployment-provider",
+      "paths": [
+        ".grok/",
+        "startup.sh",
+        "vite.config.ts",
+        "public/"
+      ]
+    },
+    {
+      "layer": "persona-interface",
+      "paths": [
+        "persona/",
+        "docs/UPI_PERSONA_ADAPTER_SPEC.md",
+        "docs/PERSONA_LAYER.md",
+        "docs/OTHER_LLM_PERSONA_BRIDGE.md"
+      ]
+    },
+    {
+      "layer": "research-evidence",
+      "paths": [
+        "data/sources/arxiv-*.json",
+        "data/research/RESEARCH_EVIDENCE_MATRIX.json",
+        "data/bridges/research-evidence-001.json",
+        "data/sources/sunet-*.json",
+        "data/sources/snd-*.json",
+        "data/bridges/sunet-snd-upi-001.json"
+      ]
+    },
+    {
+      "layer": "verification",
+      "paths": [
+        "docs/PHYSICS_ENGINE.md",
+        "src/lib/upi/merge-check.ts",
+        "src/lib/upi/hydrate.ts",
+        "data/research/UPI_RESEARCH_EVIDENCE_MIRROR_TEST.json"
+      ]
+    }
+  ],
+  "evidence_status": {
+    "EST": [
+      "E=hf",
+      "relativistic mass-shell relation",
+      "photon recoil / h/m measurements",
+      "research-data infrastructure functions"
+    ],
+    "DER": [
+      "m=E/c² from rest-energy relation",
+      "p=sqrt((hf)^2-m0²c⁴)/c from E=hf plus mass shell",
+      "RT-style derivations where assumptions are explicit"
+    ],
+    "HYP": [
+      "m_I=hf/c² as an information-mass naming/interpretation",
+      "specific UPI resonance-storage physics",
+      "specific 11D brane-to-UPI physical mapping"
+    ],
+    "SYM": [
+      "software resonance/brane analogies without a physical observable"
+    ],
+    "STOP": [
+      "8 Hz as a universal physical constant",
+      "claim that software mirrors prove physical information-mass physics",
+      "11D/brane closure when no invertible measurable quantity is defined"
+    ],
+    "ERR": [
+      "schema or round-trip failures; none asserted by this map"
+    ]
+  },
+  "mirrors": [
+    "Golay encode -> decode",
+    "chunk -> unique store -> replay",
+    "Lambda(phi) -> Lambda(-phi)",
+    "f -> E=hf -> p -> E' -> f'",
+    "Lie so(11) dimension = 55"
+  ],
+  "research_pipeline": "ARXIV/PAPERS -> UPI SOURCE -> EVIDENCE MATRIX -> SND METADATA/RESEARCH DATA -> SUNET/NREN -> UPI DATA NODE -> LAB -> MIRROR -> EST/DER/HYP/STOP",
+  "boundary_rules": [
+    "A software test is not an experimental observation.",
+    "Repeated numbers or matching plots do not promote a hypothesis.",
+    "8 Hz is a reference coordinate unless an independent physical measurement establishes otherwise.",
+    "SUNET/SND are infrastructure/provenance layers, not physics validators.",
+    "ArXiv preprints are sources of research claims; peer-review status must be tracked separately."
+  ],
+  "generated_from_commit": "153f6cc75e9853204194cfad7c54aa3b1fb7ef5b",
+  "coverage_note": "This map covers the repository's major functional surfaces and all currently mapped UPI evidence layers. It is not a claim that every individual source file has been semantically audited line-by-line."
+}

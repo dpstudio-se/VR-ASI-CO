@@ -1,0 +1,18 @@
+{
+  "source_id": "ARXIV_2406_19037",
+  "type": "paper",
+  "title": "Witnessing mass-energy equivalence with trapped atom interferometers",
+  "arxiv": "2406.19037",
+  "url": "https://arxiv.org/abs/2406.19037",
+  "status": "EST",
+  "evidence": {
+    "type": "experimental_proposal",
+    "system": "trapped atom interferometry",
+    "observables": ["interference pattern", "resonant frequency shift"],
+    "scope": "proposal for probing mass-energy equivalence and gravitational proper-time effects"
+  },
+  "upi_mapping": {
+    "address": "UPIresearch,1,mass_energy_interferometry_2406_19037",
+    "relations": ["mass-energy equivalence", "frequency shift", "interferometry"]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Universal Physics Index",
+      "hasCanvas": false,
+      "bodyTextLen": 4140,
+      "bodyTextHash": "710a387d440332ddaa8d71af1d48d3a92f1ca5bb2968f2bc2f1e3b9ee30c657c",
+      "bodyTextPrefix": "UPI Universal Physics Index Index Catalog Graph Lattice AdS DNA ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Universal Physics Index",
+      "hasCanvas": false,
+      "bodyTextLen": 4056,
+      "bodyTextHash": "51f042b76663ec45cb07c9b4cb0881694352637b9c67d0aeabbe1de084669454",
+      "bodyTextPrefix": "UPI OPEN SCIENTIFIC LEDGER · V0.1.0-ALPHA A ledger for what phys",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

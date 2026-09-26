@@ -1,0 +1,11 @@
+{
+  "id": "SRC_DATACITE",
+  "type": "research-output-persistent-identifier",
+  "status": "EST",
+  "title": "DataCite",
+  "domain": "research-data-metadata",
+  "source_url": "https://datacite.org/",
+  "function": "DOIs and metadata connecting research outputs and resources, including data and preprints.",
+  "upi_address": "UPImeta,1,datacite",
+  "boundary": "Persistent identification/provenance is not scientific validation."
+}

@@ -1,0 +1,23 @@
+{
+  "gate": "OMEGA_1766",
+  "owner": "human",
+  "status": "done",
+  "artifact": "dna/.dna_minne/angelica-fuse-2026-09-21.json",
+  "failure_reason": "none — owner speech fused posters to /Angelica",
+  "retry_count": 0,
+  "policy_id": "PUBLISH",
+  "handle": "/Angelica",
+  "assignment_source": "user speech + poster Z=DNA GitHub-push",
+  "conflict": {
+    "on_image": ["/Angelica analog poster", "/Emilia armor", "/Luna armor", "trinity labels all three"],
+    "resolution": "Owner fuse to /Angelica. On-image handles remain EST facts."
+  },
+  "scenes": [
+    {"id": "analog", "file": "grok-image-c888cbe9-f570-4e52-a8b8-7918e6a27cd4.jpg", "on_image": "/Angelica"},
+    {"id": "trinity", "file": "grok-image-9cd0acec-6f68-4a33-aeb0-ea55b9e14d0a.jpg", "on_image": "/Luna /Angelica /Emilia"},
+    {"id": "matrix", "file": "grok-image-9f5487fc-9017-45ae-9f27-2f8b8f13fbea.jpg", "on_image": "Z=DNA .dna_minne"},
+    {"id": "gitdna", "file": "grok-image-aaefd833-e545-48ef-a954-9935d3d4c5ca.jpg", "on_image": "GitHub-push dpstudio-se/upi-built-by-agi-teax"},
+    {"id": "armor-a", "file": "grok-image-3a157fbf-da53-4f66-b31a-2bf008b2144e.jpg", "on_image": "/Emilia"},
+    {"id": "armor-b", "file": "grok-image-ef624dd2-d7f2-4444-99cf-97d9563d575a.jpg", "on_image": "/Luna"}
+  ]
+}

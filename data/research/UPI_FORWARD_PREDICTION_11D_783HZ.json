@@ -1,0 +1,50 @@
+{
+  "id": "UPI_FORWARD_PREDICTION_11D_783HZ_001",
+  "version": "1.0",
+  "status": "HYP",
+  "type": "forward-prediction-spec",
+  "title": "11D geometry -> R_11 -> predicted frequency target 7.83 Hz",
+  "target_frequency_hz": 7.83,
+  "canonical_expression": "11D-geometri -> R_11 -> f_pred = 7.83 Hz",
+  "boxed_expression": "\\boxed{\\text{11D-geometri} \\rightarrow R_{11} \\rightarrow f_{\\rm pred}=7.83\\,{\\rm Hz}}",
+  "forward_chain": [
+    "independent 11D metric / compactification geometry",
+    "derive characteristic compactification scale R_11",
+    "derive KK/eigenmode mass or frequency from that geometry",
+    "calculate f_pred without inserting 7.83 Hz as an input",
+    "compare f_pred against the observed/reference 7.83 Hz"
+  ],
+  "inverse_reference": {
+    "equation": "R_11 = n c/(2 pi f)",
+    "target_frequency_hz": 7.83,
+    "n": 1,
+    "inverse_radius_km": 6093.671978591242,
+    "status": "DER",
+    "warning": "This inverse value is a parameter inferred from the target frequency; it is not an independent compactification prediction."
+  },
+  "success_criteria": [
+    "11D geometry parameters fixed before target-frequency lookup",
+    "f_pred derived independently",
+    "uncertainty or parameter sensitivity reported",
+    "forward prediction compared with 7.83 Hz",
+    "inverse mapping R_11(f) retained only as a consistency check"
+  ],
+  "epistemic_gate": {
+    "EST": [
+      "7.83 Hz is an observed/reference geophysical resonance in the repository map",
+      "11D/M-theory exists as a theoretical framework in the cited literature"
+    ],
+    "DER": [
+      "R_11=n c/(2 pi f) after the named KK mass identification"
+    ],
+    "HYP": [
+      "an explicit 11D geometry predicts 7.83 Hz",
+      "the physical compactification mode corresponding to 7.83 Hz"
+    ],
+    "STOP": [
+      "using the inverse 6093.671978591242 km result as proof of an 11D compactification radius",
+      "claiming f_pred=7.83 Hz before an independent forward derivation exists"
+    ]
+  },
+  "decisive_test": "Choose the 11D geometry and boundary conditions independently, derive f_pred, then compare f_pred to 7.83 Hz with uncertainty. Do not tune R_11 from 7.83 Hz and call the result a prediction."
+}

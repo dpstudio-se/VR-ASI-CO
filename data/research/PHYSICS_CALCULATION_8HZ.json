@@ -1,0 +1,112 @@
+{
+  "id": "UPI_PHYSICS_CALC_8HZ_001",
+  "version": "1.0",
+  "status": "DER",
+  "purpose": "Numerical UPI physics map for frequency-energy-mass-momentum relations and the relativistic mirror.",
+  "constants": {
+    "h_J_s": 6.62607015e-34,
+    "c_m_s": 299792458
+  },
+  "equations": [
+    {
+      "id": "F_EHF",
+      "equation": "E = h f",
+      "status": "EST"
+    },
+    {
+      "id": "F_MASS_EQUIV",
+      "equation": "m_E = E/c^2 = h f/c^2",
+      "status": "DER"
+    },
+    {
+      "id": "F_MASS_SHELL",
+      "equation": "E^2 = p^2 c^2 + m0^2 c^4",
+      "status": "EST"
+    },
+    {
+      "id": "F_FREQ_MOMENTUM",
+      "equation": "p = sqrt((h f)^2 - m0^2 c^4)/c",
+      "status": "DER"
+    },
+    {
+      "id": "F_VELOCITY",
+      "equation": "v/c = sqrt(1 - (f0/f)^2), f0=m0 c^2/h",
+      "status": "DER"
+    }
+  ],
+  "numeric_examples": [
+    {
+      "frequency_hz": 1,
+      "E_J": 6.62607015e-34,
+      "mass_equiv_kg": 7.372497323812708e-51
+    },
+    {
+      "frequency_hz": 2,
+      "E_J": 1.32521403e-33,
+      "mass_equiv_kg": 1.4744994647625417e-50
+    },
+    {
+      "frequency_hz": 8,
+      "E_J": 5.30085612e-33,
+      "mass_equiv_kg": 5.897997859050167e-50,
+      "p_massless_kg_m_s": 1.7681752754433868e-41,
+      "lambda_m": 37474057.25
+    },
+    {
+      "frequency_hz": 10,
+      "E_J": 6.62607015e-33,
+      "mass_equiv_kg": 7.372497323812708e-50
+    },
+    {
+      "frequency_hz": 100,
+      "E_J": 6.62607015e-32,
+      "mass_equiv_kg": 7.372497323812709e-49
+    },
+    {
+      "frequency_hz": 1000,
+      "E_J": 6.62607015e-31,
+      "mass_equiv_kg": 7.372497323812708e-48
+    }
+  ],
+  "normalized_velocity_example": {
+    "assumption": "f0=1 Hz",
+    "values": [
+      {
+        "f_hz": 1,
+        "v_over_c": 0
+      },
+      {
+        "f_hz": 2,
+        "v_over_c": 0.8660254037844386
+      },
+      {
+        "f_hz": 8,
+        "v_over_c": 0.9921567416492215
+      },
+      {
+        "f_hz": 10,
+        "v_over_c": 0.99498743710662
+      },
+      {
+        "f_hz": 100,
+        "v_over_c": 0.9999499987499375
+      },
+      {
+        "f_hz": 1000,
+        "v_over_c": 0.9999994999998749
+      }
+    ]
+  },
+  "mirror": {
+    "chain": "f -> E=hf -> p -> E'=sqrt(p^2 c^2 + m0^2 c^4) -> f'=E'/h",
+    "algebraic_result": "f'=f",
+    "status": "PASS",
+    "interpretation": "Mathematical round-trip closure, not experimental confirmation of information-mass."
+  },
+  "boundaries": {
+    "information_mass_observable": "HYP",
+    "eight_hz_universal_constant": "STOP",
+    "eleven_d_brane_to_upi_resonance": "SYM/STOP",
+    "software_mirror_to_physical_proof": "STOP"
+  }
+}

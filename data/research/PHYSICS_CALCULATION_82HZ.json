@@ -1,0 +1,74 @@
+{
+  "id": "UPI_PHYSICS_CALC_82HZ_001",
+  "version": "1.0",
+  "status": "DER",
+  "purpose": "Numerical UPI physics map for the 8.2 Hz reference frequency using the repository constants and the conditional KK bridge.",
+  "constants": {
+    "h_J_s": 6.62607015e-34,
+    "c_m_s": 299792458
+  },
+  "input": {
+    "frequency_hz": 8.2
+  },
+  "equations": [
+    {
+      "id": "F_EHF",
+      "equation": "E = h f",
+      "status": "EST"
+    },
+    {
+      "id": "F_MASS_EQUIV",
+      "equation": "m_E = E/c^2 = h f/c^2",
+      "status": "DER"
+    },
+    {
+      "id": "F_MASSLESS_MOMENTUM",
+      "equation": "p = E/c = h f/c",
+      "status": "DER",
+      "assumption": "massless limit"
+    },
+    {
+      "id": "F_WAVELENGTH",
+      "equation": "lambda = c/f",
+      "status": "DER"
+    },
+    {
+      "id": "F_KK_RADIUS",
+      "equation": "R_11 = n c/(2 pi f)",
+      "status": "DER",
+      "assumption": "equate m_E = hbar n/(R_11 c); n=1 for reported reference radius"
+    }
+  ],
+  "numeric": {
+    "frequency_hz": 8.2,
+    "energy_J": 5.4333775229999996e-33,
+    "mass_equivalent_kg": 6.045447805526421e-50,
+    "massless_momentum_kg_m_s": 1.8123796573294713e-41,
+    "wavelength_m": 36560055.85365854,
+    "kk_radius_n1_km": 5818.71360882554
+  },
+  "epistemic_gate": {
+    "EST": [
+      "E=hf in the stated quantum/spectroscopic domain"
+    ],
+    "DER": [
+      "m_E=hf/c^2",
+      "p=hf/c in the massless limit",
+      "lambda=c/f",
+      "R_11=nc/(2 pi f) after the named KK identification"
+    ],
+    "HYP": [
+      "identifying 8.2 Hz with an M-theory KK mode",
+      "interpreting the inferred 5818.714 km radius as a physical compactification radius"
+    ],
+    "SYM": [
+      "using the frequency-derived radius as a mathematical bridge between resonance and a higher-dimensional parametrization"
+    ],
+    "STOP": [
+      "claiming 8.2 Hz is an established M-theory constant",
+      "claiming 5818.714 km is a measured 11D compactification radius",
+      "treating software round-trip as experimental proof"
+    ]
+  },
+  "conclusion": "8.2 Hz is a reference input. The numerical chain closes algebraically, while the 11D/KK interpretation remains conditional and is not an independent M-theory prediction."
+}

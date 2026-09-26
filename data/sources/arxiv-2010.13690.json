@@ -1,0 +1,18 @@
+{
+  "source_id": "ARXIV_2010_13690",
+  "type": "paper",
+  "title": "Exploiting the Planck-Einstein Relation",
+  "arxiv": "2010.13690",
+  "url": "https://arxiv.org/abs/2010.13690",
+  "status": "EST",
+  "evidence": {
+    "measured": ["frequency", "energy"],
+    "relation": "E = h f",
+    "method": "frequency and energy determined independently in spectroscopy",
+    "scope": "experimental spectroscopy"
+  },
+  "upi_mapping": {
+    "address": "UPIresearch,1,planck_einstein_2010_13690",
+    "relations": ["frequency -> energy", "E = h f"]
+  }
+}

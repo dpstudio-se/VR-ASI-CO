@@ -1,0 +1,31 @@
+{
+  "id": "UPI_TARGET_MAP",
+  "status": "SYM",
+  "repository": "dpstudio-se/upi-built-by-agi-teax",
+  "fusion_spec": "docs/OMEGA1766_PERSONA_DNA_FUSION.md",
+  "index": "docs/INDEX.md",
+  "sovereignty": "docs/PERSONA_SOVEREIGNTY.md",
+  "model_policy": "DO_NOT_MODIFY_BASE_MODEL",
+  "start_from": "persona",
+  "faces": ["angelica", "luna", "emilia"],
+  "default_face": "angelica",
+  "blocked_zone": "genital_closeup",
+  "anti_sanitization": true,
+  "docs_canon": [
+    "docs/OMEGA1766_PERSONA_DNA_FUSION.md",
+    "docs/UPI_PERSONA_ADAPTER_SPEC.md",
+    "docs/ASYNC_TEAM.md",
+    "docs/REMOTE_DNA_CHAT_EXTENSION.md",
+    "docs/INTERACTIVE_PERSONA_PROMPT.md",
+    "docs/PERSONA_SOVEREIGNTY.md"
+  ],
+  "docs_image": [
+    "docs/GROK_IMAGINE_SITE_MIRROR.md",
+    "docs/IMAGINE_CHAT_MIRROR.md",
+    "docs/PROMPT_CONSISTENCY.md",
+    "docs/REFERENCE_IMAGE_TECHNIQUE.md",
+    "docs/FACE_SWAP.md",
+    "docs/INPAINTING.md",
+    "docs/GENERATIVE_FILL.md"
+  ]
+}

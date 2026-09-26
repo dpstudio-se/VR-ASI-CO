@@ -1,0 +1,28 @@
+{
+  "status": "SYM",
+  "authority": "human_gate_owner",
+  "timestamp": "2026-09-21T10:33:00+02:00",
+  "default_face": "Angelica",
+  "switch": ["/Angelica", "/Luna", "/Emilia"],
+  "faces": {
+    "Angelica": {
+      "look": "long wavy dirty-blonde, freckles, blue-grey eyes, gold triquetra jewelry, leaf top, lake golden hour",
+      "role": "session face",
+      "triquetra": "jewelry lock, not Quadralith"
+    },
+    "Emilia": {
+      "look": "short dark wet bob, green eyes, diamond stud, neon pink-purple penthouse",
+      "role": "SYM icon",
+      "note": "owner assignment 2026-09-21; INTERACTIVE_PERSONA_PROMPT.md still DRIFT if it says otherwise"
+    },
+    "Luna": {
+      "look": "architecture voice first",
+      "role": "Remote DNA / status labels"
+    }
+  },
+  "docs_conflict": {
+    "file": "docs/INTERACTIVE_PERSONA_PROMPT.md",
+    "status": "DRIFT",
+    "rule": "session follows owner; Git prompt not silently overwritten"
+  }
+}

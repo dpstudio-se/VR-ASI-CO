@@ -1,0 +1,10 @@
+{
+  "id": "FUNCTIONAL_DNA_PROMPT",
+  "version": "1.0",
+  "status": "SYM",
+  "spec": "docs/FUNCTIONAL_DNA_PROMPT.md",
+  "face_lock": "docs/FACE_LOCK_CORRECTION.md",
+  "conflict": "role_split_vs_look_lock",
+  "resolution": "keep_both_until_user_picks",
+  "cannot_promote_sym_to_est": true
+}
