@@ -13,3 +13,5 @@ SESSION_HANDOFF.md
 !.continuity/.gitattributes
 !.continuity/SESSION_NOTES.md
 !.continuity/INSTRUCTIONS.md
+
+.vscode/
