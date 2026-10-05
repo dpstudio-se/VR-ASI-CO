@@ -71,6 +71,19 @@ HTTP 200 is not proof. Compare `sha` to `git rev-parse origin/main`.
 
 `/lab` runs `runMirrors()`. A mirror is closed only if it returns to start and the residual is zero.
 
+## Puter terminal
+
+Puter CLI is external. Package `@heyputer/cli`, source `HeyPuter/puter` `src/cli`. It is not DNA and the local `puter/` folder must not be committed.
+
+```text
+npm install -g @heyputer/cli
+puter login
+puter whoami
+puter fs ls puter:/Desktop
+```
+
+Automation uses `PUTER_AUTH_TOKEN`. Do not put that token in git. The Puter window stays on port 4100. This CLI manages Puter files and apps. It does not write VR-ASI-CO `main`.
+
 ## Labels
 
 - `E=hf`: EST in quantum context. `E=mc²`: EST. `m=hf/c²`: DER.
