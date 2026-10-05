@@ -23,6 +23,7 @@ export const pullDna = createServerFn({ method: "POST" }).handler(async () => {
     files: pulled.files,
     skipped: pulled.skipped,
     promptSources: pulled.promptSources,
+    runtimeRegistry: pulled.runtimeRegistry,
     catalog: pulled.catalog,
   };
 });
