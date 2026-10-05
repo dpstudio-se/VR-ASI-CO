@@ -16,6 +16,7 @@ export type LiveState = {
   fetchedAt: string | null;
   files: number;
   promptSources: Record<string, string>;
+  runtimeRegistry: unknown | null;
   error: string | null;
   pulling: boolean;
 };
@@ -29,6 +30,7 @@ export const useLive = create<LiveState>(() => ({
   fetchedAt: null,
   files: SNAPSHOT.nodes.length + SNAPSHOT.bridges.length,
   promptSources: {},
+  runtimeRegistry: null,
   error: null,
   pulling: false,
 }));
@@ -44,6 +46,7 @@ export function applyDna(next: {
   writable: boolean;
   files: number;
   promptSources: Record<string, string>;
+  runtimeRegistry: unknown | null;
 }) {
   useLive.setState({
     catalog: next.catalog,
@@ -54,6 +57,7 @@ export function applyDna(next: {
     fetchedAt: new Date().toISOString(),
     files: next.files,
     promptSources: next.promptSources,
+    runtimeRegistry: next.runtimeRegistry,
     error: null,
     pulling: false,
   });
