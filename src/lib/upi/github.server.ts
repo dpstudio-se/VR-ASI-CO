@@ -150,6 +150,20 @@ export async function dnaWritable() {
   return Boolean(await githubToken());
 }
 
+export async function dnaHead() {
+  const token = await githubToken();
+  const head = await gh<{ object: { sha: string } }>(
+    `/repos/${DNA.owner}/${DNA.repo}/git/ref/heads/${DNA.branch}`,
+    { token },
+  );
+  return {
+    sha: head.object.sha,
+    branch: DNA.branch,
+    writable: Boolean(token),
+    checkedAt: new Date().toISOString(),
+  };
+}
+
 function toBase64(text: string) {
   return Buffer.from(text, "utf8").toString("base64");
 }
