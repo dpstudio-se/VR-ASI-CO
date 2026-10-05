@@ -9,16 +9,13 @@ import { useLive } from "@/lib/upi/live";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/", label: "Index" },
-  { to: "/catalog", label: "Catalog" },
-  { to: "/stop", label: "STOP" },
-  { to: "/graph", label: "Graph" },
-  { to: "/lattice", label: "Lattice" },
-  { to: "/holography", label: "AdS" },
-  { to: "/symmetry", label: "Grp" },
-  { to: "/dna", label: "DNA" },
-  { to: "/lab", label: "Lab" },
+  { to: "/", label: "OdinOS" },
   { to: "/personas", label: "Personas" },
+  { to: "/dna", label: "DNA / RNA" },
+  { to: "/catalog", label: "Knowledge" },
+  { to: "/graph", label: "Graph" },
+  { to: "/lab", label: "Tools" },
+  { to: "/stop", label: "STOP" },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -39,9 +36,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
             <OrbitalMark />
             <span className="min-w-0">
-              <span className="block font-display text-lg leading-none tracking-tight">UPI</span>
+              <span className="block font-display text-lg leading-none tracking-tight">VR-ASI-CO</span>
               <span className="hidden text-xs tracking-wide text-muted sm:block">
-                Universal Physics Index
+                OdinOS command deck
               </span>
             </span>
           </Link>
@@ -80,7 +77,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 href={DNA.html}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="UPI source on GitHub"
+                aria-label="VR-ASI-CO source on GitHub"
               >
                 <Github />
               </a>
@@ -122,10 +119,9 @@ export function AppShell({ children }: { children: ReactNode }) {
       <footer className="border-t border-border">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-display text-xl">Universal Physics Index</p>
+            <p className="font-display text-xl">VR-ASI-CO · OdinOS</p>
             <p className="mt-2 max-w-md text-sm text-muted">
-              An open ledger of typed scientific nodes. Status labels are strict. Metaphor never
-              upgrades a record to established fact.
+              Persona, runtime, tools, skills, DNA/RNA and knowledge surfaces in one adaptive command deck.
             </p>
           </div>
           <div className="text-sm">
