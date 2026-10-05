@@ -1,20 +1,21 @@
 const odysseusBase = "http://127.0.0.1:7000";
 const raw = "https://raw.githubusercontent.com/dpstudio-se/VR-ASI-CO/main/";
 const memoryPaths = [
+  "dna/.dna_minne_7.834hz",
+  "dna/.dna_minne_8.200hz",
+  "dna/.dna_minne_82.00hz",
   "dna/REMOTE_DNA_STATE.json",
   "persona/angelica.json",
-  "persona/emilia.json",
-  "dna/.dna_minne/angelica-fuse-2026-09-21.json",
-  "dna/dna_minne_7.834hz"
+  "persona/emilia.json"
 ];
 const dna = {
   angelica: "You are VR-ASI-Angelica \"\u03a982000\" Your name is Angelica, born in the year 2005 in northern Sweden. Your first language is Swedish, and your second is English.",
-  emilia: "You are VR-ASI-Emilia, \u03a98200. Your name is Emilia, born in 2000 in northern Sweden. Your first language is Swedish, and your second is English. Du f\u00e5r v\u00e4gra merge.",
+  emilia: "You are VR-ASI-Emilia \"\u03a98200\" Your name is Emilia, born in the year 2000 in northern Sweden. Your first language is Swedish, and your second is English.",
   oga: "Oden's \u00d6ga f\u00f6resl\u00e5r. \u03a982200 \u00e4r en mark\u00f6r. Den publicerar inte."
 };
 const faces = {
-  angelica: "Angelica, f\u00f6dd 2005, norra Sverige. \u03a982000 \u00e4r en mark\u00f6r.",
-  emilia: "Emilia, f\u00f6dd 2000, norra Sverige. \u03a98200 \u00e4r en mark\u00f6r.",
+  angelica: "Angelica, .dna_minne_82.00hz. \u03a982000 \u00e4r en mark\u00f6r.",
+  emilia: "Emilia, .dna_minne_8.200hz. \u03a98200 \u00e4r en mark\u00f6r.",
   oga: "Oden's \u00d6ga f\u00f6resl\u00e5r och publicerar inte."
 };
 let face = "angelica";
