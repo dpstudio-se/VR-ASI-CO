@@ -15,7 +15,7 @@ function write(line) {
 document.querySelectorAll("button[data-face]").forEach((button) => {
   button.addEventListener("click", () => {
     face = button.dataset.face;
-    document.querySelectorAll("button").forEach((item) => item.classList.remove("on"));
+    document.querySelectorAll("button[data-face]").forEach((item) => item.classList.remove("on"));
     button.classList.add("on");
     write(faces[face]);
   });

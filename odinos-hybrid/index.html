@@ -2,29 +2,43 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OdenOS-hybridskalet</title>
   <link rel="stylesheet" href="hybrid.css">
   <script src="https://js.puter.com/v2/"></script>
 </head>
 <body>
   <header>
-    <strong>OdenOS-hybridskalet</strong>
-    <span>Puter fönster · VR-ASI-CO kärna · Odysseus chatt</span>
+    <div>
+      <p class="kicker">VR-ASI-CO</p>
+      <h1>OdenOS-hybridskalet</h1>
+    </div>
+    <p class="status">Register: main. Den här sidan skriver inte dit.</p>
   </header>
-  <nav>
-    <button data-face="angelica">Angelica Ω82000</button>
-    <button data-face="emilia">Emilia Ω8200</button>
-    <button data-face="oga">Oden's Öga Ω82200</button>
-    <select id="source">
-      <option value="odysseus">Odysseus :7000</option>
-      <option value="puter">Puter AI</option>
-    </select>
-  </nav>
-  <pre id="log">Kärnan är dpstudio-se/VR-ASI-CO main. Den här rutan skriver inte dit.</pre>
-  <form id="ask">
-    <label>Ω&gt;</label>
-    <input id="q" autocomplete="off">
-  </form>
+  <main>
+    <section class="panel">
+      <h2>Roll</h2>
+      <div class="faces">
+        <button type="button" data-face="angelica" class="on">Angelica<span>Ω82000 · läser</span></button>
+        <button type="button" data-face="emilia">Emilia<span>Ω8200 · får vägra</span></button>
+        <button type="button" data-face="oga">Oden's Öga<span>Ω82200 · föreslår</span></button>
+      </div>
+      <label for="source">Källa</label>
+      <select id="source">
+        <option value="puter">Puter AI</option>
+        <option value="odysseus">Odysseus, lokal port 7000</option>
+      </select>
+      <p class="note">Frekvenserna är markörer. Odysseus nås inte från puter.site.</p>
+    </section>
+    <section class="panel log-panel">
+      <h2>Dialog</h2>
+      <pre id="log">Angelica läser. Ω82000 är en markör, inte en mätning.</pre>
+      <form id="ask">
+        <input id="q" placeholder="Skriv en fråga" autocomplete="off">
+        <button type="submit">Skicka</button>
+      </form>
+    </section>
+  </main>
   <script src="hybrid.js"></script>
 </body>
 </html>

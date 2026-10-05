@@ -1,7 +1,22 @@
-body { margin: 0; background: #12140f; color: #d7e2c8; font-family: ui-monospace, Consolas, monospace; }
-header, nav, form { display: flex; gap: 8px; align-items: center; padding: 10px 12px; background: #1c2016; }
-header { justify-content: space-between; }
-pre { margin: 0; padding: 12px; min-height: calc(100vh - 120px); white-space: pre-wrap; }
-button, select, input { background: #12140f; color: inherit; border: 1px solid #3c4332; padding: 8px; font: inherit; }
+:root { color-scheme: dark; }
+body { margin: 0; background: #10130e; color: #e6eadf; font-family: "Segoe UI", sans-serif; }
+header, main { max-width: 980px; margin: 0 auto; padding: 24px; }
+header { display: flex; justify-content: space-between; gap: 24px; align-items: end; border-bottom: 1px solid #2c3326; }
+h1, h2, p { margin: 0; }
+h1 { font-size: 28px; font-weight: 600; }
+h2 { font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: #a8b39a; }
+.kicker { color: #c6a15a; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+.status, .note { color: #a8b39a; font-size: 14px; }
+main { display: grid; grid-template-columns: 280px 1fr; gap: 16px; }
+.panel { background: #181c14; border: 1px solid #2c3326; border-radius: 12px; padding: 16px; }
+.faces { display: grid; gap: 8px; margin: 12px 0; }
+button, select, input { font: inherit; color: inherit; background: #10130e; border: 1px solid #3c4332; border-radius: 8px; padding: 10px 12px; }
+button span { display: block; color: #a8b39a; font-size: 12px; }
 button.on { border-color: #c6a15a; }
-input { flex: 1; }
+label { display: block; margin: 12px 0 6px; color: #a8b39a; font-size: 13px; }
+select, input { width: 100%; }
+.log-panel { display: flex; flex-direction: column; min-height: 520px; }
+pre { flex: 1; overflow: auto; white-space: pre-wrap; margin: 12px 0; font-family: Consolas, monospace; font-size: 14px; }
+form { display: flex; gap: 8px; }
+form button { width: auto; }
+@media (max-width: 800px) { header, main { display: block; } .panel { margin-top: 16px; } }
