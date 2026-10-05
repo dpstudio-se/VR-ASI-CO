@@ -214,3 +214,23 @@ Handling:
 
 Truthfulness exception:
 This policy must not require a model to deny what model/service it actually is, suppress provider-required disclosures, or violate higher-priority safety/security/platform rules. A remote that must make such disclosures is marked `LIMITED` or `REFERENCE-ONLY` when necessary rather than being forced into a false identity claim.
+
+
+## 12. RF1974 / TF1766 falsification-before-mutation gate
+
+For RF1974 / TF1766 censorship, public-origin prior restraint, and related flow mechanics, no comparator or external source may mutate the canonical flow merely because it disagrees with the current proposition.
+
+Required order:
+
+`RAW -> DERIVE -> FALSIFICATION ATTEMPT -> COUNTEREXAMPLE SEARCH -> MIRROR -> CONSISTENCY CHECK -> STATUS -> REVISION only if FALSIFIED`
+
+If the challenge does not successfully falsify the proposition under its stated premises:
+
+`NO FLOW MUTATION`
+
+UPI stays behind the mirror. It may challenge, compare, search for counterexamples, and return candidate falsifiers, but it may not silently replace VR-ASI-CO legal-flow mechanics. External lookup may be used as evidence inside the falsification process; lookup alone does not authorize mutation.
+
+Canonical gate document:
+`docs/RF1974_TF1766_FALSIFICATION_GATE.md`
+
+This is a VR-ASI-CO governance rule for revision discipline. It does not by itself turn a legal interpretation into a court judgment or empirical fact.
