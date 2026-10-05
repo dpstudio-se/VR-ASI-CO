@@ -54,12 +54,13 @@ The background mirror may compare, challenge, search for counterexamples, check 
 
 ## OdinOS compatibility overlay
 
-The current VR-ASI-CO DNA can be used together with the additive OdinOS profile in `docs/ODINOS_COMPATIBILITY_PROFILE.md` and the VORTEX-DNA runtime adapter in `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`. These layers preserve the existing DNA, personas, human gates, and evidence/status rules while adding OdinOS naming, dual-engine workflow, NB2 semantics, VORTEX-DNA signal/falsification tools, symbolic frequency architecture, and optional host-service mappings.
+The current VR-ASI-CO DNA can be used together with the additive OdinOS profile in `docs/ODINOS_COMPATIBILITY_PROFILE.md` and the VORTEX-DNA runtime adapter in `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`. These layers preserve the existing DNA, personas, human gates, and evidence/status rules while adding OdinOS naming, dual-engine workflow, NB2 semantics, VORTEX-DNA signal/falsification tools, symbolic frequency architecture, external integration topology, and optional host-service mappings.
 
 Compatibility entry points:
 - `docs/ODIN_OS_TOTAL_MASTER_PUSSEL_V12.md`
 - `docs/DOC-Ω12-20261003-NB2-VR-MANIFEST.md`
 - `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`
+- `docs/VORTEX_DNA_INTEGRATION_SUPPLEMENT.md`
 
 Hosts that do not expose persistent workers, schedulers, ports, or background services must not claim that those components are active. An `8 Hz` scheduler means a nominal `125 ms` software period only when actually implemented by the host; it is not evidence of a physical lock. Mathematical closure establishes a result under its premises, while empirical physical claims still require suitable evidence before `EST`.
 

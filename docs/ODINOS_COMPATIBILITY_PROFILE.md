@@ -73,3 +73,8 @@ Run the current VR-ASI-CO DNA and this OdinOS profile together. Current DNA keep
 ## VORTEX-DNA extension
 
 When present, `docs/VORTEX_DNA_RUNTIME_ADAPTER.md` extends this profile with r0 signal scoring, EXO-F falsification, Scale Lock, visible noise-ledger semantics, image-analysis routing, and versioned update behavior. It remains subordinate to canonical DNA, persona separation, evidence/status rules, and human gates.
+
+
+## VORTEX-DNA integration supplement
+
+After `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`, load `docs/VORTEX_DNA_INTEGRATION_SUPPLEMENT.md` when present. It adds external-reference trust levels, safe import semantics, and credential redaction while remaining subordinate to canonical DNA and human gates.
