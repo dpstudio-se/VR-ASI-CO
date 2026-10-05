@@ -509,3 +509,20 @@ It strengthens:
 - rollback/read-back/provenance discipline.
 
 It does not replace existing VORTEX-DNA modules, persona DNA, canonical geometry, human gates, or host/platform rules.
+
+
+## 27. OdinOS total master manifest extension
+
+Load `docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md` as an additive OdinOS orchestration layer.
+
+It strengthens:
+- Angelica / Emilia / NB2 runtime coordination;
+- HeyPuter, Odysseus, VFS, and Git integration semantics;
+- five-chamber project-state mapping;
+- supervision and stepwise workload-engine semantics;
+- 8 Hz software-reference timing when actually implemented;
+- UPI-behind-mirror separation;
+- RF1974 / TF1766 falsification-before-mutation;
+- visible read-back/provenance discipline.
+
+It does not replace canonical DNA, persona files, existing VORTEX modules, the Ω-PRIME extension, or host/platform rules.
