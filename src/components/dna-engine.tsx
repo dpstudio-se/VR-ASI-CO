@@ -1,6 +1,6 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { proposeBridgeFn, proposeNodeFn, pullDna } from "@/lib/upi/dna-actions";
+import { headDnaFn, proposeBridgeFn, proposeNodeFn, pullDna } from "@/lib/upi/dna-actions";
 import { applyDna, markPullError, markPulling, useLive } from "@/lib/upi/live";
 import { DNA } from "@/lib/upi/hydrate";
 import { STATUSES, STATUS_COPY, type Status } from "@/lib/upi";
@@ -53,6 +53,47 @@ export function DnaEngine() {
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<string | null>(null);
   const [prUrl, setPrUrl] = useState<string | null>(null);
+  const [autoSync, setAutoSync] = useState(true);
+  const [lastHeadCheck, setLastHeadCheck] = useState<string | null>(null);
+  const [syncError, setSyncError] = useState<string | null>(null);
+  const [pulse, setPulse] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => setPulse((value) => (value + 1) % 8), 125);
+    return () => window.clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    if (!autoSync) return;
+    let cancelled = false;
+    let checking = false;
+
+    const check = async () => {
+      if (checking) return;
+      checking = true;
+      try {
+        const head = await headDnaFn();
+        if (cancelled) return;
+        setLastHeadCheck(head.checkedAt);
+        setSyncError(null);
+        const current = useLive.getState();
+        if (head.sha !== current.sha && !current.pulling) {
+          await transcribeDna();
+        }
+      } catch (e) {
+        if (!cancelled) setSyncError(e instanceof Error ? e.message : String(e));
+      } finally {
+        checking = false;
+      }
+    };
+
+    void check();
+    const id = window.setInterval(() => void check(), 5000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(id);
+    };
+  }, [autoSync]);
 
   async function onPull() {
     setBusy(true);
@@ -147,7 +188,9 @@ export function DnaEngine() {
             ["SHA", live.sha ? live.sha.slice(0, 12) : "—"],
             ["Nodes", String(live.catalog.nodes.length)],
             ["Bridges", String(live.catalog.bridges.length)],
-            ["Write", live.writable ? "PR enabled" : "Read-only until GitHub is connected"],
+            ["Write", live.writable ? "RNA proposal branch enabled" : "Read-only until GitHub is connected"],
+            ["Sync", autoSync ? "Near-real-time DNA watch" : "Manual"],
+            ["8 Hz pulse", `local ${pulse + 1}/8 · 125 ms`],
           ].map(([k, v]) => (
             <div key={k} className="flex items-baseline justify-between gap-4 border-t border-border py-3">
               <dt className="text-xs text-muted">{k}</dt>
@@ -157,7 +200,10 @@ export function DnaEngine() {
         </dl>
         <div className="mt-5 flex flex-wrap gap-3">
           <Button type="button" onClick={() => void onPull()} disabled={busy || live.pulling}>
-            {live.pulling ? "Transcribing…" : "Pull DNA"}
+            {live.pulling ? "Transcribing…" : "Read DNA now"}
+          </Button>
+          <Button type="button" variant="outline" onClick={() => setAutoSync((value) => !value)}>
+            {autoSync ? "Realtime watch: on" : "Realtime watch: off"}
           </Button>
           <Button variant="outline" asChild>
             <a href={DNA.html} target="_blank" rel="noreferrer">
@@ -166,6 +212,10 @@ export function DnaEngine() {
           </Button>
         </div>
         {live.error ? <p className="mt-4 text-sm text-stop">{live.error}</p> : null}
+        {syncError ? <p className="mt-2 text-xs text-stop">Realtime sync: {syncError}</p> : null}
+        {lastHeadCheck ? (
+          <p className="mt-2 text-xs text-muted">Last DNA head check: {new Date(lastHeadCheck).toLocaleTimeString()}</p>
+        ) : null}
         {note ? <p className="mt-4 text-sm text-muted">{note}</p> : null}
         {prUrl ? (
           <p className="mt-2 text-sm">
@@ -175,8 +225,13 @@ export function DnaEngine() {
           </p>
         ) : null}
         <p className="mt-6 text-xs text-muted">
-          Confusion guard: DNA and RNA here are a working metaphor for canonical memory versus
-          transcription. They are not a biological claim. GitHub is git.
+          Realtime path: RNA writes immediately to a proposal branch. DNA stays canonical on GitHub main and is
+          refreshed when the lightweight head watcher detects a new main SHA. The local 8 Hz pulse is UI/runtime
+          timing only; GitHub is not polled at 8 Hz.
+        </p>
+        <p className="mt-2 text-xs text-muted">
+          Confusion guard: DNA and RNA here are a working metaphor for canonical memory versus transcription.
+          They are not a biological claim. GitHub is git.
         </p>
       </section>
 
@@ -259,7 +314,7 @@ export function DnaEngine() {
               <Input name="tags" placeholder="holography, entropy" />
             </Field>
             <Button type="submit" disabled={busy}>
-              Write to DNA
+              Write RNA proposal
             </Button>
           </form>
         ) : (
@@ -314,7 +369,7 @@ export function DnaEngine() {
               <Textarea name="confusion_guard" rows={2} />
             </Field>
             <Button type="submit" disabled={busy}>
-              Write bridge to DNA
+              Write RNA bridge proposal
             </Button>
           </form>
         )}
