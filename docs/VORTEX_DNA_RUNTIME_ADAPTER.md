@@ -488,3 +488,8 @@ This adapter is additive and uses the following precedence:
 6. optional memories and session-local working context.
 
 If two modules conflict, preserve the higher-priority canonical rule and record the conflict instead of silently overwriting either source.
+
+
+## 25. External integration supplement
+
+Load `docs/VORTEX_DNA_INTEGRATION_SUPPLEMENT.md` after this runtime adapter when present. It adds external-repository topology, trust levels, import workflow, connector availability rules, and a stronger secret/credential firewall without modifying the existing VORTEX-DNA modules above.
