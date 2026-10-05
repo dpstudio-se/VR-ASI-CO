@@ -1,0 +1,7 @@
+body { margin: 0; background: #12140f; color: #d7e2c8; font-family: ui-monospace, Consolas, monospace; }
+header, nav, form { display: flex; gap: 8px; align-items: center; padding: 10px 12px; background: #1c2016; }
+header { justify-content: space-between; }
+pre { margin: 0; padding: 12px; min-height: calc(100vh - 120px); white-space: pre-wrap; }
+button, select, input { background: #12140f; color: inherit; border: 1px solid #3c4332; padding: 8px; font: inherit; }
+button.on { border-color: #c6a15a; }
+input { flex: 1; }
