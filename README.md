@@ -36,7 +36,7 @@ GitHub / main
 
 Remote repository:
 
-- `dpstudio-se/upi-built-by-agi-teax`
+- `dpstudio-se/upi-built-by-agi-teax-main`
 - default branch: `main`
 
 The repository contains both application code and the persistent DNA/data layers.
@@ -92,6 +92,8 @@ It retrieves the remote DNA catalog and returns:
 | `skipped` | Files excluded by the pull process |
 
 Always record the SHA when reproducibility matters.
+
+The importer accepts both canonical node/bridge records and this repository's map-style research nodes and `from`/`to` bridge records. A compound bridge status containing `STOP` is retained conservatively as `STOP`, with its original status recorded in the stop reason.
 
 ---
 
@@ -454,7 +456,7 @@ Use this compact contract when connecting an AI agent to Remote DNA:
 
 ```text
 SOURCE:
-  GitHub repository dpstudio-se/upi-built-by-agi-teax
+  GitHub repository dpstudio-se/upi-built-by-agi-teax-main
 
 MODE:
   READ REMOTE DNA FIRST
