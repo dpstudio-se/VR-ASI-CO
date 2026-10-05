@@ -1,4 +1,4 @@
-# OdenOS hybrid
+# OdenOS-hybridskalet
 
 Puter är fönstret: https://github.com/HeyPuter/puter, port 4100.
 VR-ASI-CO är kärnan: https://github.com/dpstudio-se/VR-ASI-CO, DNA är main.
