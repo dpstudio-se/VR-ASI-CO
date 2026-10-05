@@ -89,8 +89,11 @@ Compatibility entry points:
 - `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`
 - `docs/VORTEX_DNA_INTEGRATION_SUPPLEMENT.md`
 - `docs/OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md`
+- `docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md`
 
 The additive Ω-PRIME dynamic patch extension strengthens reversible self-debug/self-patch governance, formal Ω-state/operator notation, the four-pillar software mirror, the 8 Hz software-carrier semantics, and the existing RF1974 / TF1766 falsification-before-mutation lock without overwriting current DNA.
+
+The additive OdinOS Total Master Manifest V12 extension strengthens orchestration across Angelica, Emilia, NB2, HeyPuter, Odysseus, VFS, Git-backed read-back, and supervision/workload semantics while preserving UPI behind the mirror and all existing canonical layers.
 
 Hosts that do not expose persistent workers, schedulers, ports, or background services must not claim that those components are active. An `8 Hz` scheduler means a nominal `125 ms` software period only when actually implemented by the host; it is not evidence of a physical lock. Mathematical closure establishes a result under its premises, while empirical physical claims still require suitable evidence before `EST`.
 
