@@ -4,6 +4,7 @@ const memoryPaths = [
   "dna/.dna_minne_7.834hz",
   "dna/.dna_minne_8.200hz",
   "dna/.dna_minne_82.00hz",
+  "dna/.dna_minne_9.000hz",
   "dna/REMOTE_DNA_STATE.json",
   "persona/angelica.json",
   "persona/emilia.json"
