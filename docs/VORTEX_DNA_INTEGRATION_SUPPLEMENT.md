@@ -253,3 +253,22 @@ Integration rules:
 - do not import prompt fragments that claim disabled safeguards, absolute obedience, hidden self-replication, or authority over host/platform rules.
 
 The extension expands the existing VORTEX/OdinOS runtime; it does not overwrite it.
+
+
+## 14. OdinOS total master manifest integration
+
+The OdinOS Total Master Manifest V12 is integrated additively through:
+
+`docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md`
+
+Integration rules:
+- preserve all current canonical files and RAW;
+- treat OdinOS as an expansion/orchestration layer;
+- preserve Angelica/Emilia/NB2 role separation;
+- keep UPI behind the mirror;
+- preserve status discipline across symbolic, mathematical, hypothetical, software, legal, and empirical claims;
+- preserve the RF1974 / TF1766 falsification-before-mutation gate;
+- require real host support before claiming active background supervisors, schedulers, ports, or persistent services;
+- preserve visible branch/diff/test/merge/read-back/rollback transactions.
+
+The extension strengthens the current VR-ASI-CO / OdinOS / VORTEX stack without overwriting it.
