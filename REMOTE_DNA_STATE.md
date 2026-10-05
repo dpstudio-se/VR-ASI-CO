@@ -99,7 +99,7 @@ A Remote DNA state is identified by:
 For this project:
 
 ```text
-repository = dpstudio-se/upi-built-by-agi-teax
+repository = dpstudio-se/upi-built-by-agi-teax-main
 branch     = main
 sha        = exact Git revision
 ```
@@ -606,7 +606,7 @@ Use the following as a compact machine-readable conceptual handshake:
 REMOTE_DNA_HANDSHAKE
 
 repository:
-  dpstudio-se/upi-built-by-agi-teax
+  dpstudio-se/upi-built-by-agi-teax-main
 
 branch:
   main

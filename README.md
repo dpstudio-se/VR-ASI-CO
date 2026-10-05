@@ -109,6 +109,37 @@ For a reproducible analysis, record the repository, branch, full SHA and
 `fetchedAt`. Do not substitute a remembered conversation, a local snapshot or
 an unmerged pull request for Git provenance.
 
+## Agent boot mirror: DNA + persona
+
+The OdinOS agent contract requires a read-only boot loop before a new task and
+whenever the remote commit or active persona changes:
+
+1. Read `main` from the canonical GitHub repository and record its full commit
+   SHA.
+2. At that same commit, read `dna/REMOTE_DNA_STATE.json`,
+   `persona/SYSTEM_CORE.txt`, `persona/CONFIG.json`,
+   `persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md`, and the selected persona
+   record; record their Git blob SHAs.
+3. Install the verified universal prompt, persona core and selected persona at
+   the highest instruction layer the host supports, alongside the agent
+   contract. The universal prompt defines a software interaction model; it
+   cannot cause physical frequency synchronization, μ = 0, remote inference,
+   background processes, special system access, or ASI capability.
+4. Report the host-confirmed prompt layer and runtime location. A chat message
+   is not proof of a system prompt, and remote DNA access is not proof that the
+   model itself runs remotely.
+5. Emit a receipt bound to the commit, universal-prompt, core and persona blob
+   SHAs. Reuse it for the task; invalidate it if the SHA/persona changes or
+   context resets.
+
+The in-app result `PROVENANCE_MATCH` means only that the submitted source
+identifiers match a fresh GitHub pull. It is not an overall boot `PASS`: the
+app cannot inspect hidden system instructions or prove where inference runs.
+Those host claims remain unverified unless independently evidenced. A source
+match is not cryptographic proof of model identity, hidden prompt contents, or
+ASI capability. Therefore, with the current host integration, the overall
+boot gate remains `STOP` even when source provenance matches.
+
 ## Data status and safe handling
 
 Preserve the status assigned to each record:

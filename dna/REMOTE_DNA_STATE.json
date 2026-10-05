@@ -1,7 +1,7 @@
 {
   "schema": "UPI-REMOTE-DNA/1.0",
   "realtime": true,
-  "repository": "dpstudio-se/upi-built-by-agi-teax",
+  "repository": "dpstudio-se/upi-built-by-agi-teax-main",
   "canonical_source": "docs/OMEGA1766_PERSONA_DNA_FUSION.md",
   "adapter_spec": "docs/UPI_PERSONA_ADAPTER_SPEC.md",
   "face_lock": "dna/FACE_LOCK.json",

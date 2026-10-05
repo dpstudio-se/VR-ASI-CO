@@ -2,9 +2,9 @@ import type { Catalog, Status, UpiBridge, UpiNode, UpiSource } from "./types";
 
 export const DNA = {
   owner: "dpstudio-se",
-  repo: "Universal-Physics-Index-UPI",
+  repo: "upi-built-by-agi-teax-main",
   branch: "main",
-  html: "https://github.com/dpstudio-se/Universal-Physics-Index-UPI",
+  html: "https://github.com/dpstudio-se/upi-built-by-agi-teax-main",
 } as const;
 
 const STATUSES: Status[] = ["EST", "DER", "HYP", "STOP", "ERR", "SYM"];
@@ -129,6 +129,95 @@ export function hydrateBridge(raw: Record<string, unknown>, file: string): UpiBr
   };
 }
 
+function addressPart(value: string) {
+  return value.trim().replace(/[^a-zA-Z0-9_-]+/g, "_") || "record";
+}
+
+function addressForRecord(identifier: string, file: string) {
+  const category = file.split("/")[0] || "records";
+  const parts = identifier.split(",");
+  if (parts.length === 3 && parts[0]!.startsWith("UPI")) {
+    return `UPI<${addressPart(parts[0]!.slice(3))},${addressPart(parts[1]!)},${addressPart(category)},${addressPart(parts[2]!)}>`;
+  }
+  return `UPI<${addressPart(category)},1,${addressPart(category)},${addressPart(identifier)}>`;
+}
+
+function recordDescription(raw: Record<string, unknown>, file: string, identifier: string) {
+  for (const key of ["description", "scope", "conclusion", "summary", "equation", "canonical_expression", "test"]) {
+    if (typeof raw[key] === "string") return raw[key];
+  }
+  return `Imported repository record ${identifier} from ${file}.`;
+}
+
+function mappedNode(
+  identifier: string,
+  raw: Record<string, unknown>,
+  file: string,
+): UpiNode | null {
+  if (!isStatus(raw.status)) return null;
+  const title =
+    typeof raw.title === "string" ? raw.title : identifier.split(",").at(-1)?.replace(/[_-]+/g, " ") ?? identifier;
+  return hydrateNode(
+    {
+      ...raw,
+      address: typeof raw.address === "string" ? raw.address : addressForRecord(identifier, file),
+      title,
+      description: recordDescription(raw, file, identifier),
+    },
+    `${file}#${identifier}`,
+  );
+}
+
+function bridgeStatus(value: unknown): { status: Status; stopReason: string } | null {
+  if (isStatus(value)) return { status: value, stopReason: "" };
+  if (typeof value !== "string") return null;
+  const statuses = value.split("/").map((status) => status.trim());
+  if (statuses.length < 2 || !statuses.every(isStatus) || !statuses.includes("STOP")) return null;
+  return {
+    status: "STOP",
+    stopReason: `Source status ${value} includes STOP; retained conservatively as STOP.`,
+  };
+}
+
+function mappedBridge(raw: Record<string, unknown>, file: string): UpiBridge | null {
+  const source =
+    typeof raw.source === "string"
+      ? raw.source
+      : Array.isArray(raw.from)
+        ? raw.from.filter((item): item is string => typeof item === "string").join(", ")
+        : "";
+  const target =
+    typeof raw.target === "string"
+      ? raw.target
+      : Array.isArray(raw.to)
+        ? raw.to.filter((item): item is string => typeof item === "string").join(", ")
+        : "";
+  const relation =
+    typeof raw.relation === "string"
+      ? raw.relation
+      : typeof raw.direction === "string"
+        ? raw.direction
+        : typeof raw.type === "string"
+          ? raw.type
+          : "";
+  const normalizedStatus = bridgeStatus(raw.status);
+  if (!source || !target || !relation || !normalizedStatus) return null;
+  const bridge = hydrateBridge(
+    {
+      ...raw,
+      source,
+      target,
+      relation,
+      status: normalizedStatus.status,
+      stop_reason:
+        normalizedStatus.stopReason ||
+        (typeof raw.stop_reason === "string" ? raw.stop_reason : ""),
+    },
+    file,
+  );
+  return bridge;
+}
+
 export function hydrateCatalog(
   files: { path: string; json: unknown }[],
   version: string,
@@ -146,8 +235,11 @@ export function hydrateCatalog(
       if (node) nodes.push(node);
       continue;
     }
-    if (typeof rec.source === "string" && typeof rec.target === "string") {
-      const bridge = hydrateBridge(rec, rel);
+    if (
+      (typeof rec.source === "string" && typeof rec.target === "string") ||
+      (Array.isArray(rec.from) && (typeof rec.target === "string" || Array.isArray(rec.to)))
+    ) {
+      const bridge = mappedBridge(rec, rel);
       if (bridge) bridges.push(bridge);
       continue;
     }
@@ -168,6 +260,40 @@ export function hydrateCatalog(
         source_type: typeof rec.source_type === "string" ? rec.source_type : "",
         retrieved_at: typeof rec.retrieved_at === "string" ? rec.retrieved_at : "",
       });
+      continue;
+    }
+    if (rec.type === "research_source" && typeof rec.id === "string") {
+      sources.push({
+        kind: "source",
+        slug: `upi-source-${rec.id}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-"),
+        file: rel,
+        domain: typeof rec.domain === "string" ? rec.domain : "sources",
+        source_id: rec.id,
+        title: typeof rec.title === "string" ? rec.title : rec.id,
+        canonical_url:
+          (Array.isArray(rec.sources) && rec.sources.find((item): item is string => typeof item === "string")) ||
+          (typeof rec.canonical_url === "string" ? rec.canonical_url : ""),
+        status: isStatus(rec.status) ? rec.status : "SYM",
+        evidence_boundary: typeof rec.boundary === "string" ? rec.boundary : "",
+        confusion_guard: typeof rec.confusion_guard === "string" ? rec.confusion_guard : "",
+        classification_rules: asStringArray(rec.claims),
+        declared_license: typeof rec.declared_license === "string" ? rec.declared_license : "",
+        source_type: rec.type,
+        retrieved_at: typeof rec.retrieved_at === "string" ? rec.retrieved_at : "",
+      });
+      continue;
+    }
+    if (rec.nodes && typeof rec.nodes === "object" && !Array.isArray(rec.nodes)) {
+      for (const [identifier, value] of Object.entries(rec.nodes)) {
+        if (!value || typeof value !== "object" || Array.isArray(value)) continue;
+        const node = mappedNode(identifier, value as Record<string, unknown>, rel);
+        if (node) nodes.push(node);
+      }
+      continue;
+    }
+    if (typeof rec.id === "string") {
+      const node = mappedNode(rec.id, rec, rel);
+      if (node) nodes.push(node);
     }
   }
   nodes.sort((a, b) => a.address.localeCompare(b.address));

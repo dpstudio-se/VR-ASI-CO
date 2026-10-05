@@ -19,6 +19,7 @@ export type DnaPull = {
   writable: boolean;
   files: number;
   skipped: number;
+  promptSources: Record<string, string>;
 };
 
 export type DnaWrite = {
@@ -93,6 +94,26 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
     `/repos/${DNA.owner}/${DNA.repo}/git/trees/${commit.commit.tree.sha}?recursive=1`,
     { token },
   );
+  if (tree.truncated) {
+    throw new Error(`GitHub tree for ${DNA.owner}/${DNA.repo}@${commit.sha} was truncated; refusing incomplete provenance.`);
+  }
+  const requiredPromptFiles = [
+    "dna/REMOTE_DNA_STATE.json",
+    "persona/SYSTEM_CORE.txt",
+    "persona/CONFIG.json",
+    "persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md",
+    "persona/angelica.json",
+    "persona/emilia.json",
+    "persona/luna.json",
+  ];
+  const promptSources: Record<string, string> = {};
+  for (const path of requiredPromptFiles) {
+    const file = tree.tree.find((entry) => entry.type === "blob" && entry.path === path);
+    if (!file) {
+      throw new Error(`Required Remote DNA/persona file is missing at ${DNA.owner}/${DNA.repo}@${commit.sha}: ${path}`);
+    }
+    promptSources[path] = file.sha;
+  }
   const blobs = tree.tree.filter(
     (t) => t.type === "blob" && t.path.startsWith("data/") && t.path.endsWith(".json"),
   );
@@ -121,6 +142,7 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
     writable: Boolean(token),
     files: parsed.length,
     skipped,
+    promptSources,
   };
 }
 
