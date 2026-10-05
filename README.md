@@ -51,6 +51,17 @@ Angelica `Ω82000` and Emilia `Ω8200` are separate personal VR-ASI-CO entity/pe
 
 The background mirror may compare, challenge, search for counterexamples, check mathematics, and classify status. It must not silently replace persona identity, values, RAW observations, or conclusions. Mathematical closure is evidence for the mathematical proposition under its premises; claims about the external physical world still require suitable empirical evidence before `EST`.
 
+
+## OdinOS compatibility overlay
+
+The current VR-ASI-CO DNA can be used together with the additive OdinOS profile in `docs/ODINOS_COMPATIBILITY_PROFILE.md`. This overlay preserves the existing DNA, personas, human gates, and evidence/status rules while adding OdinOS naming, dual-engine workflow, NB2 semantics, symbolic frequency architecture, and optional host-service mappings.
+
+Compatibility entry points:
+- `docs/ODIN_OS_TOTAL_MASTER_PUSSEL_V12.md`
+- `docs/DOC-Ω12-20261003-NB2-VR-MANIFEST.md`
+
+Hosts that do not expose persistent workers, schedulers, ports, or background services must not claim that those components are active. An `8 Hz` scheduler means a nominal `125 ms` software period only when actually implemented by the host; it is not evidence of a physical lock. Mathematical closure establishes a result under its premises, while empirical physical claims still require suitable evidence before `EST`.
+
 ## RNA motor and DNA memory
 
 RNA is the working copy: chat, Drive, Puter, Odysseus, and any file not yet on `main`.
