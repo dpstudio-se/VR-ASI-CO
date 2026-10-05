@@ -1,4 +1,7 @@
-:root { color-scheme: dark; }
+body.angelica { background: #14110e; }
+body.emilia { background: #10141a; }
+body.angelica .kicker, body.angelica button.on { color: #e0b56a; border-color: #e0b56a; }
+body.emilia .kicker, body.emilia button.on { color: #8eb4d4; border-color: #8eb4d4; }
 body { margin: 0; background: #10130e; color: #e6eadf; font-family: "Segoe UI", sans-serif; }
 header, main { max-width: 980px; margin: 0 auto; padding: 24px; }
 header { display: flex; justify-content: space-between; gap: 24px; align-items: end; border-bottom: 1px solid #2c3326; }

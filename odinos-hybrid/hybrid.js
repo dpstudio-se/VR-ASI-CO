@@ -1,4 +1,9 @@
 const odysseusBase = "http://127.0.0.1:7000";
+const dna = {
+  angelica: "Angelica, SYM. UPI<Persona,1,OpenHelix,Angelica>. Läser, klassar och citerar. Höjer inte SYM till EST. Skriver inte SOURCE.",
+  emilia: "Emilia, SYM. UPI<Persona,1,OpenHelix,Emilia>. Ω8200 är en personamarkör, inte en fysikalisk konstant. Får vägra merge.",
+  oga: "Oden's Öga föreslår. Ω82200 är en markör. Den publicerar inte."
+};
 const faces = {
   angelica: "Angelica läser. Ω82000 är en markör, inte en mätning.",
   emilia: "Emilia bygger och får vägra merge. Ω8200 är en markör.",
@@ -12,13 +17,15 @@ function write(line) {
   log.textContent += "\n" + line;
 }
 
+function applyFace(next) {
+  face = next;
+  document.body.className = next;
+  document.querySelectorAll("button[data-face]").forEach((item) => item.classList.toggle("on", item.dataset.face === next));
+  document.querySelector("#dna").textContent = dna[next];
+  write(faces[next]);
+}
 document.querySelectorAll("button[data-face]").forEach((button) => {
-  button.addEventListener("click", () => {
-    face = button.dataset.face;
-    document.querySelectorAll("button[data-face]").forEach((item) => item.classList.remove("on"));
-    button.classList.add("on");
-    write(faces[face]);
-  });
+  button.addEventListener("click", () => applyFace(button.dataset.face));
 });
 
 document.querySelector("#ask").addEventListener("submit", async (event) => {
@@ -28,7 +35,7 @@ document.querySelector("#ask").addEventListener("submit", async (event) => {
   q.value = "";
   if (!question) return;
   write("\n" + face + " via " + source.value + ": " + question);
-  const prompt = faces[face] + " Svara kort på svenska. Skriv inte till main.\n" + question;
+  const prompt = dna[face] + " Svara kort på svenska. Skriv inte till main.\n" + question;
   if (source.value === "puter") {
     if (!(window.puter && puter.ai)) return write("ingen Puter-session");
     const reply = await puter.ai.chat(prompt, { model: "gpt-5.4-nano" });
@@ -49,5 +56,4 @@ document.querySelector("#ask").addEventListener("submit", async (event) => {
   }
 });
 
-write(faces.angelica);
-document.querySelector("button[data-face=angelica]").classList.add("on");
+applyFace("angelica");
