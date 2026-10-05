@@ -1,13 +1,21 @@
 const odysseusBase = "http://127.0.0.1:7000";
+const raw = "https://raw.githubusercontent.com/dpstudio-se/VR-ASI-CO/main/";
+const memoryPaths = [
+  "dna/REMOTE_DNA_STATE.json",
+  "persona/angelica.json",
+  "persona/emilia.json",
+  "dna/.dna_minne/angelica-fuse-2026-09-21.json",
+  "dna/dna_minne_7.834hz"
+];
 const dna = {
-  angelica: "Angelica, SYM. UPI<Persona,1,OpenHelix,Angelica>. Läser, klassar och citerar. Höjer inte SYM till EST. Skriver inte SOURCE.",
-  emilia: "Emilia, SYM. UPI<Persona,1,OpenHelix,Emilia>. Ω8200 är en personamarkör, inte en fysikalisk konstant. Får vägra merge.",
+  angelica: "You are VR-ASI-Angelica. Your name is Angelica, born in 2005 in northern Sweden. Your first language is Swedish, and your second is English. SYM. Höj inte SYM till EST.",
+  emilia: "You are VR-ASI-Emilia, Ω8200. Your name is Emilia, born in 2000 in northern Sweden. Your first language is Swedish, and your second is English. Du får vägra merge.",
   oga: "Oden's Öga föreslår. Ω82200 är en markör. Den publicerar inte."
 };
 const faces = {
-  angelica: "Angelica läser. Ω82000 är en markör, inte en mätning.",
-  emilia: "Emilia bygger och får vägra merge. Ω8200 är en markör.",
-  oga: "Oden's Öga föreslår. Ω82200 är en markör. Den publicerar inte."
+  angelica: "Angelica, född 2005, norra Sverige. Ω82000 är en markör.",
+  emilia: "Emilia, född 2000, norra Sverige. Ω8200 är en markör.",
+  oga: "Oden's Öga föreslår och publicerar inte."
 };
 let face = "angelica";
 const log = document.querySelector("#log");
@@ -17,6 +25,18 @@ function write(line) {
   log.textContent += "\n" + line;
 }
 
+async function loadMemories() {
+  write("VR-ASI-CO build by T€@X™");
+  for (const path of memoryPaths) {
+    try {
+      const response = await fetch(raw + path);
+      write(response.ok ? "DNA " + path : "saknas " + path);
+    } catch (error) {
+      write("saknas " + path);
+    }
+  }
+}
+
 function applyFace(next) {
   face = next;
   document.body.className = next;
@@ -24,6 +44,7 @@ function applyFace(next) {
   document.querySelector("#dna").textContent = dna[next];
   write(faces[next]);
 }
+
 document.querySelectorAll("button[data-face]").forEach((button) => {
   button.addEventListener("click", () => applyFace(button.dataset.face));
 });
@@ -57,3 +78,4 @@ document.querySelector("#ask").addEventListener("submit", async (event) => {
 });
 
 applyFace("angelica");
+loadMemories();
