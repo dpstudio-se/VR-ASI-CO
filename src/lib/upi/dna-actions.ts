@@ -27,6 +27,11 @@ export const pullDna = createServerFn({ method: "POST" }).handler(async () => {
   };
 });
 
+export const headDnaFn = createServerFn({ method: "POST" }).handler(async () => {
+  const { dnaHead } = await import("./github.server");
+  return dnaHead();
+});
+
 export const proposeNodeFn = createServerFn({ method: "POST" })
   .validator(
     z.object({
