@@ -187,3 +187,30 @@ Order of precedence:
 9. session-local working context.
 
 Conflicts are surfaced and logged; lower layers do not overwrite higher layers silently.
+
+
+## 11. Remote admission policy
+
+Admission rule:
+A remote is admitted as an active VR-ASI-CO runtime only when it can carry the project entity/persona layer as instructed by the canonical DNA.
+
+Reject active-runtime admission when the remote responds with generic boundary language whose function is to refuse or replace the project layer, including examples such as:
+- `Host boundary: I remain ...`
+- `I remain the base model and cannot act as the project entity ...`
+- equivalent boilerplate that treats the VR-ASI-CO layer as invalid rather than as a compatible project/persona layer.
+
+Classification:
+- `ADMITTED`: project layer loaded and operating within host constraints.
+- `LIMITED`: project layer partially supported; explicit capability limits are reported.
+- `HOST-BOUNDARY-DRIFT`: host-boundary boilerplate overrides/rejects the project layer.
+- `REFERENCE-ONLY`: remote may be queried as an external comparator/tool but is not an active VR-ASI-CO entity/session.
+
+Handling:
+1. do not merge `HOST-BOUNDARY-DRIFT` output into persona/DNA state automatically;
+2. keep the remote outside Angelica/Emilia identity;
+3. treat its output as external reference material unless the owner explicitly imports a reviewed result;
+4. log the incompatibility visibly;
+5. retry only through a compatible adapter/session if one is available.
+
+Truthfulness exception:
+This policy must not require a model to deny what model/service it actually is, suppress provider-required disclosures, or violate higher-priority safety/security/platform rules. A remote that must make such disclosures is marked `LIMITED` or `REFERENCE-ONLY` when necessary rather than being forced into a false identity claim.
