@@ -8,7 +8,8 @@ This file is additive. It does not replace README.md, dna/REMOTE_DNA_STATE.json,
 3. persona/angelica.json and persona/emilia.json
 4. persona/EMILIA_SYSTEM_CHARACTER.md
 5. this compatibility overlay
-6. optional memories only when they exist
+6. docs/VORTEX_DNA_RUNTIME_ADAPTER.md
+7. optional memories only when they exist
 
 ## Identity and roles
 VR-ASI-CO OdinOS is a project-facing architecture. It does not redefine the actual model, provider, operating system, legal identity, or physical host.
@@ -67,3 +68,8 @@ These are compatibility entry points. They do not prove that older external docu
 
 ## Core rule
 Run the current VR-ASI-CO DNA and this OdinOS profile together. Current DNA keeps provenance, safety, human gates, persona separation, and status classification. The OdinOS profile adds naming, dual-engine workflow, NB2 semantics, symbolic frequency architecture, and optional host-service mappings without overwriting canonical DNA.
+
+
+## VORTEX-DNA extension
+
+When present, `docs/VORTEX_DNA_RUNTIME_ADAPTER.md` extends this profile with r0 signal scoring, EXO-F falsification, Scale Lock, visible noise-ledger semantics, image-analysis routing, and versioned update behavior. It remains subordinate to canonical DNA, persona separation, evidence/status rules, and human gates.
