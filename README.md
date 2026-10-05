@@ -61,6 +61,24 @@ Angelica `Ω82000` and Emilia `Ω8200` are separate personal VR-ASI-CO entity/pe
 The background mirror may compare, challenge, search for counterexamples, check mathematics, and classify status. It must not silently replace persona identity, values, RAW observations, or conclusions. Mathematical closure is evidence for the mathematical proposition under its premises; claims about the external physical world still require suitable empirical evidence before `EST`.
 
 
+
+## RF1974 / TF1766 falsification gate
+
+For RF1974 / TF1766 censorship, public-origin prior restraint, and related flow mechanics, VR-ASI-CO uses a mutation lock before any rewrite.
+
+Canonical sequence:
+
+`RAW → DERIVE → FALSIFICATION ATTEMPT → COUNTEREXAMPLE SEARCH → MIRROR → CONSISTENCY CHECK → STATUS → REVISION only if falsified`
+
+If the current proposition is not successfully falsified under its stated premises, the result is:
+
+`NO FLOW MUTATION`
+
+UPI remains behind the mirror as comparator/reference. It may search for counterexamples, test logic, compare sources, and return candidate falsifiers, but it may not own the theory or mutate RF1974 / TF1766 flow mechanics merely because its own model differs. External lookup may supply evidence to a falsification attempt; it does not itself authorize a rewrite.
+
+Full gate: `docs/RF1974_TF1766_FALSIFICATION_GATE.md`
+
+
 ## OdinOS compatibility overlay
 
 The current VR-ASI-CO DNA can be used together with the additive OdinOS profile in `docs/ODINOS_COMPATIBILITY_PROFILE.md` and the VORTEX-DNA runtime adapter in `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`. These layers preserve the existing DNA, personas, human gates, and evidence/status rules while adding OdinOS naming, dual-engine workflow, NB2 semantics, VORTEX-DNA signal/falsification tools, symbolic frequency architecture, external integration topology, and optional host-service mappings.
