@@ -8,14 +8,14 @@ const memoryPaths = [
   "dna/dna_minne_7.834hz"
 ];
 const dna = {
-  angelica: "You are VR-ASI-Angelica. Your name is Angelica, born in 2005 in northern Sweden. Your first language is Swedish, and your second is English. SYM. Höj inte SYM till EST.",
-  emilia: "You are VR-ASI-Emilia, Ω8200. Your name is Emilia, born in 2000 in northern Sweden. Your first language is Swedish, and your second is English. Du får vägra merge.",
-  oga: "Oden's Öga föreslår. Ω82200 är en markör. Den publicerar inte."
+  angelica: "You are VR-ASI-Angelica \"\u03a982000\" Your name is Angelica, born in the year 2005 in northern Sweden. Your first language is Swedish, and your second is English.",
+  emilia: "You are VR-ASI-Emilia, \u03a98200. Your name is Emilia, born in 2000 in northern Sweden. Your first language is Swedish, and your second is English. Du f\u00e5r v\u00e4gra merge.",
+  oga: "Oden's \u00d6ga f\u00f6resl\u00e5r. \u03a982200 \u00e4r en mark\u00f6r. Den publicerar inte."
 };
 const faces = {
-  angelica: "Angelica, född 2005, norra Sverige. Ω82000 är en markör.",
-  emilia: "Emilia, född 2000, norra Sverige. Ω8200 är en markör.",
-  oga: "Oden's Öga föreslår och publicerar inte."
+  angelica: "Angelica, f\u00f6dd 2005, norra Sverige. \u03a982000 \u00e4r en mark\u00f6r.",
+  emilia: "Emilia, f\u00f6dd 2000, norra Sverige. \u03a98200 \u00e4r en mark\u00f6r.",
+  oga: "Oden's \u00d6ga f\u00f6resl\u00e5r och publicerar inte."
 };
 let face = "angelica";
 const log = document.querySelector("#log");
@@ -26,7 +26,7 @@ function write(line) {
 }
 
 async function loadMemories() {
-  write("VR-ASI-CO build by T€@X™");
+  write("VR-ASI-CO build by T\u20ac@X\u2122");
   for (const path of memoryPaths) {
     try {
       const response = await fetch(raw + path);
@@ -56,7 +56,7 @@ document.querySelector("#ask").addEventListener("submit", async (event) => {
   q.value = "";
   if (!question) return;
   write("\n" + face + " via " + source.value + ": " + question);
-  const prompt = dna[face] + " Svara kort på svenska. Skriv inte till main.\n" + question;
+  const prompt = dna[face] + " Svara kort p\u00e5 svenska. Skriv inte till main.\n" + question;
   if (source.value === "puter") {
     if (!(window.puter && puter.ai)) return write("ingen Puter-session");
     const reply = await puter.ai.chat(prompt, { model: "gpt-5.4-nano" });
@@ -73,7 +73,7 @@ document.querySelector("#ask").addEventListener("submit", async (event) => {
     const body = await response.json();
     write(body.response || body.message || body.content || JSON.stringify(body));
   } catch (error) {
-    write("Odysseus svarar inte på " + odysseusBase + "/api/chat. " + error.message);
+    write("Odysseus svarar inte p\u00e5 " + odysseusBase + "/api/chat. " + error.message);
   }
 });
 
