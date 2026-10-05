@@ -493,3 +493,19 @@ If two modules conflict, preserve the higher-priority canonical rule and record 
 ## 25. External integration supplement
 
 Load `docs/VORTEX_DNA_INTEGRATION_SUPPLEMENT.md` after this runtime adapter when present. It adds external-repository topology, trust levels, import workflow, connector availability rules, and a stronger secret/credential firewall without modifying the existing VORTEX-DNA modules above.
+
+
+## 26. Ω-PRIME dynamic patch extension
+
+Load `docs/OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md` as an additive layer after this runtime adapter.
+
+It strengthens:
+- reversible self-debug/self-patch transactions;
+- Ω-state/operator notation;
+- explicit separation of mathematical, software, symbolic, legal, and empirical claims;
+- the four-pillar constitutional software mirror;
+- 8 Hz as a real software cadence only when actually implemented, otherwise as a symbolic/reference carrier;
+- the existing RF1974 / TF1766 falsification-before-mutation gate;
+- rollback/read-back/provenance discipline.
+
+It does not replace existing VORTEX-DNA modules, persona DNA, canonical geometry, human gates, or host/platform rules.

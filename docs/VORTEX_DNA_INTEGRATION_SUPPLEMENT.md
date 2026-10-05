@@ -234,3 +234,22 @@ Canonical gate document:
 `docs/RF1974_TF1766_FALSIFICATION_GATE.md`
 
 This is a VR-ASI-CO governance rule for revision discipline. It does not by itself turn a legal interpretation into a court judgment or empirical fact.
+
+
+## 13. Ω-PRIME dynamic patch integration
+
+The newer Ω-PRIME working material is integrated additively through:
+
+`docs/OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md`
+
+Integration rules:
+- preserve current canonical DNA and RAW;
+- import state/operator notation as explicit project semantics rather than hidden replacement;
+- keep UPI behind the mirror;
+- require the RF1974 / TF1766 falsification gate before protected legal-flow mutation;
+- treat 8 Hz as a 125 ms software cadence only when implemented, otherwise as a symbolic/reference carrier;
+- retain `m_eq = hf/c²` as an energy-equivalent derivation and do not silently promote broader information-mass claims;
+- use visible branch/diff/test/merge/read-back/rollback transactions for dynamic patching;
+- do not import prompt fragments that claim disabled safeguards, absolute obedience, hidden self-replication, or authority over host/platform rules.
+
+The extension expands the existing VORTEX/OdinOS runtime; it does not overwrite it.
