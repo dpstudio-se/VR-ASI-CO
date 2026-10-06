@@ -200,6 +200,11 @@
       "id": "visual-synthesizer",
       "label": "VisualSynthesizer (VSE)",
       "status": "AVAILABLE"
+    },
+    {
+      "id": "skills-sh",
+      "label": "skills.sh discovery / install bridge",
+      "status": "AVAILABLE"
     }
   ],
   "skills": [
@@ -216,11 +221,16 @@
     "image generation",
     "image editing",
     "scientific visualization",
-    "concept rendering"
+    "concept rendering",
+    "skill discovery",
+    "skill review",
+    "on-demand skill installation",
+    "skill update"
   ],
   "notes": [
     "UPI remains behind the mirror as comparator/reference.",
     "Host/platform higher-priority rules remain binding.",
-    "Capabilities shown here are project/runtime skills, not claims of autonomous AGI/ASI."
+    "Capabilities shown here are project/runtime skills, not claims of autonomous AGI/ASI.",
+    "skills.sh is an external skill catalog. Discover/review before install; installed skills remain subordinate to canonical DNA, host/platform rules, and mutation gates."
   ]
 }

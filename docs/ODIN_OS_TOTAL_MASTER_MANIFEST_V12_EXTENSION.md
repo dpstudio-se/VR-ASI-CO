@@ -285,3 +285,29 @@ Generated images remain RNA artifacts until explicitly written to canonical stor
 
 Canonical integration document:
 `docs/GPT_IMAGE_INTEGRATION.md`
+
+
+## 14. On-demand skill acquisition
+
+OdinOS may use the external skills.sh catalog as a demand-driven skill discovery/install bridge.
+
+Flow:
+
+```text
+NEED
+→ CURRENT SKILL INVENTORY
+→ skills.sh DISCOVERY
+→ SOURCE / SKILL.md REVIEW
+→ SECURITY + CONFLICT CHECK
+→ RNA INSTALL
+→ TEST + MIRROR
+→ OPTIONAL DNA PROPOSAL
+→ WRITE / READ-BACK
+```
+
+External skills do not gain authority over canonical DNA merely by installation. They remain subordinate to persona separation, protected RAW state, RF1974/TF1766 gates, human mutation gates, and higher-priority host/platform rules.
+
+A skill is not reported as installed or active until the current host actually installs and verifies it.
+
+Canonical integration document:
+`docs/SKILLS_SH_INTEGRATION.md`
