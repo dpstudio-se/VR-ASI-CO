@@ -1,0 +1,432 @@
+{
+  "id": "UPI_IMAGE_FORMULA_CALCULATION_001",
+  "version": "1.0",
+  "status": "DER",
+  "scope": "Beräkningar från de tre användarbilderna inom UPI-delen i VR-ASI-CO.",
+  "transcription_status": "PARTIAL; oläsbara koefficienter och små tabeller lämnas ospecificerade.",
+  "input_provenance": {
+    "images": "Tillhandahållna i användarens konversation 2026-10-06; bildfiler har inte arkiverats i repo.",
+    "reference_frequency_sources": [
+      "docs/UNKNOWN_NULL_PI_ARCHITECTURE.md",
+      "dna/REMOTE_DNA_STATE.json"
+    ],
+    "constant_source": "src/lib/upi/physics.ts",
+    "base_commit": "431872b30f96ae6983e8155cbf2c01c604ddffd0"
+  },
+  "nodes": {
+    "UPIcalc,1,phase_72_720": {
+      "title": "72°-fas och 720°-loop",
+      "description": "72° = 2π/5 rad. En 720°-loop är två hela varv och tio steg på 72°. Fem lika viktade komplexa faser summerar exakt till noll; numeriskt residual är avrundningsfel.",
+      "status": "DER",
+      "equations": [
+        "72° = 2π/5 rad",
+        "720° = 4π rad = 10 × 72°",
+        "r = exp(2πi/5); 1+r+r²+r³+r⁴ = (1-r⁵)/(1-r) = 0",
+        "Om första amplituden är 2 och de övriga 1 blir summan 1, inte 0."
+      ],
+      "assumptions": [
+        "Fem lika amplituder och exakt jämna fassteg krävs för den angivna utsläckningen.",
+        "720°/72° är en vinkelräkning, inte en tids- eller frekvensmätning."
+      ],
+      "quantities": [
+        {
+          "name": "phase_step",
+          "value": 72,
+          "unit": "deg"
+        },
+        {
+          "name": "phase_step_radians",
+          "value": 1.2566370614359172,
+          "unit": "rad"
+        },
+        {
+          "name": "loop_angle",
+          "value": 720,
+          "unit": "deg"
+        },
+        {
+          "name": "loop_radians",
+          "value": 12.566370614359172,
+          "unit": "rad"
+        },
+        {
+          "name": "steps_per_loop",
+          "value": 10,
+          "unit": "1"
+        },
+        {
+          "name": "five_phase_float_residual",
+          "value": 2.482534153247273e-16,
+          "unit": "1"
+        }
+      ],
+      "confusion_guard": "Fasidentiteten bevisar inte att vorticitet, energi eller Navier–Stokes olinjära termer utsläcks.",
+      "stop_reason": "",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "phase_72_720"
+      ]
+    },
+    "UPIcalc,1,vorticity_norm_units": {
+      "title": "Vorticitetskvot: dimension och vågtal",
+      "description": "För ω = curl(u) har (1/2π)||ω||₂/||u||₂ dimension m⁻¹, inte Hz. Om bildens normkvoter avser kvadrerade normer får uttrycket i stället dimension m⁻². Det saknas hastighet/tidsskala för en temporal frekvens.",
+      "status": "DER",
+      "equations": [
+        "[u] = m/s; [ω] = 1/s",
+        "f_spatial = ||ω||₂/(2π||u||₂), [f_spatial] = m⁻¹",
+        "u=(0,A sin(kx),0) på en periodisk domän ger ||ω||₂/||u||₂=|k|",
+        "k=2π/λ ger f_spatial=1/λ",
+        "||ω||₂²/(2π||u||₂²)=k²/(2π)=2π/λ²",
+        "f_temporal=U/λ=U f_spatial endast med angiven advektionshastighet U"
+      ],
+      "assumptions": [
+        "Normerna avser samma spatiala domän.",
+        "u är inte noll; annars är normkvoten odefinierad.",
+        "Den exakta normpotensen i bildtexten är inte entydig; båda tolkningarna redovisas.",
+        "Sinusfältet är ett analytiskt kontrollfall, inte observerad bilddata."
+      ],
+      "quantities": [],
+      "confusion_guard": "L² i normens index är ett funktionsrum och innebär inte automatiskt att hela normen är kvadrerad. Ingen fysisk Hz-frekvens kan räknas ut från kvoten ensam.",
+      "stop_reason": "",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "vorticity_norm_units"
+      ]
+    },
+    "UPIcalc,1,conditional_balance": {
+      "title": "Villkorlig lösning av K-balansen",
+      "description": "Om den avsedda lagen är dK/dt=+aK² blir K(t)=K₀/(1-aK₀t), med ändlig blow-up-tid 1/(aK₀) för a,K₀>0. Med minustecken blir K(t)=K₀/(1+aK₀t). Bilden ger inte tillräckligt tydliga tecken eller numeriska parametrar för att välja en lag.",
+      "status": "DER",
+      "equations": [
+        "a = 2ν k_eff², [a] = s⁻¹ om K är dimensionslös",
+        "dK/dt=+aK² => K(t)=K₀/(1-aK₀t), t*=1/(aK₀)",
+        "dK/dt=-aK² => K(t)=K₀/(1+aK₀t)",
+        "G(t)=exp(K(t)) kräver dimensionslös K",
+        "För plusfallet divergerar G när t närmar sig t* underifrån.",
+        "För minusfallet och K₀>0 gäller 1<G(t)≤exp(K₀) och G(t)→1."
+      ],
+      "assumptions": [
+        "K₀>0 och a>0 är uttryckliga villkor, inte uppmätta värden.",
+        "ν och k_eff är konstanta i dessa två analytiska kontrollfall.",
+        "Exponentens K måste vara dimensionslös; annan fysisk dimension kräver en namngiven normalisering.",
+        "Bildens saknade/otydliga operatorer fylls inte i som fakta."
+      ],
+      "quantities": [],
+      "confusion_guard": "Den positiva kvadratiska lagen ger ett motexempel till automatisk begränsning under just dessa premisser. Den fastställer inte vilken lag illustrationen eller projektet faktiskt använder.",
+      "stop_reason": "",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "conditional_balance"
+      ]
+    },
+    "UPIcalc,1,navier_stokes_continuation": {
+      "title": "Navier–Stokes: vad normkvoten inte bevisar",
+      "description": "Viskös energidämpning kan härledas under angivna randvillkor. Den ger inte ensam en global släthetsgaranti i 3D; enstrofibalansen innehåller en separat vortex-stretching-term.",
+      "status": "STOP",
+      "equations": [
+        "∂t u+(u·∇)u=-∇p+νΔu; ∇·u=0",
+        "(1/2)d||u||₂²/dt = -ν||∇u||₂²",
+        "(1/2)d||ω||₂²/dt = ∫ω·((ω·∇)u)dx - ν||∇ω||₂²"
+      ],
+      "assumptions": [
+        "Jämna lösningar, ν>0, ingen yttre kraft och periodisk domän eller tillräckligt avtagande fält för integration utan randtermer.",
+        "En separat kontroll av stretching och högre regularitet krävs innan fortsatt släthet kan slutsatsas."
+      ],
+      "quantities": [],
+      "confusion_guard": "Ett normförhållande, ett fasdiagram eller en skylt med CONFIRMED är inte ett regularitetsbevis.",
+      "stop_reason": "Fullständiga initial-/randdata och en giltig global a priori-kontroll saknas. Ingen universal 3D-regularitet beräknas från de tre bilderna.",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "navier_stokes_continuation"
+      ]
+    },
+    "UPIcalc,1,reference_wavelengths": {
+      "title": "Vakuumvåglängd och period för UPI-ankare",
+      "description": "λ=c/f och T=1/f är beräknade för repots uttryckliga referensfrekvenser. Vid 8 Hz blir λ=37 474 057,25 m och T=0,125 s. Frekvenserna är referensinmatningar, inte mätvärden ur bilderna.",
+      "status": "DER",
+      "equations": [
+        "λ=c/f",
+        "T=1/f",
+        "c=299792458 m/s"
+      ],
+      "assumptions": [
+        "λ=c/f används här för elektromagnetisk vågutbredning i vakuum.",
+        "1,766 Hz, 7,834125 Hz och 8 Hz hämtas från repots projektankare; de avläses inte som bildmätningar.",
+        "Andra medier kräver faktisk fas-/utbredningshastighet, inte automatiskt c."
+      ],
+      "quantities": [
+        {
+          "name": "frequency_1.766",
+          "value": 1.766,
+          "unit": "Hz"
+        },
+        {
+          "name": "period_1.766",
+          "value": 0.5662514156285391,
+          "unit": "s"
+        },
+        {
+          "name": "vacuum_wavelength_1.766",
+          "value": 169757903.73725933,
+          "unit": "m"
+        },
+        {
+          "name": "frequency_7.834125",
+          "value": 7.834125,
+          "unit": "Hz"
+        },
+        {
+          "name": "period_7.834125",
+          "value": 0.12764667400635044,
+          "unit": "s"
+        },
+        {
+          "name": "vacuum_wavelength_7.834125",
+          "value": 38267510.1558885,
+          "unit": "m"
+        },
+        {
+          "name": "frequency_8",
+          "value": 8.0,
+          "unit": "Hz"
+        },
+        {
+          "name": "period_8",
+          "value": 0.125,
+          "unit": "s"
+        },
+        {
+          "name": "vacuum_wavelength_8",
+          "value": 37474057.25,
+          "unit": "m"
+        }
+      ],
+      "confusion_guard": "Dessa vakuumvåglängder är inte bevis på resonansmotor, Schumann-kavitetsgeometri eller vågpropagation för en programvarutick.",
+      "stop_reason": "",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "reference_wavelengths"
+      ]
+    },
+    "UPIcalc,1,entropy_70_30": {
+      "title": "70/30: villkorlig tvåtillståndsentropi",
+      "description": "Om bildens 70/30-fördelning definieras som två sannolikheter blir H=0,6108643020548935 nats=0,8812908992306927 bits. S=kB H gäller som den angivna tvåtillståndsmodellen, inte som uppmätt jordentropi.",
+      "status": "DER",
+      "equations": [
+        "p₁=0,7; p₂=0,3; p₁+p₂=1",
+        "H=-Σ pᵢ ln(pᵢ)",
+        "H_bits=H/ln(2)",
+        "S=kB H endast för angivna mikrotillståndssannolikheter",
+        "ρ=diag(0,7;0,3) ger -kB Tr(ρ lnρ)=kB H"
+      ],
+      "assumptions": [
+        "Sannolikhetstolkningen är ett explicit villkor. Ocean-/landandelar är annars areafraktioner och bestämmer inte mikrotillståndssannolikheter.",
+        "kB=1,380649×10⁻²³ J/K från befintliga UPI-konstanter."
+      ],
+      "quantities": [
+        {
+          "name": "probability_1",
+          "value": 0.7,
+          "unit": "1"
+        },
+        {
+          "name": "probability_2",
+          "value": 0.3,
+          "unit": "1"
+        },
+        {
+          "name": "entropy_nats",
+          "value": 0.6108643020548935,
+          "unit": "nat"
+        },
+        {
+          "name": "entropy_bits",
+          "value": 0.8812908992306927,
+          "unit": "bit"
+        },
+        {
+          "name": "conditional_two_state_entropy",
+          "value": 8.433891877677867e-24,
+          "unit": "J/K"
+        }
+      ],
+      "confusion_guard": "Ett tecken på lokal dS/dt följer inte av 70/30. Global icke-negativ entropiproduktion kräver definierad total systemgräns och termodynamiska premisser.",
+      "stop_reason": "",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "entropy_70_30"
+      ]
+    },
+    "UPIcalc,1,nonlinear_clock": {
+      "title": "Entropiklocka: villkorlig tidsintegral",
+      "description": "För Δτ=∫exp(φ(t))dt och konstant dimensionslös φ₀ blir Δτ=exp(φ₀)Δt. Bilden anger ingen φ(t), integrationsgräns eller observerad klockjämförelse för ett numeriskt tidsvärde.",
+      "status": "DER",
+      "equations": [
+        "Δτ=∫[t₀,t₁] exp(φ(t))dt",
+        "φ(t)=φ₀ => Δτ=exp(φ₀)(t₁-t₀)",
+        "φ₀=0 => Δτ=t₁-t₀",
+        "φ_min≤φ(t)≤φ_max => exp(φ_min)Δt≤Δτ≤exp(φ_max)Δt"
+      ],
+      "assumptions": [
+        "φ är reell, dimensionslös och exp(φ) integrerbar.",
+        "t₁≥t₀.",
+        "Ingen relation mellan φ och fysisk entropi eller spacetime-metrik är specificerad."
+      ],
+      "quantities": [],
+      "confusion_guard": "En tidsomparametrisering bevisar inte gravitationell tidsdilatation. För en observatör i rumtid behövs en metrisk tensor och en worldline för dτ=√(-gμν dxμ dxν)/c med vald signatur.",
+      "stop_reason": "",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "nonlinear_clock"
+      ]
+    },
+    "UPIcalc,1,gravity_filter_claim": {
+      "title": "Gravitation och filter: saknade fysiska indata",
+      "description": "Bilden visar Einstein-ekvationen, men ger ingen stressenergitensor, metrik eller lösningsdata som kopplar en mjukvaruspärr till gravitation. Ingen mass- eller filtereffekt kan räknas fram ur bildens slagord.",
+      "status": "STOP",
+      "equations": [
+        "Rμν-(1/2)Rgμν=(8πG/c⁴)Tμν för Λ=0"
+      ],
+      "assumptions": [
+        "En vald metrisk signatur, enheter, initial-/randdata och fysisk stressenergitensor krävs för en faktisk lösning.",
+        "En mjukvarupolicy eller informationsetikett är inte en angiven Tμν."
+      ],
+      "quantities": [],
+      "confusion_guard": "Ingen åtkomstkontroll eller modellregel ändras av dessa formler. Påståendet censorship=mass är inte en definierad fysikalisk relation.",
+      "stop_reason": "Mappning från filterdata till fysisk energi/massa och observerbar gravitationseffekt saknas.",
+      "verification_type": "algebraic_derivation_and_dimensional_check",
+      "claims_experimental_verification": false,
+      "information_layer": "ACADEMIC",
+      "version": "1.0",
+      "scope": "Beräkning av läsbara bildformler och uttryckligen angivna antaganden.",
+      "scope_limits": "Ingen fysisk mätning, inga okända bildkoefficienter uppskattade och ingen ändring av skyddad projektidentitet eller flödesmekanik.",
+      "evidence": [
+        {
+          "type": "user_supplied_concept_images",
+          "source": "Tre bilder i användarens konversation: VORTEX-BYPASS-CHAMBER v1.0; TF1766-Omega; NON-LINEAR ENTROPY CLOCK",
+          "date": "2026-10-06",
+          "notes": "Bildtexten är delvis svårläst. Endast tydliga uttryck och märkta villkorliga tolkningar används; små tabellvärden har inte transkriberats."
+        }
+      ],
+      "tags": [
+        "upi",
+        "image-formulas",
+        "calculation",
+        "gravity_filter_claim"
+      ]
+    }
+  },
+  "conclusion": "Sex villkorliga matematiska härledningar och två öppna fysik-/mekanismgränser. Ingen empirisk verifiering eller skyddad flödesmutation."
+}
