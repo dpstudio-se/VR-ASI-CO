@@ -26,3 +26,8 @@
 - [Minsta kontroll av boot-bevis](BOOT_EVIDENCE_CHECK.md)
 
 - [Ω1766 information-cooling bridge](OMEGA1766_INFORMATION_COOLING_BRIDGE.md)
+
+## Experimentella kontrollmodeller (dokumentation)
+
+- [UNKNOWN / NULL-PI](UNKNOWN_NULL_PI_ARCHITECTURE.md) — avgränsad RNA-reset och statusgränser; ingen installerad executor.
+- [Ω-PRIME dynamic patch](OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md) — reversibla patchar, falsifiering och provenance.

@@ -127,3 +127,9 @@ TASK
 [Repository map](docs/REPOSITORY_MAP.md), [forward/reverse flow audit](docs/FLOW_MECHANICS_AUDIT.md), and [staged improvement plan](docs/STRUCTURE_IMPROVEMENT_PLAN.md) bind the analysis to main `aeb37d1f1f888f2831dee7ccd368ff049c789531`. All 647 files are indexed; 500 text files were read, while 147 binary/image files have metadata-only review.
 
 The read-only audit tool and navigation/inventory work close the corresponding P3 items. Findings F01–F13 remain implementation work: server write authority, complete PR/head binding, boot-manifest consistency, catalog completeness, trusted host integration, registry/adapters and artifact lifecycle. Passing audit/CI is not runtime admission.
+
+## UNKNOWN / NULL-PI: dokumentation och nästa byggsteg
+
+- [x] Dokumenterad kontrollmodell med avgränsad RNA-reset, separata workflow-/datastatusar och länkar från README/index. Se [arkitekturen](docs/UNKNOWN_NULL_PI_ARCHITECTURE.md).
+- [ ] P3: Implementera endast vid konkret behov en behörig reset-adapter med explicit mål, bas-SHA, ändliga budgetar, avbrott, idempotens och rollback. Bevara RAW, evidens och kanonisk DNA; konflikter förblir STOP.
+- [ ] P2/P3: Verifiera negativa fall (budgetslut, stale bas, skyddad konflikt, upprepad begäran, avbrott och rollback) innan runtime kan beskrivas som implementerad. Ingen schemaändring eller host-admission ingår i dokumentationen.
