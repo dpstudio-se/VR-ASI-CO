@@ -39,6 +39,7 @@ const ICONS: Record<PersonaId, typeof Sparkles> = {
   "odins-eye": Eye,
   nb2: Network,
   griffin: ShieldCheck,
+  visualsynthesizer: Sparkles,
   odinos: BrainCircuit,
 };
 
@@ -48,6 +49,7 @@ const QUICK: Record<PersonaId, string[]> = {
   "odins-eye": ["Kör motexempel", "Bedöm r0", "Visa osäkerheter"],
   nb2: ["Bygg ett VR-rum", "Gör en nodgraf", "Planera WebXR-lager"],
   griffin: ["Kontrollera enheter", "Kör Scale Lock", "Klassificera status"],
+  visualsynthesizer: ["Generera en bild", "Redigera en bild", "Skapa en modulvisualisering"],
   odinos: ["Visa systemstatus", "Routa ett projekt", "Kontrollera DNA/RNA"],
 };
 
