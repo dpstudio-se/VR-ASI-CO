@@ -18,6 +18,21 @@ import { cn } from "@/lib/utils";
 
 type Msg = { who: string; text: string; me: boolean };
 
+type RuntimeRegistry = {
+  personas?: Array<{
+    id?: string;
+    status?: string;
+    capabilities?: string[];
+    knowledge?: string[];
+  }>;
+  tools?: Array<{ id?: string; label?: string; status?: string }>;
+  skills?: string[];
+};
+
+function asRuntimeRegistry(value: unknown): RuntimeRegistry {
+  return value && typeof value === "object" ? (value as RuntimeRegistry) : {};
+}
+
 const ICONS: Record<PersonaId, typeof Sparkles> = {
   angelica: Sparkles,
   emilia: Wrench,
@@ -46,6 +61,11 @@ export function PersonaStudio() {
 
   const person = PERSONAS[id];
   const personas = Object.values(PERSONAS);
+  const runtimeRegistry = asRuntimeRegistry(live.runtimeRegistry);
+  const dynamicPersona = runtimeRegistry.personas?.find((entry) => entry.id === id);
+  const displayCapabilities = dynamicPersona?.capabilities ?? person.capabilities;
+  const displayKnowledge = dynamicPersona?.knowledge ?? person.knowledge;
+  const displayStatus = dynamicPersona?.status ?? person.status;
 
   function select(next: PersonaId) {
     setId(next);
@@ -138,7 +158,7 @@ export function PersonaStudio() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="rounded-full border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-widest text-subtle">
-                  {person.status}
+                  {displayStatus}
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-der">
                   {person.handle}
@@ -170,7 +190,7 @@ export function PersonaStudio() {
                 <Wrench className="h-4 w-4" /> Skills / tools
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {person.capabilities.map((skill) => (
+                {displayCapabilities.map((skill) => (
                   <span
                     key={skill}
                     className="rounded-md border border-border bg-bg px-2.5 py-1.5 text-xs text-muted"
@@ -186,7 +206,7 @@ export function PersonaStudio() {
                 <Database className="h-4 w-4" /> Knowledge surfaces
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {person.knowledge.map((item) => (
+                {displayKnowledge.map((item) => (
                   <span
                     key={item}
                     className="rounded-md border border-border bg-bg px-2.5 py-1.5 text-xs text-muted"
@@ -253,6 +273,8 @@ export function PersonaStudio() {
             [GitBranch, "DNA sync", live.origin === "dna" ? "live" : "snapshot"],
             [Database, "Canonical records", String(live.catalog.nodes.length)],
             [Network, "Bridges", String(live.catalog.bridges.length)],
+            [Wrench, "Registered tools", String(runtimeRegistry.tools?.length ?? 0)],
+            [Sparkles, "Registered skills", String(runtimeRegistry.skills?.length ?? 0)],
           ].map(([Icon, label, value]) => {
             const I = Icon as typeof Boxes;
             return (
@@ -272,9 +294,9 @@ export function PersonaStudio() {
         <div className="mt-5 rounded-xl border border-border bg-bg/60 p-4">
           <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Dynamic adaptation</p>
           <p className="mt-2 text-sm leading-6 text-muted">
-            Kort och paneler hämtar live DNA-status och persona-registret. När skills, verktyg,
-            kunskap eller roller uppdateras i registret kan samma vy expanderas utan att UPI-katalogen
-            behöver vara huvudgränssnittet.
+            Kort och paneler hämtar live DNA-status och <code>runtime/command-deck.json</code>.
+            När skills, verktyg, kunskap eller roller uppdateras i DNA-registret läses de tillbaka
+            dynamiskt utan att UPI-katalogen behöver vara huvudgränssnittet.
           </p>
         </div>
 
