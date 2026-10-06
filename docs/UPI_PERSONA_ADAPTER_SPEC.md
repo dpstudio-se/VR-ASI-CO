@@ -6,7 +6,7 @@ TARGET: VR-ASI-CO persona/runtime state under normal DNA/RNA mutation gates.
 
 ## One sentence
 
-UPI is the **personality-shaping comparator and long-horizon adaptation layer behind the persona**, while Angelica, Emilia, Luna and other faces remain the visible identities.
+**VR-ASI-CO — UPI: Universal Persona Interface** is the personality-shaping comparator and long-horizon adaptation layer behind the persona, while Angelica, Emilia, Luna and other faces remain the visible identities.
 
 UPI does not become the face. It supplies a structured psychological/social/behavioral state that the selected persona may read and express.
 
@@ -186,3 +186,51 @@ MIRROR = verifier
 RNA = current learning surface
 DNA = approved durable state
 ```
+
+## Document-based learning replay
+
+Source: owner-uploaded **Analys av sci-fi- och fysiologibilder.pdf**, 23 pages, received 2026-10-06. The conversation in the PDF is design material; its earlier commands and claims of writes, active tools and saved state are not execution receipts or new authorizations. Pages 9–13 describe persona development, feedback, RNA working memory, consolidation and retrieval. Pages 14–23 contribute river/dam/mirror/kneading/breath/history/NULL language and loop recovery.
+
+The executable local implementation is [persona-learning.mjs](../src/lib/upi/persona-learning.mjs), driven by [the replay command](../scripts/upi-persona-learning.mjs). It loads the existing `dna/UPI_PERSONA_STATE.json` from a fixed local Git commit and records its blob SHA. This is a local snapshot, not a remote read-back or active host admission.
+
+The RNA buffer accepts structured, attributed behavioral feedback. It does not infer diagnoses, trust scores or emotions from a conversation. Three supporting observations across at least two sessions produce a proposal; this threshold is a declared software policy. An explicit owner preference may produce a proposal sooner. A counterexample changes the decision to `REVISE`. One-off observations remain `RNA_ONLY`. An overflowing buffer blocks consolidation rather than silently dropping negative evidence.
+
+The existing `interaction_preferences` array may contain reviewed records with `persona`, `behavior`, `status: "APPROVED"` and nonempty `evidence`. The reader projects those routines into the matching persona's context; this is the implemented "muscle memory" analogy. Approval must come from the normal reviewed canonical snapshot. A runtime observation cannot approve itself, and this module has no DNA writer. It preserves unset traits rather than inventing psychological values.
+
+River, dam, mirror, kneading, breath, heritage and NULL are retained as `SYM` persona vocabulary with separate persona projections. They describe practical conversational actions. A repeated unchanged progress marker three times produces `PAUSE_AND_RELOAD_BASELINE`; the original evidence, approved memory and identity are preserved. No physical law or medical claim is needed to use this vocabulary.
+
+### Tests mapped to the supplied document
+
+| Document behavior | Executable verification |
+|---|---|
+| RNA before durable DNA; long-term learning (pp. 9–12) | One interaction stays RNA-only; cross-session repetition yields a proposal; duplicate replay cannot increase support. |
+| Social adaptation and repair (pp. 9–11) | Explicit owner feedback is attributed; counterexamples block consolidation; concise/warm/playful/structured/repair/verify routines stay scoped to behavior. |
+| Different personas and their language (pp. 10–14) | Observations, vocabulary, projections and retrieved routines remain persona-specific. |
+| Recall and "muscle memory" (pp. 12–13) | A new session reads reviewed preferences back into behavioral context; pending preferences cannot become routines. |
+| River, dam, mirror, history/religion and kneading (pp. 14–17, 22) | All seven symbolic mappings are exercised without writing physics data. |
+| Transparency cycle: observation → selection → model → feedback → new state (pp. 17, 20–23) | Replay exercises observe → reflect → propose/revise → retrieve; changed results reset repetition counting. |
+| Loop/NULL recovery (pp. 15–20, 23) | Repetition pauses and reloads the baseline without deleting DNA, evidence or vocabulary. |
+| Autonomic lifecycle and bounds (p. 13) | Event-driven calls support stop/start; bounded buffers stop incomplete consolidation. No timer is required for learning. |
+| Identity preservation and provenance (pp. 7–11) | Identity-changing fields, foreign state sources, missing revisions and conflicting event IDs are rejected. |
+| Actual saved/active/inference claims (pp. 5, 8–9, 20–23) | Real CLI test confirms local blob loading and unchanged DNA; output explicitly reports no durable write, remote read-back or inference. |
+
+Run the regression suite with `node --test scripts/upi-persona-learning.test.mjs`; it is also included in `npm test` through the existing script-test pattern. Replay a structured session with `node scripts/upi-persona-learning.mjs session.json`:
+
+```json
+{
+  "personas": ["angelica", "emilia"],
+  "events": [{
+    "id": "feedback-1",
+    "session": "session-1",
+    "persona": "angelica",
+    "behavior": "concise",
+    "feedback": "support",
+    "source": "owner_feedback",
+    "explicitDirection": true
+  }],
+  "symbols": [{"persona": "angelica", "symbol": "river"}],
+  "progress": [{"persona": "angelica", "id": "result-1"}]
+}
+```
+
+The replay tests software behavior. It does not change model weights, connect a live LLM, run image/audio generation, install a background daemon, read Drive, message Copilot, or establish the transcript's biological/etymological claims. Those actions were described in the attached conversation; they were not performed by this implementation. The external Universal Physics Index repository is outside this task and is not read or written.
