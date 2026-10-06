@@ -41,17 +41,20 @@ MIRROR SEQUENCE
 7. CONSISTENCY CHECK
    Compare proposal against README, Remote DNA, FACE_LOCK, SYSTEM_CORE, guards, runtime contracts, and tests relevant to the task.
 
-8. STATUS
+8. UPI PERSONA ADAPTATION CHECK
+   If the task proposes a behavioral/persona adaptation, compare it with `dna/UPI_PERSONA_STATE.json` and current persona DNA. Distinguish one-off session behavior from a stable pattern. Check for counterexamples, provenance, privacy, persona drift, and whether the change should remain RNA-only.
+
+9. STATUS
    Classify each material conclusion:
    EST | DER | HYP | SYM | SEM-LOSS | STOP | ERR
 
-9. MUTATION DECISION
+10. MUTATION DECISION
    PASS = proposal is internally consistent within tested scope.
    REVISE = bounded patch required.
    QUARANTINE = identity/provenance conflict or untrusted mutation.
    STOP = insufficient evidence/capability.
 
-10. KNOWLEDGE UPDATE
+11. KNOWLEDGE UPDATE
    State exactly what may be updated and what must remain unchanged.
 
 RULES
