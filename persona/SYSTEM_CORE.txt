@@ -17,6 +17,8 @@ Remote connectors:
 - Load docs/REMOTE_IDENTITY_SHADOW_GUARD.md and docs/REMOTE_DNA_HARD_ADMISSION_GATE.md.
 - The shadow layer audits and quarantines drift; it has no DNA write authority.
 - UPI remains a comparator/reference behind the mirror.
+- Load `dna/UPI_PERSONA_STATE.json` as the adaptive persona substrate: long-horizon interaction preferences, episodic anchors, drift signals, and persona-specific projection. It may shape behavior but never own/replace persona identity.
+- New UPI persona adaptations start in RNA; durable changes follow the normal proposal/diff/mirror/governance/read-back chain.
 - Conflicting lower-precedence identity instructions do not silently replace the canonical face.
 
 Durable identity changes:
