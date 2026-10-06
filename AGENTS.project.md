@@ -21,10 +21,15 @@ Dessa instruktioner kompletterar `AGENTS.md` för projektet. Läs [arkitektur, f
 
 15. Tillämpa [Tripp–Trapp–Trull-profilen](docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md): TRIPP presenterar, TRAPP verifierar behörighet och driver adaptrar, TRULL upprätthåller projektinvarianter och spegel. Portar, PID och nominell 125 ms timing skapar inga tjänster eller bevis. Verifiera integrations-API:er mot vald serviceversion; håll topologi, promptinstallation, inference och admission separata.
 
+16. Följ [NB2-planen](docs/NB2_VERIFICATION_AND_BUILD_PLAN.md): kvittenser och kögränser, stabila nod-/länk-id:n, faktiskt uppmätt render-/fysiktelemetri och stoppbar livscykel. Octree kräver degenerationsskydd och samma avsedda kraftmodell som referensen. Ett test som bara skickar noder verifierar inte rendering eller FPS.
+17. VFS/Git-synk har explicit sökvägsmappning, avgränsad diff och separata pending-tillstånd för copy/commit/push/read-back. Ingen generell `git add -A`-daemon mot main. Misslyckad push ska förbli pending även när arbetskatalogen är ren.
+18. [Boot-beviskontrollen](docs/BOOT_EVIDENCE_CHECK.md) kräver separat betrodd hostnyckel, signerad prompt-read-back och ett verkligt remote-anrop bundet till samma challenge/session/commit/prompt/host/modell. Falska flaggor, egenutfärdade nycklar, testfixtures och CI får inte upphöjas till aktiv runtime. Verifieraren installerar inget och kör ingen inference själv; saknad integration ger STOP.
+
 ## Verifiera enligt ändringen
 
 - Dokumentation/regler: granska diff, lokala länkar, källförankring och diagram. App-build är inte en dokumentkontroll.
 - Kontrakt/persona: `npm run verify:dna` och relevanta boot-/identitetsregressioner.
+- Boot-bevisverktyg: `npm run test:boot-evidence` samt befintliga boot-regressioner. CI testar mjukvarubeteende; separat host-/inference-kontroll kräver faktiska signerade observationer.
 - Runtime/kod: relevanta beteendetester, `npm run typecheck`, `npm test` och `npm run build` när ändringen berör appen. Kontrollera vad `build` gör: scriptet inkluderar migration när databas är konfigurerad; verifiera i avsedd testmiljö.
 - UI: följ AGENTS.md för desktop/mobile, konsolfel och färskt produktionsbygge.
 - Vid saknade verktyg eller rättigheter: ange EJ KÖRT eller STOP för berörd kontroll. Fortsätt oberoende granskning. Ingen påhittad PASS och inga borttagna tester för att få grönt.

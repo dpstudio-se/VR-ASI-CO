@@ -202,3 +202,17 @@ Alla kodfynd avser revisionen ovan. Relativa länkar följer dokumentets revisio
 Additivt arkitekturtillägg 2026-10-06: [Tripp–Trapp–Trull](TRIPP_TRAPP_TRULL_ARCHITECTURE.md) konkretiserar TRIPP = presentation/Puter, TRAPP = workspace/API/adaptrar och TRULL = OdinOS projektkärna/dual engine/spegel. Befintliga B01–B15 gäller över alla skikt.
 
 **B16 — Skiktens namn ändrar inte bevis eller rättigheter.** Börja i befintliga appmoduler. Ett API-/VFS-/IPC-kontrakt ska förankras i vald host och serviceversion. Portar, PID, 8 Hz och μ = 0 är konfiguration/markörer/modellvärden tills separat observation visar något annat. Transport, promptinstallation och inference verifieras var för sig. Ingen layer får ge sig själv DNA-skrivrätt eller runtime-admission. Den tillhandahållna Puter-bryggan är ett designförslag tills dess API:er, auth, operationer och read-back är implementerade och kontrollerade.
+
+## 10. NB2 och verifierbara runtime-bevis
+
+Tillägg baserat på ägarens konversationsbilaga och read-only kontroll av [c089425](https://github.com/dpstudio-se/VR-ASI-CO/commit/c0894257e4f85c8464b8c2c21700e1b156ee66c5). [NB2-planen](NB2_VERIFICATION_AND_BUILD_PLAN.md) innehåller konkreta kodfynd, flödesdiagram och acceptansvillkor. Bilagans körloggar är fortsatt overifierade.
+
+**B17 — Händelser behöver verifierbar mottagning.** Versionera transport/schema; verifiera aktör, meddelande-id, session, DNA-bas, vektorvärden och gränser. Begränsa kö och payload, ge kvittens och redovisa drops. Bevara giltiga nollor. Återanslutning har backoff och stopp/dispose. Sända, mottagna, lagrade och renderade noder är separata mått.
+
+**B18 — Mät där arbetet sker.** Fysiksteg och rendering har separata klockor/budgetar. FPS mäts i faktisk render-/XR-loop, Octree-djup i byggt träd och interaktioner i faktisk traversering. Märk uppskattningar och saknade värden. Använd reproducerbart seed, warmup och deklarerad testmiljö. Octree ska ha bucket-löv/maxdjup/minsta cell, självinteraktionsskydd, sammanhängande positionssnapshot, bevarade fjädrar och jämförelse mot referensmodell. Ingen hårdkodad benchmark-PASS.
+
+**B19 — Synk är en tillståndsmaskin.** Begränsa importerade sökvägar och explicit käll-/målmappning. Fånga kopieringsfel; isolera uppgiftens diff och indexering. En push som misslyckats förblir pending även när working tree är ren. Separera import, commit, push och remote read-back; konflikt eller obekräftad remote är inte konvergens. Standardvägen är förslagsbranch/PR och granskad merge, aldrig en oavgränsad `git add -A`-loop mot main.
+
+**B20 — Autentisera bevis innan admission.** Använd [boot-kontrollens protokoll](BOOT_EVIDENCE_CHECK.md) för separata signerade installations- och inference-kvitton. Operatören låser godkänd offentlig hostnyckel utanför beviset; bind nonce, session, persona, commit, prompt-hash, host, modell, endpoint och färskhet. Ett faktiskt användarauktoriserat inferensanrop följer prompt-read-back. Nyckeln/signaturen bekräftar en betrodd värdutsaga inom angiven omfattning; de är ingen fysisk mätning eller ändring av värdens säkerhetspolicy. CI och syntetiska testfixtures ger aldrig runtime-PASS. Saknad hostintegration ger UNVERIFIED/STOP.
+
+Verifieraren är fristående CLI; den kopplas inte till appens UI eller uppstart genom detta tillägg. Befintliga serverbehörighets-, bootlist- och mergeglapp kvarstår enligt P0–P3. Inför inga automatiska tjänster för att dölja dessa glapp.

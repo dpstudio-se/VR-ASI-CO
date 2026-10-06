@@ -37,6 +37,8 @@ Keep VR-ASI-CO reproducible across fresh chats, local workspaces, and compatible
 - [ ] Add one-click/copy boot prompt surface in the app.
 - [ ] Add boot receipt export with canonical blob SHAs.
 - [ ] Add stale-session warning when remote HEAD changes.
+- [x] Add standalone boot-evidence verifier with separate provenance/install/inference/admission results and negative signature/binding/freshness tests.
+- [ ] Connect an approved host integration with an operator-pinned key, actual prompt read-back and one bounded remote inference request; keep runtime STOP until observed.
 
 **Exit:** clean session → remote read → verified identity/provenance → usable runtime.
 
@@ -63,6 +65,10 @@ Keep VR-ASI-CO reproducible across fresh chats, local workspaces, and compatible
 - [ ] Add local-vs-remote SHA comparison command.
 - [ ] Add bounded repair proposal generation; never auto-merge protected changes.
 - [ ] Add schema validation for runtime/command-deck.json and DNA JSON files.
+- [x] Specify NB2 event/acknowledgement, physics/render telemetry, Octree and bounded VFS-sync requirements in `docs/NB2_VERIFICATION_AND_BUILD_PLAN.md`.
+- [ ] Implement one NB2 event → node store → render → acknowledgement operation against a verified workspace adapter.
+- [ ] Validate reference physics and Octree degeneracy before reproducible 100/1000-node benchmarks.
+- [ ] Implement scoped import/commit/push/read-back states; use reviewed PRs for DNA changes.
 
 ### P4 — Professional UX and documentation
 

@@ -21,7 +21,10 @@
     "format": "prettier --write .",
     "verify:persona": "node scripts/verify-persona-lock.mjs",
     "verify:remote-dna": "node scripts/verify-remote-dna.mjs",
-    "verify:dna": "npm run verify:persona && npm run verify:remote-dna"
+    "verify:dna": "npm run verify:persona && npm run verify:remote-dna",
+    "verify:boot": "node scripts/verify-boot-evidence.mjs",
+    "boot:challenge": "node scripts/verify-boot-evidence.mjs --challenge-only",
+    "test:boot-evidence": "node --test scripts/verify-boot-evidence.test.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",

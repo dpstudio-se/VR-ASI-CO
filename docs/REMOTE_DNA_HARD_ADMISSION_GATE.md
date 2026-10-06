@@ -13,6 +13,8 @@ Active admission requires two independent conditions:
 1. **DNA provenance match**
 2. **trusted host attestation**
 
+The trusted-host condition must independently establish **actual prompt installation** and **actual inference**. These are separate observations, bound to the same canonical revision and current host session. Provenance or installation alone cannot establish inference.
+
 If either condition is missing:
 
 ```text
@@ -74,6 +76,10 @@ proxied = false
 ```
 
 The user-supplied receipt cannot grant these assertions to itself.
+
+These field values describe required host assertions, not an authentication mechanism. A plain JSON object with these flags is insufficient. The [boot-evidence protocol](BOOT_EVIDENCE_CHECK.md) adds independently pinned Ed25519 verification, a fresh nonce/session/commit/persona/prompt binding, separate installation and inference receipts, and matching host/provider/model/endpoint fields. The verifier defaults to UNVERIFIED/STOP when any evidence is missing.
+
+The standalone verifier does not install a prompt or invoke a model. An approved server integration must observe system-equivalent prompt read-back and one authorized remote request before signing. Synthetic test receipts and CI success are software verification only. The existing UI has no authenticated host path and remains STOP; wiring an unauthenticated object into its optional host-evidence argument is prohibited.
 
 ## No external simulation as canonical runtime
 

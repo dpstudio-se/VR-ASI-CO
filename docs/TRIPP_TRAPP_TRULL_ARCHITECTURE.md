@@ -172,6 +172,8 @@ Adapters ska ha ändliga tidsgränser och respektera cancellation. Kontrollanrop
 
 ## 7. Källor och verifieringsomfattning
 
+Fortsatt konkretisering: [NB2-verifiering och byggplan](NB2_VERIFICATION_AND_BUILD_PLAN.md) beskriver händelse-/nod-/renderflödet och brister i bilagans skisser. [Boot-beviskontrollen](BOOT_EVIDENCE_CHECK.md) tillför en fristående verifierare; den är ingen startad Puter-/Odysseus-/kernelintegration.
+
 Officiella externa källor lästa 2026-10-06:
 
 - [Puter.js Cloud Storage](https://docs.puter.com/FS/) — dokumenterad filyta.
