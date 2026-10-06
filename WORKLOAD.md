@@ -158,3 +158,9 @@ The audit's [F01–F13](docs/FLOW_MECHANICS_AUDIT.md) are implementation work. D
 | F13 | P3 | Bounded retry/backoff/job lifecycle for sync/write; no duplicated writes. The dev-start lock covers local startup only. |
 
 Branch protection was reported disabled when main `0d9aca105c094c33d78488754293259f6741d8b9` was inspected on 2026-10-06. CODEOWNERS and workflow files do not enable GitHub enforcement by themselves; administration remains open work.
+
+## UNKNOWN / NULL-PI: dokumentation och nästa byggsteg
+
+- [x] Dokumenterad kontrollmodell med avgränsad RNA-reset, separata workflow-/datastatusar och länkar från README/index. Se [arkitekturen](docs/UNKNOWN_NULL_PI_ARCHITECTURE.md).
+- [ ] P3: Implementera endast vid konkret behov en behörig reset-adapter med explicit mål, bas-SHA, ändliga budgetar, avbrott, idempotens och rollback. Bevara RAW, evidens och kanonisk DNA; konflikter förblir STOP.
+- [ ] P2/P3: Verifiera negativa fall (budgetslut, stale bas, skyddad konflikt, upprepad begäran, avbrott och rollback) innan runtime kan beskrivas som implementerad. Ingen schemaändring eller host-admission ingår i dokumentationen.
