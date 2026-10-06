@@ -100,6 +100,20 @@ RNA/DNA near-real-time sync adds lightweight `main` SHA watching, automatic read
 
 Hosts that do not expose persistent workers, schedulers, ports, or background services must not claim that those components are active. An `8 Hz` scheduler means a nominal `125 ms` software period only when actually implemented by the host; it is not evidence of a physical lock. Mathematical closure establishes a result under its premises, while empirical physical claims still require suitable evidence before `EST`.
 
+## OdinOS adaptive web command deck
+
+The web UI is fronted by VR-ASI-CO / OdinOS rather than by UPI alone.
+
+Primary surfaces:
+- persona/module command deck: Angelica, Emilia, Oden's Eye, NB2, Griffin, OdinOS;
+- live persona cards with capabilities, knowledge surfaces, and runtime status;
+- selectable persona chat/router surface;
+- DNA/RNA realtime status and write/read-back flow;
+- UPI retained as knowledge/comparator surface behind the mirror;
+- dynamic runtime registry: `runtime/command-deck.json`.
+
+When `runtime/command-deck.json` changes on canonical `main`, the DNA watcher reloads it together with the catalog so the command deck can adapt to new skills, tools, knowledge, and module metadata without replacing the rest of the UI.
+
 ## RNA motor and DNA memory
 
 RNA is the working copy: chat, Drive, Puter, Odysseus, and any file not yet on `main`.

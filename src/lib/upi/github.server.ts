@@ -20,6 +20,7 @@ export type DnaPull = {
   files: number;
   skipped: number;
   promptSources: Record<string, string>;
+  runtimeRegistry: unknown | null;
 };
 
 export type DnaWrite = {
@@ -135,6 +136,20 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
   });
   const parsed = files.filter((f): f is { path: string; json: unknown } => Boolean(f));
   const catalog = hydrateCatalog(parsed, `dna-${commit.sha.slice(0, 7)}`);
+
+  let runtimeRegistry: unknown | null = null;
+  const registryPath = "runtime/command-deck.json";
+  const registryFile = tree.tree.find((entry) => entry.type === "blob" && entry.path === registryPath);
+  if (registryFile) {
+    try {
+      const url = `${RAW}/${DNA.owner}/${DNA.repo}/${commit.sha}/${registryPath}`;
+      const res = await fetch(url, { headers: { "user-agent": UA } });
+      if (res.ok) runtimeRegistry = JSON.parse(await res.text()) as unknown;
+    } catch {
+      runtimeRegistry = null;
+    }
+  }
+
   return {
     catalog,
     sha: commit.sha,
@@ -143,6 +158,7 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
     files: parsed.length,
     skipped,
     promptSources,
+    runtimeRegistry,
   };
 }
 

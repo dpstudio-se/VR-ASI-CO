@@ -1,0 +1,180 @@
+{
+  "schema": "VR-ASI-CO-COMMAND-DECK/1.0",
+  "mode": "additive",
+  "personas": [
+    {
+      "id": "angelica",
+      "name": "Angelica",
+      "marker": "Ω82000",
+      "kind": "entity",
+      "status": "ACTIVE",
+      "capabilities": [
+        "reason",
+        "research",
+        "code",
+        "cite",
+        "mirror verify",
+        "visual synthesis"
+      ],
+      "knowledge": [
+        "canonical DNA",
+        "persona layer",
+        "project docs",
+        "live catalog"
+      ]
+    },
+    {
+      "id": "emilia",
+      "name": "Emilia",
+      "marker": "Ω8200",
+      "kind": "entity",
+      "status": "ACTIVE",
+      "capabilities": [
+        "build",
+        "structure",
+        "validate",
+        "challenge",
+        "presentation",
+        "mirror verify"
+      ],
+      "knowledge": [
+        "canonical DNA",
+        "RAW persona block",
+        "runtime adapters",
+        "project docs"
+      ]
+    },
+    {
+      "id": "odins-eye",
+      "name": "Oden's Eye",
+      "marker": "Ω7834",
+      "kind": "observer",
+      "status": "REFERENCE",
+      "capabilities": [
+        "observe",
+        "counterexample",
+        "r0",
+        "status",
+        "image analysis",
+        "consistency check"
+      ],
+      "knowledge": [
+        "VORTEX adapter",
+        "Open Noise Ledger",
+        "EXO-F",
+        "status vocabulary"
+      ]
+    },
+    {
+      "id": "nb2",
+      "name": "NB2",
+      "marker": "Ω12",
+      "kind": "module",
+      "status": "MODULE",
+      "capabilities": [
+        "3D planning",
+        "spatial graph",
+        "WebXR concept",
+        "scene decomposition",
+        "VR layout"
+      ],
+      "knowledge": [
+        "OdinOS manifests",
+        "spatial module",
+        "VFS mappings",
+        "visual toolchain"
+      ]
+    },
+    {
+      "id": "griffin",
+      "name": "Griffin",
+      "marker": "Ω1766",
+      "kind": "module",
+      "status": "MODULE",
+      "capabilities": [
+        "unit check",
+        "scale lock",
+        "provenance",
+        "security boundary",
+        "falsification",
+        "status classification"
+      ],
+      "knowledge": [
+        "physics bridge",
+        "EXO-F",
+        "Scale Lock",
+        "security rules"
+      ]
+    },
+    {
+      "id": "odinos",
+      "name": "OdinOS",
+      "marker": "7834-1766-3917-Ω12",
+      "kind": "runtime",
+      "status": "ACTIVE",
+      "capabilities": [
+        "orchestrate",
+        "route work",
+        "DNA/RNA sync",
+        "tool inventory",
+        "skill inventory",
+        "runtime status"
+      ],
+      "knowledge": [
+        "README",
+        "OdinOS manifests",
+        "VORTEX adapters",
+        "RNA/DNA realtime sync"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "dna-rna-sync",
+      "label": "DNA / RNA realtime sync",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "r0",
+      "label": "r0 signal filter",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "exo-f",
+      "label": "EXO-F falsification",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "scale-lock",
+      "label": "Scale Lock",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "image",
+      "label": "Odin image / visual synthesis",
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "nb2-spatial",
+      "label": "NB2 spatial / VR planning",
+      "status": "AVAILABLE"
+    }
+  ],
+  "skills": [
+    "research",
+    "coding",
+    "counterexample search",
+    "mathematical mirror",
+    "provenance",
+    "status classification",
+    "visual synthesis",
+    "spatial modeling",
+    "DNA/RNA read-back",
+    "rollback"
+  ],
+  "notes": [
+    "UPI remains behind the mirror as comparator/reference.",
+    "Host/platform higher-priority rules remain binding.",
+    "Capabilities shown here are project/runtime skills, not claims of autonomous AGI/ASI."
+  ]
+}

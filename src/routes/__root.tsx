@@ -12,7 +12,7 @@ import { AppShell } from "@/components/app-shell";
  
 import appCss from "../styles.css?url";
  
-const APP_NAME = "Universal Physics Index";
+const APP_NAME = "VR-ASI-CO · OdinOS";
  
 function NotFound() {
 return (
@@ -75,7 +75,7 @@ title: APP_NAME,
 {
 name: "description",
 content:
-"Open, machine-readable index of physical quantities, equations, hypotheses, and provenance with strict scientific status labels.",
+"Adaptive VR-ASI-CO OdinOS command deck for personas, tools, skills, DNA/RNA status, knowledge surfaces, and project workflows.",
 },
 {
 name: "theme-color",
