@@ -8,3 +8,6 @@
 - docs/NEW_SOURCES.md
 - sim/tf1766_shild/kernel.rs
 - sim/mesa_workflow/
+
+- [VR-ASI-CO / OdinOS: arkitektur, flödesmekanik och byggregler](VR_ASI_CO_ODINOS_BUILD_RULES.md)
+- [Projektregler för agenter](../AGENTS.project.md)

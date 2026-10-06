@@ -208,6 +208,8 @@ Never report a test, push, merge, rollback, remote load, or read-back as success
 
 ## Project navigation
 
+- `AGENTS.project.md` — project-specific build instructions
+- `docs/VR_ASI_CO_ODINOS_BUILD_RULES.md` — source-based architecture analysis, flow diagrams, and build rules
 - `WORKLOAD.md` — prioritized engineering workload
 - `prompts/REMOTE_BOOT_PROMPT.md` — portable fresh-session boot prompt
 - `prompts/MIRROR_PROMPT.md` — reusable mirror/audit prompt
