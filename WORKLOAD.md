@@ -60,8 +60,8 @@ Keep VR-ASI-CO reproducible across fresh chats, local workspaces, and compatible
 **Goal:** make correct workflows easy.
 
 - [ ] Consolidate duplicated boot/prompt documents.
-- [ ] Add `npm run audit:dna` with a concise machine-readable report.
-- [ ] Add repository-tree inventory for canonical boot files.
+- [x] Add `npm run audit:dna` with a concise machine-readable static report; warnings and runtime admission remain separate.
+- [x] Add full base-revision tree inventory with blob SHAs and static coverage in `docs/REPOSITORY_INVENTORY.json`; keep fresh-HEAD boot unchanged.
 - [ ] Add local-vs-remote SHA comparison command.
 - [ ] Add bounded repair proposal generation; never auto-merge protected changes.
 - [ ] Add schema validation for runtime/command-deck.json and DNA JSON files.
@@ -121,3 +121,9 @@ TASK
 6. `SYM/HYP != EST` without relevant evidence.
 7. Higher-priority host security/safety/privacy rules remain binding.
 8. Protected identity changes require explicit owner authorization.
+
+## Structure audit, 2026-10-06
+
+[Repository map](docs/REPOSITORY_MAP.md), [forward/reverse flow audit](docs/FLOW_MECHANICS_AUDIT.md), and [staged improvement plan](docs/STRUCTURE_IMPROVEMENT_PLAN.md) bind the analysis to main `aeb37d1f1f888f2831dee7ccd368ff049c789531`. All 647 files are indexed; 500 text files were read, while 147 binary/image files have metadata-only review.
+
+The read-only audit tool and navigation/inventory work close the corresponding P3 items. Findings F01–F13 remain implementation work: server write authority, complete PR/head binding, boot-manifest consistency, catalog completeness, trusted host integration, registry/adapters and artifact lifecycle. Passing audit/CI is not runtime admission.
