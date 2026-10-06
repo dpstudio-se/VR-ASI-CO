@@ -1,0 +1,48 @@
+name: Workspace setup and tests
+
+on:
+  pull_request:
+    paths:
+      - ".devcontainer/**"
+      - "startup.sh"
+      - "scripts/**"
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "docs/CODESPACES.md"
+      - "docs/WORKSPACE_RULES.md"
+      - "AGENTS.md"
+      - "AGENTS.project.md"
+      - "WORKLOAD.md"
+      - ".github/workflows/workspace.yml"
+  push:
+    branches: [main]
+    paths:
+      - ".devcontainer/**"
+      - "startup.sh"
+      - "scripts/**"
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "docs/CODESPACES.md"
+      - "docs/WORKSPACE_RULES.md"
+      - "AGENTS.md"
+      - "AGENTS.project.md"
+      - "WORKLOAD.md"
+      - ".github/workflows/workspace.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  workspace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm run workspace:setup
+      - run: npm test

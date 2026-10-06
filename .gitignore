@@ -18,4 +18,5 @@ SESSION_HANDOFF.md
 
 .tmp.driveupload/
 
-.tmp.driveupload/
+# Portable development lifecycle output
+.cache/vr-asi-co/

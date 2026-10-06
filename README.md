@@ -39,10 +39,16 @@ git clone https://github.com/dpstudio-se/VR-ASI-CO.git
 cd VR-ASI-CO
 git checkout main
 git pull --ff-only
-npm install
+npm run workspace:setup
 npm run verify:dna
 npm test
 ```
+
+### GitHub Codespaces
+
+Repositoryt har en [devcontainer](.devcontainer/devcontainer.json) för Node 22. Den installerar från lockfil, kör workspace-kontroller och begär en låst devstart på 8080. För befintliga Codespaces används **Codespaces: Rebuild Container** när konfigurationen finns på vald branch. Setup och grön CI är inte host-admission eller verifierad UI-rendering.
+
+Se [Codespaces och lokal utveckling](docs/CODESPACES.md) och [gemensamma workspace-regler](docs/WORKSPACE_RULES.md).
 
 ### New AI / agent session
 
@@ -217,6 +223,10 @@ Never report a test, push, merge, rollback, remote load, or read-back as success
 - Shadow/mirror components audit; they do not silently rewrite protected identity or RAW state.
 
 ## Project navigation
+
+- [Codespaces och lokal utveckling](docs/CODESPACES.md)
+- [Gemensamma workspace-regler](docs/WORKSPACE_RULES.md)
+- [Repositorykarta och aktuell strukturgranskning](docs/REPOSITORY_MAP.md)
 
 - [NB2 verification and bounded build plan](docs/NB2_VERIFICATION_AND_BUILD_PLAN.md)
 - [Boot evidence check and host receipt protocol](docs/BOOT_EVIDENCE_CHECK.md)

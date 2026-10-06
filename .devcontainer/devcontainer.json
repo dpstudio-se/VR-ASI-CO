@@ -1,0 +1,23 @@
+{
+  "name": "VR-ASI-CO workspace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "remoteUser": "node",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "VR-ASI-CO dev", "onAutoForward": "notify" },
+    "8081": { "label": "Production QA only", "onAutoForward": "ignore" }
+  },
+  "otherPortsAttributes": { "onAutoForward": "ignore" },
+  "remoteEnv": {
+    "__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS": "${containerEnv:CODESPACE_NAME}-8080.${containerEnv:GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+  },
+  "postCreateCommand": ["npm", "run", "workspace:setup"],
+  "postStartCommand": ["sh", "startup.sh"],
+  "waitFor": "postCreateCommand",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+      "settings": { "typescript.tsdk": "node_modules/typescript/lib" }
+    }
+  }
+}

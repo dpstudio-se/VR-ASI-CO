@@ -15,3 +15,22 @@ README.md @dpstudio-se
 /scripts/verify-persona-lock.mjs @dpstudio-se
 /.github/workflows/persona-lock.yml @dpstudio-se
 /.github/CODEOWNERS @dpstudio-se
+
+# Workspace, agent rules and automation are control surfaces too.
+/AGENTS.md @dpstudio-se
+/AGENTS.project.md @dpstudio-se
+/WORKLOAD.md @dpstudio-se
+/CLAUDE.md @dpstudio-se
+/GEMINI.md @dpstudio-se
+/.cursorrules @dpstudio-se
+/.continue/rules/ @dpstudio-se
+/.continuity/INSTRUCTIONS.md @dpstudio-se
+/.github/copilot-instructions.md @dpstudio-se
+/.github/workflows/ @dpstudio-se
+/.devcontainer/ @dpstudio-se
+/docs/WORKSPACE_RULES.md @dpstudio-se
+/docs/CODESPACES.md @dpstudio-se
+/startup.sh @dpstudio-se
+/scripts/startup.test.mjs @dpstudio-se
+/package.json @dpstudio-se
+/package-lock.json @dpstudio-se

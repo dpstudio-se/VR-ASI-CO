@@ -137,7 +137,9 @@ process.env
 const child = spawn(command, args, {
 stdio: "inherit",
 env,
-shell: true,
+// Preserve argument boundaries (node -e, spaces and shell metacharacters).
+// npm scripts already put the project's executables on PATH.
+shell: false,
 });
  
 // The dev server is long-running and is stopped by signalling this wrapper.
