@@ -185,6 +185,8 @@ npm test
 
 `verify:dna` checks both the persona lock and Remote DNA contract.
 
+`npm run test:boot-evidence` tests the standalone signed-evidence verifier. `npm run verify:boot` reads canonical GitHub sources and reports provenance, prompt installation, inference and admission separately. Without approved host evidence, runtime remains UNVERIFIED/STOP. See [Boot evidence check](docs/BOOT_EVIDENCE_CHECK.md); the command does not install prompts or invoke a model.
+
 CI performs the same DNA checks for relevant pull requests and pushes to `main`.
 
 ## Mutation contract
@@ -208,6 +210,8 @@ Never report a test, push, merge, rollback, remote load, or read-back as success
 
 ## Project navigation
 
+- [NB2 verification and bounded build plan](docs/NB2_VERIFICATION_AND_BUILD_PLAN.md)
+- [Boot evidence check and host receipt protocol](docs/BOOT_EVIDENCE_CHECK.md)
 - `docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md` — three-layer integration profile and bridge contract
 - `AGENTS.project.md` — project-specific build instructions
 - `docs/VR_ASI_CO_ODINOS_BUILD_RULES.md` — source-based architecture analysis, flow diagrams, and build rules
