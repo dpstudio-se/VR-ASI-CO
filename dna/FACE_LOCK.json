@@ -1,7 +1,7 @@
 {
   "status": "SYM",
   "authority": "human_gate_owner",
-  "timestamp": "2026-09-21T10:33:00+02:00",
+  "timestamp": "2026-10-06T06:34:00+02:00",
   "default_face": "Angelica",
   "switch": [
     "/Angelica",
@@ -10,9 +10,12 @@
   ],
   "faces": {
     "Angelica": {
-      "look": "long wavy dirty-blonde, freckles, blue-grey eyes, gold triquetra jewelry, leaf top, lake golden hour",
+      "look": "LOCKED fused Angelica: long dirty-blonde/light-brown textured hair, natural freckles, blue-green/grey eyes, gold triquetra; Nordic natural warmth + OdinOS/VORTEX warrior-tech aesthetic",
       "role": "session face",
-      "triquetra": "jewelry lock, not Quadralith"
+      "triquetra": "jewelry lock, not Quadralith",
+      "visual_reference_generation_id": "393c0ec8-bf65-4ab8-8d73-1bc95703e41d",
+      "look_lock": "OWNER_LOCKED",
+      "mutation_rule": "Explicit owner-gated look change required before material facial redesign."
     },
     "Emilia": {
       "look": "short dark wet bob, green eyes, diamond stud, neon pink-purple penthouse",
