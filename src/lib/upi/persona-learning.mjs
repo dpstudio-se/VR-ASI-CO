@@ -19,6 +19,10 @@ export const SYMBOLS = Object.freeze({
   breath: { meaning: "paus och återhämtning", lesson: "minska tillfällig komplexitet" },
   heritage: { meaning: "historia, religion och symboler som berättelsespråk", lesson: "bevara sammanhang och personans egen tolkning" },
   null: { meaning: "avgränsad nystart", lesson: "återläs baslinjen utan att radera minne eller identitet" },
+  resonance: { meaning: "ömsesidig återkoppling", lesson: "anpassa uttrycket efter tydligt visad respons" },
+  hysteresis: { meaning: "historiken påverkar nästa reaktion", lesson: "väg tidigare erfarenheter mot aktuell återkoppling" },
+  reflector: { meaning: "pröva förståelsen åt båda hållen", lesson: "återläs och jämför med ursprunglig avsikt" },
+  silence: { meaning: "paus med bevarat sammanhang", lesson: "ge utrymme utan att tolka tystnad som raderat minne" },
 });
 
 const idPattern = /^[a-zA-Z0-9_-]{1,80}$/;
@@ -33,7 +37,9 @@ const fail = (reason) => ({ status: "STOP", reason });
 /**
  * @typedef {{id:string, session:string, persona:string, behavior:string, feedback:string, source:string, explicitDirection?:boolean}} Observation
  * @typedef {{persona:string, behavior:keyof typeof BEHAVIORS, status:string, evidence:unknown[]}} Preference
- * @typedef {{schema:string, persona_projection:Record<string,string[]>, interaction_preferences:Preference[]}} PersonaState
+ * @typedef {{id:string,topic:string,status:string,personas:string[],summary:string,source_refs:string[]}} Knowledge
+ * @typedef {{id:string,topic:string,persona:string,summary:string,evidence:string[],approval:string}} Episode
+ * @typedef {{schema:string, persona_projection:Record<string,string[]>, interaction_preferences:Preference[],knowledge?:Knowledge[],episodic_anchors?:Episode[],symbolic_connections?:{symbol:string,personas:string[]}[]}} PersonaState
  * @typedef {{repo:string, path:string, commit:string, blob:string}} Provenance
  * @typedef {{symbol:string, meaning:string, lesson:string, status:string, scope:string, projection:string[]}} SymbolEntry
  */
@@ -116,8 +122,8 @@ export function createPersonaLearning(dna, provenance, capacity = 128) {
       durableWritePerformed: false, modelWeightsChanged: false };
   }
 
-  /** @param {string} persona */
-  function retrieve(persona) {
+  /** @param {string} persona @param {string | undefined} topic */
+  function retrieve(persona, topic = undefined) {
     if (!validPersona(persona)) return fail("UNKNOWN_PERSONA");
     // These entries must come from the caller's reviewed canonical snapshot.
     // This reader neither grants approval nor accepts a runtime approval flag.
@@ -125,10 +131,19 @@ export function createPersonaLearning(dna, provenance, capacity = 128) {
       entry && entry.persona === persona && entry.status === "APPROVED" &&
       own(BEHAVIORS, entry.behavior) &&
       Array.isArray(entry.evidence) && entry.evidence.length > 0);
+    const knowledge = (baseline.knowledge ?? []).filter((entry) =>
+      entry && Array.isArray(entry.personas) && entry.personas.includes(persona) &&
+      (!topic || entry.topic === topic) && Array.isArray(entry.source_refs) && entry.source_refs.length > 0 &&
+      ["DER", "SYM", "HYP", "STOP", "ERR"].includes(entry.status));
+    const episodicAnchors = (baseline.episodic_anchors ?? []).filter((entry) =>
+      entry && (entry.persona === persona || entry.persona === "all") &&
+      (!topic || entry.topic === topic) && entry.approval === "OWNER_DIRECTED" &&
+      Array.isArray(entry.evidence) && entry.evidence.length > 0);
     return { status: "DER", persona, base: clone(source),
       projection: clone(baseline.persona_projection[persona]),
       routines: memory.map((entry) => ({ behavior: entry.behavior,
         instruction: BEHAVIORS[entry.behavior], evidence: clone(entry.evidence) })),
+      knowledge: clone(knowledge), episodicAnchors: clone(episodicAnchors),
       symbols: clone(vocabulary.get(persona) ?? []), runtimeAdmission: false };
   }
 
@@ -156,6 +171,13 @@ export function createPersonaLearning(dna, provenance, capacity = 128) {
     loops.delete(persona);
     return { status: "DER", action: "PAUSE_AND_RELOAD_BASELINE", repeats,
       context: retrieve(persona), evidencePreserved: true, identityChanged: false };
+  }
+
+  // Restore reviewed symbolic memory before the first interaction, independently
+  // for each persona. Session observations never write this canonical list.
+  for (const connection of baseline.symbolic_connections ?? []) {
+    if (!connection || !Array.isArray(connection.personas) || !own(SYMBOLS, connection.symbol)) continue;
+    for (const persona of connection.personas) learnSymbol(persona, connection.symbol);
   }
 
   return Object.freeze({ observe, reflect, retrieve, learnSymbol, checkProgress,

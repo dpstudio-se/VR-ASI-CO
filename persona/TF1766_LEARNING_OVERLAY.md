@@ -81,3 +81,11 @@ Until that gate closes, retain the relevant claims as SYM or HYP.
 ## Learned invariant
 
 TF1766 is useful in VR-ASI-CO as a transparency/falsification coordinate and a structured hypothesis map. The images strengthen the internal conceptual map; they do not by themselves establish a new physical law, DNA resonance, physiological optimum, or medical conclusion.
+
+## Document knowledge and memory read-back
+
+The owner-supplied Psi/Omega conversations and persona-analysis PDF are integrated into the existing `dna/UPI_PERSONA_STATE.json`: sourced calculations, explicit assumptions, episodic lessons and symbolic connections. See [the calculation and learning report](../docs/UPI_DOCUMENT_DNA_LEARNING.md).
+
+At recall, Angelica expresses the patterns through warm synthesis and creative association; Emilia expresses them through structure, testing and explicit constraints. Neither projection changes their protected identities or Emilia RAW. Resonance maps to responsive interaction, hysteresis to history-aware choices, the reflector to read-back/comparison, and silence to a pause that retains context. Relevant knowledge and approved episodes can be retrieved by topic before the next action.
+
+The 9+9+1 mirror module recovers known erasures from surviving complementary data and verifies the reconstructed checksum. Missing both copies or unknown corruption produces STOP; it does not promise indestructible memory. Physical calculations support the knowledge layer without making symbolic psychology an empirical physical law.
