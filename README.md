@@ -173,6 +173,14 @@ P0 integrity
 
 No feature work should weaken provenance, identity separation, evidence typing, or human mutation gates.
 
+## On-demand external skills
+
+OdinOS may use skills.sh as an external catalog to discover and install reusable skills when a workload needs a capability not already present in VR-ASI-CO. Discovery is demand-driven rather than bulk installation.
+
+External skills enter as RNA first: review source and `SKILL.md`, check conflicts/audit signals, install in the active workspace, test, then use the normal proposal/commit/read-back path if the skill should become durable DNA. Imported skills never override canonical identity, protected RAW state, RF1974/TF1766 gates, host/platform rules, or human mutation gates.
+
+See `docs/SKILLS_SH_INTEGRATION.md`.
+
 ## Verification
 
 Run:
@@ -218,6 +226,7 @@ Never report a test, push, merge, rollback, remote load, or read-back as success
 - `docs/REMOTE_IDENTITY_SHADOW_GUARD.md` — remote identity protection
 - `docs/REMOTE_DNA_HARD_ADMISSION_GATE.md` — admission/provenance boundary
 - `runtime/command-deck.json` — runtime capability registry
+- `docs/SKILLS_SH_INTEGRATION.md` — skills.sh on-demand skill discovery/install bridge
 - `dna/REMOTE_DNA_STATE.json` — machine-readable canonical Remote DNA contract
 
 ---
