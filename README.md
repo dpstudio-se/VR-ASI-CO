@@ -117,12 +117,17 @@ A host that cannot provide system-equivalent installation, read-back, or trusted
 Use Node.js 22. From the checkout root:
 
 ```sh
-npm ci --legacy-peer-deps
-npm run verify:dna
+npm run workspace:setup
 npm run dev
 ```
 
 The development script serves the React/TanStack Start app on `0.0.0.0:8080` and loads the repository's app-environment configuration. A running UI is a development capability, separate from remote-core admission.
+
+### GitHub Codespaces
+
+The [devcontainer](.devcontainer/devcontainer.json) uses Node.js 22, installs locked dependencies, checks the workspace, and requests a dev-server start. For an existing Codespace, use **Codespaces: Rebuild Container** after the configuration reaches its selected branch. Keep the forwarded development port private.
+
+See [Codespaces setup](docs/CODESPACES.md) and [workspace rules](docs/WORKSPACE_RULES.md). `npm run workspace:check` repeats contract and startup checks without installing dependencies. Startup and CI results remain separate from browser rendering and remote-host admission.
 
 For a production build:
 
@@ -216,6 +221,7 @@ Report passed, failed, skipped, and unrun checks separately. Preserve evidence l
 | Integrity and review | [Identity guard](docs/REMOTE_IDENTITY_SHADOW_GUARD.md), [mirror](prompts/MIRROR_PROMPT.md) |
 | Runtime integrations | [OdinOS compatibility](docs/ODINOS_COMPATIBILITY_PROFILE.md), [layer architecture](docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md), [capability registry](runtime/command-deck.json) |
 | Development | [Project instructions](AGENTS.project.md), [build rules](docs/VR_ASI_CO_ODINOS_BUILD_RULES.md), [workload](WORKLOAD.md) |
+| Codespaces | [Setup](docs/CODESPACES.md), [workspace rules](docs/WORKSPACE_RULES.md), [devcontainer](.devcontainer/devcontainer.json) |
 | Repository navigation | [Documentation index](docs/INDEX.md), [repository map](docs/REPOSITORY_MAP.md) |
 | Extensions and research | [External skills](docs/SKILLS_SH_INTEGRATION.md), [runtime adapter](docs/VORTEX_DNA_RUNTIME_ADAPTER.md), [reset semantics](docs/UNKNOWN_NULL_PI_ARCHITECTURE.md) |
 

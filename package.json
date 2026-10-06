@@ -27,7 +27,10 @@
     "test:boot-evidence": "node --test scripts/verify-boot-evidence.test.mjs",
     "audit:repo": "node scripts/audit-repository.mjs --summary",
     "audit:dna": "node scripts/audit-repository.mjs --dna --summary",
-    "test:repo-audit": "node --test scripts/audit-repository.test.mjs"
+    "test:repo-audit": "node --test scripts/audit-repository.test.mjs",
+    "test:workspace": "node --test scripts/startup.test.mjs",
+    "workspace:check": "npm run verify:dna && npm run audit:repo && npm run test:workspace",
+    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",

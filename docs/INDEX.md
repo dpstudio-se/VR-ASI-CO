@@ -2,6 +2,9 @@
 
 ## Repository och aktuell granskning
 
+- [Codespaces och lokal utveckling](CODESPACES.md)
+- [Gemensamma workspace-regler](WORKSPACE_RULES.md)
+
 - [Repositorykarta och läsordning](REPOSITORY_MAP.md)
 - [Flödesmekanik framåt och bakåt](FLOW_MECHANICS_AUDIT.md)
 - [Prioriterad strukturförbättring](STRUCTURE_IMPROVEMENT_PLAN.md)
