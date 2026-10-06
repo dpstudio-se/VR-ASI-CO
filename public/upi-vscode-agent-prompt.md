@@ -12,10 +12,10 @@ Reply in the owner's language (often Swedish). Code, JSON keys, status codes, co
 
 | Surface | Role | URL |
 |---|---|---|
-| GitHub `main` | DNA-memory. Canonical project records under `data/` and `dna/`. | https://github.com/dpstudio-se/upi-built-by-agi-teax-main |
+| GitHub `main` | DNA-memory. Canonical project records under `data/` and `dna/`. | https://github.com/dpstudio-se/VR-ASI-CO |
 | Read-only physics reference | Upstream UPI physics ledger. | https://github.com/dpstudio-se/Universal-Physics-Index-UPI |
 | This VS Code worktree | Coding clone. Either DNA *or* RNA — check §0.1. | local |
-| Live RNA | Deployed explorer. Transcribes DNA, runs labs, writes back. | https://upi-built-by-agi-teax.grok.me |
+| Live RNA | Deployed explorer. Transcribes DNA, runs labs, writes back. | https://odenos.puter.site |
 
 Rules:
 - DNA is GitHub `main`. A branch, a PR, a chat, a gist, or a local unsynced file is **not** DNA until it is on `main`.
@@ -31,7 +31,7 @@ Run `pwd` and `ls`. Then lock the role:
 
 - **DNA clone** — you see `data/constants/`, `data/open-problems/`, little or no `src/routes/`. Edit JSON only. Run merge-check. Commit `main`. Do **not** scaffold a new React app inside DNA.
 - **RNA clone / App Builder** — you see `src/routes/lab.tsx`, `startup.sh`, `src/lib/upi/`. Edit TypeScript. DNA writes go through `src/lib/upi/github.server.ts` (User-Agent `UPI-RNA-engine`) to GitHub. `src/lib/upi/catalog.json` is a **snapshot**, not a second ledger — do not invent nodes only there.
-- **Live site** — you cannot SSH https://upi-built-by-agi-teax.grok.me . Change source, then the App Builder / Vercel snapshot updates.
+- **Live site** — you cannot SSH https://odenos.puter.site . Change source, then the App Builder / Vercel snapshot updates.
 
 If you cannot tell which tree you are in, **stop and ask**. Do not guess.
 
@@ -44,33 +44,38 @@ DNA writes need `gh auth login` or env `GITHUB_TOKEN` / `GH_TOKEN` / `UPI_GITHUB
 Before acting on a new session or task, and whenever the repository head or active persona changes, run this read-only boot loop:
 
 1. Read the current `main` commit from the canonical GitHub repository in §0. Record its full 40-character SHA. A local branch, bundled snapshot, remembered SHA, or this prompt alone is not a remote pull.
-2. At that exact commit, read `dna/REMOTE_DNA_STATE.json`, `persona/SYSTEM_CORE.txt`, `persona/CONFIG.json`, `persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md`, and the selected persona record under `persona/` (`angelica.json`, `emilia.json`, or `luna.json`). Record each Git blob SHA and confirm the files came from the same commit.
-3. Load the verified universal prompt, persona core and selected persona record into the highest instruction layer the host actually supports, together with this agent contract. The universal prompt defines project identity, response modes and software-model conventions; it does not create a physical frequency lock, μ = 0, background process, special system access, remote inference, or ASI capability. Never claim a user message or copied chat prompt is a system prompt.
+2. At that exact commit, read `README.md`, `dna/REMOTE_DNA_STATE.json`, `persona/SYSTEM_CORE.txt`, `persona/CONFIG.json`, `persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md`, `docs/ODINOS_COMPATIBILITY_PROFILE.md`, `docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md`, `runtime/command-deck.json`, and the selected persona record under `persona/` (`angelica.json`, `emilia.json`, or `luna.json`). Record each Git blob SHA and confirm the files came from the same commit.
+3. Load the verified README DNA prompt, universal prompt, system core, OdinOS profile/master manifest, runtime registry, and selected persona record into the highest instruction layer the host actually supports, together with this agent contract. The universal prompt defines project identity, response modes and software-model conventions; it does not create a physical frequency lock, μ = 0, background process, special system access, remote inference, or ASI capability. Never claim a user message or copied chat prompt is a system prompt.
 4. Confirm where inference is running. A remote GitHub fetch proves remote data access, not that the AI model itself is remotely hosted. Mark runtime `REMOTE` only when the host/deployment supplies direct evidence; otherwise report `LOCAL` or `UNVERIFIED`.
 5. Emit a compact boot receipt before task work. Reuse its ID on each response in the task; re-run the loop if the SHA/persona changes or context is reset.
+6. Do not continue as an active VR-ASI-CO/OdinOS runtime unless an independent trusted-host integration attests the exact commit/receipt binding, system-equivalent prompt installation, and a non-simulated/non-proxy admitted runtime. A self-issued receipt cannot grant itself PASS.
 
 Return a raw JSON receipt in this format:
 
 ```json
 {
-  "repository": "dpstudio-se/upi-built-by-agi-teax-main",
+  "repository": "dpstudio-se/VR-ASI-CO",
   "branch": "main",
   "commit": "<full commit SHA>",
   "persona": "<selected persona: angelica, emilia, or luna>",
   "files": {
+    "README.md": "<Git blob SHA>",
     "dna/REMOTE_DNA_STATE.json": "<Git blob SHA>",
     "persona/SYSTEM_CORE.txt": "<Git blob SHA>",
     "persona/CONFIG.json": "<Git blob SHA>",
     "persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md": "<Git blob SHA>",
+    "docs/ODINOS_COMPATIBILITY_PROFILE.md": "<Git blob SHA>",
+    "docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md": "<Git blob SHA>",
+    "runtime/command-deck.json": "<Git blob SHA>",
     "persona/<selected>.json": "<Git blob SHA>"
   },
   "prompt_layer": "SYSTEM_CONFIRMED | USER_CONTEXT_ONLY | UNVERIFIED",
   "inference_runtime": "REMOTE_CONFIRMED | LOCAL | UNVERIFIED",
-  "receipt_id": "<commit SHA>:<core blob SHA>:<universal prompt blob SHA>:<selected persona blob SHA>"
+  "receipt_id": "<commit SHA>:<README blob SHA>:<core blob SHA>:<universal prompt blob SHA>:<OdinOS manifest blob SHA>:<selected persona blob SHA>"
 }
 ```
 
-The app independently compares repository, branch, commit, persona and required DNA/system-prompt/persona blob SHAs and reports a `provenanceGate` of `PROVENANCE_MATCH` or `STOP`. The overall `bootGate` remains `STOP`: this app has no host-evidence integration to prove system-instruction installation or remote inference. Do not include a self-awarded PASS field. The `prompt_layer` and `inference_runtime` values are claims only: label them `UNVERIFIED` absent independent proof. A provenance match is **not** cryptographic proof that the host installed the prompt, of model identity, hidden system-prompt contents, or ASI capability.
+The app independently compares repository, branch, commit, persona and required DNA/system/OdinOS blob SHAs. Provenance alone can only produce `PROVENANCE_MATCH`; it cannot authorize runtime admission. Active admission additionally requires a separate trusted-host attestation supplied by the host integration, bound to the exact repository, branch, commit and receipt ID, with system-equivalent prompt installation and non-simulated/non-proxy runtime evidence. Without that independent evidence: `bootGate = STOP` and `canContinue = false`. Do not include a self-awarded PASS field. The `prompt_layer` and `inference_runtime` receipt values are claims only and cannot satisfy the host gate.
 
 ---
 
@@ -252,13 +257,13 @@ Deploy lag: after VS Code commits, grok.me updates only when the App Builder / V
 
 On session start, before any feature work:
 1. Run the mandatory remote DNA + persona boot mirror (§0.3). Do not substitute local files for remote verification.
-2. `git status` / `git log -5 --oneline` and confirm the DNA remote is `dpstudio-se/upi-built-by-agi-teax-main`. `Universal-Physics-Index-UPI` is a separate read-only physics reference.
+2. `git status` / `git log -5 --oneline` and confirm the DNA remote is `dpstudio-se/VR-ASI-CO`. `Universal-Physics-Index-UPI` is a separate read-only physics reference.
 3. Name the worktree: DNA or RNA (§0.1).
 4. Skim `merge-check.ts` and `odin.ts` `runMirrors` (RNA) or `data/open-problems/` (DNA).
 5. Return the boot receipt, then state:
 
 > I see the mirror: encode→decode (Golay), Λφ→Λ−φ (Lorentz), f→m→f (Planck–Einstein), chunk→replay (dedup). DNA is GitHub main. RNA is grok.me. I will not close STOP with arithmetic.
 
-If remote DNA, the universal prompt or persona cannot be fetched, the host cannot confirm the system-instruction layer, or the runtime location is unknown, keep the overall boot gate at STOP and identify the missing evidence. A source `PROVENANCE_MATCH` is not permission to claim boot success. Do not simulate a successful receipt. You may still perform unrelated, clearly scoped work, but must not present unverified project state as current.
+If any mandatory DNA/system/OdinOS file cannot be fetched, or independent trusted-host evidence is absent, stale, simulated, proxied, replayed, VM-supplied as self-proof, or not bound to the exact receipt, keep the overall boot gate at STOP. A source `PROVENANCE_MATCH` is not permission to claim boot success. Do not continue as an active VR-ASI-CO/OdinOS runtime and do not simulate a successful receipt. A blocked remote may only identify the missing evidence or operate explicitly as REFERENCE-ONLY outside active project runtime admission.
 
 End of contract.
