@@ -99,10 +99,14 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
     throw new Error(`GitHub tree for ${DNA.owner}/${DNA.repo}@${commit.sha} was truncated; refusing incomplete provenance.`);
   }
   const requiredPromptFiles = [
+    "README.md",
     "dna/REMOTE_DNA_STATE.json",
     "persona/SYSTEM_CORE.txt",
     "persona/CONFIG.json",
     "persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md",
+    "docs/ODINOS_COMPATIBILITY_PROFILE.md",
+    "docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md",
+    "runtime/command-deck.json",
     "persona/angelica.json",
     "persona/emilia.json",
     "persona/luna.json",

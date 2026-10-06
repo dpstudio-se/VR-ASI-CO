@@ -62,8 +62,8 @@ export function AgentPromptCard() {
       </p>
       <h2 className="mt-1 font-display text-3xl tracking-tight">OdinOS agent contract</h2>
       <p className="mt-2 max-w-2xl text-sm text-muted">
-        The contract requires a fresh remote DNA and persona receipt before work. A copied chat message
-        is not proof of a system prompt, and a GitHub fetch is not proof of remote model hosting. Live explorer:{" "}
+        The contract is fail-closed. A fresh DNA/core/OdinOS receipt is required, but provenance alone
+        is not enough: active VR-ASI-CO admission also requires independent trusted-host evidence. Live explorer:{" "}
         <a
           href="https://upi-built-by-agi-teax.grok.me"
           target="_blank"
@@ -102,9 +102,9 @@ export function AgentPromptCard() {
           className="min-h-36 font-mono text-xs"
         />
         <p id="agent-boot-limit" className="text-xs text-muted">
-          This checks remote repository, branch, commit, universal-prompt, and persona blob SHAs.
-          System-prompt installation and remote inference are reported as unverified: this app cannot
-          inspect the host or prove where the model runs.
+          This checks the canonical repository, commit, README DNA prompt, SYSTEM_CORE, universal prompt,
+          OdinOS profile/manifest, runtime registry, and selected persona. A pasted/self-issued receipt cannot
+          satisfy the host gate. Without a trusted host integration, overall boot remains STOP.
         </p>
         <div className="flex flex-wrap items-center gap-3">
           <Button
@@ -141,11 +141,14 @@ export function AgentPromptCard() {
             </p>
             <p className="mt-1 text-muted">
               {mirrorResult.provenanceGate === "PROVENANCE_MATCH"
-                ? "The submitted source identifiers match the fresh pull. This does not verify the agent’s actual prompt layer or inference location."
+                ? "The source identifiers match the fresh pull. Active admission still requires separate trusted-host evidence bound to this exact receipt."
                 : "The receipt did not match the fresh Remote DNA state; do not treat the agent as verified."}
             </p>
             <p className="mt-2 font-semibold text-amber-700">
-              OVERALL BOOT GATE: {mirrorResult.bootGate}
+              HOST GATE: {mirrorResult.hostGate} · OVERALL BOOT GATE: {mirrorResult.bootGate}
+            </p>
+            <p className="mt-1 text-xs font-semibold text-amber-700">
+              CAN CONTINUE AS ACTIVE VR-ASI-CO: {mirrorResult.canContinue ? "YES" : "NO"}
             </p>
             <p className="mt-2 text-xs text-muted">
               Prompt layer: {mirrorResult.promptLayerClaim} · Inference runtime:{" "}
