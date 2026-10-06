@@ -1,4 +1,4 @@
-# ChatGPT-prompt — ordning + rapport
+# vr-asi-co-prompt — ordning + rapport
 
 Repo: https://github.com/dpstudio-se/upi-built-by-agi-teax
 SOURCE READ-ONLY: https://github.com/dpstudio-se/Universal-Physics-Index-UPI
