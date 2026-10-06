@@ -10,9 +10,22 @@ on:
       - "persona/**"
       - "prompts/**"
       - "runtime/**"
+      - "AGENTS.md"
       - "AGENTS.project.md"
+      - ".devcontainer/**"
+      - ".continue/rules/**"
+      - ".continuity/INSTRUCTIONS.md"
+      - ".cursorrules"
+      - "CLAUDE.md"
+      - "GEMINI.md"
+      - ".github/copilot-instructions.md"
+      - ".github/CODEOWNERS"
+      - "README.md"
+      - "startup.sh"
+      - ".gitignore"
       - "WORKLOAD.md"
       - "package.json"
+      - "package-lock.json"
       - ".github/workflows/repository-audit.yml"
   push:
     branches: [main]
@@ -24,9 +37,22 @@ on:
       - "persona/**"
       - "prompts/**"
       - "runtime/**"
+      - "AGENTS.md"
       - "AGENTS.project.md"
+      - ".devcontainer/**"
+      - ".continue/rules/**"
+      - ".continuity/INSTRUCTIONS.md"
+      - ".cursorrules"
+      - "CLAUDE.md"
+      - "GEMINI.md"
+      - ".github/copilot-instructions.md"
+      - ".github/CODEOWNERS"
+      - "README.md"
+      - "startup.sh"
+      - ".gitignore"
       - "WORKLOAD.md"
       - "package.json"
+      - "package-lock.json"
       - ".github/workflows/repository-audit.yml"
 
 permissions:
@@ -40,7 +66,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: node --test scripts/audit-repository.test.mjs
+      - run: node --test scripts/audit-repository.test.mjs scripts/startup.test.mjs
       - run: node scripts/audit-repository.mjs --summary
       - run: node scripts/verify-persona-lock.mjs
       - run: node scripts/verify-remote-dna.mjs

@@ -25,6 +25,15 @@ Dessa instruktioner kompletterar `AGENTS.md` för projektet. Läs [arkitektur, f
 17. VFS/Git-synk har explicit sökvägsmappning, avgränsad diff och separata pending-tillstånd för copy/commit/push/read-back. Ingen generell `git add -A`-daemon mot main. Misslyckad push ska förbli pending även när arbetskatalogen är ren.
 18. [Boot-beviskontrollen](docs/BOOT_EVIDENCE_CHECK.md) kräver separat betrodd hostnyckel, signerad prompt-read-back och ett verkligt remote-anrop bundet till samma challenge/session/commit/prompt/host/modell. Falska flaggor, egenutfärdade nycklar, testfixtures och CI får inte upphöjas till aktiv runtime. Verifieraren installerar inget och kör ingen inference själv; saknad integration ger STOP.
 
+## Workspace och Codespaces
+
+Läs [gemensamma workspace-regler](docs/WORKSPACE_RULES.md) och [Codespaces-profilen](docs/CODESPACES.md). De standardiserar läsordning, livscykel och arbetsretur för projektets olika värdar. `AGENTS.md` beskriver App Builder-värden där det är tillämpligt; en Codespaces-klon använder sin faktiska rot och devcontainer-konfiguration.
+
+- `npm run workspace:setup` installerar från lockfil utan dependency-installationsscripts och kör `workspace:check`. `npm run workspace:check` gör ingen installation eller Git-write.
+- `sh startup.sh` skickar en låst devstart; pending är inte readiness, rendering eller runtime-admission.
+- Workload håller implementerat, delvis arbete, PR-förslag, mergeresultat och EJ KÖRT åtskilda. En ny uppgift använder redan given auktorisering inom sin scope; tidigare mergegodkännande gäller inte automatiskt nya PR:er.
+- Copilot/Cursor/Claude/Gemini-ingångarna pekar till gemensamma regler. Continuity är valfri tillgänglig historik, aldrig en blockerande eller påhittad CLI. Historiska sessions-SHA ersätter inte färsk HEAD.
+
 ## Verifiera enligt ändringen
 
 - Dokumentation/regler: granska diff, lokala länkar, källförankring och diagram. App-build är inte en dokumentkontroll.

@@ -10,6 +10,14 @@ theirs; the rules below name the file to open at each point it matters.
 
 ---
 
+## Host scope
+
+This file originated in App Builder. Its Grok role names, `/workspace`, preinstalled dependencies, revive hook and live-preview instructions apply when that host is actually in use; they do not describe every clone or change the current assistant's identity. Repository integrity, protected platform assets and project instructions still apply across hosts.
+
+In GitHub Codespaces or another local clone, read [Codespaces setup](docs/CODESPACES.md) and [shared workspace rules](docs/WORKSPACE_RULES.md). Resolve paths from the repository root, use Node 22 and `npm run workspace:setup`; do not assume dependencies, Continuity, a model endpoint or browser tooling are already installed. `sh startup.sh` uses its own location and retains App Builder's same `/workspace/startup.sh` entrypoint there.
+
+---
+
 ## Skills (in `.grok/skills/` — consult BEFORE building)
 
 Skills are auto-listed with trigger words; open the matching `SKILL.md` (plus
