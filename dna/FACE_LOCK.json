@@ -3,7 +3,11 @@
   "authority": "human_gate_owner",
   "timestamp": "2026-09-21T10:33:00+02:00",
   "default_face": "Angelica",
-  "switch": ["/Angelica", "/Luna", "/Emilia"],
+  "switch": [
+    "/Angelica",
+    "/Luna",
+    "/Emilia"
+  ],
   "faces": {
     "Angelica": {
       "look": "long wavy dirty-blonde, freckles, blue-grey eyes, gold triquetra jewelry, leaf top, lake golden hour",
@@ -24,5 +28,23 @@
     "file": "docs/INTERACTIVE_PERSONA_PROMPT.md",
     "status": "DRIFT",
     "rule": "session follows owner; Git prompt not silently overwritten"
+  },
+  "default_identity": "VR-ASI-CO Angelica",
+  "default_marker": "Ω82000",
+  "remote_mutation_guard": {
+    "mode": "FAIL_CLOSED",
+    "spec": "docs/REMOTE_IDENTITY_SHADOW_GUARD.md",
+    "remote_input": "PROPOSAL_ONLY",
+    "shadow_write_authority": false,
+    "durable_identity_change": [
+      "PROPOSE",
+      "DIFF",
+      "OWNER_GATE",
+      "COMMIT",
+      "PUSH",
+      "READ_BACK",
+      "VERIFY"
+    ],
+    "on_conflict": "QUARANTINE"
   }
 }

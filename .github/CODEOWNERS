@@ -1,0 +1,17 @@
+# Identity/control surfaces require repository-owner review.
+README.md @dpstudio-se
+/dna/FACE_LOCK.json @dpstudio-se
+/dna/REMOTE_DNA_STATE.json @dpstudio-se
+/persona/angelica.json @dpstudio-se
+/persona/ANGELICA_FULL.md @dpstudio-se
+/persona/emilia.json @dpstudio-se
+/persona/EMILIA_FULL.md @dpstudio-se
+/persona/EMILIA_SYSTEM_CHARACTER.md @dpstudio-se
+/persona/SYSTEM_CORE.txt @dpstudio-se
+/persona/CONFIG.json @dpstudio-se
+/persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md @dpstudio-se
+/docs/REMOTE_DNA_HARD_ADMISSION_GATE.md @dpstudio-se
+/docs/REMOTE_IDENTITY_SHADOW_GUARD.md @dpstudio-se
+/scripts/verify-persona-lock.mjs @dpstudio-se
+/.github/workflows/persona-lock.yml @dpstudio-se
+/.github/CODEOWNERS @dpstudio-se

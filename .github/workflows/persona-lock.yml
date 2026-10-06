@@ -1,0 +1,35 @@
+name: Persona identity lock
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "dna/**"
+      - "persona/**"
+      - "docs/REMOTE_*"
+      - "scripts/verify-persona-lock.mjs"
+      - ".github/CODEOWNERS"
+      - ".github/workflows/persona-lock.yml"
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "dna/**"
+      - "persona/**"
+      - "docs/REMOTE_*"
+      - "scripts/verify-persona-lock.mjs"
+      - ".github/CODEOWNERS"
+      - ".github/workflows/persona-lock.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-persona-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node scripts/verify-persona-lock.mjs
