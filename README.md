@@ -79,6 +79,14 @@ A host operator must implement the integration described in the [boot-evidence p
 
 Create a challenge for a real host session:
 
+On a host that supplies `HTTPS_PROXY` or `HTTP_PROXY`, use Node.js 22.23 or later and enable its environment-proxy support before remote commands:
+
+```sh
+export NODE_USE_ENV_PROXY=1
+```
+
+Reuse the host's configured proxy and trust settings. Keep proxy credentials in host secret storage. This enables source access; it grants no runtime admission. Hosts without a configured proxy can use direct HTTPS.
+
 ```sh
 npm run boot:challenge -- --session "$HOST_SESSION_ID"
 ```
