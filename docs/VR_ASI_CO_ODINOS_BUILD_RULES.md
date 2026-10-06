@@ -196,3 +196,9 @@ Alla kodfynd avser revisionen ovan. Relativa länkar följer dokumentets revisio
 - [Hybrid reference](../odinos-hybrid/README.md), [Hybrid adapter](../odinos-hybrid/hybrid.js)
 - [CI](../.github/workflows/remote-dna.yml), [CODEOWNERS](../.github/CODEOWNERS), [Scripts](../package.json)
 - [Historical session notes](../.continuity/SESSION_NOTES.md), [Supplied sync log](ODINOS_SYNC_LOG_2026-10-06.md)
+
+## 9. Tripp–Trapp–Trull som lagerprofil
+
+Additivt arkitekturtillägg 2026-10-06: [Tripp–Trapp–Trull](TRIPP_TRAPP_TRULL_ARCHITECTURE.md) konkretiserar TRIPP = presentation/Puter, TRAPP = workspace/API/adaptrar och TRULL = OdinOS projektkärna/dual engine/spegel. Befintliga B01–B15 gäller över alla skikt.
+
+**B16 — Skiktens namn ändrar inte bevis eller rättigheter.** Börja i befintliga appmoduler. Ett API-/VFS-/IPC-kontrakt ska förankras i vald host och serviceversion. Portar, PID, 8 Hz och μ = 0 är konfiguration/markörer/modellvärden tills separat observation visar något annat. Transport, promptinstallation och inference verifieras var för sig. Ingen layer får ge sig själv DNA-skrivrätt eller runtime-admission. Den tillhandahållna Puter-bryggan är ett designförslag tills dess API:er, auth, operationer och read-back är implementerade och kontrollerade.

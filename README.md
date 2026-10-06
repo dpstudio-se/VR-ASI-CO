@@ -208,6 +208,7 @@ Never report a test, push, merge, rollback, remote load, or read-back as success
 
 ## Project navigation
 
+- `docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md` — three-layer integration profile and bridge contract
 - `AGENTS.project.md` — project-specific build instructions
 - `docs/VR_ASI_CO_ODINOS_BUILD_RULES.md` — source-based architecture analysis, flow diagrams, and build rules
 - `WORKLOAD.md` — prioritized engineering workload

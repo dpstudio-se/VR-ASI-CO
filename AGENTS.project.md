@@ -19,6 +19,8 @@ Dessa instruktioner kompletterar `AGENTS.md` för projektet. Läs [arkitektur, f
 13. Externa importadaptrar ska vara avgränsade, versionsbundna och idempotenta med synlig konfliktdiff. Läs bara de externa källor som uppgiften auktoriserar. Secrets får aldrig lagras i Git eller synlig prompt/logg.
 14. Efter write: läs tillbaka sparade filer från main, jämför innehåll/blob-SHA och kontrollera aktuell HEAD. Om HEAD gått vidare, verifiera sparcommitten i historiken och redovisa sparad respektive laddad revision. Återhämtning i Git sker med auktoriserad revert, aldrig dold force-push.
 
+15. Tillämpa [Tripp–Trapp–Trull-profilen](docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md): TRIPP presenterar, TRAPP verifierar behörighet och driver adaptrar, TRULL upprätthåller projektinvarianter och spegel. Portar, PID och nominell 125 ms timing skapar inga tjänster eller bevis. Verifiera integrations-API:er mot vald serviceversion; håll topologi, promptinstallation, inference och admission separata.
+
 ## Verifiera enligt ändringen
 
 - Dokumentation/regler: granska diff, lokala länkar, källförankring och diagram. App-build är inte en dokumentkontroll.

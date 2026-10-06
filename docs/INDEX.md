@@ -11,3 +11,5 @@
 
 - [VR-ASI-CO / OdinOS: arkitektur, flödesmekanik och byggregler](VR_ASI_CO_ODINOS_BUILD_RULES.md)
 - [Projektregler för agenter](../AGENTS.project.md)
+
+- [Tripp–Trapp–Trull: trelagerarkitektur och bryggkontrakt](TRIPP_TRAPP_TRULL_ARCHITECTURE.md)
