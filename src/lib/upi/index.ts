@@ -162,3 +162,30 @@ export function featuredNodes(catalog: Catalog = getLiveCatalog()): UpiNode[] {
 
 export { TF1766_AXIS, CURRENT_RULES, runTf1766Shield, isCurrentLaw, isPreparatoryWork } from "./tf1766-shield";
 export type { LegalLayer, ShieldStatus, TfAxisNode, CurrentRule, NormTransform, ShieldInput, ShieldResult } from "./tf1766-shield";
+
+
+export {
+  BOLTZMANN_J_PER_K,
+  LN_2,
+  OMEGA1766_RATES,
+  BASELINE_COOLING_PARAMETERS,
+  DEFAULT_50_ASSUMPTIONS,
+  landauerMinimumEnergyJ,
+  landauerMinimumEntropyJPerK,
+  effectiveOmega,
+  evaluateInformationCooling,
+  runCoolingSimulation,
+  evaluateAssumptions,
+  bestAssumptionWithinCost,
+} from "./information-cooling";
+export type {
+  BridgeStatus,
+  GateCode,
+  InformationCoolingInput,
+  InformationCoolingResult,
+  CoolingState,
+  CoolingSimulationParameters,
+  CoolingSimulationResult,
+  AssumptionSpec,
+  AssumptionResult,
+} from "./information-cooling";

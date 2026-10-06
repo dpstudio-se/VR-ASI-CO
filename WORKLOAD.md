@@ -86,11 +86,11 @@ Keep VR-ASI-CO reproducible across fresh chats, local workspaces, and compatible
 
 **Goal:** preserve creative model exploration without confusing it with empirical evidence.
 
-- [ ] Keep TF1766/VORTEX experimental claims status-typed.
-- [ ] Define reproducible experiment templates for claims seeking promotion.
-- [ ] Separate simulation outputs from measurement datasets.
+- [x] Keep TF1766/VORTEX experimental claims status-typed.
+- [x] Define reproducible experiment templates for claims seeking promotion.
+- [x] Separate simulation outputs from measurement datasets.
 - [ ] Add provenance fields for external evidence.
-- [ ] Keep mathematical derivation tests separate from empirical validation.
+- [x] Keep mathematical derivation tests separate from empirical validation.
 
 ## Work execution template
 
