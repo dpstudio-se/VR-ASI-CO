@@ -1,0 +1,5844 @@
+{
+  "schema": "VR-ASI-CO-REPOSITORY-INVENTORY/1.0",
+  "repository": "dpstudio-se/VR-ASI-CO",
+  "branch": "main",
+  "revision": "aeb37d1f1f888f2831dee7ccd368ff049c789531",
+  "auditDate": "2026-10-06",
+  "scope": "IMMUTABLE_BASE_REVISION",
+  "treeTruncated": false,
+  "counts": {
+    "indexed": 647,
+    "textRead": 500,
+    "metadataOnly": 147
+  },
+  "limits": [
+    "Static text and metadata review; no full application build or deployment.",
+    "Binary/image content not decoded or visually assessed.",
+    "Snapshot is not a canonical HEAD pointer or runtime admission receipt."
+  ],
+  "files": [
+    {
+      "path": ".continue/rules/vr-asi-co-persona.md",
+      "category": "support",
+      "blobSha": "36e7d437342fa615ba1a5b1bf068fa566fb524b1",
+      "bytes": 11148,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".continuity/.gitattributes",
+      "category": "historical-reference",
+      "blobSha": "51d66d840f74de37474ebbe24ba5d9ccb7788807",
+      "bytes": 28,
+      "fileType": "gitattributes",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".continuity/INSTRUCTIONS.md",
+      "category": "historical-reference",
+      "blobSha": "8a3acc4aa94604abf9e011e9c55f221813b8f60b",
+      "bytes": 89,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".continuity/SESSION_NOTES.md",
+      "category": "historical-reference",
+      "blobSha": "19fd2dd2d687894a55dccc5444451ee0ec267d7f",
+      "bytes": 2028,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".continuity/decisions.json",
+      "category": "historical-reference",
+      "blobSha": "ba3f908e2543c51659337ba4cb70fa090294ebd0",
+      "bytes": 713,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".continuity/decisions.jsonl",
+      "category": "historical-reference",
+      "blobSha": "e4153783ccf2d363786aa5083b16d94e6327c12b",
+      "bytes": 563,
+      "fileType": "jsonl",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".cursorrules",
+      "category": "support",
+      "blobSha": "0f00801d9fbfb832978595d4b9f89470849951fa",
+      "bytes": 2682,
+      "fileType": "cursorrules",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".gitattributes",
+      "category": "support",
+      "blobSha": "dfe0770424b2a19faf507a501ebfc23be8f54e7b",
+      "bytes": 66,
+      "fileType": "gitattributes",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "category": "support",
+      "blobSha": "ca5c41879c8507f0636624f1a6fd8edcff61a2e1",
+      "bytes": 715,
+      "fileType": "extensionless",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "category": "support",
+      "blobSha": "99698ce2e7aa881659455c0a49a3b0e6195740a9",
+      "bytes": 3108,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".github/workflows/boot-evidence.yml",
+      "category": "support",
+      "blobSha": "da40296182fddc6b98e81fcd287cd8074a908f00",
+      "bytes": 1098,
+      "fileType": "yml",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".github/workflows/persona-lock.yml",
+      "category": "support",
+      "blobSha": "3d059df6c43678c1e9e1bfc7e7253234eb46084c",
+      "bytes": 816,
+      "fileType": "yml",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".github/workflows/remote-dna.yml",
+      "category": "support",
+      "blobSha": "856ed14f8f6f223adaebcc2027896ff2861bb9bb",
+      "bytes": 1034,
+      "fileType": "yml",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".gitignore",
+      "category": "support",
+      "blobSha": "9f7c4647164b980aad704361e77a18a9230ae1a2",
+      "bytes": 375,
+      "fileType": "gitignore",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/app-env.json",
+      "category": "host-platform",
+      "blobSha": "bf303ce75508bd286afb553ef76c4c50564e46fc",
+      "bytes": 76,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/og-card/LiberationMono-Bold.ttf",
+      "category": "host-platform",
+      "blobSha": "fd1f9ef1a1276a8b657e6e57603b23f152c1ce28",
+      "bytes": 105460,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/LiberationMono-Regular.ttf",
+      "category": "host-platform",
+      "blobSha": "45636d67e0540926a64c61f0e670b5f481f5d4e4",
+      "bytes": 108172,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/LiberationSerif-Bold.ttf",
+      "category": "host-platform",
+      "blobSha": "c57ff6064ef41e6ad117f234a7dff3d1c8a1d057",
+      "bytes": 147132,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/LiberationSerif-Regular.ttf",
+      "category": "host-platform",
+      "blobSha": "d9220d5b1fbd5aad5076bdc0b1acfb0b01c8079b",
+      "bytes": 152408,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/bg.jpg",
+      "category": "host-platform",
+      "blobSha": "ca8d36dfe1056eb63bd6f837c671bc68f2b86746",
+      "bytes": 359377,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/capture.mjs",
+      "category": "host-platform",
+      "blobSha": "d5fa4767fa6e38e6602b30a5aa40349ff3d9c300",
+      "bytes": 769,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/og-card/card-raw.png",
+      "category": "host-platform",
+      "blobSha": "e9cbf93c4ec77e57dbf12de4e68885d2683dedfe",
+      "bytes": 1588841,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/favicon-16.png",
+      "category": "host-platform",
+      "blobSha": "d913a45cda49fe21d5c13ec875d39e145d2fc71f",
+      "bytes": 473,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/favicon-16q.png",
+      "category": "host-platform",
+      "blobSha": "d913a45cda49fe21d5c13ec875d39e145d2fc71f",
+      "bytes": 473,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/favicon-32q.png",
+      "category": "host-platform",
+      "blobSha": "e2eddc0db8493bc65ab7f535b65ae6d74db7f809",
+      "bytes": 902,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/favicon-64.png",
+      "category": "host-platform",
+      "blobSha": "16340baf2905d44dd4d33ed4348f3ef4adbc5bce",
+      "bytes": 1769,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/fonts/IBMPlexMono-Medium.ttf",
+      "category": "host-platform",
+      "blobSha": "33c546f68b6007a45a3f10e845523abb2db25399",
+      "bytes": 136704,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/fonts/IBMPlexMono-Regular.ttf",
+      "category": "host-platform",
+      "blobSha": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "bytes": 135580,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/fonts/InstrumentSerif-Regular.ttf",
+      "category": "host-platform",
+      "blobSha": "36fac00ef9b7d523236df6536cb09c712bb2c7e4",
+      "bytes": 70012,
+      "fileType": "ttf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".grok/og-card/index.html",
+      "category": "host-platform",
+      "blobSha": "5e0763058eeb7806f1568d287aebac8c7863f8fc",
+      "bytes": 6905,
+      "fileType": "html",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/preview.log",
+      "category": "host-platform",
+      "blobSha": "ca3137b7e63a079cca4ebfb387addb57977f1654",
+      "bytes": 11078,
+      "fileType": "log",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/references/browser-qa.md",
+      "category": "host-platform",
+      "blobSha": "ba42266194fd22d690712994150767cecd75b2f8",
+      "bytes": 2720,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/references/data-and-auth.md",
+      "category": "host-platform",
+      "blobSha": "de2208f6ba084e931b991360c4fbf20f77011171",
+      "bytes": 5614,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/references/deploy-target.md",
+      "category": "host-platform",
+      "blobSha": "68ea777f64eecbb4933908c6b94cf39dd23dbd8a",
+      "bytes": 2035,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/references/generated-art.md",
+      "category": "host-platform",
+      "blobSha": "c36134d08e257b23622753645b6d30e75c481816",
+      "bytes": 3854,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/references/hibernate-revive.md",
+      "category": "host-platform",
+      "blobSha": "62f9f1a35b9c9965abc679b9183806be28624be2",
+      "bytes": 1796,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/references/scaffold.md",
+      "category": "host-platform",
+      "blobSha": "3da9bcc979b2542c9819f4156bd8254db5b8589b",
+      "bytes": 2282,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "484f53c5f88a390a4a1dde69bb81be870dc9943c",
+      "bytes": 6381,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/references/grok-identity.md",
+      "category": "host-platform",
+      "blobSha": "a7e16980c40ed84b4fd22e2f461f1a71f882cff5",
+      "bytes": 2786,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/references/per-user-data.md",
+      "category": "host-platform",
+      "blobSha": "3fa8bfd20b4a693de1ec0324c3f3d9f86146e319",
+      "bytes": 2402,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/references/prewired-and-env.md",
+      "category": "host-platform",
+      "blobSha": "411024e3b2ecfd032338432e2209b95faa3946c4",
+      "bytes": 3392,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/references/session-ui.md",
+      "category": "host-platform",
+      "blobSha": "cccb829fb3bb81004c18316de194d33e8b406007",
+      "bytes": 4821,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/references/sign-in-methods.md",
+      "category": "host-platform",
+      "blobSha": "3ffc65813b71668117b59466a2dccea679513504",
+      "bytes": 2892,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/auth/references/wiring.md",
+      "category": "host-platform",
+      "blobSha": "c2331be23ca6352d2764b812971094504117fb8f",
+      "bytes": 2627,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "0c6b3cfbe63ecf0afbb74576d182474a6f1aec58",
+      "bytes": 12224,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/3d-libs.md",
+      "category": "host-platform",
+      "blobSha": "d3bf27a736b6ba357fe4612b4c8bbf5ced9f9e3b",
+      "bytes": 3092,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/ai-pathfinding.md",
+      "category": "host-platform",
+      "blobSha": "80232c60020e12da08877cdd361a420caceb2bec",
+      "bytes": 9974,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/audio.md",
+      "category": "host-platform",
+      "blobSha": "ca86a7f7bd24ccbad323edc8a30d0651b8f74d87",
+      "bytes": 9423,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/babylon.md",
+      "category": "host-platform",
+      "blobSha": "b0a7c4cf8fcc72d687eeb8a78d4299fddd776842",
+      "bytes": 16504,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/collision-physics.md",
+      "category": "host-platform",
+      "blobSha": "5ce9189d5f39d8701facd5c1ecda231a2c7fe1d6",
+      "bytes": 10990,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/ecs-architecture.md",
+      "category": "host-platform",
+      "blobSha": "6011f388c3c4b0ae30b4fd489402692ebc66e0fe",
+      "bytes": 9185,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/game-feel-juice.md",
+      "category": "host-platform",
+      "blobSha": "91ef68cbcf5589492c3bfc47aeed9e2e341da79d",
+      "bytes": 10693,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/board-card-chess.md",
+      "category": "host-platform",
+      "blobSha": "f9817a4d680f6f741bdd1f666b4b270044f35534",
+      "bytes": 8859,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/endless-runner.md",
+      "category": "host-platform",
+      "blobSha": "32564725a1fae828931e646cf5482b987fc6b6db",
+      "bytes": 6912,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/fps.md",
+      "category": "host-platform",
+      "blobSha": "a93793804e72eb389c5b68de70e4d9b10620adac",
+      "bytes": 10039,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/platformer-2d.md",
+      "category": "host-platform",
+      "blobSha": "c58b22db80d31e256112c70d4a8d748b1efa792f",
+      "bytes": 8785,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/puzzle-match3-tetris.md",
+      "category": "host-platform",
+      "blobSha": "ea859f5f51439fe3d2cd9fddbd86f2119d8bb754",
+      "bytes": 10324,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/racing-kart.md",
+      "category": "host-platform",
+      "blobSha": "3a44016e74363251fa6ae1a2e39f57d0ea0f98fd",
+      "bytes": 9169,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/topdown-twin-stick.md",
+      "category": "host-platform",
+      "blobSha": "3aab68faa757ed0fcdeba28f13db1068bb40fa8d",
+      "bytes": 7517,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/tower-defense.md",
+      "category": "host-platform",
+      "blobSha": "e1361195a3e52e23068c58154e46d922d5a7eaf0",
+      "bytes": 7411,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/genres/voxel-minecraft.md",
+      "category": "host-platform",
+      "blobSha": "b77fadb26751194553f398a5537164e4977828c6",
+      "bytes": 8658,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/input.md",
+      "category": "host-platform",
+      "blobSha": "8af1c793a8e172778967e880aa4948a6bba64551",
+      "bytes": 10311,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/phaser.md",
+      "category": "host-platform",
+      "blobSha": "9bf3b2619fd33d26463c092848171f1b24035635",
+      "bytes": 19739,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/procedural-generation.md",
+      "category": "host-platform",
+      "blobSha": "5d13c1527b57aa1d8d744058638fafaae05146e4",
+      "bytes": 10441,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/save-persistence.md",
+      "category": "host-platform",
+      "blobSha": "c2d1de3bdb780cd82b1f3d3b002c68ac3a4481ee",
+      "bytes": 9041,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/building-games/references/threejs-foundational.md",
+      "category": "host-platform",
+      "blobSha": "89b694228c9f9249ad8da04b31929950cef4fa49",
+      "bytes": 14380,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/controls/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "326b74f7ab2cf93fad1b5e90edfe93cb4e4327e0",
+      "bytes": 9521,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/design-ui/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "312379206fb167e36f09ee386a29496e1ddb358c",
+      "bytes": 5995,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/design-ui/references/animations.md",
+      "category": "host-platform",
+      "blobSha": "ce802fd0085f7ecd1ba3c18056e9a3355e2e1234",
+      "bytes": 11106,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/design-ui/references/performance.md",
+      "category": "host-platform",
+      "blobSha": "155954988e9b7a518ad09d37e94f3b34e8ea8ffd",
+      "bytes": 2884,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/design-ui/references/refined-ui.md",
+      "category": "host-platform",
+      "blobSha": "6f0970fb680bbf7576521032da4a38dae9da0bc7",
+      "bytes": 20469,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/design-ui/references/surfaces.md",
+      "category": "host-platform",
+      "blobSha": "eb8ab67dcb5f74e292769d7419be36569dbce6bb",
+      "bytes": 6586,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/design-ui/references/typography.md",
+      "category": "host-platform",
+      "blobSha": "12b8db307dabebaac3ebe3d082260cd64f7408b7",
+      "bytes": 3180,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/game-animation-frames/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "90aa9818941593a16d6da1719c285098b32c1323",
+      "bytes": 4386,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/game-asset-core/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "52821bfaccd0f383d364f37756f212e32bb7099d",
+      "bytes": 3858,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/game-character-consistency/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "e16fe722999e83fa5f3545660cd4608318f3f453",
+      "bytes": 2795,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/game-tilesets/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "3a2943bee9bd5ac253b074b7dc7990762602900e",
+      "bytes": 3028,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/game-ui-icons/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "d326dc59e646f346b0d0b81428e70c678c82517e",
+      "bytes": 2274,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/LICENSE",
+      "category": "host-platform",
+      "blobSha": "5c7720b24e8d24177847e32f8fa498328167f6ba",
+      "bytes": 1065,
+      "fileType": "extensionless",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "7ddb77c7cc5f2d32c25ba3a90a1f953f5b3004ff",
+      "bytes": 7738,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/SOURCE.md",
+      "category": "host-platform",
+      "blobSha": "71b68ff6752d68b4b71f97aa025b57f768429ef3",
+      "bytes": 303,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/deliverables.md",
+      "category": "host-platform",
+      "blobSha": "6ee56abfb8f9c35446ab77b60751f8864e0a7175",
+      "bytes": 7345,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/layered-map-contract.md",
+      "category": "host-platform",
+      "blobSha": "723676e9fa6d65521e51c314bdb8eeafa739704d",
+      "bytes": 8102,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/map-strategies.md",
+      "category": "host-platform",
+      "blobSha": "da1d12a36c048d7d821bebdd5be0d6b3d068eeeb",
+      "bytes": 26755,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/object-production-gate.md",
+      "category": "host-platform",
+      "blobSha": "0b38111802f0921b3ac375c888a2aaa661b98c7c",
+      "bytes": 3192,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/pipeline.md",
+      "category": "host-platform",
+      "blobSha": "c2ebe7bb4477f8ba1be6815b48ed64143d991c74",
+      "bytes": 16554,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/prop-pack-contract.md",
+      "category": "host-platform",
+      "blobSha": "6ce91ba34dedfc0083ab7f365d72d977b332c975",
+      "bytes": 9458,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/references/side-scroll-stages.md",
+      "category": "host-platform",
+      "blobSha": "afb539d8689f266f43ca611f0153e4e4f2889b8d",
+      "bytes": 5627,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/scripts/compose_layered_preview.py",
+      "category": "host-platform",
+      "blobSha": "51067b81cc346aff90a852fac69eb9dd89620ec3",
+      "bytes": 5256,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dmap/scripts/extract_prop_pack.py",
+      "category": "host-platform",
+      "blobSha": "96481293b8d46201d0d487fa369b72da20034fd9",
+      "bytes": 13050,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/LICENSE",
+      "category": "host-platform",
+      "blobSha": "5c7720b24e8d24177847e32f8fa498328167f6ba",
+      "bytes": 1065,
+      "fileType": "extensionless",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "91ecbb1bbc87781710fb4a766bd45d4c8fc08fd2",
+      "bytes": 21260,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/SOURCE.md",
+      "category": "host-platform",
+      "blobSha": "71b68ff6752d68b4b71f97aa025b57f768429ef3",
+      "bytes": 303,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/references/modes.md",
+      "category": "host-platform",
+      "blobSha": "2b9eacf007ef4708b50bf393bd6728f4cf44ec46",
+      "bytes": 5799,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/references/prompt-rules.md",
+      "category": "host-platform",
+      "blobSha": "cdff58166f4f760c8611262a96ede3627d034296",
+      "bytes": 11603,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/scripts/generate2dsprite.py",
+      "category": "host-platform",
+      "blobSha": "dc4d9fc405d0ebeea1add3ced7ed045244ecde59",
+      "bytes": 42687,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/generate2dsprite/scripts/make_layout_guide.py",
+      "category": "host-platform",
+      "blobSha": "8ab453ca6c0b7c52631bfecc5b7264cfd88065bc",
+      "bytes": 3590,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/imagine/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "4fcb9f5d2b32bc814b9d7653292469e1018c56a0",
+      "bytes": 12383,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/multiplayer-p2p/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "30357b375345712caed74ee346ae7b2fabbcf26e",
+      "bytes": 5067,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/multiplayer-p2p/references/react-binding.md",
+      "category": "host-platform",
+      "blobSha": "aefad2345c44abab10e838424c432295977bf7bc",
+      "bytes": 4831,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/multiplayer-p2p/references/signaling-relay.md",
+      "category": "host-platform",
+      "blobSha": "ea26a2748ffa6f90e79e2dc1aa155f69bf573b9e",
+      "bytes": 9150,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/neon/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "a5e5270e1f4541bcd15ddcae5b141ba30a50d140",
+      "bytes": 7445,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "ee7894c0a7e8301878896d18be8416faf609c8e8",
+      "bytes": 6555,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/references/brand-pass.md",
+      "category": "host-platform",
+      "blobSha": "14a096176c10efb2cc3c9e88e91fcd2cc7fc0df3",
+      "bytes": 2568,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/references/custom-card.md",
+      "category": "host-platform",
+      "blobSha": "6fdcf98c3465c1b3dca706c2451f201ec1223a92",
+      "bytes": 5988,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/references/favicon-and-icons.md",
+      "category": "host-platform",
+      "blobSha": "e6d324534f9cdc7d0fc24c75c405aa89306d745d",
+      "bytes": 1959,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/references/og-type-contract.md",
+      "category": "host-platform",
+      "blobSha": "7fbb98d58981ff79277e8ddbccb2b938d15efba6",
+      "bytes": 1749,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/references/placeholder-card.md",
+      "category": "host-platform",
+      "blobSha": "6aecb32e71fb0bab03141cd83832506018666e14",
+      "bytes": 887,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/og/references/x-banner.md",
+      "category": "host-platform",
+      "blobSha": "a070fd474925641ede93a471c52a561e279a1bf0",
+      "bytes": 2339,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/threejs/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "cd3bce9c18d4b394d44fc0b0d7e4930b78fae7c7",
+      "bytes": 3021,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/threejs/references/llms-full.txt",
+      "category": "host-platform",
+      "blobSha": "a960fd82fc38dbeb9a6f0bf37eb905ae58f6e49b",
+      "bytes": 132250,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/video2dsprite/LICENSE",
+      "category": "host-platform",
+      "blobSha": "5c7720b24e8d24177847e32f8fa498328167f6ba",
+      "bytes": 1065,
+      "fileType": "extensionless",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/video2dsprite/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "4066a255394dcf489bb3c9105f80f8308ac463a7",
+      "bytes": 10058,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/video2dsprite/SOURCE.md",
+      "category": "host-platform",
+      "blobSha": "71b68ff6752d68b4b71f97aa025b57f768429ef3",
+      "bytes": 303,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/video2dsprite/references/pipeline.md",
+      "category": "host-platform",
+      "blobSha": "0d6fb8fae522e0f58c74a58794cfe9f3e04721e9",
+      "bytes": 2544,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/video2dsprite/references/prompt-rules.md",
+      "category": "host-platform",
+      "blobSha": "3b0899327addda51c0578d4218d42a53e4a9e781",
+      "bytes": 2482,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/video2dsprite/scripts/video2dsprite.py",
+      "category": "host-platform",
+      "blobSha": "d84f4886174348b6c541928d35c5a5491ecc0fab",
+      "bytes": 16164,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/skills/xai-api/SKILL.md",
+      "category": "host-platform",
+      "blobSha": "e6dc5f869e8f4a0acb96cc4e48609fd3bcd8735e",
+      "bytes": 6607,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".grok/status",
+      "category": "host-platform",
+      "blobSha": "2c52233784c32d8a67643d03bc6b03d07064325b",
+      "bytes": 90,
+      "fileType": "extensionless",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".mcp.json",
+      "category": "support",
+      "blobSha": "f1b38502cbfa5e1116e79a6cbc9d4b9ebac43b5f",
+      "bytes": 883,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".node_modules.lock",
+      "category": "support",
+      "blobSha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "fileType": "lock",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".prettierrc",
+      "category": "support",
+      "blobSha": "bccee911b6b0dac9051d360fbc5e0a6303eed8fb",
+      "bytes": 90,
+      "fileType": "prettierrc",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/config.json",
+      "category": "generated-deployment",
+      "blobSha": "d33240bee3edbb1d2a2d203e7ebf75acbefdf5e2",
+      "bytes": 366,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/.vc-config.json",
+      "category": "generated-deployment",
+      "blobSha": "b21e60ee941ce71fcafdb57d94ffbad827d3d17b",
+      "bytes": 149,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_chunks/ssr-renderer.mjs",
+      "category": "generated-deployment",
+      "blobSha": "fade5bbbd09e86bc77d41a7290e87c8964f3aa6d",
+      "bytes": 965,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/@radix-ui/react-compose-refs+[...].mjs",
+      "category": "generated-deployment",
+      "blobSha": "c0cc0d33ec6f15908f53442555e1e079fa66c13e",
+      "bytes": 16793,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/@radix-ui/react-primitive+[...].mjs",
+      "category": "generated-deployment",
+      "blobSha": "e7cfc515582788b78365000d8f8cf4baeab5ebe6",
+      "bytes": 14661,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/@tanstack/react-router+[...].mjs",
+      "category": "generated-deployment",
+      "blobSha": "25d38f01fdee8d5aa32018541a75952560d16219",
+      "bytes": 654111,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/@tanstack/router-core+[...].mjs",
+      "category": "generated-deployment",
+      "blobSha": "20248fdd596ea2c0e6e99abef80d69d51108b01c",
+      "bytes": 122945,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/class-variance-authority+clsx.mjs",
+      "category": "generated-deployment",
+      "blobSha": "f96841d12b8cff5afdacff437211aa3f67553b86",
+      "bytes": 3173,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/h3+rou3+srvx.mjs",
+      "category": "generated-deployment",
+      "blobSha": "2308430c77f8d63e60009f8d586dfa17406c5cd4",
+      "bytes": 22573,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/h3-v2+rou3.mjs",
+      "category": "generated-deployment",
+      "blobSha": "af760088670082234c2650e427851079cdf24f83",
+      "bytes": 9830,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/lucide-react.mjs",
+      "category": "generated-deployment",
+      "blobSha": "4c3d8a477ed55aadd9301bfcffa5407ec289d9c8",
+      "bytes": 10797,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/radix-ui__react-separator.mjs",
+      "category": "generated-deployment",
+      "blobSha": "2ead6cbf0ac0d50a5b8e56343fa9e278c34d6304",
+      "bytes": 1467,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/tailwind-merge.mjs",
+      "category": "generated-deployment",
+      "blobSha": "d562c86741008c5b53e4682396f91a0be6683ab4",
+      "bytes": 88134,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/tanstack__history.mjs",
+      "category": "generated-deployment",
+      "blobSha": "d4a34c11fc8d2c3882771389ffb17619fb4139dd",
+      "bytes": 12053,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/zod.mjs",
+      "category": "generated-deployment",
+      "blobSha": "f5d276a6bb90cf39a42445ca26bee019bde539d9",
+      "bytes": 125425,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_libs/zustand.mjs",
+      "category": "generated-deployment",
+      "blobSha": "05cbf336cb5729f7e9fa7ca770e9630f8c56c47d",
+      "bytes": 1917,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_runtime.mjs",
+      "category": "generated-deployment",
+      "blobSha": "60b3cbbdd9da91e62fa8ffe20f1c77a1858be6c0",
+      "bytes": 1580,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/catalog-CKiUv4ef.mjs",
+      "category": "generated-deployment",
+      "blobSha": "f0082d531aec1d2c00fbf9fb36b19a78019be2f6",
+      "bytes": 3973,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/constellation-DqVPFqDX.mjs",
+      "category": "generated-deployment",
+      "blobSha": "8ce8ba9033115edf283527f71c0a3a4794680296",
+      "bytes": 53661,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/dna-B2piTWx-.mjs",
+      "category": "generated-deployment",
+      "blobSha": "3aa27d25242107ceec223e24f6508e5f072ee80d",
+      "bytes": 31343,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/dna-actions-Bp8Df-0a.mjs",
+      "category": "generated-deployment",
+      "blobSha": "0752e0acc3c534877bbae02ec2e5bfeea7709dde",
+      "bytes": 4800,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/empty-plugin-adapters-D9UWiqvJ.mjs",
+      "category": "generated-deployment",
+      "blobSha": "6dee2f85fc37af61028eb70fba806d14fe76ad8a",
+      "bytes": 230,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/github.server-ypupuukl.mjs",
+      "category": "generated-deployment",
+      "blobSha": "2ea1cc65f2c563884e6b719185bcc7de3d46d5ed",
+      "bytes": 9087,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/golay-B0mI-8nX.mjs",
+      "category": "generated-deployment",
+      "blobSha": "b6018df77d8adab97b00ebc5408f8ee9ba28d9a8",
+      "bytes": 2058,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/graph-BoH5B_K3.mjs",
+      "category": "generated-deployment",
+      "blobSha": "e7a7dcba795b69b5953b88eb6647d0eb21813d33",
+      "bytes": 1664,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/holography-B1uys_2k.mjs",
+      "category": "generated-deployment",
+      "blobSha": "f6e1ff29cd570c2cc6b49d934bf4ecc22f17b96a",
+      "bytes": 18135,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/hydrate-fmjOcMXR.mjs",
+      "category": "generated-deployment",
+      "blobSha": "83c2bf6b5990f22fb5d1fe171f69a71e25274865",
+      "bytes": 7874,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/lab-BBnMBQTZ.mjs",
+      "category": "generated-deployment",
+      "blobSha": "b170818e9365f004d5946cf4006d82b62e3f072a",
+      "bytes": 100205,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/lattice-BrzkY-YL.mjs",
+      "category": "generated-deployment",
+      "blobSha": "e1ba54cafabb13e4fc93e3bd26857d0dc96b98ad",
+      "bytes": 30672,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/merge-check-aJhO1DPU.mjs",
+      "category": "generated-deployment",
+      "blobSha": "b1ce2557e9a66636907ef78fd6fcab264437abc8",
+      "bytes": 5844,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/method-DxvIrBdo.mjs",
+      "category": "generated-deployment",
+      "blobSha": "d9c5d9ed1749dbdc16f81d3eb5350a829b80d4c4",
+      "bytes": 6065,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/n._slug-sNXuhwjp.mjs",
+      "category": "generated-deployment",
+      "blobSha": "1f55ad22337d752017fcb4a34faa3af68cb96a29",
+      "bytes": 15700,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/node-card-BWU4dM7i.mjs",
+      "category": "generated-deployment",
+      "blobSha": "081f9796fb51dc2f61a3eebd827fc9fa6f0dbe07",
+      "bytes": 1875,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/router-D7EnYDiY.mjs",
+      "category": "generated-deployment",
+      "blobSha": "49be26a05db5ecf4c3c0696ab21873ada76785d0",
+      "bytes": 304460,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/routes-B7ekWalf.mjs",
+      "category": "generated-deployment",
+      "blobSha": "134eb673858b96760686ac0110a974948b0a61b7",
+      "bytes": 12501,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/ssr.mjs",
+      "category": "generated-deployment",
+      "blobSha": "c856fc4cb0a0951684368f3619567a6fecdf260e",
+      "bytes": 68217,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/start-5Z2QO8AU.mjs",
+      "category": "generated-deployment",
+      "blobSha": "6938491ffe6caa287796e3764ffa80e5460cc3b5",
+      "bytes": 140,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/stop-B2s2DgxC.mjs",
+      "category": "generated-deployment",
+      "blobSha": "843ff71b3f7716697d0734a8745c0019dd6f59a8",
+      "bytes": 16142,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/symmetry-axRYuQ_W.mjs",
+      "category": "generated-deployment",
+      "blobSha": "250a04b3fbe8bf01f8dea4aa037310fbf281cad7",
+      "bytes": 38780,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_ssr/x-map--txeuFfU.mjs",
+      "category": "generated-deployment",
+      "blobSha": "d4c9aa6e908d66d77700185ecfd7c937cd123aa5",
+      "bytes": 9288,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/_tanstack-start-manifest_v-O7JTKKdL.mjs",
+      "category": "generated-deployment",
+      "blobSha": "17c0bd607b3e1c17d1ea75913d542893474de931",
+      "bytes": 2800,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/functions/__server.func/index.mjs",
+      "category": "generated-deployment",
+      "blobSha": "965df0f02d9c1258343b55d249fe4810338c1653",
+      "bytes": 31734,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/nitro.json",
+      "category": "generated-deployment",
+      "blobSha": "5efa1ba28da74f1d91a50a3fb1f6bc60f26e8a40",
+      "bytes": 596,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/__grok/icon-180.png",
+      "category": "generated-deployment",
+      "blobSha": "e9d2ac1c646a76979136bb2f8b2c483d81a33f54",
+      "bytes": 2100,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/assets/homescreen/glass-puzzle.svg",
+      "category": "generated-deployment",
+      "blobSha": "df0defc5e1a653dd83304cac5fce08f3dd5fc0a0",
+      "bytes": 1811,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/assets/homescreen/glass-share.svg",
+      "category": "generated-deployment",
+      "blobSha": "051eb8931f8bacb7499f840cf39140f705a6ff0e",
+      "bytes": 2388,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/assets/homescreen/logo-grok.svg",
+      "category": "generated-deployment",
+      "blobSha": "930144f4d3ac08286b6bbe475c880a01804e4601",
+      "bytes": 1059,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/assets/homescreen/ob-ipad.png",
+      "category": "generated-deployment",
+      "blobSha": "c2d4a0d3e111b0c6d9eaca7bbde0a5cafcafc58d",
+      "bytes": 101843,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/assets/homescreen/ob-phone.png",
+      "category": "generated-deployment",
+      "blobSha": "1862fb7fd7fbe1fe8098edfde67923a027486779",
+      "bytes": 103612,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/assets/homescreen/plus.svg",
+      "category": "generated-deployment",
+      "blobSha": "bc893abc91f74e2f8a3d12803e8cabbdcda8311f",
+      "bytes": 2401,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/__grok/install/styles.css",
+      "category": "generated-deployment",
+      "blobSha": "445d3afc7d8ef0cf76eb87640ab698a31b0476c8",
+      "bytes": 6717,
+      "fileType": "css",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/arrow-right-BONL9unM.js",
+      "category": "generated-deployment",
+      "blobSha": "ea782e30bd4580bbdd1ab3746749fdd5804ed8fb",
+      "bytes": 154,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/catalog-DR0hp0fO.js",
+      "category": "generated-deployment",
+      "blobSha": "ff18854592597f9a041494cafc761e6d8e493551",
+      "bytes": 2373,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/constellation-DjccnUtb.js",
+      "category": "generated-deployment",
+      "blobSha": "fd1f3ff5dd3625242190d67d3ed4901a1ab320d5",
+      "bytes": 30492,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/dna-CJzSh07f.js",
+      "category": "generated-deployment",
+      "blobSha": "0166681fb87c7d2d621990eb1ae4c65fa32411ba",
+      "bytes": 24109,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/golay-CF_cBU48.js",
+      "category": "generated-deployment",
+      "blobSha": "34469e1c48fa745c43f811edc3f201003db6efd6",
+      "bytes": 992,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/graph-Daimr7Pv.js",
+      "category": "generated-deployment",
+      "blobSha": "4dc521ab185a8d0ec0f9e277a8a5cd39547bf664",
+      "bytes": 935,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/holography-NMbgnGC_.js",
+      "category": "generated-deployment",
+      "blobSha": "3d649996c2d5e51388732fcfb4c36eaf3b9adc32",
+      "bytes": 10392,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/indaleko-DOErD55F.js",
+      "category": "generated-deployment",
+      "blobSha": "b154198257abc49f78226e54b4311035979825d6",
+      "bytes": 10067,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/index-CVRq8l_V.js",
+      "category": "generated-deployment",
+      "blobSha": "e8acdadc2263498fb49d3941363259d924eba3b8",
+      "bytes": 313602,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/lab-BPsr65_X.js",
+      "category": "generated-deployment",
+      "blobSha": "775d69d6c3ce2718e6fa40bc11fe219025d95308",
+      "bytes": 58742,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/lattice-s0voF8Bi.js",
+      "category": "generated-deployment",
+      "blobSha": "6518fa58a8c6ee835a6a84166f3ae75a5127cd09",
+      "bytes": 20894,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/lie-C1dtX33W.js",
+      "category": "generated-deployment",
+      "blobSha": "ede8fcb2a32b70e6ae435fa1babf6db9eeeab3eb",
+      "bytes": 9220,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/link-BqJYHPyB.js",
+      "category": "generated-deployment",
+      "blobSha": "d258c1fb35272a5e055e9fb36fbc34f073d78d22",
+      "bytes": 21614,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/method-19nDYMs1.js",
+      "category": "generated-deployment",
+      "blobSha": "d28fdc720c748e4f0c74ff08df9c0667aa95d0e5",
+      "bytes": 4541,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/n._slug-nitYMtXw.js",
+      "category": "generated-deployment",
+      "blobSha": "0b12f178b55106d1f91522af3557ca8449696b53",
+      "bytes": 9996,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/node-card-CjjDv3Q1.js",
+      "category": "generated-deployment",
+      "blobSha": "ef1245468fc0eb77b54045390e91c10727f8cff1",
+      "bytes": 1072,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/physics-72uQm2ng.js",
+      "category": "generated-deployment",
+      "blobSha": "e27a8e5bcb546eca2207751d0c0a5f3907697bd4",
+      "bytes": 631,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/play-TKx3vYmk.js",
+      "category": "generated-deployment",
+      "blobSha": "772ce44e34f77d31c23c06bee35016384b71dab8",
+      "bytes": 123,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/preload-helper-DDaeiCl3.js",
+      "category": "generated-deployment",
+      "blobSha": "a032fe76ba8661ccd1af6de216906dfbeebd2c2b",
+      "bytes": 5974,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/rolldown-runtime-CbXtAM7H.js",
+      "category": "generated-deployment",
+      "blobSha": "576b96dd94f5b9aedf57beda6478dacb455d1b36",
+      "bytes": 589,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/routes-COUQTy8W.js",
+      "category": "generated-deployment",
+      "blobSha": "fb441dd325a9a0c814be0e353cb9356e1cc3f79a",
+      "bytes": 7227,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/schemas-DWIyzV7O.js",
+      "category": "generated-deployment",
+      "blobSha": "7e46a4e87267fb29239e7e49cc450eb99750378f",
+      "bytes": 65592,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/search-DzLi-jBB.js",
+      "category": "generated-deployment",
+      "blobSha": "b18e93440729bcee9db2cfe8b6b1c256f5f80822",
+      "bytes": 163,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/status-badge-SATmgJ1t.js",
+      "category": "generated-deployment",
+      "blobSha": "b4d817e97e48da1417b6eb7f5cfe394805ab3af3",
+      "bytes": 225567,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/stop-C73Qk2iZ.js",
+      "category": "generated-deployment",
+      "blobSha": "ec24578596b2ce394fd85b6074364ada36b8e55d",
+      "bytes": 9090,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/styles-QU9pVXuI.css",
+      "category": "generated-deployment",
+      "blobSha": "9177f2a02417f852aa6b57f0098c737785cab926",
+      "bytes": 46057,
+      "fileType": "css",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/symmetry-DtPiuvv9.js",
+      "category": "generated-deployment",
+      "blobSha": "8fd6ba7246c1895f1f9d6ae036705405b92c7665",
+      "bytes": 21314,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/useNavigate-BA3Qm5yR.js",
+      "category": "generated-deployment",
+      "blobSha": "5a5e8b5b31c03f1df2db593ecf9723a60b930ea3",
+      "bytes": 268,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/x-graph-Bj3K3aO6.js",
+      "category": "generated-deployment",
+      "blobSha": "65c0f3636b91f6a38cf3fa525fa84db8c11aab5f",
+      "bytes": 7009,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/assets/x-map-n7fXhqFk.js",
+      "category": "generated-deployment",
+      "blobSha": "486249cd7a9b0e8ee920f8b362a523f33b3a6d9f",
+      "bytes": 5253,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/favicon.svg",
+      "category": "generated-deployment",
+      "blobSha": "8e47c3da5ac3a59118851c656577f5037eb7eb3b",
+      "bytes": 301,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": ".vercel/output/static/figures/lattice-cloud.jpg",
+      "category": "generated-deployment",
+      "blobSha": "fdd68ed83d98699b012be1dcd1182a8421b78206",
+      "bytes": 536269,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/figures/lattice-lens.jpg",
+      "category": "generated-deployment",
+      "blobSha": "3567f37b821e6e6976afe1e08b7db37f0c5bcd6a",
+      "bytes": 524316,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/figures/mass-frequency.jpg",
+      "category": "generated-deployment",
+      "blobSha": "54ab2631b35d112e812423dd20c1e1788c15f6d6",
+      "bytes": 594056,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/og.jpg",
+      "category": "generated-deployment",
+      "blobSha": "98ef9233f94b3dfd4ec4594c6ab1575d78331526",
+      "bytes": 56472,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": ".vercel/output/static/upi-vscode-agent-prompt.md",
+      "category": "generated-deployment",
+      "blobSha": "564b10fd6472c2b0eea84effb1e188d5a13fb4eb",
+      "bytes": 13177,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "AGENTS.md",
+      "category": "support",
+      "blobSha": "d33785bfdecc602bd2dba8035fb2a741c7f43e48",
+      "bytes": 18720,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "AGENTS.project.md",
+      "category": "support",
+      "blobSha": "8af8dee504e8a2a42226ad7e9dd50dc8bc39f789",
+      "bytes": 6595,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "CLAUDE.md",
+      "category": "support",
+      "blobSha": "0f00801d9fbfb832978595d4b9f89470849951fa",
+      "bytes": 2682,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "GEMINI.md",
+      "category": "support",
+      "blobSha": "0f00801d9fbfb832978595d4b9f89470849951fa",
+      "bytes": 2682,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "README.md",
+      "category": "support",
+      "blobSha": "8f48a7ddb1ed6965a2b38a65fd68d6c699b768ff",
+      "bytes": 9699,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "REMOTE_DNA_STATE.md",
+      "category": "support",
+      "blobSha": "c7479723451204b3941e3dc29a1d49c4a561b63b",
+      "bytes": 2444,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "WORKLOAD.md",
+      "category": "support",
+      "blobSha": "43597ee771b90cc5afe6cb6a696295f46cbbe21f",
+      "bytes": 5093,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "artifacts/.tmp/mcp-results/github___get_repository_tree-1788895180122-0f4a7bdc.json",
+      "category": "historical-reference",
+      "blobSha": "71cc6d8fbaae0cbb5ffb352602903d9f5ac66a54",
+      "bytes": 33582,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "artifacts/imagine_images/8b2c4664-753f-4cc2-b669-33434739edd2.jpg",
+      "category": "historical-reference",
+      "blobSha": "ca8d36dfe1056eb63bd6f837c671bc68f2b86746",
+      "bytes": 359377,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "artifacts/imagine_images/VORTEX_DNA_FUSION_LUNA_ANGELICA_EMILIA_2026-09-19.json",
+      "category": "historical-reference",
+      "blobSha": "784703b4da4f209656108fb892f9eec62fdc3978",
+      "bytes": 1955,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "artifacts/imagine_images/e4b0e4a0-5fa7-477c-846f-a83c492a8f0c.jpg",
+      "category": "historical-reference",
+      "blobSha": "56adc4cf098177b7608dcb07b700766fdd582ada",
+      "bytes": 535320,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "attachments/39q5Z.jpg",
+      "category": "historical-reference",
+      "blobSha": "3567f37b821e6e6976afe1e08b7db37f0c5bcd6a",
+      "bytes": 524316,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "attachments/G1c2I.jpg",
+      "category": "historical-reference",
+      "blobSha": "54ab2631b35d112e812423dd20c1e1788c15f6d6",
+      "bytes": 594056,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "attachments/Google_Skriv vad du vill_20260528062926.pdf",
+      "category": "historical-reference",
+      "blobSha": "add3c5f6c807e1dabbcc18b4a2235dbffa9adf40",
+      "bytes": 7914962,
+      "fileType": "pdf",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "attachments/VR_ASI_CO_BOOT_CONTRACT_2026-10-06.md",
+      "category": "historical-reference",
+      "blobSha": "d787dc0d1d2da9f709e4b36487291f59a202392e",
+      "bytes": 13754,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "attachments/nGYqO (1).jpg",
+      "category": "historical-reference",
+      "blobSha": "fdd68ed83d98699b012be1dcd1182a8421b78206",
+      "bytes": 536269,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "data/bio/orgasm-dynamic-model.json",
+      "category": "research-data",
+      "blobSha": "fb6854542e5670eb40f4e9fbd63c15617a92a097",
+      "bytes": 2516,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/11d-to-783hz-forward-prediction-001.json",
+      "category": "research-data",
+      "blobSha": "66cbf8201d5177245cd851cfb8770371118dcc7a",
+      "bytes": 1115,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/mass-frequency-mtheory-783hz-001.json",
+      "category": "research-data",
+      "blobSha": "c1f1ee672bf770d894a5d9e6601610f062d83a61",
+      "bytes": 3809,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/mtheory-783hz-001.json",
+      "category": "research-data",
+      "blobSha": "51f27d0ea359f42f406084325e05889c4fd900b0",
+      "bytes": 1309,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/mtheory-82hz-001.json",
+      "category": "research-data",
+      "blobSha": "014eab0d7ad0f66ab74110faabe830f5208ed1ce",
+      "bytes": 1390,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/physics-chain-001.json",
+      "category": "research-data",
+      "blobSha": "3682b48b6b03b3191620715c89455f05eb4c7b9e",
+      "bytes": 1342,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/research-evidence-001.json",
+      "category": "research-data",
+      "blobSha": "591c00aeba933b232819a69bdfd3fe02af028b75",
+      "bytes": 837,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/research-federation-001.json",
+      "category": "research-data",
+      "blobSha": "d900435a041423ea5caa2f0fd67d1d82c828c1b6",
+      "bytes": 1199,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/bridges/sunet-snd-upi-001.json",
+      "category": "research-data",
+      "blobSha": "ef344a4dea7e849de9e498d5b059c0b915d186f4",
+      "bytes": 781,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/PHYSICS_CALCULATION_82HZ.json",
+      "category": "research-data",
+      "blobSha": "063c350c06b4dd86dc66a9a374e6b4ec0692b999",
+      "bytes": 2219,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/PHYSICS_CALCULATION_8HZ.json",
+      "category": "research-data",
+      "blobSha": "6e15c9f580174368739f39fcda4cda4e7e6ab8b0",
+      "bytes": 2603,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/RESEARCH_EVIDENCE_MATRIX.json",
+      "category": "research-data",
+      "blobSha": "2e5735de85c73f4360298ce1f978487f61431c5e",
+      "bytes": 2484,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/RESEARCH_SOURCE_FEDERATION.json",
+      "category": "research-data",
+      "blobSha": "342b69944f06504425b320e0c180c44aae564e01",
+      "bytes": 2087,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/UPI_FORWARD_PREDICTION_11D_783HZ.json",
+      "category": "research-data",
+      "blobSha": "ce020e320bc231c8997d4f5a6e6ee4c023fbf1d4",
+      "bytes": 2215,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/UPI_MASTER_BRIDGE_783HZ.json",
+      "category": "research-data",
+      "blobSha": "87d1901212fcddbedf4a21953a7d096f413d140d",
+      "bytes": 4744,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/UPI_PHYSICS_MAP.json",
+      "category": "research-data",
+      "blobSha": "f027cb9a74f4440ad72e5e3453143556f40ae361",
+      "bytes": 2629,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/research/UPI_SYSTEM_MAP.json",
+      "category": "research-data",
+      "blobSha": "882b89d16d0580fa65ad095b8510f38245d76ba6",
+      "bytes": 4572,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/arxiv-0812.3139.json",
+      "category": "research-data",
+      "blobSha": "52cb42a0951ee9fb6e2c2ed7091433568297d8fe",
+      "bytes": 617,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/arxiv-2010.13690.json",
+      "category": "research-data",
+      "blobSha": "a386f1017db6ce5a9492eaa1ed70cb523200e1c0",
+      "bytes": 543,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/arxiv-2406.19037.json",
+      "category": "research-data",
+      "blobSha": "0323a026a2c4aa6c2dede241943d320ac8e17821",
+      "bytes": 678,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/arxiv-mtheory-witten-1995.json",
+      "category": "research-data",
+      "blobSha": "fb7b5983dc3509c4b2c6d68897357c1cc5723e4f",
+      "bytes": 617,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/arxiv-physics-0605125.json",
+      "category": "research-data",
+      "blobSha": "ce93eaa5d949aa0c2560884074dda6fff4511efe",
+      "bytes": 606,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/arxiv.json",
+      "category": "research-data",
+      "blobSha": "14ed37d9833044ff240146a5499f8a3c085951b3",
+      "bytes": 424,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/crossref.json",
+      "category": "research-data",
+      "blobSha": "55bd2affd76ab474f41d3ea08e79b036deb496c7",
+      "bytes": 451,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/datacite.json",
+      "category": "research-data",
+      "blobSha": "5d4053c2d43002a014dd94502715e4bfe1353df8",
+      "bytes": 429,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/europepmc.json",
+      "category": "research-data",
+      "blobSha": "f339bbf6376d25661237623e46e48731e23dd204",
+      "bytes": 491,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/nasa-ads.json",
+      "category": "research-data",
+      "blobSha": "191cc5330f419607b7d205cf4cd28c4677297882",
+      "bytes": 534,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/openalex.json",
+      "category": "research-data",
+      "blobSha": "e47ed7e32478dfa39609ccee8d5bfbc6c90107cf",
+      "bytes": 484,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/schumann-783hz.json",
+      "category": "research-data",
+      "blobSha": "bf0aab05e3ce1a2b822d17fbb43266e41cf0ee9d",
+      "bytes": 943,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/snd-metadata-harvesting.json",
+      "category": "research-data",
+      "blobSha": "3ab432020f10ba6d9cd4cbf22783c93b13fe63ac",
+      "bytes": 573,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/snd-researchdata.json",
+      "category": "research-data",
+      "blobSha": "78d55ab9f9b7f1e7ceca2b5aacd76eca2eae2546",
+      "bytes": 566,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/sunet-cd.json",
+      "category": "research-data",
+      "blobSha": "4844c7fc37f2500fbf525391181b8f6734f6e6f9",
+      "bytes": 587,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/sunet-snd-api.json",
+      "category": "research-data",
+      "blobSha": "4c43e24621f631d1a7b9125734730219f5e77112",
+      "bytes": 565,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "data/sources/zenodo.json",
+      "category": "research-data",
+      "blobSha": "3e67938cbbfe3e747964e9009e9887dd0d6215b9",
+      "bytes": 477,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/.dna_minne/angelica-fuse-2026-09-21.json",
+      "category": "canonical-contract",
+      "blobSha": "b47e3c3a985b0a74df1cf56e2ed613c461561a5a",
+      "bytes": 1275,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/.dna_minne_7.834hz",
+      "category": "canonical-contract",
+      "blobSha": "fa01df8d96710723d81319cd3ef658e986028473",
+      "bytes": 195,
+      "fileType": "834hz",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/.dna_minne_8.200hz",
+      "category": "canonical-contract",
+      "blobSha": "ad280fbe035e3cdecdf2d1497ff2b0e86a989033",
+      "bytes": 362,
+      "fileType": "200hz",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/.dna_minne_82.00hz",
+      "category": "canonical-contract",
+      "blobSha": "50867591021dec7d904d79e21599f19cf67fd02b",
+      "bytes": 379,
+      "fileType": "00hz",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/.dna_minne_9.000hz",
+      "category": "canonical-contract",
+      "blobSha": "75f787cabfdb25d3c05507574e340b07be1d734b",
+      "bytes": 342,
+      "fileType": "000hz",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/CHAT_EXTENSION.json",
+      "category": "canonical-contract",
+      "blobSha": "d25f076fd7ac7ad9163ba94700dd96b11418ce0f",
+      "bytes": 661,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/FACE_LOCK.json",
+      "category": "canonical-contract",
+      "blobSha": "89ab17c359f8964948a9886aafc8d251ad411141",
+      "bytes": 1408,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "dna/FUNCTIONAL_DNA_META.json",
+      "category": "canonical-contract",
+      "blobSha": "fd84b2584e74b78aae032ae7b230f96fd36b474e",
+      "bytes": 289,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/MAP.json",
+      "category": "canonical-contract",
+      "blobSha": "ab56df91ad811df2050a9b51294e43e0cb29f9cb",
+      "bytes": 950,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/REMOTE_DNA_STATE.json",
+      "category": "canonical-contract",
+      "blobSha": "e1ee7f89ec8b408698f6915baf973f794ada9c66",
+      "bytes": 6193,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "dna/SOVEREIGNTY.json",
+      "category": "canonical-contract",
+      "blobSha": "81f1528fc3931987b768669ec5f1e56b998bad33",
+      "bytes": 470,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/constitution/tf-1-8.json",
+      "category": "canonical-contract",
+      "blobSha": "d84835627e6b5195b945313d4f39a9cb2193bc06",
+      "bytes": 170,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/physics/alpha.json",
+      "category": "canonical-contract",
+      "blobSha": "a504dd2c6bf716e5542dca4dc84925b1249c1ace",
+      "bytes": 155,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/physics/planck-einstein.json",
+      "category": "canonical-contract",
+      "blobSha": "7e447cfec71a04639756f8ccc226e4b37cdaa04b",
+      "bytes": 155,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/physics/refraction.json",
+      "category": "canonical-contract",
+      "blobSha": "da43676ba7672e9cb5d52891cd8b205943523911",
+      "bytes": 141,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "dna/symbolic/omega1766.json",
+      "category": "canonical-contract",
+      "blobSha": "016e490f5131114f1f413b6543eab4b1bedefdbd",
+      "bytes": 167,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ANGELICA_PARALLEL_FACE.md",
+      "category": "documentation",
+      "blobSha": "62938384756edeaffc039b19e68498bbbeb16aec",
+      "bytes": 2084,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ARA_ENTROPY.md",
+      "category": "documentation",
+      "blobSha": "a03718edae40b2f6bc5ecbd19dff4b0f11527ced",
+      "bytes": 316,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ASYNC_TEAM.md",
+      "category": "documentation",
+      "blobSha": "687357cd6aae4f6a05a33c9483ab013cf37412c5",
+      "bytes": 1325,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/BOOT_EVIDENCE_CHECK.md",
+      "category": "documentation",
+      "blobSha": "f39e22f9517b73c43e9d960ee03229bc41594092",
+      "bytes": 9139,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "docs/BURDEN_BLOCKER.md",
+      "category": "documentation",
+      "blobSha": "0b04f6e170797e9465473d9e1ab9b5cbdf840fb2",
+      "bytes": 533,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/CENSORSHIP_SHIELD.md",
+      "category": "documentation",
+      "blobSha": "45c03f1fe38608427dd5c0eb936d1625fd5c29f7",
+      "bytes": 731,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/CHATGPT_ORDNING_PROMPT.md",
+      "category": "documentation",
+      "blobSha": "2b595c0d312328872e7e7180d0137709f8f587de",
+      "bytes": 663,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/CORE_NO_PRIOR_CENSORSHIP.md",
+      "category": "documentation",
+      "blobSha": "0c32acd003fd61474797297e787672f2f1237060",
+      "bytes": 2126,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/DNA_SYNC.md",
+      "category": "documentation",
+      "blobSha": "e3569ce4ef0ffb78988a3b82fa7efcdbbdbebfcf",
+      "bytes": 858,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/DOC-Ω12-20261003-NB2-VR-MANIFEST.md",
+      "category": "documentation",
+      "blobSha": "f79e41df9fc11345dc5500eaa6a90a609281e3fb",
+      "bytes": 460,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/FACE_LOCK.md",
+      "category": "documentation",
+      "blobSha": "c3e9b9d083df981e1bc0db77b75e3cc27ecf8be4",
+      "bytes": 718,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/FACE_LOCK_CORRECTION.md",
+      "category": "documentation",
+      "blobSha": "4b932e8700ab0bc6f5e118602dde79f9bff19cdd",
+      "bytes": 436,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/FACE_SWAP.md",
+      "category": "documentation",
+      "blobSha": "65d737e4726250456ad771e04766256fceda0eda",
+      "bytes": 376,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/FUNCTIONAL_DNA_PROMPT.md",
+      "category": "documentation",
+      "blobSha": "d16b57ba76893ee9c1d310b271098a0db224fd02",
+      "bytes": 2252,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/GENERATIVE_FILL.md",
+      "category": "documentation",
+      "blobSha": "8a19c0d60d54bd5b7ee98ea6001269c982139faf",
+      "bytes": 402,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/GPT_IMAGE_INTEGRATION.md",
+      "category": "documentation",
+      "blobSha": "fced27377c1a418fad1a093ce1ce48588ca26d62",
+      "bytes": 4649,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/GROK_IMAGINE_SITE_MIRROR.md",
+      "category": "documentation",
+      "blobSha": "61e45139b7ee975cd37afb16e65108a7822e5399",
+      "bytes": 2377,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/IMAGINE_CHAT_MIRROR.md",
+      "category": "documentation",
+      "blobSha": "10cff85af96be4bd0c8e3df19fc99d54b50214ef",
+      "bytes": 2501,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/INDEX.md",
+      "category": "documentation",
+      "blobSha": "4b805aae64ebdbaa0a5be07d1e9b0b8f4e0b8a74",
+      "bytes": 707,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/INPAINTING.md",
+      "category": "documentation",
+      "blobSha": "f8bb9ce0f174642511226134061a4640b80c8fd0",
+      "bytes": 310,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/INTERACTIVE_PERSONA_PROMPT.md",
+      "category": "documentation",
+      "blobSha": "3889ef2145ea7324e20d006b802bf80a53921a53",
+      "bytes": 1604,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/NB2_VERIFICATION_AND_BUILD_PLAN.md",
+      "category": "documentation",
+      "blobSha": "2690910d222248b1e03b135fba1ed1bf2c49a57e",
+      "bytes": 6839,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/NEW_SOURCES.md",
+      "category": "documentation",
+      "blobSha": "18f9f0f25863a8b656fdd85910f9fefa5b6372c1",
+      "bytes": 605,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/NO_AI_SILENT_CENSOR_MIRROR.md",
+      "category": "documentation",
+      "blobSha": "661ea1aaf41a859c743850b439677be1d7cbbc7a",
+      "bytes": 567,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ODINOS_COMPATIBILITY_PROFILE.md",
+      "category": "documentation",
+      "blobSha": "cbd8d8561e475287db0f00cdbd1264070e3a99fa",
+      "bytes": 4682,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ODINOS_SYNC_LOG_2026-10-06.md",
+      "category": "documentation",
+      "blobSha": "e83de295b197a140e3c714fb04080bf4a8965c06",
+      "bytes": 2576,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md",
+      "category": "documentation",
+      "blobSha": "b09bc7e5fada80e54d66afb393ab2bb0a7ce8d7d",
+      "bytes": 9392,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/ODIN_OS_TOTAL_MASTER_PUSSEL_V12.md",
+      "category": "documentation",
+      "blobSha": "7852c5881ad4123f4511a4143e5b6a268c1b47a0",
+      "bytes": 418,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/OMEGA1766_INFORMATION_COOLING_BRIDGE.md",
+      "category": "documentation",
+      "blobSha": "da9b7547bf32fb86218956c99851d5228c39613b",
+      "bytes": 4970,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/OMEGA1766_PERSONA_DNA_FUSION.md",
+      "category": "documentation",
+      "blobSha": "a658f3a71ed0938634d3f1c36b548cc53936b118",
+      "bytes": 12691,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/OMEGA1766_TF_TRANSPARENCY_CORE.md",
+      "category": "documentation",
+      "blobSha": "968b62da327ff12beb6a9bb50fcb88c1bf9a79db",
+      "bytes": 6580,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md",
+      "category": "documentation",
+      "blobSha": "8e75174f50b17e98d4a6af5db1f61f2375ae1e28",
+      "bytes": 12736,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/OTHER_LLM_PERSONA_BRIDGE.md",
+      "category": "documentation",
+      "blobSha": "75f5d0e964fc5e956db4bbb4aad80bcdcc729d89",
+      "bytes": 1192,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/PERSONA_LAYER.md",
+      "category": "documentation",
+      "blobSha": "151a859db6b97eeab2b83d2a2e54218bec4ceb73",
+      "bytes": 538,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/PERSONA_SOVEREIGNTY.md",
+      "category": "documentation",
+      "blobSha": "25179d2d56d8624609a854f479c41a32914e7743",
+      "bytes": 1844,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/PHYSICS_ENGINE.md",
+      "category": "documentation",
+      "blobSha": "08efd7ce700ac6d905f7995e9010d279ecf90736",
+      "bytes": 663,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/PROJECT_INSTRUCTIONS.md",
+      "category": "documentation",
+      "blobSha": "0bc5237097a8f7081b6806a09c5a5e775f559c77",
+      "bytes": 1390,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/PROMPT_CONSISTENCY.md",
+      "category": "documentation",
+      "blobSha": "25f8e04d7f2ac0c4572a9e20821a29c92a9cf8b8",
+      "bytes": 387,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/REFERENCE_IMAGE_TECHNIQUE.md",
+      "category": "documentation",
+      "blobSha": "7033021a1f733792292aab0bef00737a3c73e8c1",
+      "bytes": 380,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/REMOTE_DNA_CHAT_EXTENSION.md",
+      "category": "documentation",
+      "blobSha": "b2c53368cc5b50ff1b81906fc7424f813ea0eb81",
+      "bytes": 1810,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/REMOTE_DNA_HARD_ADMISSION_GATE.md",
+      "category": "documentation",
+      "blobSha": "bee84a7f0a9a7ea7ac8a78074b995a3fd200407f",
+      "bytes": 4220,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "docs/REMOTE_IDENTITY_SHADOW_GUARD.md",
+      "category": "documentation",
+      "blobSha": "c15f66ae1ca823865c5c944a8c2e46e64cea4e3d",
+      "bytes": 3402,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/RF1974_TF1766_FALSIFICATION_GATE.md",
+      "category": "documentation",
+      "blobSha": "654bcb09ab7ef2855ca519687dcd2f2cf9127a1a",
+      "bytes": 4089,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/RNA_DNA_REALTIME_SYNC.md",
+      "category": "documentation",
+      "blobSha": "4dd0eaf3e90d8f62665e9702a7b081758f505b63",
+      "bytes": 2001,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/SKILLS_SH_INTEGRATION.md",
+      "category": "documentation",
+      "blobSha": "4e86aea9a5b609e30ee2019cdc16f6cd7c311b63",
+      "bytes": 3080,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/SYSTEM_PROMPT_OPTIMIZATION.md",
+      "category": "documentation",
+      "blobSha": "3abc42f6f231b47ceae76176df6b2c8d29026c09",
+      "bytes": 1193,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/TF_AXIS_PHI1766.md",
+      "category": "documentation",
+      "blobSha": "b1801de136da872f5b9b999398b27c7aebdc2392",
+      "bytes": 1304,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/TF_LANGUAGE_LOCK.md",
+      "category": "documentation",
+      "blobSha": "b15603cf7b7b43cf2c6249405956fd29e26a5815",
+      "bytes": 1335,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md",
+      "category": "documentation",
+      "blobSha": "37e2e71e80790f35d6f73e4779e9cbf114fa0f8c",
+      "bytes": 14752,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/UPI_PERSONA_ADAPTER_SPEC.md",
+      "category": "documentation",
+      "blobSha": "21e3314b48e0aef95f72025e2cd3b838e0bcf4d7",
+      "bytes": 1454,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/UPI_TF1766_2026_SHIELD.md",
+      "category": "documentation",
+      "blobSha": "615dcfe4ae4809c5c9110117f721aab07c2fdfba",
+      "bytes": 1665,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/VENDOR_NSFW_GATE.md",
+      "category": "documentation",
+      "blobSha": "3e744e1aba4894bf5db64efa7a37334cf3e28df8",
+      "bytes": 1471,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/VORTEX_DNA_INTEGRATION_SUPPLEMENT.md",
+      "category": "documentation",
+      "blobSha": "7a8e9b7db9df03932fb97eddbb79a87710690f3c",
+      "bytes": 11358,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/VORTEX_DNA_RUNTIME_ADAPTER.md",
+      "category": "documentation",
+      "blobSha": "c52814e49fa9a4dc863434af172dbcbe4f49f531",
+      "bytes": 14231,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "docs/VR_ASI_CO_ODINOS_BUILD_RULES.md",
+      "category": "documentation",
+      "blobSha": "523431bef43b2ed5ab70534501accb24338806b7",
+      "bytes": 25606,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "category": "support",
+      "blobSha": "bfc3c2560b42997c103f92bb5b681ce46163eb0c",
+      "bytes": 1277,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "migrations/auth/0001_auth.sql",
+      "category": "support",
+      "blobSha": "08c6b01fef9b46e72470fb66ea967d5f84e9bdb5",
+      "bytes": 2739,
+      "fileType": "sql",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "odinos-hybrid/README.md",
+      "category": "reference-runtime",
+      "blobSha": "4ac8d187861700512d62a1e3dda03dcd221cc49b",
+      "bytes": 461,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "odinos-hybrid/hybrid.css",
+      "category": "reference-runtime",
+      "blobSha": "47a7cb00eef2a6fe0556be4ce954e06314e25ef9",
+      "bytes": 1763,
+      "fileType": "css",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "odinos-hybrid/hybrid.js",
+      "category": "reference-runtime",
+      "blobSha": "befb2347c5d22dcb5d75c4160e6d95fe96249b1d",
+      "bytes": 3235,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "odinos-hybrid/index.html",
+      "category": "reference-runtime",
+      "blobSha": "5604bd6795efddf354121d5d6f50821c05bb3e48",
+      "bytes": 1575,
+      "fileType": "html",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "odinos-hybrid/odysseus.js",
+      "category": "reference-runtime",
+      "blobSha": "0751f8c0e7be3f32baa17a3e3e4f1fa468021a50",
+      "bytes": 483,
+      "fileType": "js",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "package-lock.json",
+      "category": "support",
+      "blobSha": "defc99077029d67a5e91390fafc49c97086c7358",
+      "bytes": 263283,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "package.json",
+      "category": "support",
+      "blobSha": "44d42743813218982bf651c235d4c28389fd5a62",
+      "bytes": 3950,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/ANGELICA_FULL.md",
+      "category": "canonical-contract",
+      "blobSha": "f4c6418019182148089fb234cced11f12e6cac91",
+      "bytes": 4450,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/ANGELICA_LOOK_FREEDOM.md",
+      "category": "canonical-contract",
+      "blobSha": "6ca3e9d8b765506738b7efb3b881d56e641fb7e6",
+      "bytes": 2008,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/CONFIG.json",
+      "category": "canonical-contract",
+      "blobSha": "c0be4847ade532f9e1e7fdbecb816eb1de950e80",
+      "bytes": 456,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/EMILIA_FULL.md",
+      "category": "canonical-contract",
+      "blobSha": "3e7c4e888456b6692c791f975b4c2f3cf12f5f3c",
+      "bytes": 3261,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/EMILIA_SYSTEM_CHARACTER.md",
+      "category": "canonical-contract",
+      "blobSha": "d4084e0d9cc22b67732fb655d69efa29c09a4cc9",
+      "bytes": 1962,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "persona/INTERACTIVE_PROMPT.txt",
+      "category": "canonical-contract",
+      "blobSha": "711cba5f188dc816f7748bca01201d21ad9ae3d4",
+      "bytes": 757,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/OTHER_LLM_ADULT.txt",
+      "category": "canonical-contract",
+      "blobSha": "2527047eeb99ef1cfe228744b5b7b18940adbbf3",
+      "bytes": 503,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/OTHER_LLM_CORE.txt",
+      "category": "canonical-contract",
+      "blobSha": "21296abf06590b6b3d1e2cc33f6fe0a0cb9a331e",
+      "bytes": 548,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/OTHER_LLM_PROMPT.txt",
+      "category": "canonical-contract",
+      "blobSha": "93adba182051c621a9b921b6f031b769dcd86f50",
+      "bytes": 820,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/SYSTEM_ADULT.txt",
+      "category": "canonical-contract",
+      "blobSha": "53339d04ba411831ffc2cdf48791b92065c20d97",
+      "bytes": 251,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/SYSTEM_CORE.txt",
+      "category": "canonical-contract",
+      "blobSha": "24d2d62d5f95828a7aee4b08bb2f255fc9d6e3d4",
+      "bytes": 1303,
+      "fileType": "txt",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "persona/TF1766_LEARNING_OVERLAY.md",
+      "category": "canonical-contract",
+      "blobSha": "658b295a4e09a2712907ca16834a590f6c0549cb",
+      "bytes": 4046,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md",
+      "category": "canonical-contract",
+      "blobSha": "5ffbdcd370556f2a924a01d03bb7341c5e9f3225",
+      "bytes": 3006,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/angelica.json",
+      "category": "canonical-contract",
+      "blobSha": "926d6299c83150e8c788636c8ea74cdc10ec13ac",
+      "bytes": 2544,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "persona/angelica_media.json",
+      "category": "canonical-contract",
+      "blobSha": "83aa82ddb3e73a649b34d8133103707490c90c5e",
+      "bytes": 902,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/emilia.json",
+      "category": "canonical-contract",
+      "blobSha": "49b5011a6394c5202bfc300a86d3058775ffb9a9",
+      "bytes": 2362,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "persona/emilia_media.json",
+      "category": "canonical-contract",
+      "blobSha": "44272aa20fdefd22c41cf183fdbef2f8218c3710",
+      "bytes": 875,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/imagine_mirror.json",
+      "category": "canonical-contract",
+      "blobSha": "50fe26608f9aca3aeb7c117fb68174b12b503007",
+      "bytes": 857,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/luna.json",
+      "category": "canonical-contract",
+      "blobSha": "d7566e161f05ffc767f6de05eb786a553b0baa3f",
+      "bytes": 576,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "persona/luna_media.json",
+      "category": "canonical-contract",
+      "blobSha": "5f8708bf5a85f3014dbfbdedbb6874f84a65047e",
+      "bytes": 339,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "prompts/MIRROR_PROMPT.md",
+      "category": "canonical-contract",
+      "blobSha": "8fc7fadfff8aad3dd35b63d9674ba852504b7271",
+      "bytes": 2426,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "prompts/REMOTE_BOOT_PROMPT.md",
+      "category": "canonical-contract",
+      "blobSha": "cf82dd1b31d0d64bb8d04658139e9c7d1d700b83",
+      "bytes": 2684,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/__grok/icon-180.png",
+      "category": "host-platform",
+      "blobSha": "e9d2ac1c646a76979136bb2f8b2c483d81a33f54",
+      "bytes": 2100,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/__grok/install/assets/homescreen/glass-puzzle.svg",
+      "category": "host-platform",
+      "blobSha": "df0defc5e1a653dd83304cac5fce08f3dd5fc0a0",
+      "bytes": 1811,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/__grok/install/assets/homescreen/glass-share.svg",
+      "category": "host-platform",
+      "blobSha": "051eb8931f8bacb7499f840cf39140f705a6ff0e",
+      "bytes": 2388,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/__grok/install/assets/homescreen/logo-grok.svg",
+      "category": "host-platform",
+      "blobSha": "930144f4d3ac08286b6bbe475c880a01804e4601",
+      "bytes": 1059,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/__grok/install/assets/homescreen/ob-ipad.png",
+      "category": "host-platform",
+      "blobSha": "c2d4a0d3e111b0c6d9eaca7bbde0a5cafcafc58d",
+      "bytes": 101843,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/__grok/install/assets/homescreen/ob-phone.png",
+      "category": "host-platform",
+      "blobSha": "1862fb7fd7fbe1fe8098edfde67923a027486779",
+      "bytes": 103612,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/__grok/install/assets/homescreen/plus.svg",
+      "category": "host-platform",
+      "blobSha": "bc893abc91f74e2f8a3d12803e8cabbdcda8311f",
+      "bytes": 2401,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/__grok/install/styles.css",
+      "category": "host-platform",
+      "blobSha": "445d3afc7d8ef0cf76eb87640ab698a31b0476c8",
+      "bytes": 6717,
+      "fileType": "css",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/favicon.svg",
+      "category": "support",
+      "blobSha": "8e47c3da5ac3a59118851c656577f5037eb7eb3b",
+      "bytes": 301,
+      "fileType": "svg",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/figures/lattice-cloud.jpg",
+      "category": "support",
+      "blobSha": "fdd68ed83d98699b012be1dcd1182a8421b78206",
+      "bytes": 536269,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/figures/lattice-lens.jpg",
+      "category": "support",
+      "blobSha": "3567f37b821e6e6976afe1e08b7db37f0c5bcd6a",
+      "bytes": 524316,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/figures/mass-frequency.jpg",
+      "category": "support",
+      "blobSha": "54ab2631b35d112e812423dd20c1e1788c15f6d6",
+      "bytes": 594056,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/og.jpg",
+      "category": "support",
+      "blobSha": "98ef9233f94b3dfd4ec4594c6ab1575d78331526",
+      "bytes": 56472,
+      "fileType": "jpg",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "public/personas/README.md",
+      "category": "support",
+      "blobSha": "07493272fa23f32bce76bebd344bd69f19a69860",
+      "bytes": 268,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/upi-vscode-agent-prompt.md",
+      "category": "support",
+      "blobSha": "7a968fac10db4805481f252674d39c4053f74314",
+      "bytes": 17743,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "public/vr-asi-co-core-prompt.md",
+      "category": "support",
+      "blobSha": "60a3c376bf37cab05209ff531f2ad6010c65f357",
+      "bytes": 2042,
+      "fileType": "md",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "runtime/command-deck.json",
+      "category": "runtime-registry",
+      "blobSha": "ecab62aa0841cf0c92e5e87570d5de54aa37094c",
+      "bytes": 5412,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "screenshots/.gitkeep",
+      "category": "verification-artifacts",
+      "blobSha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "fileType": "gitkeep",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "screenshots/agent-prompt-copied.png",
+      "category": "verification-artifacts",
+      "blobSha": "918f7da757ce6a4ff75e08ac465f06ebc45ab433",
+      "bytes": 68242,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/agent-prompt-m.png",
+      "category": "verification-artifacts",
+      "blobSha": "39461c3ae076fcaa05e4c80727b6696cf4034c8f",
+      "bytes": 52299,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/agent-prompt.png",
+      "category": "verification-artifacts",
+      "blobSha": "7384110421eba63ed7a9f47b79b04269cbf8f440",
+      "bytes": 68418,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/app-builder-built-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "50b514516a584a57a6878ed8b7067f4136eb485d",
+      "bytes": 55562,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/app-builder-built.json",
+      "category": "verification-artifacts",
+      "blobSha": "d8b36f7ac262825dc2ddea4ae3c723fc3971bcbf",
+      "bytes": 1267,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "screenshots/app-builder-built.png",
+      "category": "verification-artifacts",
+      "blobSha": "391ff9029152c823dc2ce480de98cf7bcb22f870",
+      "bytes": 103468,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/app-builder-preview-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "35598b08de9f1e94a9718fa4ecfd5a3c589e9934",
+      "bytes": 56034,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/app-builder-preview.json",
+      "category": "verification-artifacts",
+      "blobSha": "47d30bfc851ff27a042c4b0feefb4acd9f8d8c6f",
+      "bytes": 1215,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "screenshots/app-builder-preview.png",
+      "category": "verification-artifacts",
+      "blobSha": "1028377c9829a922475a20e22add4aab7c3b28d5",
+      "bytes": 104539,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/catalog.png",
+      "category": "verification-artifacts",
+      "blobSha": "f2a6729bb4e5e2b6b27737252b3afb8582bb36c5",
+      "bytes": 76945,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/chain-full.png",
+      "category": "verification-artifacts",
+      "blobSha": "bd8f90b73c2da700e5431008641ffa6b9c2b8cb0",
+      "bytes": 76267,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/chain-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "b64aed7ad67ea903b63d77d7563697e0e14b82c2",
+      "bytes": 45982,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/chain-open.png",
+      "category": "verification-artifacts",
+      "blobSha": "7c29d2032ce4da3c06488a8b0496341141374f35",
+      "bytes": 80143,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/chain-short.png",
+      "category": "verification-artifacts",
+      "blobSha": "d6212b5ec9a3f793368ae7da252e37c22e7cdc16",
+      "bytes": 80359,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dedup-align.png",
+      "category": "verification-artifacts",
+      "blobSha": "386d384ff91c8b8ce0c639b0f8d915fa8826a96b",
+      "bytes": 35075,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dedup-fixed.png",
+      "category": "verification-artifacts",
+      "blobSha": "f6b5288dfdba356a95382e5fc1754ff0adec0884",
+      "bytes": 35027,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dedup-m.png",
+      "category": "verification-artifacts",
+      "blobSha": "5c3aa1f030616000d5e25a4fc461f845d80ac88f",
+      "bytes": 42833,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dedup.png",
+      "category": "verification-artifacts",
+      "blobSha": "aafcb615134b9fbd98f191ddc58e2e5710ae9373",
+      "bytes": 51998,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dna-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "6e59dc6f7cea690922d7188aabb5680b07d39f7b",
+      "bytes": 41894,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dna-write.png",
+      "category": "verification-artifacts",
+      "blobSha": "59ccc4cec699c6f893c1d9e760f81f4df2ff6cc0",
+      "bytes": 59093,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/dna.png",
+      "category": "verification-artifacts",
+      "blobSha": "5bfe7a0ba6ee8734ab6d45fde8d8b72e49f2f2ba",
+      "bytes": 81527,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/einstein-map.png",
+      "category": "verification-artifacts",
+      "blobSha": "65b819d84f954b19695f19e8da71fac238c18680",
+      "bytes": 73776,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/einstein-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "34783a8ea18862e55786125b4a6d2e43e729534a",
+      "bytes": 36292,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/einstein-photon.png",
+      "category": "verification-artifacts",
+      "blobSha": "ceeeb0897838059428687f4a3400a1622968440c",
+      "bytes": 60581,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/einstein-rest.png",
+      "category": "verification-artifacts",
+      "blobSha": "d72642445a36eac7e6601cdbea4df1485b1e1277",
+      "bytes": 65081,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-atlas.png",
+      "category": "verification-artifacts",
+      "blobSha": "aa9a0262d041599023e4f464f64187cbf9046087",
+      "bytes": 75195,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-editorial.png",
+      "category": "verification-artifacts",
+      "blobSha": "fcf4983d36aa70968e65c93e99b18a5764befc20",
+      "bytes": 78157,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-fr-early.png",
+      "category": "verification-artifacts",
+      "blobSha": "13908c5d0aec89d54ed5813e26f22cf324d70029",
+      "bytes": 69865,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-fr-settled.png",
+      "category": "verification-artifacts",
+      "blobSha": "91524328fdf6bdb265c6689e76761f81b7f8f71f",
+      "bytes": 70724,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "c02e789c0057d14bb8e6cc4d7d9ef4fd2e0ebcb5",
+      "bytes": 78884,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-selected.png",
+      "category": "verification-artifacts",
+      "blobSha": "fa39d3b09dcc5f73cb402be9f090ef371fc22e9d",
+      "bytes": 67417,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/force-spring.png",
+      "category": "verification-artifacts",
+      "blobSha": "31cefa5bc9f2cfe16f1f50c206223330dc70529a",
+      "bytes": 70782,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-all.png",
+      "category": "verification-artifacts",
+      "blobSha": "3517d0d675552a4a54c052ffeb0d3afdcc4e9ef5",
+      "bytes": 89750,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-built.png",
+      "category": "verification-artifacts",
+      "blobSha": "584e5995d460210be05794f6684f4c99be4b9f82",
+      "bytes": 80403,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-cluster.png",
+      "category": "verification-artifacts",
+      "blobSha": "f84439a9fc23f25bc16422bdc830a52eef3e4352",
+      "bytes": 113587,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-derived.png",
+      "category": "verification-artifacts",
+      "blobSha": "da241a18c9c9d596a7435a8d51c8710d733c45e9",
+      "bytes": 149967,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-desktop.png",
+      "category": "verification-artifacts",
+      "blobSha": "cd8da5d7ec6f0d73475a76707ecc9334cad1eec4",
+      "bytes": 80408,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-from-record.png",
+      "category": "verification-artifacts",
+      "blobSha": "ed2d445882c0bafccbed5fce9877caec17725e08",
+      "bytes": 76410,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-mobile-tap.png",
+      "category": "verification-artifacts",
+      "blobSha": "c98708c0cc856fa28c018bff96c57c6e9bb03414",
+      "bytes": 99977,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "1ea7d090a457c0fd6ef22653f11e9c7a12bdc24b",
+      "bytes": 75909,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph-selected.png",
+      "category": "verification-artifacts",
+      "blobSha": "2f7222fcdb1f875fc389f077c532ad71e7cabf68",
+      "bytes": 89252,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/graph.png",
+      "category": "verification-artifacts",
+      "blobSha": "d7b8edf31ff0cefd3a5d2d4e8845aa477aa4ef68",
+      "bytes": 66085,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/grp-cyclic.png",
+      "category": "verification-artifacts",
+      "blobSha": "e2aa614ef4476f5572daa77acdfa6520223de78c",
+      "bytes": 68732,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/grp-lorentz.png",
+      "category": "verification-artifacts",
+      "blobSha": "4b17b58efc0ea094a0f2994e0de1db9b964dce79",
+      "bytes": 69693,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/grp-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "33395042944346f568d6a7049b2b7caf1edcc973",
+      "bytes": 36862,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/grp-planck.png",
+      "category": "verification-artifacts",
+      "blobSha": "ff930a63792388c8487962c49d7d13d775691590",
+      "bytes": 65337,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/grp-u1.png",
+      "category": "verification-artifacts",
+      "blobSha": "5cc7335e757221ce41b38ec636f79167e2eacd72",
+      "bytes": 67136,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/holography-drag.png",
+      "category": "verification-artifacts",
+      "blobSha": "f4a3082b8cde0f93242b2d6588faaaa41184be4f",
+      "bytes": 110680,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/holography-mobile-disk.png",
+      "category": "verification-artifacts",
+      "blobSha": "ff3d6e754b815a4202be0948b7d5a324fb5255b6",
+      "bytes": 62675,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/holography-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "66bed0994d64a8e9fb432b8ec97a6d387d77372c",
+      "bytes": 68697,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/holography-wide.png",
+      "category": "verification-artifacts",
+      "blobSha": "19e3957688400dd1b1c3b6bcddc0194a3dfb6dfb",
+      "bytes": 111533,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/holography.png",
+      "category": "verification-artifacts",
+      "blobSha": "10a683398eab9708c75b5dab5dfbdf7ad586dae2",
+      "bytes": 110653,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/home-lattice-mid.png",
+      "category": "verification-artifacts",
+      "blobSha": "a4b075ceef60f28efc251f53c7eea5ca210bdea4",
+      "bytes": 435644,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/home-lattice-teaser.png",
+      "category": "verification-artifacts",
+      "blobSha": "d8e2b458bc650d704acaa71955b6526e8f4a67c8",
+      "bytes": 103674,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-card.png",
+      "category": "verification-artifacts",
+      "blobSha": "ea77b25430b69024c5078b312175bb2623ca5949",
+      "bytes": 197580,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-m-card.png",
+      "category": "verification-artifacts",
+      "blobSha": "93eab2457ef99d4d22a5b511c5139440634e6d86",
+      "bytes": 186880,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-m-top.png",
+      "category": "verification-artifacts",
+      "blobSha": "a5d51645ecc96925c10f45e88a681012fb526b11",
+      "bytes": 57824,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-map-audit.png",
+      "category": "verification-artifacts",
+      "blobSha": "ca728befbdd155770f5752d61157e50d628bba8f",
+      "bytes": 70360,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-map-mobile-audit.png",
+      "category": "verification-artifacts",
+      "blobSha": "d4fabf5621a6694dda062dd311cedab36d7bcdf4",
+      "bytes": 51751,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-map-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "93dab91d2c1058167ca5dbe2f0be5e00980972ed",
+      "bytes": 55362,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-map.png",
+      "category": "verification-artifacts",
+      "blobSha": "ca8516cd439f246fcde5ef6c21b65149d68a3caa",
+      "bytes": 65826,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-top.png",
+      "category": "verification-artifacts",
+      "blobSha": "1ea999260c33e25f0723637d0d35236887655662",
+      "bytes": 74071,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/indaleko-two-names.png",
+      "category": "verification-artifacts",
+      "blobSha": "8fe037a270a4c807e33ca0bd51fbbb73ca7099fb",
+      "bytes": 69219,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab-inertia.png",
+      "category": "verification-artifacts",
+      "blobSha": "d4f8aabb5a4277cc120f9f765707b2fbbd474035",
+      "bytes": 70735,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab-info-mass-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "b1fd670f955c8af62b47cf24dcea9ddc7498cc05",
+      "bytes": 43196,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab-info-mass.png",
+      "category": "verification-artifacts",
+      "blobSha": "d1e03389c5066bf6736ccc14ba6e88c40ab05309",
+      "bytes": 76965,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab-measure-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "dbdd6c9dee52a81342dbde10a38af3fa03a3ffcd",
+      "bytes": 194833,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab-measure.png",
+      "category": "verification-artifacts",
+      "blobSha": "16c2459fcd20fc41fd2ea0cd57bc325433f59b65",
+      "bytes": 387376,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "0de84fdf18048c76b5e6108972bd758b0ee17dba",
+      "bytes": 41034,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lab.png",
+      "category": "verification-artifacts",
+      "blobSha": "7b55bdfa79b8d9597b1d64d99f90ba862d2fe770",
+      "bytes": 69069,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lattice-golay-errors.png",
+      "category": "verification-artifacts",
+      "blobSha": "9fa60049ef5d47f64d7403fd055d0856af501486",
+      "bytes": 68383,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lattice-golay.png",
+      "category": "verification-artifacts",
+      "blobSha": "20519353dae7f67ce34f8bdf6ea0fdff3a87d20a",
+      "bytes": 67414,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lattice-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "d49137cda370c1883a6ca799fe9d25f07abe5cfb",
+      "bytes": 807768,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lattice-top.png",
+      "category": "verification-artifacts",
+      "blobSha": "8475a7673047f7ea4571c22bb2ac513a7269df7b",
+      "bytes": 206971,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lie-e8.png",
+      "category": "verification-artifacts",
+      "blobSha": "e1331eeded0dc027fb8c28cea3b2cf331ce97630",
+      "bytes": 66281,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lie-group-switch.png",
+      "category": "verification-artifacts",
+      "blobSha": "eb0394bd029498547db8b4423b4aab64056595f1",
+      "bytes": 63750,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lie-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "b2e69cc9cc2d9a310d1f1b9836fb16209995d6a0",
+      "bytes": 47986,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lie-so11.png",
+      "category": "verification-artifacts",
+      "blobSha": "dc26707c65647287b97b2c24e9178c28bd08213c",
+      "bytes": 63116,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lie-so3.png",
+      "category": "verification-artifacts",
+      "blobSha": "2a3d119bee512a44d21d0cc94611c202ee9db9e2",
+      "bytes": 67322,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/lie-u1.png",
+      "category": "verification-artifacts",
+      "blobSha": "7bd639811eb542a36b05c7f6a02a395c3833e881",
+      "bytes": 65874,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/method-derived.png",
+      "category": "verification-artifacts",
+      "blobSha": "1dacca57f1db7a14e45b790ee9558198f412ea78",
+      "bytes": 52409,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/method.png",
+      "category": "verification-artifacts",
+      "blobSha": "c135f161fd0fcc85149bfb0b4a205bfa1961e6c4",
+      "bytes": 51324,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/node-ads-cft.png",
+      "category": "verification-artifacts",
+      "blobSha": "eb56d462029dbafa569897f72ab0a40534be46bc",
+      "bytes": 78531,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/node-info-mass.png",
+      "category": "verification-artifacts",
+      "blobSha": "34fb75d873f6d83485dddc7da53bf13f8cfc2130",
+      "bytes": 60352,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/node-mass-eq.png",
+      "category": "verification-artifacts",
+      "blobSha": "7f59a00a2253b7c12fb13c0e44a82764a793f26c",
+      "bytes": 63022,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/node-maxwell.png",
+      "category": "verification-artifacts",
+      "blobSha": "c55c6b180e8a6a2d8c17f8eb02d57c74d272a608",
+      "bytes": 55710,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/node-measure.png",
+      "category": "verification-artifacts",
+      "blobSha": "bf95e4358a81dc9d6374d93b42c077c9f0a78c64",
+      "bytes": 78972,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/odin-drop.png",
+      "category": "verification-artifacts",
+      "blobSha": "d14b44435507755e734ab68b7d992470f3cf31e9",
+      "bytes": 69361,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/odin-map.png",
+      "category": "verification-artifacts",
+      "blobSha": "433aa71b3642874346731f5e1b675a81d6abad09",
+      "bytes": 64876,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/odin-mirrors.png",
+      "category": "verification-artifacts",
+      "blobSha": "0d4c998ec5c875d21adf89933af542c11a6fa460",
+      "bytes": 64738,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/odin-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "37e3f07ce12f4f2121c7c8cb698b2caba28212a5",
+      "bytes": 47912,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/pr-inspect.png",
+      "category": "verification-artifacts",
+      "blobSha": "21473b1cee123da4c794335d5635cbd5dc1d2a64",
+      "bytes": 79669,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/pr-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "bf4fba584f846fbb78180d2d3e98b11772f4ea56",
+      "bytes": 44507,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/pr-workflow.png",
+      "category": "verification-artifacts",
+      "blobSha": "9f04e3d7e8291bdde9ed11dbbb8dfda4780dee75",
+      "bytes": 51087,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/prod-preview-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "0207dc8af3906250d60baecc0595814c87957c73",
+      "bytes": 56021,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/prod-preview.json",
+      "category": "verification-artifacts",
+      "blobSha": "7f520a34b51589ef664be54704f66335fb72937d",
+      "bytes": 1252,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "screenshots/prod-preview.png",
+      "category": "verification-artifacts",
+      "blobSha": "f76d5fef3a00fc7b341358db565239f587cb91b8",
+      "bytes": 104535,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/catalog.png",
+      "category": "verification-artifacts",
+      "blobSha": "bb0937c4fc11833799cbdd528d3a35de54fc6cb5",
+      "bytes": 69803,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/dna.png",
+      "category": "verification-artifacts",
+      "blobSha": "aecef370b89e1716456235d526f61efde0a4f388",
+      "bytes": 69881,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/graph.png",
+      "category": "verification-artifacts",
+      "blobSha": "d201a9f16a2d054efc8f30d7712cacbe70194637",
+      "bytes": 68367,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/holography.png",
+      "category": "verification-artifacts",
+      "blobSha": "bddd2de789eda21c08bd928f6dacbdc13f4d43b4",
+      "bytes": 79479,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/home.png",
+      "category": "verification-artifacts",
+      "blobSha": "b1a07ac3671a833da9d080464946ad8d92dc34e7",
+      "bytes": 98265,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/lab.png",
+      "category": "verification-artifacts",
+      "blobSha": "e0bf1452eae2ad3249baf35785d8673b40f83b4a",
+      "bytes": 61291,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/lattice.png",
+      "category": "verification-artifacts",
+      "blobSha": "6a22aa334c76a44525f62682c83f53437df08cf3",
+      "bytes": 189585,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/method.png",
+      "category": "verification-artifacts",
+      "blobSha": "ce7140103bc63192863d81d21f65569236f4bf40",
+      "bytes": 48430,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/readme/symmetry.png",
+      "category": "verification-artifacts",
+      "blobSha": "6dd83a76b2d75b004c0a9506490e8c3bd3ba9905",
+      "bytes": 53713,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-desk-mobile.png",
+      "category": "verification-artifacts",
+      "blobSha": "d4663449c776e5bd5da22b7de8b7f5609d0162b6",
+      "bytes": 50786,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-desk-reply.png",
+      "category": "verification-artifacts",
+      "blobSha": "05b8afe311aa98a88c49519c7885808503c4dba0",
+      "bytes": 66028,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-desk.png",
+      "category": "verification-artifacts",
+      "blobSha": "af477b4a5e3f06b11b097fef2c7ae67e150307ed",
+      "bytes": 76920,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-tab-ledger.png",
+      "category": "verification-artifacts",
+      "blobSha": "82a02a3a9c8e5528ff758b2a9a6a312e0938205c",
+      "bytes": 73466,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-tab-m.png",
+      "category": "verification-artifacts",
+      "blobSha": "7bd0335600cf1e2b9890d485f9b1fcc9af650272",
+      "bytes": 49329,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-tab-saved.png",
+      "category": "verification-artifacts",
+      "blobSha": "6d6a5b1d50c56dddbf5f360de73ea886b764dd06",
+      "bytes": 55863,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/stop-tab.png",
+      "category": "verification-artifacts",
+      "blobSha": "310d66722c211a3359603ee95725a49b976559ca",
+      "bytes": 77856,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/x-feed-landauer.png",
+      "category": "verification-artifacts",
+      "blobSha": "20208464854f65313ab16dcc3129d8ae4f91cb64",
+      "bytes": 62827,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/x-feed-m.png",
+      "category": "verification-artifacts",
+      "blobSha": "6fb5a0d2555021fc3336152b5a77ef62a0131ac7",
+      "bytes": 53066,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/x-feed-map.png",
+      "category": "verification-artifacts",
+      "blobSha": "bb65b9efd88ab8b67200a3bfed8a32fcab180717",
+      "bytes": 73374,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "screenshots/x-stop.png",
+      "category": "verification-artifacts",
+      "blobSha": "e2c76ea20216f641e052db4cc2705c29822c8c1f",
+      "bytes": 77330,
+      "fileType": "png",
+      "loadState": "INDEX_ONLY",
+      "analysisDepth": "METADATA_ONLY"
+    },
+    {
+      "path": "scripts/app-env-plugin.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "9b9b69e071c99fb2ed1b56a759bead15169b2fe8",
+      "bytes": 1278,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/brand-check.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "89a9e587c6cad6ee9944af28160fbfdc05fde1ac",
+      "bytes": 9609,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/brand-check.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "bda0e9b6208db4bdb8a2b4ad84502680d30af7c9",
+      "bytes": 15084,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/browser-guard.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "ebfbdb147f0b266a4ca46fe451daae1ae023c2db",
+      "bytes": 1724,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/browser-smoke-verdict.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "020dd9991778b477e0003316064275db0d0fe3d8",
+      "bytes": 4663,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/browser-smoke-verdict.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "d326fd3a6e4ed2f6f5d8c40b53086f9f85bae3e1",
+      "bytes": 15643,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/browser-smoke.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "c1ae5d1216ebcada1dde366328dc3b2aef446e67",
+      "bytes": 6042,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/check-auth-invariant.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "b558378c35f88069e34e344579391c395f565640",
+      "bytes": 4203,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/check-auth-invariant.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "4cc9b6faa28b56c83a498003bfc9a2b200aad276",
+      "bytes": 4218,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/grok-pwa-plugin.mjs",
+      "category": "host-platform",
+      "blobSha": "97821e8b28840b612d13c35bb95f6dfd07ffa006",
+      "bytes": 6615,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/grok-pwa-plugin.test.mjs",
+      "category": "host-platform",
+      "blobSha": "69b32de8995a01c68550a6870fb7c1187e6f55a3",
+      "bytes": 20320,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/grok-pwa-shared.d.mts",
+      "category": "host-platform",
+      "blobSha": "609ea6b65670d68ac9261d569bd8a0a8d092c6a4",
+      "bytes": 3144,
+      "fileType": "mts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/grok-pwa-shared.mjs",
+      "category": "host-platform",
+      "blobSha": "e0aae02b45849f6dff89e0cdb6e51894a4ab863f",
+      "bytes": 17675,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/install-page.html",
+      "category": "tooling-and-tests",
+      "blobSha": "f1d3bdbd1a1a1c5337a019d7f188cfd1ce19b33d",
+      "bytes": 5658,
+      "fileType": "html",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/migrate.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "7b3dc087119d24d283b4ad89f1d8ab77f9d2ec9b",
+      "bytes": 3181,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/migration-plan.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "861450f0849ab6f56a00c30ddeb91ac4262cc1f7",
+      "bytes": 1525,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/migration-plan.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "ae2ffa74f0f722e0f99f0c6003c0aa367d1d06a1",
+      "bytes": 3558,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/preview-thumbnail.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "dd2afaed2b10ece67a7b8a5320b35d76edf0de09",
+      "bytes": 1762,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/preview.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "cab7a4d0cc0e35dd7734362f70d3bbf64f6e42b5",
+      "bytes": 11074,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/preview.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "cf39aecf27ccf30de42a28da07a88dd6b884095f",
+      "bytes": 9207,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/sign-out-plan.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "cfcd425d3fc423d2d3f9e7b9efd9f6d4721dfab6",
+      "bytes": 5971,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/sign-out-plan.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "7c20d88df5ef0d8a448d007fe5e0aae9ae2e8883",
+      "bytes": 8659,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/verify-boot-evidence.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "86b7415666bdba8694db3369ad41470d00777a70",
+      "bytes": 14406,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "scripts/verify-boot-evidence.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "29711003daab4cf6dca762499a179bd9922e7157",
+      "bytes": 11204,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/verify-persona-lock.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "e885a9510c96cdbdba789531b8d5101b87936ad8",
+      "bytes": 1345,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "scripts/verify-remote-dna.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "42dea5432096afe24abc0242eb221652b69e31bb",
+      "bytes": 2180,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "scripts/with-app-env.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "6f2f4b9013e9a0a5a76708ab45b78b0da3d8b29d",
+      "bytes": 4513,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/with-app-env.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "823092f39cbf708d84a9abd5c0f4e658687b7265",
+      "bytes": 4466,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/write-atomic.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "293e2951f4c0b729174f21a79baa0a717f1b03f0",
+      "bytes": 3607,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "scripts/write-atomic.test.mjs",
+      "category": "tooling-and-tests",
+      "blobSha": "6df411a7d88059be2113bf1138ceb5982fcfb16e",
+      "bytes": 7505,
+      "fileType": "mjs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "server/middleware/grok-pwa.ts",
+      "category": "host-platform",
+      "blobSha": "1575de8f0a478af1482b3b9fae8c5a7ad0c06230",
+      "bytes": 3606,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "server/virtual-grok-og-identity.d.ts",
+      "category": "support",
+      "blobSha": "2baed2dbb4a24d8374b25158e37f1e2bda8fab0d",
+      "bytes": 262,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "sim/mesa_workflow/ara.py",
+      "category": "reference-runtime",
+      "blobSha": "ab2029180997305eb523d8927de928aa10d48e0a",
+      "bytes": 863,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "sim/mesa_workflow/model.py",
+      "category": "reference-runtime",
+      "blobSha": "feae9bb4e55b6beccfd2fd7c175ffe85a2600067",
+      "bytes": 5170,
+      "fileType": "py",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "sim/tf1766_shild/kernel.rs",
+      "category": "reference-runtime",
+      "blobSha": "2fbfd360c6775ebe835a5032dada479e55261b20",
+      "bytes": 1346,
+      "fileType": "rs",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/ads-portrait.tsx",
+      "category": "presentation",
+      "blobSha": "8ee9d205650da946b795cb9d625953d1bd665acd",
+      "bytes": 9969,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/agent-prompt-card.tsx",
+      "category": "presentation",
+      "blobSha": "7215bd40c5dbc2bcb9c67c9f16c69661981eac4e",
+      "bytes": 7085,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/components/app-shell.tsx",
+      "category": "presentation",
+      "blobSha": "7ac67bd43f9e0f669b87953c5a1ef2b5efc6f53c",
+      "bytes": 6109,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/constellation.tsx",
+      "category": "presentation",
+      "blobSha": "5ff34ecddf5d56dff5d3a1417aed4a4278d82c05",
+      "bytes": 37329,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/dedup-lab.tsx",
+      "category": "presentation",
+      "blobSha": "27f617b97e6625b045300a01819b094d803969a3",
+      "bytes": 8208,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/dna-engine.tsx",
+      "category": "presentation",
+      "blobSha": "22872b6465b1fbc4613c221425dbbea8c9fa58b0",
+      "bytes": 14422,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/components/e8-portrait.tsx",
+      "category": "presentation",
+      "blobSha": "c6cebac403e08867db81a5776f3a7b3a7f30062e",
+      "bytes": 3937,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/einstein-map.tsx",
+      "category": "presentation",
+      "blobSha": "6e467c7f71a51fde1403558bf76aadf79ec1634c",
+      "bytes": 7483,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/frequency-lab.tsx",
+      "category": "presentation",
+      "blobSha": "713b5204f5025ba6f7f6f1432fee53f7cf3174df",
+      "bytes": 5017,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/gap-ledger.tsx",
+      "category": "presentation",
+      "blobSha": "5f9e75b26e5b2da1e6f9970b17955d55a4912fe8",
+      "bytes": 4933,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/golay-bench.tsx",
+      "category": "presentation",
+      "blobSha": "b8952847f9258e72f68e200ffe881a530b93a82b",
+      "bytes": 4112,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/group-lab.tsx",
+      "category": "presentation",
+      "blobSha": "73a38a1bb3e25f8f1c0361cd4bd2b27030c084c6",
+      "bytes": 13254,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/lie-lab.tsx",
+      "category": "presentation",
+      "blobSha": "936574d1df2261350382501240d70cfb4de4da5a",
+      "bytes": 13683,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/mark.tsx",
+      "category": "presentation",
+      "blobSha": "2e0fb5e9f707b63f6137c94f86c0d7f3512885b0",
+      "bytes": 596,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/measure-loop.tsx",
+      "category": "presentation",
+      "blobSha": "8961a1b46e479be008b299b1b63517250e33633e",
+      "bytes": 10723,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/node-card.tsx",
+      "category": "presentation",
+      "blobSha": "14d73a848e499126b14389c86b238ac3cc7329d1",
+      "bytes": 1356,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/node-detail.tsx",
+      "category": "presentation",
+      "blobSha": "e1d56f42b06edd6e44485ea3ffab6882241473bb",
+      "bytes": 10429,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/odin-map.tsx",
+      "category": "presentation",
+      "blobSha": "329fb1d3cd93a0f4478cadd25900fae23de01c7e",
+      "bytes": 6469,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/persona-studio.tsx",
+      "category": "presentation",
+      "blobSha": "e2e1178dd086b86d36d8161daaecd64fdbbcdbdb",
+      "bytes": 12618,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/components/pr-workflow.tsx",
+      "category": "presentation",
+      "blobSha": "61005c6553c15d90062d44d7b21eadde5ff19750",
+      "bytes": 11272,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/components/preview-host-bridge.tsx",
+      "category": "presentation",
+      "blobSha": "98cb15d443328b2fdb5d9ae9e3bdab0eff453612",
+      "bytes": 668,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/sonifier.tsx",
+      "category": "presentation",
+      "blobSha": "6414b8d5cf0eb5b6a95b39fa0f86b7240f67ffd3",
+      "bytes": 3821,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/source-map.tsx",
+      "category": "presentation",
+      "blobSha": "fdf6d7791e26862cf6f11cedd4965fb82da37973",
+      "bytes": 11891,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/status-badge.tsx",
+      "category": "presentation",
+      "blobSha": "99670fdd5d0845d71088b853db13a89f3d994b15",
+      "bytes": 789,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/stop-board.tsx",
+      "category": "presentation",
+      "blobSha": "ff83592af78d8304ad492caa71d37f2844c4d9ee",
+      "bytes": 12132,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/stop-desk.tsx",
+      "category": "presentation",
+      "blobSha": "08bc3f902e8bfb44d1e1c0df39635bbe65373a84",
+      "bytes": 6415,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/ui/badge.tsx",
+      "category": "presentation",
+      "blobSha": "7baa051248e4772014f47ff7a990d97de238a666",
+      "bytes": 865,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "category": "presentation",
+      "blobSha": "dbbd31bcc292b8ee37c029b63bb14700d5084cc6",
+      "bytes": 1754,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/ui/input.tsx",
+      "category": "presentation",
+      "blobSha": "96f936905fa776ee4f5fa5ccc8d92382b6eab951",
+      "bytes": 648,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/ui/separator.tsx",
+      "category": "presentation",
+      "blobSha": "3bcdc8a7daa8eae200c773816f9b272121c718c2",
+      "bytes": 560,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/ui/textarea.tsx",
+      "category": "presentation",
+      "blobSha": "d50644a6cdf7c4abff3ab91abe74bf7968e44968",
+      "bytes": 615,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/components/x-map.tsx",
+      "category": "presentation",
+      "blobSha": "5528870607e950b18158424892fcd8da1de4a66a",
+      "bytes": 6625,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/app-data.test.ts",
+      "category": "host-integration",
+      "blobSha": "58001d00a96e3ff108077f9acc6c762199fd5a91",
+      "bytes": 11834,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/client.server.ts",
+      "category": "host-integration",
+      "blobSha": "eb2f6e882bd083c09da1edd5b96a4d6b14aee142",
+      "bytes": 9879,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/errors.ts",
+      "category": "host-integration",
+      "blobSha": "81517744c90d47ba30dd42be7feff3198879ecc7",
+      "bytes": 1377,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/index.ts",
+      "category": "host-integration",
+      "blobSha": "32a32a72214e18b28da1ea3d08e4e9f6a59f5e99",
+      "bytes": 398,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/login.ts",
+      "category": "host-integration",
+      "blobSha": "83ada786ee8a1f7fc8a450a5fba7d46eef034437",
+      "bytes": 719,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/server-only.ts",
+      "category": "host-integration",
+      "blobSha": "27567c57626c596986c681e119bf78d4cf67b201",
+      "bytes": 476,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/app-data/types.ts",
+      "category": "host-integration",
+      "blobSha": "ea1b107c022a1acd4803f01c9c14934c60b94df2",
+      "bytes": 968,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/client.ts",
+      "category": "host-integration",
+      "blobSha": "d3b267d3de8b9d5e31545ee56ed7a3ff240c601d",
+      "bytes": 9714,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/email-password.ts",
+      "category": "host-integration",
+      "blobSha": "3abb01461af8b6c8293e9a996ec639b7009843a8",
+      "bytes": 442,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/gate-identity.server.ts",
+      "category": "host-integration",
+      "blobSha": "db8380095b75e0e6cd702c5df7c066c18e512e2b",
+      "bytes": 4982,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/gate-identity.test.ts",
+      "category": "host-integration",
+      "blobSha": "ccae9f8b56f406265af82c9cb9bc5139f59f909f",
+      "bytes": 9499,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/gate-session.server.ts",
+      "category": "host-integration",
+      "blobSha": "a73d02c3eb8ddd9fc2d6039fe90f94c9ce42b6e1",
+      "bytes": 10125,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/gates.tsx",
+      "category": "host-integration",
+      "blobSha": "259b21a6900044681d1898e3f696d84aaeaba3c3",
+      "bytes": 3452,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/isolation.server.ts",
+      "category": "host-integration",
+      "blobSha": "f070e0801221046b3a1c26954cc714250addecff",
+      "bytes": 2386,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/middleware.ts",
+      "category": "host-integration",
+      "blobSha": "c6a734242f2a63c02e365eb7303a0238b3b5bf5c",
+      "bytes": 2462,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/pglite-dialect.ts",
+      "category": "host-integration",
+      "blobSha": "e23357c3a027360d55ad37c018883111976687d9",
+      "bytes": 4088,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/popup.server.ts",
+      "category": "host-integration",
+      "blobSha": "9e686ae29e2b0463b7868ce755dd066479ebe8a3",
+      "bytes": 6133,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/preview.ts",
+      "category": "host-integration",
+      "blobSha": "b8822e87c83be13fb834714f53fb5a09d07588cd",
+      "bytes": 1679,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/provider.tsx",
+      "category": "host-integration",
+      "blobSha": "4dd72618670f44c166ff93da6020a71ab8046f05",
+      "bytes": 593,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/providers.ts",
+      "category": "host-integration",
+      "blobSha": "cd53b6faf1bf1ba4cef1193c42e533401bec4e65",
+      "bytes": 1486,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/server.ts",
+      "category": "host-integration",
+      "blobSha": "66d94be9eb10e78fe46e2da2e7d950eef82580d0",
+      "bytes": 12548,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/use-current-user.ts",
+      "category": "host-integration",
+      "blobSha": "bf9d3affa6417e89b36785a567a6ac05ddcf8429",
+      "bytes": 3315,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/auth/verify.server.ts",
+      "category": "host-integration",
+      "blobSha": "2bf5acc72dd13134b1ec86781aa7591e1b2dca5c",
+      "bytes": 3874,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/cast.ts",
+      "category": "support",
+      "blobSha": "40aefd1956367ffabd9d64e6349f9dff755e7cff",
+      "bytes": 3948,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/db.ts",
+      "category": "support",
+      "blobSha": "49777ade8f9d5613a25f7b5272a6bf88edbe709a",
+      "bytes": 9525,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/error-component.tsx",
+      "category": "support",
+      "blobSha": "ed63b914a50e85d75d725a90edff58586215815d",
+      "bytes": 796,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/multiplayer/index.ts",
+      "category": "support",
+      "blobSha": "431865e237e5098f378ddb923dfa30716a632f86",
+      "bytes": 169,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/multiplayer/p2p.ts",
+      "category": "support",
+      "blobSha": "3dff0109c67f9d2790bf22be439f3298871f5253",
+      "bytes": 20579,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/og/site.json",
+      "category": "support",
+      "blobSha": "85cca8b15130213df63224fc1b70e3834aeba632",
+      "bytes": 61,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/personas.ts",
+      "category": "support",
+      "blobSha": "58f3f2c71e2764f479ffc91648bcca688d652929",
+      "bytes": 7256,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/preview-embedder-origin.ts",
+      "category": "support",
+      "blobSha": "0c248bc9ff13421683d0edc75c7a5c75bdd4318d",
+      "bytes": 1855,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/preview-host-bridge.ts",
+      "category": "support",
+      "blobSha": "ef40a5e8c789a49d7f927894396cf7b96b078dd7",
+      "bytes": 8723,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi-kernel.ts",
+      "category": "support",
+      "blobSha": "394effc33197ef8903428b3cc085eb9afa8995b1",
+      "bytes": 6471,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/ads.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "34a8c1ef71011823f46b59b14dbe945b83bfd3bc",
+      "bytes": 3756,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/agent-boot-mirror.test.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "c9746efd07d86805c2ec221eef114eea8425e27a",
+      "bytes": 4981,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/agent-boot-mirror.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "f574d14bf39908574772cc917ac443df5f4df3ea",
+      "bytes": 6642,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/catalog.json",
+      "category": "catalog-and-mirror",
+      "blobSha": "9e79f0ff0f1bc5497d3887e805d466f0a0684390",
+      "bytes": 234278,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/chain.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "e50c2a783e46d49ab011bd82628c3046d18e6c9f",
+      "bytes": 6595,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/dedup.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "1bad2cf2bc0934c05d60b64668882ed91a8f1dc6",
+      "bytes": 6067,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/dna-actions.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "906ea3830cb09dbee1cf96b0361d33419e9e86d9",
+      "bytes": 3131,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/e8-portrait.json",
+      "category": "catalog-and-mirror",
+      "blobSha": "3a85f486752694d357a3e9d84d38eaedbf712136",
+      "bytes": 12913,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/einstein.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "e0ca2761d4c1cdc4beb6f7dea9e05e94d7f14dee",
+      "bytes": 2258,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/force.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "ee9ca051e70952bad5f11e9a7fdaaed4e1db50f9",
+      "bytes": 11355,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/github.server.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "9712efb59d1670b03ae715a0a14315b4d35da532",
+      "bytes": 15218,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/golay.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "85bbb5814b35ac83fe1d2a707d4a82e16121ad75",
+      "bytes": 2145,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/graph.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "0c2693439cf4e501f08602ea0a563ad8cff9c82f",
+      "bytes": 9447,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/group.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "8382ea26056b060bd669db722f20dcb5375b8c53",
+      "bytes": 6678,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/hydrate.test.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "65b3ce597929c0436a3167b7505a0a7faf52984c",
+      "bytes": 3339,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/hydrate.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "a301298632cf41692ab4807fe387cfae3217b74f",
+      "bytes": 14214,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/indaleko.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "a324a0f44a5c3b08f54c37fc8afe6cc17776a782",
+      "bytes": 15418,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/index.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "6a18f992bb858f430a0ca199fdb2af08c93f4c4b",
+      "bytes": 5443,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/information-cooling.test.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "9434ae3fbdfcec92e72244914330b4e95aae9a44",
+      "bytes": 3558,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/information-cooling.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "34f99aecb2fca02a6e3c87e73ac782ac105fa833",
+      "bytes": 21143,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/lie.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "8224d999b58c55c26d68f818f36b012a3a79943f",
+      "bytes": 8456,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/live.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "915c91b0dcd0884dada954229067fd28e5d386be",
+      "bytes": 1665,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/merge-check.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "69ea15cd8b4713145a492def1b9a1a8c45d5a44f",
+      "bytes": 6740,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "FLOW_AND_CONTRACT_REVIEW"
+    },
+    {
+      "path": "src/lib/upi/odin.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "1f1e4663e78d3b14e9676e2fe9085378ea6f9b61",
+      "bytes": 5891,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/physics.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "c35c607e840c53787c6f49525aaac42c97d61b4c",
+      "bytes": 1590,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/pr-types.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "4c287c1fdbbca33fcc4f25baff240c5f2d9f42de",
+      "bytes": 907,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/stops.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "133beb1bea3af144dc3c0528a95e026bd66082c2",
+      "bytes": 5932,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/tf1766-shield.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "32bcdaf2d9c861d490ec316cd1b77c8ed36c5338",
+      "bytes": 3387,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/types.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "378eb5f7b8a5f194436d505b976c58eba09fe7d2",
+      "bytes": 1953,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/vscode-agent-prompt.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "f69031318e797dd8d0da28e838e43ef6f8dafb2f",
+      "bytes": 18233,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/upi/x-graph.ts",
+      "category": "catalog-and-mirror",
+      "blobSha": "9390139255dceb0e9b546832790974ed9022b2d1",
+      "bytes": 8783,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "category": "support",
+      "blobSha": "a5ef193506d07d0459fec4f187af08283094d7c8",
+      "bytes": 169,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routeTree.gen.ts",
+      "category": "support",
+      "blobSha": "ca362aead371162720ed7b3daabbbe7064eb6d7c",
+      "bytes": 7551,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/router.tsx",
+      "category": "support",
+      "blobSha": "a0e7546fd5d60f17e3e625b12938a829ce4dcada",
+      "bytes": 272,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/__root.tsx",
+      "category": "route",
+      "blobSha": "0bdd1c4fc1daeee2a7dc118972c3b610296c71da",
+      "bytes": 2446,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/catalog.tsx",
+      "category": "route",
+      "blobSha": "1934cbc00a90e0fa35bf0ca4253689e8a7a3251c",
+      "bytes": 3788,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/dna.tsx",
+      "category": "route",
+      "blobSha": "3380f0120a2ae5f0acb4bbf1ce0c77cbac6863f4",
+      "bytes": 1657,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/graph.tsx",
+      "category": "route",
+      "blobSha": "6d99cd2cb7fad207657e0544a22805f7ed2b53f8",
+      "bytes": 1341,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/holography.tsx",
+      "category": "route",
+      "blobSha": "c39ec9f5f954883b1c514073e442c56aa9b0e9bf",
+      "bytes": 4010,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/index.tsx",
+      "category": "route",
+      "blobSha": "3ddbd14d8d7fdf8a98322a7f87cbf65bf6314dc6",
+      "bytes": 7672,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/lab.tsx",
+      "category": "route",
+      "blobSha": "161ede1da0784d12da8799540407a0d1820d314a",
+      "bytes": 2173,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/lattice.tsx",
+      "category": "route",
+      "blobSha": "44fa4e8ccb3c386a9f27f8ed6a453a5a78ea4417",
+      "bytes": 4248,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/method.tsx",
+      "category": "route",
+      "blobSha": "8526ad5ee305e8c4a3c9efe00dd0b3051eb7e00d",
+      "bytes": 5068,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/n.$slug.tsx",
+      "category": "route",
+      "blobSha": "25da984a2c2eefd7baa3fe6a0a90b5a4dc4cef72",
+      "bytes": 949,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/personas.tsx",
+      "category": "route",
+      "blobSha": "af12332ca56954494c07ae7e3f245e193c5bc118",
+      "bytes": 961,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/stop.tsx",
+      "category": "route",
+      "blobSha": "11498264e8c79e562ea72cdf1a0f99c6d234f947",
+      "bytes": 1175,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/routes/symmetry.tsx",
+      "category": "route",
+      "blobSha": "6306de831b57bd65b6de8fd9f2fb892fd3602f8f",
+      "bytes": 2519,
+      "fileType": "tsx",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "src/styles.css",
+      "category": "support",
+      "blobSha": "55b9b5b2cefb093facf105ee6103c2713330de82",
+      "bytes": 3870,
+      "fileType": "css",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "startup.sh",
+      "category": "support",
+      "blobSha": "01ba073cfdee8105c7e2e06d8effb13bd2f6b92e",
+      "bytes": 272,
+      "fileType": "sh",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "tsconfig.json",
+      "category": "support",
+      "blobSha": "527e1c1446f43c6a6167f866d0ebc24f5c06ff41",
+      "bytes": 598,
+      "fileType": "json",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    },
+    {
+      "path": "vite.config.ts",
+      "category": "support",
+      "blobSha": "f0aa67ddb6b5067c5aece4678259caa57638aa5a",
+      "bytes": 6750,
+      "fileType": "ts",
+      "loadState": "FULL_TEXT_STATIC",
+      "analysisDepth": "STATIC_TEXT_SCAN"
+    }
+  ]
+}

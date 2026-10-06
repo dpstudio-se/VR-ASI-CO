@@ -1,0 +1,46 @@
+name: Repository structure audit
+
+on:
+  pull_request:
+    paths:
+      - "scripts/**"
+      - "src/**"
+      - "docs/**"
+      - "dna/**"
+      - "persona/**"
+      - "prompts/**"
+      - "runtime/**"
+      - "AGENTS.project.md"
+      - "WORKLOAD.md"
+      - "package.json"
+      - ".github/workflows/repository-audit.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "src/**"
+      - "docs/**"
+      - "dna/**"
+      - "persona/**"
+      - "prompts/**"
+      - "runtime/**"
+      - "AGENTS.project.md"
+      - "WORKLOAD.md"
+      - "package.json"
+      - ".github/workflows/repository-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  repository-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test scripts/audit-repository.test.mjs
+      - run: node scripts/audit-repository.mjs --summary
+      - run: node scripts/verify-persona-lock.mjs
+      - run: node scripts/verify-remote-dna.mjs

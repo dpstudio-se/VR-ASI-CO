@@ -24,7 +24,10 @@
     "verify:dna": "npm run verify:persona && npm run verify:remote-dna",
     "verify:boot": "node scripts/verify-boot-evidence.mjs",
     "boot:challenge": "node scripts/verify-boot-evidence.mjs --challenge-only",
-    "test:boot-evidence": "node --test scripts/verify-boot-evidence.test.mjs"
+    "test:boot-evidence": "node --test scripts/verify-boot-evidence.test.mjs",
+    "audit:repo": "node scripts/audit-repository.mjs --summary",
+    "audit:dna": "node scripts/audit-repository.mjs --dna --summary",
+    "test:repo-audit": "node --test scripts/audit-repository.test.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
