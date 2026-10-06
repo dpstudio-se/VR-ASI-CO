@@ -1,6 +1,6 @@
 # vr-asi-co-prompt — ordning + rapport
 
-Repo: https://github.com/dpstudio-se/upi-built-by-agi-teax
+Repo: https://github.com/dpstudio-se/VR-ASI-CO
 SOURCE READ-ONLY: https://github.com/dpstudio-se/Universal-Physics-Index-UPI
 
 Klistra in under strecket.

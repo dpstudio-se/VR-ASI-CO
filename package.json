@@ -18,7 +18,13 @@
     "check:auth": "node scripts/check-auth-invariant.mjs",
     "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts src/lib/upi/agent-boot-mirror.test.ts src/lib/upi/hydrate.test.ts",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "verify:persona": "node scripts/verify-persona-lock.mjs",
+    "verify:remote-dna": "node scripts/verify-remote-dna.mjs",
+    "verify:dna": "npm run verify:persona && npm run verify:remote-dna",
+    "verify:boot": "node scripts/verify-boot-evidence.mjs",
+    "boot:challenge": "node scripts/verify-boot-evidence.mjs --challenge-only",
+    "test:boot-evidence": "node --test scripts/verify-boot-evidence.test.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",

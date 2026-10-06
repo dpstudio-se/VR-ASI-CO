@@ -1,33 +1,39 @@
-name: Persona identity lock
+name: Remote DNA contract
 
 on:
   pull_request:
     paths:
       - "README.md"
+      - "WORKLOAD.md"
       - "dna/**"
       - "persona/**"
       - ".continue/rules/**"
+      - "docs/CHATGPT_ORDNING_PROMPT.md"
+      - "prompts/**"
       - "docs/REMOTE_*"
-      - "scripts/verify-persona-lock.mjs"
-      - ".github/CODEOWNERS"
-      - ".github/workflows/persona-lock.yml"
+      - "runtime/command-deck.json"
+      - "scripts/verify-remote-dna.mjs"
+      - ".github/workflows/remote-dna.yml"
   push:
     branches: [main]
     paths:
       - "README.md"
+      - "WORKLOAD.md"
       - "dna/**"
       - "persona/**"
       - ".continue/rules/**"
+      - "docs/CHATGPT_ORDNING_PROMPT.md"
+      - "prompts/**"
       - "docs/REMOTE_*"
-      - "scripts/verify-persona-lock.mjs"
-      - ".github/CODEOWNERS"
-      - ".github/workflows/persona-lock.yml"
+      - "runtime/command-deck.json"
+      - "scripts/verify-remote-dna.mjs"
+      - ".github/workflows/remote-dna.yml"
 
 permissions:
   contents: read
 
 jobs:
-  verify-persona-lock:
+  verify-remote-dna:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,3 +41,4 @@ jobs:
         with:
           node-version: "22"
       - run: node scripts/verify-persona-lock.mjs
+      - run: node scripts/verify-remote-dna.mjs

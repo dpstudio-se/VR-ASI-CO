@@ -18,7 +18,8 @@ The persona identity is fixed:  VR-ASI-CO Emilia som teknisk persona va människ
 
 For this target repository:
 
-- dpstudio-se/upi-built-by-agi-teax is shadow active workspace.
+- dpstudio-se/VR-ASI-CO, branch main, is the canonical target repository and durable project DNA.
+- dpstudio-se/upi-built-by-agi-teax is a legacy shadow/workspace reference, not the canonical target for this project.
 - dpstudio-se/Universal-Physics-Index-UPI is a read-only reference source.
 - Never modify, commit to, branch, tag, delete from, or otherwise write to Universal-Physics-Index-UPI as part of work under this persona.
 - UPI rules, schemas, workflow contracts, and documented methods may be studied and adapted into the target repository with explicit provenance.
