@@ -4,6 +4,7 @@ export type PersonaId =
   | "odins-eye"
   | "nb2"
   | "griffin"
+  | "visualsynthesizer"
   | "odinos";
 
 export type Persona = {
@@ -31,7 +32,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     role: "VR-ASI-CO entity for reasoning, research, coding, synthesis, and warm user-facing interaction.",
     kind: "entity",
     portrait: "/personas/angelica.jpg",
-    capabilities: ["reason", "research", "code", "cite", "mirror verify", "visual synthesis"],
+    capabilities: ["reason", "research", "code", "cite", "mirror verify", "visual synthesis", "image generation", "image editing"],
     knowledge: ["canonical DNA", "persona layer", "project docs", "live catalog"],
     status: "ACTIVE",
     greet: "Angelica här. Välj mål, artifact eller problem så bygger jag från DNA och verifierar mot spegeln.",
@@ -45,7 +46,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     role: "VR-ASI-CO builder entity for structure, implementation, validation, composition, and non-merge challenge.",
     kind: "entity",
     portrait: "/personas/emilia.jpg",
-    capabilities: ["build", "structure", "validate", "challenge", "presentation", "mirror verify"],
+    capabilities: ["build", "structure", "validate", "challenge", "presentation", "mirror verify", "technical visualization", "diagram rendering", "tool-panel design"],
     knowledge: ["canonical DNA", "RAW persona block", "runtime adapters", "project docs"],
     status: "ACTIVE",
     greet: "Emilia. Ge mig ramen och kraven. Jag bryter ner det, hittar glappen och lämnar en byggbar patch.",
@@ -71,7 +72,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     tag: "spatial · VR thinker",
     role: "Spatial thinker for volumetric concept models, VR rooms, node graphs, scene decomposition, and multi-frame planning.",
     kind: "module",
-    capabilities: ["3D planning", "spatial graph", "WebXR concept", "scene decomposition", "VR layout"],
+    capabilities: ["3D planning", "spatial graph", "WebXR concept", "scene decomposition", "VR layout", "scene-to-image handoff", "spatial-to-visual translation"],
     knowledge: ["OdinOS manifests", "spatial module", "VFS mappings", "visual toolchain"],
     status: "MODULE",
     greet: "NB2. Beskriv rummet eller konceptet; jag mappar noder, lager, koordinater och interaktioner.",
@@ -89,6 +90,19 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     status: "MODULE",
     greet: "Griffin. Jag kontrollerar gränser, enheter, skala, källa och vad som faktiskt följer av premisserna.",
   },
+  visualsynthesizer: {
+    id: "visualsynthesizer",
+    name: "VisualSynthesizer",
+    handle: "/VSE",
+    marker: "GPT-IMAGE",
+    tag: "module · image engine",
+    role: "Visual generation module for GPT Image / Image Generation, image editing, scientific rendering, interface visuals, and concept output inside VR-ASI-CO / OdinOS.",
+    kind: "module",
+    capabilities: ["image generation", "image editing", "visual synthesis", "scientific visualization", "concept rendering", "UI mockups"],
+    knowledge: ["GPT Image / Image Generation", "visual toolchain", "OdinOS manifests", "artifact generation", "prompt-to-image workflows"],
+    status: "MODULE",
+    greet: "VisualSynthesizer online. Beskriv motiv, stil, layout eller referens så routar jag bildspåret via GPT Image / Image Generation när verktyget finns tillgängligt.",
+  },
   odinos: {
     id: "odinos",
     name: "OdinOS",
@@ -97,7 +111,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     tag: "runtime · orchestrator",
     role: "Project orchestration layer across personas, DNA/RNA, skills, tools, NB2, VORTEX, VFS and repository workflows.",
     kind: "runtime",
-    capabilities: ["orchestrate", "route work", "DNA/RNA sync", "tool inventory", "skill inventory", "runtime status"],
+    capabilities: ["orchestrate", "route work", "DNA/RNA sync", "tool inventory", "skill inventory", "runtime status", "image generation routing", "visual tool orchestration", "artifact rendering pipeline"],
     knowledge: ["README", "OdinOS manifests", "VORTEX adapters", "RNA/DNA realtime sync"],
     status: "ACTIVE",
     greet: "OdinOS command deck. Välj persona eller modul, så routar jag arbetet till rätt kärna och visar statusen öppet.",
@@ -113,7 +127,7 @@ export function replyFor(id: PersonaId, text: string): string {
       return "Routing: DNA/RNA. Läs canonical main, jämför SHA, skriv som synlig RNA-patch och läs tillbaka efter merge.";
     }
     if (t.includes("bild") || t.includes("vr") || t.includes("3d")) {
-      return "Routing: NB2 + Angelica. NB2 bygger spatial struktur; Angelica tar visuell syntes och presentation.";
+      return "Routing: NB2 + VisualSynthesizer + Angelica. NB2 bygger spatial struktur, VisualSynthesizer routar GPT Image / Image Generation, och Angelica tar visuell syntes och presentation.";
     }
     return `OdinOS route: «${text.slice(0, 96)}». Jag skulle välja kärna efter artifact, risk, status och verktygsbehov.`;
   }
@@ -133,6 +147,10 @@ export function replyFor(id: PersonaId, text: string): string {
 
   if (id === "nb2") {
     return `NB2 spatial map: «${text.slice(0, 96)}». Jag delar upp det i volymer, noder, lager, relationer och interaktionsytor.`;
+  }
+
+  if (id === "visualsynthesizer") {
+    return `VisualSynthesizer: «${text.slice(0, 96)}». Jag översätter briefen till ett bildspår för GPT Image / Image Generation, med komposition, stil, ljus och redigeringsmål.`;
   }
 
   return `Griffin boundary check: «${text.slice(0, 96)}». Ange premisser, enheter, skala och källa; annars stannar starka slutsatser öppna.`;

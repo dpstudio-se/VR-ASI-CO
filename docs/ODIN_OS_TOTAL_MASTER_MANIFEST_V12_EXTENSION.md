@@ -248,3 +248,40 @@ NO HIDDEN BACKGROUND CLAIMS.
 NO SILENT DNA REWRITE.
 EVERY DURABLE CHANGE IS READ BACK.
 ```
+
+
+## 13. Visual generation engine
+
+OdinOS includes GPT Image / Image Generation as part of the VR-ASI-CO visual stack.
+
+Role split:
+- NB2: spatial decomposition / VR / 3D planning;
+- GPT Image / Image Generation: image generation and image editing capability;
+- VisualSynthesizer / VSE: VR-ASI-CO module surface for the image capability;
+- Oden's Eye: observation, comparison, visual inspection, and r0 support;
+- Angelica: generative / aesthetic synthesis;
+- Emilia: structural / technical visualization;
+- OdinOS: routing and orchestration.
+
+VisualSynthesizer may be selected in the OdinOS command deck like the other project modules.
+
+Availability rule:
+A host may mark the capability active/available only when it actually exposes image generation. If the tool is unavailable, OdinOS must report that state rather than simulate successful rendering.
+
+Artifact path:
+
+```text
+CONCEPT
+→ ODINOS ROUTE
+→ NB2 when spatial decomposition is useful
+→ VISUALSYNTHESIZER / GPT IMAGE
+→ ODEN'S EYE inspection when useful
+→ REVIEW
+→ optional VFS / Git write
+→ READ-BACK
+```
+
+Generated images remain RNA artifacts until explicitly written to canonical storage and read back.
+
+Canonical integration document:
+`docs/GPT_IMAGE_INTEGRATION.md`

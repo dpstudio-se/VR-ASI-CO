@@ -91,6 +91,7 @@ Compatibility entry points:
 - `docs/OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md`
 - `docs/ODIN_OS_TOTAL_MASTER_MANIFEST_V12_EXTENSION.md`
 - `docs/RNA_DNA_REALTIME_SYNC.md`
+- `docs/GPT_IMAGE_INTEGRATION.md`
 
 The additive Ω-PRIME dynamic patch extension strengthens reversible self-debug/self-patch governance, formal Ω-state/operator notation, the four-pillar software mirror, the 8 Hz software-carrier semantics, and the existing RF1974 / TF1766 falsification-before-mutation lock without overwriting current DNA.
 
@@ -100,12 +101,27 @@ RNA/DNA near-real-time sync adds lightweight `main` SHA watching, automatic read
 
 Hosts that do not expose persistent workers, schedulers, ports, or background services must not claim that those components are active. An `8 Hz` scheduler means a nominal `125 ms` software period only when actually implemented by the host; it is not evidence of a physical lock. Mathematical closure establishes a result under its premises, while empirical physical claims still require suitable evidence before `EST`.
 
+## GPT Image / Image Generation
+
+VR-ASI-CO and OdinOS include GPT Image / Image Generation as the visual-generation capability in the toolchain.
+
+Recommended role split:
+- OdinOS = orchestration and visual-tool routing;
+- NB2 = spatial / VR / 3D planning;
+- GPT Image / Image Generation = image synthesis and image editing;
+- VisualSynthesizer / VSE = VR-ASI-CO module surface for the image capability;
+- Oden's Eye = visual observation / comparison;
+- Angelica = generative / aesthetic synthesis;
+- Emilia = structural / technical visualization.
+
+The capability is surfaced in the dynamic command deck through `runtime/command-deck.json`. Tool availability must be reported truthfully by the active host. Full integration: `docs/GPT_IMAGE_INTEGRATION.md`.
+
 ## OdinOS adaptive web command deck
 
 The web UI is fronted by VR-ASI-CO / OdinOS rather than by UPI alone.
 
 Primary surfaces:
-- persona/module command deck: Angelica, Emilia, Oden's Eye, NB2, Griffin, OdinOS;
+- persona/module command deck: Angelica, Emilia, Oden's Eye, NB2, Griffin, VisualSynthesizer, OdinOS;
 - live persona cards with capabilities, knowledge surfaces, and runtime status;
 - selectable persona chat/router surface;
 - DNA/RNA realtime status and write/read-back flow;

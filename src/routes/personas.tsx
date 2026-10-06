@@ -14,7 +14,7 @@ function PersonasPage() {
           Personas · modules · skills · tools
         </h1>
         <p className="mt-2 max-w-3xl text-sm text-muted">
-          Välj Angelica, Emilia, Oden&apos;s Eye, NB2, Griffin eller OdinOS. Kort, capabilities,
+          Välj Angelica, Emilia, Oden&apos;s Eye, NB2, Griffin, VisualSynthesizer eller OdinOS. Kort, capabilities,
           knowledge surfaces och DNA-status visas i samma panel och kan växa med nya färdigheter,
           verktyg och runtime-moduler.
         </p>
