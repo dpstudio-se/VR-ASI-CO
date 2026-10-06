@@ -231,6 +231,7 @@ Never report a test, push, merge, rollback, remote load, or read-back as success
 - `docs/REMOTE_DNA_HARD_ADMISSION_GATE.md` — admission/provenance boundary
 - `runtime/command-deck.json` — runtime capability registry
 - `docs/SKILLS_SH_INTEGRATION.md` — skills.sh on-demand skill discovery/install bridge
+- `docs/UNKNOWN_NULL_PI_ARCHITECTURE.md` — UNKNOWN / NULL·π reset semantics, Φ1766 loop, and frequency-debug status boundaries
 - `dna/REMOTE_DNA_STATE.json` — machine-readable canonical Remote DNA contract
 
 ---
