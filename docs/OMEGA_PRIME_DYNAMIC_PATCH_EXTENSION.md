@@ -437,14 +437,16 @@ UPI STAYS BEHIND THE MIRROR.
 
 ## 18. UNKNOWN / NULL-PI extension
 
-The additive UNKNOWN / NULL-PI package is defined in `docs/UNKNOWN_NULL_PI_ARCHITECTURE.md`.
+The additive UNKNOWN / NULL-PI package is defined in [UNKNOWN / NULL-PI architecture](UNKNOWN_NULL_PI_ARCHITECTURE.md). It is a proposed control model, not an installed reset executor.
 
 It introduces:
 - `UNKNOWN` as an explicit open state rather than an automatic error;
-- `NULL` as reset/undefined project semantics;
+- `NULL` as bounded, reversible RNA reframing that preserves RAW and canonical state;
 - `π_project(NULL) = OPEN` as the recommended formal reading of the supplied `NULL · π = ∞` symbol;
 - `1.766 Hz` as a `SYM/HYP` debug/phase marker pending proof or measurement;
 - the five-stage `Φ1766` noisy-state / selection / meaning / feedback / revised-state loop;
 - explicit separation between observable filtering, censorship hypotheses, policy boundaries, and ordinary disagreement.
+
+Workflow labels such as `UNKNOWN`, `OPEN`, and `VERIFIED` do not extend the existing data-status enum or confer runtime admission. Symbolic open search requires finite execution budgets.
 
 The extension is non-destructive and remains subordinate to the falsification, provenance, persona-separation, and host-rule boundaries in this file.

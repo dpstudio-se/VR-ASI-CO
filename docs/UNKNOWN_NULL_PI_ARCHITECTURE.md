@@ -1,6 +1,6 @@
 # VR-ASI-CO // UNKNOWN / NULL-PI Architecture
 
-Status: additive architecture extension  
+Status: proposed control model; documentation only, no reset executor or runtime admission installed<br>
 Classification: mixed `SYM / HYP / DER / EST` with explicit status boundaries  
 Repository: https://github.com/dpstudio-se/VR-ASI-CO  
 Authority: subordinate to canonical VR-ASI-CO DNA, protected persona state, RF1974/TF1766 gates, and host/platform rules  
@@ -117,9 +117,9 @@ The five-stage loop is retained as a project control model:
 2. **σ — Selection Operator**: filtering, mirroring, provenance checks, censorship/constraint visibility.
 3. **M — Meaning / Model**: compressed working knowledge.
 4. **σ' — Feedback Operator**: correction, falsification, update proposal.
-5. **NS' — New State**: revised state with lower unresolved noise under the model.
+5. **NS' — New State**: candidate revised state; lower noise is a hypothesis to evaluate, not a guaranteed result.
 
-Canonical software loop:
+Proposed software loop (not an implemented runner):
 
 ```text
 NS
@@ -143,15 +143,15 @@ NULL · π = ∞
 
 Canonical interpretation:
 
-- `NULL`: reset / undefined / intentionally cleared project state.
+- `NULL`: a project marker for reframing an unresolved RNA working hypothesis; it is not a command to delete state or a replacement for JSON `null`.
 - `π`: transformation marker or cycle operator, not automatically the mathematical constant in a physical equation.
-- `∞`: open/unbounded search or possibility state.
+- `∞`: symbolic openness of the candidate space, never an unlimited execution budget.
 
 Recommended formal reading:
 
 ```text
 R(NULL) -> OPEN
-OPEN := unbounded candidate-state search subject to project constraints
+OPEN := unresolved candidate space; search requires explicit finite budgets
 ```
 
 or, if `π` is defined as a project transition operator:
@@ -164,8 +164,16 @@ This avoids asserting the invalid ordinary-arithmetic identity `0 × π = ∞`.
 
 Classification:
 - identity phrase: `SYM`;
-- reset semantics: `SOFTWARE/SYM`;
+- proposed reset semantics: `SYM` software-design model;
 - ordinary mathematical equality `NULL · π = ∞`: not `EST` without a custom algebra/domain.
+
+### Bounded, reversible reset contract
+
+A future reset executor must declare its RNA target, baseline commit, reason, actor, candidate/time/cost limits, cancellation condition, and rollback target before running. Exhausted budgets return an unresolved result; they do not trigger endless retries or network polling.
+
+Reset may reframe a working hypothesis. It must preserve RAW, provenance, evidence, prior observations, protected identity, and canonical DNA. It cannot clear a conflict, remove a STOP reason, grant permissions, or satisfy host admission. An ambiguous target or protected-state conflict stops the proposed operation. Repeating the same reset request must not duplicate writes.
+
+This is an acceptance contract for future implementation, not a new data schema or an existing callable capability.
 
 ## 8. UNKNOWN state semantics
 
@@ -184,7 +192,9 @@ KNOWN
 → VERIFIED or UNKNOWN
 ```
 
-This gives VR-ASI-CO an explicit open-state instead of forcing premature certainty.
+This gives the proposed model an explicit open state instead of forcing premature certainty. `UNKNOWN`, `OPEN`, `RESET`, and `VERIFIED` here are workflow labels, not values for a data record's `status`.
+
+The existing data vocabulary remains `EST | DER | HYP | STOP | ERR | SYM`. `SEM-LOSS` is separate review metadata. A workflow result named `VERIFIED` must state its tested scope and evidence; it does not imply empirical EST, prompt installation, inference, or admission. Protected DNA conflicts still require `DNA_CONFLICT / STOP`; uncertainty cannot override that boundary.
 
 ## 9. DNA/RNA integration
 
@@ -197,12 +207,12 @@ RAW IDEA
 → COUNTEREXAMPLE SEARCH
 → FORMALIZE
 → TEST
-→ PROPOSE
-→ OWNER_GATE when required
-→ COMMIT
-→ PUSH
-→ READ_BACK
-→ DNA
+→ PROPOSE BRANCH / PR
+→ DIFF AND REQUIRED CHECKS
+→ REVIEW / OWNER_GATE when required
+→ AUTHORIZED MERGE
+→ READ_BACK main
+→ VERIFIED DNA WITHIN DECLARED SCOPE
 ```
 
 No symbolic frequency, physical interpretation, social theory, censorship model, or reset operator becomes canonical truth merely because it appears in a prompt or architecture document.
@@ -260,7 +270,9 @@ Required checks include:
 If unresolved:
 
 ```text
-STATUS = OPEN / HYP / SYM
+workflow_state = OPEN
+claim_status = HYP or SYM (select one per claim)
+verification_scope = explicitly declared
 ```
 
 not `EST`.
@@ -268,10 +280,10 @@ not `EST`.
 ## 13. Core invariant
 
 ```text
-UNKNOWN IS AN OPEN STATE, NOT A FAILURE.
+UNKNOWN DOES NOT CLEAR STOP, ERR, OR PROTECTED CONFLICTS.
 NULL IS A RESET SEMANTIC, NOT MAGIC.
 π MUST DECLARE ITS DOMAIN.
-∞ MEANS OPEN SEARCH ONLY WHEN DEFINED THAT WAY.
+∞ IS SYMBOLIC OPENNESS; EXECUTION ALWAYS HAS FINITE LIMITS.
 1.766 Hz REMAINS SYM/HYP UNTIL PROVEN.
 8 Hz MAY BE SOFTWARE CADENCE OR PHYSICAL REFERENCE, NEVER BOTH BY ASSUMPTION.
 CENSORSHIP MUST BE OBSERVED OR SOURCED, NOT PRESUMED.
@@ -281,3 +293,12 @@ EXPAND BY ADDITION.
 FALSIFY BEFORE PROMOTION.
 READ BACK AFTER WRITE.
 ```
+
+## 14. Integration and acceptance
+
+- [Build rules](VR_ASI_CO_ODINOS_BUILD_RULES.md) control status, timing, host evidence, and mutation gates.
+- [Dynamic patch extension](OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md) retains the falsification and reversible-patch contract.
+- [Workload](../WORKLOAD.md) tracks implementation separately from documentation.
+- [Mirror prompt](../prompts/MIRROR_PROMPT.md) governs review; [project instructions](../AGENTS.project.md) preserve current data-status compatibility.
+
+Before any executor is admitted, test budget exhaustion, cancellation, stale baseline, protected conflicts, repeated request idempotency, and rollback. Verify that RAW and canonical DNA remain unchanged by a session reset, and that workflow labels never enter existing data-status fields. Runtime/admission tests require a real authorized host and separate evidence; documentation and CI cannot establish them.
