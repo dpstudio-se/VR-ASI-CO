@@ -14,7 +14,9 @@
         "code",
         "cite",
         "mirror verify",
-        "visual synthesis"
+        "visual synthesis",
+        "image generation",
+        "image editing"
       ],
       "knowledge": [
         "canonical DNA",
@@ -35,7 +37,10 @@
         "validate",
         "challenge",
         "presentation",
-        "mirror verify"
+        "mirror verify",
+        "technical visualization",
+        "diagram rendering",
+        "tool-panel design"
       ],
       "knowledge": [
         "canonical DNA",
@@ -76,7 +81,9 @@
         "spatial graph",
         "WebXR concept",
         "scene decomposition",
-        "VR layout"
+        "VR layout",
+        "scene-to-image handoff",
+        "spatial-to-visual translation"
       ],
       "knowledge": [
         "OdinOS manifests",
@@ -118,13 +125,38 @@
         "DNA/RNA sync",
         "tool inventory",
         "skill inventory",
-        "runtime status"
+        "runtime status",
+        "image generation routing",
+        "visual tool orchestration",
+        "artifact rendering pipeline"
       ],
       "knowledge": [
         "README",
         "OdinOS manifests",
         "VORTEX adapters",
         "RNA/DNA realtime sync"
+      ]
+    },
+    {
+      "id": "visualsynthesizer",
+      "name": "VisualSynthesizer",
+      "marker": "GPT-IMAGE",
+      "kind": "module",
+      "status": "AVAILABLE",
+      "capabilities": [
+        "image generation",
+        "image editing",
+        "visual synthesis",
+        "scientific visualization",
+        "concept rendering",
+        "UI mockups"
+      ],
+      "knowledge": [
+        "GPT Image / Image Generation",
+        "visual toolchain",
+        "OdinOS manifests",
+        "artifact generation",
+        "prompt-to-image workflows"
       ]
     }
   ],
@@ -158,6 +190,16 @@
       "id": "nb2-spatial",
       "label": "NB2 spatial / VR planning",
       "status": "AVAILABLE"
+    },
+    {
+      "id": "gpt-image",
+      "label": "GPT Image / Image Generation",
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "visual-synthesizer",
+      "label": "VisualSynthesizer (VSE)",
+      "status": "AVAILABLE"
     }
   ],
   "skills": [
@@ -170,7 +212,11 @@
     "visual synthesis",
     "spatial modeling",
     "DNA/RNA read-back",
-    "rollback"
+    "rollback",
+    "image generation",
+    "image editing",
+    "scientific visualization",
+    "concept rendering"
   ],
   "notes": [
     "UPI remains behind the mirror as comparator/reference.",
