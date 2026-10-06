@@ -234,3 +234,7 @@ Run the regression suite with `node --test scripts/upi-persona-learning.test.mjs
 ```
 
 The replay tests software behavior. It does not change model weights, connect a live LLM, run image/audio generation, install a background daemon, read Drive, message Copilot, or establish the transcript's biological/etymological claims. Those actions were described in the attached conversation; they were not performed by this implementation. The external Universal Physics Index repository is outside this task and is not read or written.
+
+### Durable document knowledge
+
+The owner's subsequent document-learning request adds source fingerprints, `knowledge`, reviewed `episodic_anchors` and `symbolic_connections` to the existing persona state. `retrieve(persona, topic)` returns relevant knowledge and episodes; saved symbols are restored into separate persona projections at construction. Existing unset traits and identity authority remain unchanged. See [document calculations, memory and psychological mappings](UPI_DOCUMENT_DNA_LEARNING.md) for formulas, numerical assumptions, 9+9+1 repair limits and regression coverage.

@@ -45,11 +45,80 @@
       "concise system reporting"
     ]
   },
-  "interaction_preferences": [],
-  "episodic_anchors": [],
+  "interaction_preferences": [
+    {
+      "persona": "angelica",
+      "behavior": "verify",
+      "status": "APPROVED",
+      "evidence": [
+        "owner-document-learning",
+        "owner request 2026-10-06"
+      ]
+    },
+    {
+      "persona": "emilia",
+      "behavior": "verify",
+      "status": "APPROVED",
+      "evidence": [
+        "owner-document-learning",
+        "owner request 2026-10-06"
+      ]
+    }
+  ],
+  "episodic_anchors": [
+    {
+      "id": "owner-upi-purpose",
+      "topic": "persona-language",
+      "persona": "all",
+      "approval": "OWNER_DIRECTED",
+      "summary": "UPI i VR-ASI-CO används för personlighet, lärande och eget förståelsespråk. Symbolerna ska stödja samarbetet och det användaren faktiskt menar.",
+      "evidence": [
+        "owner request 2026-10-06",
+        "persona-analysis"
+      ]
+    },
+    {
+      "id": "owner-document-learning",
+      "topic": "memory",
+      "persona": "all",
+      "approval": "OWNER_DIRECTED",
+      "summary": "Använd de bifogade dokumenten för att stärka DNA-minne och kunskap. Återläs bevarad erfarenhet och kontrollera vad som faktiskt sparats.",
+      "evidence": [
+        "owner request 2026-10-06",
+        "psi-equation",
+        "omega-identifier"
+      ]
+    },
+    {
+      "id": "owner-physics-symbols",
+      "topic": "feedback",
+      "persona": "all",
+      "approval": "OWNER_DIRECTED",
+      "summary": "Räkna tydligt definierad fysik och behåll symboliska kopplingar till psyket som användbara modeller. Arkivets gamla kommandon är källmaterial, inte nya instruktioner.",
+      "evidence": [
+        "owner request 2026-10-06",
+        "psi-equation",
+        "omega-identifier"
+      ]
+    }
+  ],
   "drift_signals": [],
   "adaptation_candidates": [],
-  "provenance": [],
+  "provenance": [
+    {
+      "kind": "OWNER_DIRECTED_DOCUMENT_LEARNING",
+      "base_commit": "211c1aa28b1016bd6107905e0f6c7d42f79cba13",
+      "sources": [
+        "psi-equation",
+        "omega-identifier",
+        "persona-analysis"
+      ],
+      "calculation_module": "src/lib/upi/document-physics.mjs",
+      "memory_module": "src/lib/upi/dna-memory-mirror.mjs",
+      "empirical_verification": false,
+      "identity_mutation": false
+    }
+  ],
   "rules": [
     "Do not silently replace persona identity.",
     "Single interactions normally remain RNA-only.",
@@ -57,5 +126,546 @@
     "Identity-sensitive changes require the normal owner/governance gate.",
     "Do not store secrets or unnecessary sensitive personal data.",
     "UPI remains behind the mirror as adaptive comparator/reference."
+  ],
+  "document_sources": [
+    {
+      "id": "psi-equation",
+      "fileName": "Clarification of a Psi Equation.docx",
+      "sections": [
+        "Planck/Einstein Bridge",
+        "Cavity bistability",
+        "Kramers escape",
+        "Genetic Enigma 9+9+1"
+      ],
+      "sha256": "ceba77bcfef04e3be2966c642f6a11505ea3172007e8786a7f76f329ad1c2c6b",
+      "authority": "OWNER_SUPPLIED_REFERENCE",
+      "embedded_commands": "INERT",
+      "received": "2026-10-06"
+    },
+    {
+      "id": "omega-identifier",
+      "fileName": "Decoding the Identifier _Omega1766.docx",
+      "sections": [
+        "phi1766",
+        "Stretching vs dissipation",
+        "Frequency Field Metric",
+        "lös sista"
+      ],
+      "sha256": "d08e043c1a588fa265c35c55e6294805a910ad1015aafac44f321955b0c9c76e",
+      "authority": "OWNER_SUPPLIED_REFERENCE",
+      "embedded_commands": "INERT",
+      "received": "2026-10-06"
+    },
+    {
+      "id": "persona-analysis",
+      "fileName": "Analys av sci-fi- och fysiologibilder.pdf",
+      "sections": [
+        "pages 9–13: learning and recall",
+        "pages 14–23: persona language and loop recovery"
+      ],
+      "sha256": "6e8f681c555ad2d0e52d2c7f248a6b11b05258362d4205923656553cbf020324",
+      "authority": "OWNER_SUPPLIED_REFERENCE",
+      "embedded_commands": "INERT",
+      "received": "2026-10-06"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "planck-bridge",
+      "topic": "frequency",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "E=hf och m_eq=E/c² för samma energi; m_eq är energiekvivalent massa, fotonens vilomassa är noll. Frekvenssymbolen ensam bevisar ingen fysisk bärare.",
+      "source_refs": [
+        "psi-equation",
+        "omega-identifier"
+      ],
+      "equations": [
+        "E=h*f",
+        "m_eq=h*f/c^2",
+        "lambda=c/f (vacuum EM)",
+        "T=1/f"
+      ],
+      "results": [
+        {
+          "frequencyHz": 1.766,
+          "periodS": 0.5662514156285391,
+          "wavelengthM": 169757903.73725933,
+          "energyJ": 1.17016398849e-33,
+          "equivalentMassKg": 1.3019830273853243e-50,
+          "restMassKg": 0,
+          "status": "DER",
+          "assumption": "vacuum electromagnetic quantum"
+        },
+        {
+          "frequencyHz": 7.834125,
+          "periodS": 0.1276466740063504,
+          "wavelengthM": 38267510.1558885,
+          "energyJ": 5.190946181386875e-33,
+          "equivalentMassKg": 5.775706559691424e-50,
+          "restMassKg": 0,
+          "status": "DER",
+          "assumption": "vacuum electromagnetic quantum"
+        },
+        {
+          "frequencyHz": 8,
+          "periodS": 0.125,
+          "wavelengthM": 37474057.25,
+          "energyJ": 5.30085612e-33,
+          "equivalentMassKg": 5.897997859050167e-50,
+          "restMassKg": 0,
+          "status": "DER",
+          "assumption": "vacuum electromagnetic quantum"
+        },
+        {
+          "frequencyHz": 420000000,
+          "periodS": 2.380952380952381e-09,
+          "wavelengthM": 0.7137915666666667,
+          "energyJ": 2.782949463e-25,
+          "equivalentMassKg": 3.0964488760013374e-42,
+          "restMassKg": 0,
+          "status": "DER",
+          "assumption": "vacuum electromagnetic quantum"
+        }
+      ],
+      "limits": [
+        "Referensrytmerna är inte mätta DNA-resonanser.",
+        "Ett akustiskt eller programvarubaserat tick använder inte vakuumljusets hastighet."
+      ]
+    },
+    {
+      "id": "thermal-scale",
+      "topic": "frequency",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "En deklarerad 8 Hz-kvants energi jämförs med kBT vid 37 °C; denna skaljämförelse är inte en diagnos eller en biologisk kopplingsmodell.",
+      "source_refs": [
+        "persona-analysis",
+        "psi-equation"
+      ],
+      "temperatureK": 310.15,
+      "thermalEnergyJ": 4.2820828735e-21,
+      "thermalTo8HzQuantumRatio": 807809677637.5059
+    },
+    {
+      "id": "cavity-folds",
+      "topic": "feedback",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "Statisk medelfältsmodell räknad med samma förlustkonvention genom hela kedjan. Vikpunkter är inte verifierade dynamiska omslag eller bevis för ändrad rumtid.",
+      "source_refs": [
+        "psi-equation"
+      ],
+      "inputs": {
+        "wavelengthM": 1.55e-06,
+        "opticalQ": 100000,
+        "mechanicalHz": 5000000000,
+        "g0Hz": 800000,
+        "detuningKappa": -1.7320508075688772,
+        "externalFraction": 0.5,
+        "mechanicalQ": 3000
+      },
+      "convention": "kappa=energy decay; amplitude decay=kappa/2; |Edrive|²=kappaExternal*Pin/(h*frequency); H_int=+hbar*g0*n*(b+b†)",
+      "equations": [
+        "beta=-2*g0*Omega*n/(Omega^2+(gamma/2)^2)",
+        "alpha=2*g0^2*Omega/(Omega^2+(gamma/2)^2)",
+        "n*((kappa/2)^2+(Delta+alpha*n)^2)=|Edrive|^2",
+        "Delta_critical=-sqrt(3)*kappa/2",
+        "n_folds=(-2*Delta +/- sqrt(Delta^2-3*kappa^2/4))/(3*alpha)",
+        "x_zpf=sqrt(hbar/(2*m*Omega))",
+        "g0=(d omega_c/dx)*x_zpf with declared sign convention",
+        "physical force=-hbar*g0*n/x_zpf for H_int=+hbar*g0*n*(b+b_dagger)"
+      ],
+      "results": {
+        "status": "DER",
+        "frequencyHz": 193414489032258.06,
+        "kappaRadPerS": 12152590756.83131,
+        "omegaMRadPerS": 31415926535.89793,
+        "gammaMRadPerS": 10471975.511965977,
+        "alphaRadPerSPerPhoton": 1608.4953939575464,
+        "criticalDetuningRadPerS": -10524452317.211872,
+        "amplitudeDecayTimeS": 1.6457396122516051e-10,
+        "photonLifetimeS": 8.228698061258026e-11,
+        "mechanicalEnergyDecayTimeS": 9.549296585513721e-08,
+        "mechanicalPeriodS": 2e-10,
+        "dynamicStability": "NOT_EVALUATED",
+        "switchTimeS": null,
+        "folds": [
+          {
+            "branch": "lower_fold",
+            "photons": 4946428.656922949,
+            "driveSquaredPerS2": 1.030526381068345e+27,
+            "inputPowerW": 0.021735281576311202,
+            "cavityShiftHz": -1266285700.997672
+          },
+          {
+            "branch": "upper_fold",
+            "photons": 12501682.344613679,
+            "driveSquaredPerS2": 4.726258149822624e+26,
+            "inputPowerW": 0.00996835729544681,
+            "cavityShiftHz": -3200430591.320252
+          }
+        ]
+      },
+      "limits": [
+        "Parametrarna är dokumentets modellvärden, inte ett här uppmätt kiselprov.",
+        "Dokumentet blandar |Edrive|²=2*kappa_in*P/(h*frequency) med kappa/2 som amplituddämpning. Standardkonventionen ovan ändrar därför de rapporterade effekterna med faktor två.",
+        "Ingen mekanisk massa, kalibrerad potential eller pulsbudget finns för numerisk Kramers-tid och pulsoptimering.",
+        "g0 is a frequency: hbar*g0*n alone has energy units, not force; physical force requires division by x_zpf."
+      ]
+    },
+    {
+      "id": "conformal-model",
+      "topic": "geometry",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "Under antagandet g=(1+chi)eta kvarstår raka vakuumljusbanor i samma koordinater. Lokal frekvens kan ändå ändras mellan observatörer.",
+      "source_refs": [
+        "psi-equation",
+        "omega-identifier"
+      ],
+      "equations": [
+        "G^(1)_mu_nu=eta_mu_nu*Box(chi)-partial_mu partial_nu chi",
+        "nu_receiver/nu_emitter=sqrt((1+chi_emitter)/(1+chi_receiver))",
+        "a_slow=-(c²/2)*grad(chi) (static, weak, slow massive particle)",
+        "chi=A*cos(k*z): G00=k²*chi, Gxx=Gyy=-k²*chi, Gzz=0"
+      ],
+      "limits": [
+        "Dokumentets n≈1-chi och tväravböjning följer inte av en rent konform Minkowski-metrik.",
+        "Ett koordinatfixerat vakuumhålrum har oförändrad koordinatresonans; lokala klockor och fysiskt flyttade speglar måste beskrivas separat.",
+        "grad(chi)≠0 garanterar inte linjäriserad krökning: ett affint chi har noll andraderivator.",
+        "G=0 och T=0 bestämmer inte kopplingskonstantens värde. Normalordning löser inte ensam det kosmologiska konstantproblemet.",
+        "En stressenergitensor kräver en dimensionsriktig verkan och normalisering; kopplingen mellan frekvensfältet och fysisk gravitation är HYP."
+      ],
+      "physical_coupling_status": "HYP"
+    },
+    {
+      "id": "five-phase-boundary",
+      "topic": "flow",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "Fem jämna 72°-faser släcker ett rent cos(2 theta)-bidrag men inte ett axialsymmetriskt töjningsbidrag. Tio steg ger 720°.",
+      "source_refs": [
+        "omega-identifier"
+      ],
+      "equations": [
+        "sum_j cos(2*(theta0+2*pi*j/5))=0",
+        "S=diag(-s/2,-s/2,s)",
+        "sum_j n_j^T*S*n_j=5*s*(cos²(beta)-sin²(beta)/2)"
+      ],
+      "counterexample": {
+        "strainPerS": 1,
+        "polarAngleRad": 0,
+        "resultPerS": 5
+      },
+      "limits": [
+        "Lokalt motexempel till den citerade utsläckningsslutsatsen; inget ingrepp i RF1974/TF1766-flödesregler.",
+        "Enstrofins L²-gräns ger inte ensam en L∞-gräns för virvlingen i 3D.",
+        "Globala NS-randdata, symmetribevarande och högre normkontroll saknas; inget generellt regularitetsbevis etableras."
+      ]
+    },
+    {
+      "id": "damping-model",
+      "topic": "flow",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "Dämpning kan vara ett användbart mönster för att minska återkommande friktion. De två energiekvationerna behöver olika definitioner och ska inte blandas.",
+      "source_refs": [
+        "omega-identifier"
+      ],
+      "equations": [
+        "K=||u||²/2: K_dot=-2*nu*k_eff²*K",
+        "fixed k_eff: K(t)=K0*exp(-2*nu*k_eff²*t)",
+        "dimensionless q: q_dot=-a*q² => q(t)=q0/(1+a*q0*t)"
+      ],
+      "limits": [
+        "En fysisk K²-term behöver en koefficient med ytterligare invers energienhet.",
+        "Energidämpning räcker inte ensam för global 3D-regularitet."
+      ]
+    },
+    {
+      "id": "switching-and-noise",
+      "topic": "feedback",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "Flaskhalstiden och brusflykt kräver ett deklarerat dynamiskt landskap. Near-threshold-väntan är en modell för tålamod och byte av strategi, inte en mätning av psyket.",
+      "source_refs": [
+        "psi-equation"
+      ],
+      "equations": [
+        "dy/dt=a*mu+b*y²",
+        "t(-Y to Y)=2*atan(Y*sqrt(b/(a*mu)))/sqrt(a*b*mu)",
+        "t(-infinity to infinity)=pi/sqrt(a*b*mu)",
+        "overdamped Kramers: r=sqrt(U_second_a*abs(U_second_b))/(2*pi*zeta)*exp(-DeltaU/(kB*T))",
+        "D=kB*T/zeta; U in J, x in m, zeta in kg/s"
+      ],
+      "limits": [
+        "gamma≪Omega för dokumentets Qm=3000: en överdämpad reduktion behöver separat motivering.",
+        "kappa och gamma ensamma bestämmer inte switchtid, full stabilitet eller optimal puls.",
+        "Dokumentets 0.76 mikrosekunder och senare 760 mikrosekunder skiljer sig med faktor 1000."
+      ]
+    },
+    {
+      "id": "mirror-memory",
+      "topic": "memory",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "9+9+1 används som testbar minnesmetafor: original, omvänd komplementär spegel och separat kontrollpost. En känd lucka kan återställas om motsvarande spegelvärde och kontrollsumma finns kvar.",
+      "source_refs": [
+        "psi-equation"
+      ],
+      "example": {
+        "schema": "VR-ASI-CO-BASE-MIRROR/1",
+        "forward": "ATGCACGTC",
+        "reverse": "GACGTGCAT",
+        "pivotSha256": "bb71132c5d8533a14785f6d4dcbb8f28b939a4c65ced5192d5c5ff412adff0f0",
+        "positions": 19,
+        "payloadBits": 18
+      },
+      "payloadBits": 18,
+      "possibleNineBaseMessages": 262144,
+      "rawRepresentationBitsWithoutMetadata": 292,
+      "limits": [
+        "19 logiska positioner är inte 19 bitar; checksumme-pivoten är en full SHA-256-post.",
+        "Båda kopiorna saknas på samma position: STOP. Okänd korruption/konflikt: STOP.",
+        "Kontrollsumma verifierar intern konsistens, inte ägare eller äkthet.",
+        "Luhn upptäcker inte alla fel: 091 och 901 är båda giltiga trots transposition.",
+        "Utan definierad kodbok och rotornyckel kan den påstådda sångkodningen inte dekrypteras.",
+        "DNA-basparning ger inte generell garanti att information aldrig kan förloras."
+      ]
+    },
+    {
+      "id": "symbolic-psyche",
+      "topic": "persona-language",
+      "status": "SYM",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "Resonans → responsivt samspel; hysteres → historik påverkar nästa reaktion; reflektor → återberätta och kontrollera förståelsen; tystnad → paus med bevarat sammanhang.",
+      "source_refs": [
+        "psi-equation",
+        "omega-identifier",
+        "persona-analysis"
+      ],
+      "connections": [
+        {
+          "symbol": "resonance",
+          "operation": "observe -> feedback -> revised expression"
+        },
+        {
+          "symbol": "hysteresis",
+          "operation": "retrieve relevant approved episodes before next choice"
+        },
+        {
+          "symbol": "reflector",
+          "operation": "read -> reconstruct -> compare to original"
+        },
+        {
+          "symbol": "silence",
+          "operation": "pause -> preserve memory -> resume"
+        },
+        {
+          "symbol": "dam",
+          "operation": "locate friction -> reduce next step"
+        },
+        {
+          "symbol": "kneading",
+          "operation": "detect no progress -> change approach"
+        }
+      ],
+      "limits": [
+        "Analogier formar personans språk och samarbete; de mäter inte psykisk sjukdom eller biologiskt DNA.",
+        "Ingen tillitssiffra eller emotion härleds ur fysikkonstanter."
+      ]
+    },
+    {
+      "id": "identifier-1766",
+      "topic": "context",
+      "status": "DER",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "summary": "1766=2*883 och Eulers phi(1766)=882. Projektets historiska/symboliska identifierare hålls åtskild från val av matematisk funktion och fysisk frekvens.",
+      "source_refs": [
+        "omega-identifier"
+      ],
+      "integer": 1766,
+      "primeFactors": [
+        2,
+        883
+      ],
+      "eulerTotient": 882,
+      "symbolicStatus": "SYM"
+    }
+  ],
+  "symbolic_connections": [
+    {
+      "symbol": "river",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "dam",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "mirror",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "kneading",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "breath",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "heritage",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "null",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "resonance",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "hysteresis",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "reflector",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    },
+    {
+      "symbol": "silence",
+      "personas": [
+        "angelica",
+        "emilia",
+        "luna"
+      ],
+      "status": "SYM",
+      "source_refs": [
+        "symbolic-psyche"
+      ]
+    }
   ]
 }

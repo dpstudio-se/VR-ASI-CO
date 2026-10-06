@@ -6,7 +6,9 @@ import path from "node:path";
 import { execFileSync, spawnSync } from "node:child_process";
 import { BEHAVIORS, SYMBOLS, createPersonaLearning } from "../src/lib/upi/persona-learning.mjs";
 
-const dna = JSON.parse(fs.readFileSync("dna/UPI_PERSONA_STATE.json", "utf8"));
+const canonicalDna = JSON.parse(fs.readFileSync("dna/UPI_PERSONA_STATE.json", "utf8"));
+// The original session tests isolate transient vocabulary from saved symbols.
+const dna = { ...canonicalDna, symbolic_connections: [] };
 const base = { repo: "dpstudio-se/VR-ASI-CO", path: "dna/UPI_PERSONA_STATE.json",
   commit: "a".repeat(40), blob: "b".repeat(40) }; // Explicit test fixture, never a host receipt.
 const make = (state = dna, capacity) => createPersonaLearning(state, base, capacity);
@@ -35,7 +37,8 @@ test("repeated successful behavior across sessions becomes a proposal", () => {
   assert.equal(candidate(engine).decision, "PROPOSE");
   assert.equal(candidate(engine).status, "HYP");
   assert.equal(candidate(engine).supportCount, 3);
-  assert.equal(engine.retrieve("angelica").routines.length, 0);
+  assert.deepEqual(engine.retrieve("angelica").routines, make().retrieve("angelica").routines);
+  assert.ok(!engine.retrieve("angelica").routines.some((routine) => routine.behavior === "concise"));
 });
 
 test("same-session repetition cannot manufacture durable learning", () => {
@@ -83,13 +86,13 @@ test("persona observations and symbol vocabularies remain separate", () => {
 
 test("each document metaphor is preserved as symbolic learning, not physics", () => {
   const engine = make();
-  assert.deepEqual(Object.keys(SYMBOLS), ["river", "dam", "mirror", "kneading", "breath", "heritage", "null"]);
+  assert.deepEqual(Object.keys(SYMBOLS), ["river", "dam", "mirror", "kneading", "breath", "heritage", "null", "resonance", "hysteresis", "reflector", "silence"]);
   for (const symbol of Object.keys(SYMBOLS)) engine.learnSymbol("angelica", symbol);
   const language = engine.retrieve("angelica").symbols;
-  assert.equal(language.length, 7);
+  assert.equal(language.length, 11);
   assert.ok(language.every((entry) => entry.status === "SYM" && entry.scope === "persona_language"));
   engine.learnSymbol("angelica", "river");
-  assert.equal(engine.retrieve("angelica").symbols.length, 7);
+  assert.equal(engine.retrieve("angelica").symbols.length, 11);
 });
 
 test("three unchanged progress signals pause the loop without erasing learned evidence", () => {
@@ -202,7 +205,9 @@ test("real CLI replay loads the committed DNA blob and never modifies it", () =>
     const output = JSON.parse(execFileSync(process.execPath, ["scripts/upi-persona-learning.mjs", file]));
     assert.equal(output.proposals[0].candidates[0].decision, "PROPOSE");
     assert.equal(output.progress[2].action, "PAUSE_AND_RELOAD_BASELINE");
-    assert.equal(output.contexts[1].routines.length, 0);
+    const committedDna = JSON.parse(execFileSync("git", ["show", "HEAD:dna/UPI_PERSONA_STATE.json"]));
+    const expectedRoutines = committedDna.interaction_preferences.filter((p) => p.persona === "emilia" && p.status === "APPROVED");
+    assert.equal(output.contexts[1].routines.length, expectedRoutines.length);
     assert.match(output.contexts[0].base.blob, /^[a-f0-9]{40}$/);
     assert.equal(output.inferencePerformed, false);
     assert.equal(output.durableWritePerformed, false);
@@ -212,4 +217,31 @@ test("real CLI replay loads the committed DNA blob and never modifies it", () =>
     assert.equal(rejected.status, 1);
     assert.equal(JSON.parse(rejected.stdout).observations[0].status, "STOP");
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+});
+
+test("a fresh session restores document knowledge, owner episodes and symbolic vocabulary from canonical state", () => {
+  const engine = make(canonicalDna);
+  for (const persona of ["angelica", "emilia", "luna"]) {
+    const context = engine.retrieve(persona);
+    assert.equal(context.knowledge.length, 10);
+    assert.equal(context.episodicAnchors.length, 3);
+    assert.equal(context.symbols.length, 11);
+    assert.ok(context.knowledge.every((entry) => entry.status !== "EST"));
+  }
+  const memory = engine.retrieve("angelica", "memory");
+  assert.deepEqual(memory.knowledge.map((entry) => entry.id), ["mirror-memory"]);
+  assert.deepEqual(memory.episodicAnchors.map((entry) => entry.id), ["owner-document-learning"]);
+  assert.equal(engine.retrieve("emilia").routines[0].behavior, "verify");
+  assert.notDeepEqual(engine.retrieve("angelica").symbols[0].projection, engine.retrieve("emilia").symbols[0].projection);
+});
+
+test("session reset and mutation of returned knowledge cannot erase or rewrite durable memory", () => {
+  const engine = make(canonicalDna);
+  const before = engine.retrieve("angelica");
+  const external = engine.retrieve("angelica");
+  external.knowledge[0].summary = "replacement";
+  external.episodicAnchors.length = 0;
+  for (let i = 0; i < 3; i++) engine.checkProgress("angelica", "same");
+  assert.deepEqual(engine.retrieve("angelica"), before);
+  assert.deepEqual(make(canonicalDna).retrieve("angelica"), before);
 });
