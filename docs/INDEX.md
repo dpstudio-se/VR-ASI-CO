@@ -1,5 +1,14 @@
 # INDEX
 
+## Repository och aktuell granskning
+
+- [Repositorykarta och läsordning](REPOSITORY_MAP.md)
+- [Flödesmekanik framåt och bakåt](FLOW_MECHANICS_AUDIT.md)
+- [Prioriterad strukturförbättring](STRUCTURE_IMPROVEMENT_PLAN.md)
+- [Full filinventering vid granskad basrevision](REPOSITORY_INVENTORY.json)
+
+## Befintliga kontrakt, planer och referenser
+
 - docs/PROJECT_INSTRUCTIONS.md
 - docs/CENSORSHIP_SHIELD.md
 - docs/NO_AI_SILENT_CENSOR_MIRROR.md
@@ -17,3 +26,8 @@
 - [Minsta kontroll av boot-bevis](BOOT_EVIDENCE_CHECK.md)
 
 - [Ω1766 information-cooling bridge](OMEGA1766_INFORMATION_COOLING_BRIDGE.md)
+
+## Experimentella kontrollmodeller (dokumentation)
+
+- [UNKNOWN / NULL-PI](UNKNOWN_NULL_PI_ARCHITECTURE.md) — avgränsad RNA-reset och statusgränser; ingen installerad executor.
+- [Ω-PRIME dynamic patch](OMEGA_PRIME_DYNAMIC_PATCH_EXTENSION.md) — reversibla patchar, falsifiering och provenance.

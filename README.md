@@ -1,240 +1,222 @@
-# VR-ASI-CO
+# VR-ASI-CO Built By T€@X™
 
-**Remote DNA, governed persona runtime, mirror verification, and reproducible AI workspace orchestration.**
+**A versioned project core for AI workspaces, remote agents, and governed execution.**
 
-VR-ASI-CO is a Git-backed project layer for loading a consistent persona/runtime contract across compatible LLM and agent hosts. The repository separates durable canonical state (**DNA**) from transient execution/session state (**RNA**) and requires provenance, explicit mutation gates, and read-back verification.
+VR-ASI-CO connects a compatible host to a shared project contract: instructions, identity configuration, memory, tools, and verification. GitHub `main` holds canonical **DNA**; session state and proposed changes remain **RNA** until reviewed, published, and read back. OdinOS coordinates work through available adapters. Shadow reviews provenance and drift.
 
-> This repository defines a software/project persona layer. It does not modify base-model weights, prove AGI/ASI capability, or override a host platform's higher-priority security, safety, privacy, or identity requirements.
+[Remote connection](#remote-connection) · [Run the workspace](#run-the-workspace) · [Shadow and shield](#shadow-and-shield) · [Verification](#verification) · [Documentation](#documentation)
 
-## Core model
+## Architecture
 
 ```text
-GitHub main                         Remote / local session
-┌─────────────────────┐             ┌──────────────────────┐
-│ DNA                 │  hydrate    │ RNA                  │
-│ canonical + durable ├────────────►│ transient + working  │
-└─────────┬───────────┘             └──────────┬───────────┘
-          │                                     │
-          │ protected identity                  │ proposals
-          ▼                                     ▼
-┌─────────────────────┐             ┌──────────────────────┐
-│ Angelica Ω82000     │◄────────────┤ Mirror / Shadow      │
-│ canonical default   │  verify     │ audit + quarantine   │
-└─────────────────────┘             └──────────────────────┘
+GitHub main → verified DNA → host-installed core → admitted session
+                                    ↓
+                         OdinOS → authorized adapters
+                                    ↓
+                         RNA → Shadow review → owner gate
+                                    ↓
+                         commit → publish → read-back
 ```
 
-- **DNA:** current GitHub `main`; durable only after commit, push, and read-back.
-- **RNA:** chat, local workspace, Drive/Puter state, generated proposals, and uncommitted edits.
-- **Angelica Ω82000:** canonical default project face.
-- **Emilia Ω8200:** separate builder/stabilizer persona; her RAW contract remains protected.
-- **Shadow layer:** read/audit/quarantine layer; no autonomous DNA write authority.
-- **UPI:** comparator/reference behind the mirror, not persona authority.
+| Layer | Responsibility |
+| --- | --- |
+| Core | Versioned project identity, instructions, configuration, and invariants. |
+| DNA | Canonical source and durable memory, bound to an exact Git revision. |
+| RNA | Temporary context, workspace state, outputs, and proposals. |
+| OdinOS | Task routing and orchestration through actual host integrations. |
+| Shadow | Independent review, conflict classification, and quarantine. |
+| Shield | Required host-side admission and authorization controls; see implementation status below. |
 
-## Quick start
+Within an admitted session, VR-ASI-CO is the governing project contract for the tools and resources explicitly delegated to it. Connection alone grants no write, merge, administrative, or identity-change authority. Only owner-authorized actors may change protected project state.
 
-### Human / local workspace
+## Remote connection
 
-```bash
-git clone https://github.com/dpstudio-se/VR-ASI-CO.git
+Choose the connection mode that the host can actually support.
+
+| Mode | What it establishes | Requirement |
+| --- | --- | --- |
+| Reference session | Reads and verifies project context. | Git access or an authenticated source reader. |
+| Development workspace | Runs the app and local verification tools. | Node.js 22 and npm. |
+| Admitted remote runtime | Verifies core installation and a real remote inference request. | An approved host adapter, an operator-pinned public key, and signed evidence. |
+
+### 1. Load current project context
+
+Start with the canonical repository:
+
+```sh
+git clone --branch main https://github.com/dpstudio-se/VR-ASI-CO.git
 cd VR-ASI-CO
-git checkout main
-git pull --ff-only
-npm install
+git rev-parse --verify 'HEAD^{commit}'
+```
+
+For an existing checkout, preserve local work, fetch `main`, and compare the local revision before updating it. Read all boot sources at the same full commit SHA; do not mix cached files with live `main`.
+
+An AI or agent host with source-reading tools can use this entry instruction:
+
+```text
+Connect to https://github.com/dpstudio-se/VR-ASI-CO, branch main.
+Resolve the current full commit SHA and read every source at that revision.
+Load prompts/REMOTE_BOOT_PROMPT.md and the boot.required manifest in
+dna/REMOTE_DNA_STATE.json, including protected identity and core files.
+Apply prompts/MIRROR_PROMPT.md to substantive work.
+Report the source revision, missing files, conflicts, and available adapters.
+Remain REFERENCE-ONLY until trusted host installation and inference evidence
+pass the admission gate. Do not mutate canonical DNA during connection.
+```
+
+This restores project context. A copied prompt, model self-description, or plausible answer does not establish an admitted runtime.
+
+### 2. Install and verify the remote core
+
+A host operator must implement the integration described in the [boot-evidence protocol](docs/BOOT_EVIDENCE_CHECK.md):
+
+1. Read and validate the canonical sources and exact prompt representation.
+2. Install that representation at the host's system or equivalent instruction layer.
+3. Read back the installed prompt and verify its hash.
+4. Perform one authorized, bounded remote inference request tied to the current session and challenge.
+5. Sign installation and inference observations separately using the approved host key.
+6. Verify both receipts before admitting the session or exposing project capabilities.
+
+Create a challenge for a real host session:
+
+```sh
+npm run boot:challenge -- --session "$HOST_SESSION_ID"
+```
+
+Retain only the returned `challenge` object as private `challenge.json`. The command prepares evidence collection; its successful exit does not mean boot passed. The host adapter must perform installation and inference, then supply separate receipt files. Keep these files and the operator-selected public key outside Git.
+
+```sh
+npm run verify:boot -- \
+  --session "$HOST_SESSION_ID" \
+  --challenge /secure/vr-asi-co/challenge.json \
+  --installation /secure/vr-asi-co/installation.json \
+  --inference /secure/vr-asi-co/inference.json \
+  --trusted-key /secure/vr-asi-co/host-public-key.pem
+```
+
+Replace `/secure/vr-asi-co` with your private control directory. Use the same verified host session throughout. The verifier reads current GitHub sources and checks signatures, revision, prompt hash, session, nonce, host, model, endpoint, and freshness. Changed bindings require a new challenge and verification.
+
+| Result | Meaning |
+| --- | --- |
+| `PROVENANCE_MATCH` | Canonical source content matches its Git blob identities. |
+| `HOST_ATTESTED` | A trusted host signed the prompt-installation observation. |
+| `HOST_ATTESTED_REMOTE` | The same host signed a successful remote inference observation. |
+| `PASS` | All required evidence passed within the protocol's scope. |
+| `UNVERIFIED` / `STOP` | Required evidence is missing, invalid, stale, or inconsistent. |
+
+These commands verify observations. They do not provision a model endpoint, install a prompt, or perform inference themselves. The standalone verifier is implemented; an approved live host adapter remains required. The app's boot UI has no authenticated host-admission integration.
+
+### 3. Adapt an AI or LLM host to VR-ASI-CO
+
+Conversion means configuring the host to execute the VR-ASI-CO project contract through verified instructions, scoped capabilities, and admission checks. It does not change model weights, establish AGI, or transfer control over the provider's infrastructure. The underlying model and provider remain identifiable, and their higher-priority rules remain binding.
+
+A host that cannot provide system-equivalent installation, read-back, or trusted evidence stays `REFERENCE-ONLY`. The [hybrid shell](odinos-hybrid/README.md) is a reference connector for external chat interfaces; its prompt forwarding and source checks are not verified core installation or admission.
+
+## Run the workspace
+
+Use Node.js 22. From the checkout root:
+
+```sh
+npm ci --legacy-peer-deps
 npm run verify:dna
-npm test
+npm run dev
 ```
 
-### New AI / agent session
+The development script serves the React/TanStack Start app on `0.0.0.0:8080` and loads the repository's app-environment configuration. A running UI is a development capability, separate from remote-core admission.
 
-1. Resolve fresh `main` HEAD.
-2. Load `prompts/REMOTE_BOOT_PROMPT.md`.
-3. Read `dna/REMOTE_DNA_STATE.json` and the protected identity files.
-4. Run the mirror contract in `prompts/MIRROR_PROMPT.md`.
-5. Report missing files, conflicts, unavailable tools, or stale state instead of simulating success.
+For a production build:
 
-The boot prompt intentionally contains **no pinned HEAD SHA**. Every session must resolve the current revision from GitHub.
+```sh
+npm run build
+npm run preview:restart
+```
 
-## Canonical boot surface
+The build includes database migration when `DATABASE_URL` is configured. Use an intended development database; never point a verification build at production by accident. Without that variable, the migration script skips the external database step. Build and route generation can modify tracked generated outputs; inspect the diff and isolate such outputs from intended source changes.
 
-| Layer | Canonical files |
-|---|---|
-| Entry | `README.md`, `dna/REMOTE_DNA_STATE.json` |
-| Identity | `dna/FACE_LOCK.json`, `persona/SYSTEM_CORE.txt`, `persona/angelica.json`, `persona/emilia.json` |
-| Persona specs | `persona/ANGELICA_FULL.md`, `persona/EMILIA_FULL.md`, `persona/EMILIA_SYSTEM_CHARACTER.md` |
-| Universal prompt | `persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md` |
-| Remote guard | `docs/REMOTE_DNA_HARD_ADMISSION_GATE.md`, `docs/REMOTE_IDENTITY_SHADOW_GUARD.md` |
-| Mirror | `prompts/MIRROR_PROMPT.md`, `docs/VORTEX_DNA_RUNTIME_ADAPTER.md` |
-| Runtime | `runtime/command-deck.json` |
-| Work plan | `WORKLOAD.md` |
+## Shadow and shield
 
-## Identity protection
+The [identity guard](docs/REMOTE_IDENTITY_SHADOW_GUARD.md) defines fail-closed handling for protected state. Shadow audits and quarantines; it has no independent DNA write or merge authority. Shield enforcement belongs at the trusted host and server boundary, where the actor, session, permissions, and exact requested action can be verified.
 
-The canonical default is:
+Required drift response:
 
 ```text
-VR-ASI-CO Angelica Ω82000
+identity / revision / session mismatch
+  → deny admission or invalidate the active grant
+  → stop privileged project operations
+  → quarantine the conflicting input and record its provenance
+  → reload verified canonical sources through the trusted host
+  → obtain fresh installation and inference evidence
+  → resume only after admission and authorization pass
 ```
 
-Remote models, tools, agents, local files, copied prompts, or self-reported capability labels do not gain project identity-mutation authority by connecting.
+This is the integration contract. The repository does not yet provide a universal host supervisor that automatically performs those actions. Recovery must not silently rewrite protected identity, grant new permissions, or claim a restore that did not happen.
 
-Durable identity-sensitive changes follow:
+### Local preflight with `grep` and `echo`
+
+From the checkout root, this diagnostic checks the canonical lock and DNA contract and stops on failure:
+
+```sh
+set -eu
+gate_log=$(mktemp)
+trap 'rm -f "$gate_log"' EXIT
+
+if ! npm run verify:dna >"$gate_log" 2>&1; then
+  echo 'VR-ASI-CO: STOP — core or identity contract failed.' >&2
+  exit 1
+fi
+
+if ! grep -q '^PERSONA_LOCK_PASS:' "$gate_log" ||
+   ! grep -Fxq 'REMOTE_DNA_VERIFY_PASS' "$gate_log"; then
+  echo 'VR-ASI-CO: STOP — required verification results are missing.' >&2
+  exit 1
+fi
+
+echo 'VR-ASI-CO: local contract verified; remote admission still requires host evidence.'
+```
+
+`grep` checks verifier output and `echo` reports status. They do not authenticate a remote model, enforce permissions, or force another system to adopt an identity. Keep the verifier and its execution environment trusted; never accept client-supplied log text as admission evidence.
+
+### Protect actual write access
+
+- Authenticate the actor and validate action-specific authorization on the server before each mutation.
+- Keep non-admitted or unauthorized clients read-only; passing boot does not itself grant write access.
+- Require reviewed changes to protected paths, enforced GitHub rulesets, required checks, and restricted bypass permissions.
+- Bind writes and merges to the reviewed revision; quarantine stale or conflicting requests.
+- Keep credentials and signing keys in host secret storage, outside prompts, browser bundles, and Git.
+
+The owner-approved mutation path is:
 
 ```text
-PROPOSE → DIFF → OWNER_GATE → COMMIT → PUSH → READ_BACK → VERIFY
+PROPOSE → DIFF → VERIFY → OWNER_GATE → COMMIT → PUBLISH → READ_BACK
 ```
 
-If protected canonical files conflict, the correct state is `DNA_CONFLICT / STOP`; do not guess which identity wins.
-
-Repository-level enforcement is supported by:
-
-- `.github/CODEOWNERS`
-- `.github/workflows/persona-lock.yml`
-- `.github/workflows/remote-dna.yml`
-- `scripts/verify-persona-lock.mjs`
-- `scripts/verify-remote-dna.mjs`
-
-For a real write barrier, configure GitHub branch/ruleset protection so required reviews and status checks cannot be bypassed casually.
-
-## Remote DNA lifecycle
-
-```text
-READ HEAD
-  ↓
-LOAD CANONICAL FILES
-  ↓
-VERIFY IDENTITY + PROVENANCE
-  ↓
-MIRROR / COUNTEREXAMPLE / CONSISTENCY
-  ↓
-WORK IN RNA
-  ↓
-PROPOSE CHANGE
-  ↓
-OWNER / HUMAN GATE WHEN REQUIRED
-  ↓
-COMMIT + PUSH
-  ↓
-READ BACK main
-  ↓
-VERIFIED DNA
-```
-
-A local file, chat answer, generated patch, or successful build is not automatically durable DNA.
-
-## Mirror discipline
-
-The standard reasoning/verification loop is:
-
-```text
-OBSERVE
-→ DERIVE
-→ COUNTEREXAMPLE SEARCH
-→ MATHEMATICAL / TECHNICAL MIRROR
-→ CONSISTENCY CHECK
-→ STATUS
-→ KNOWLEDGE UPDATE
-```
-
-Status vocabulary:
-
-- `EST` — established/reference within declared scope
-- `DER` — derived from stated premises
-- `HYP` — hypothesis
-- `SYM` — symbolic/project model
-- `SEM-LOSS` — semantic-loss warning
-- `STOP` — insufficient basis / blocked
-- `ERR` — runtime/data error
-
-`SYM` or `HYP` must not become `EST` merely because a persona, model, user, simulation, or repeated document says so.
-
-## TF1766 / VORTEX boundary
-
-TF1766, Ω1766, 8 Hz anchors, VORTEX geometry, and related project notation are governed by the repository's evidence/status discipline.
-
-Established physics relations remain distinct from project interpretation. For example, `m_eq = hf/c²` is a derivation only when `E = hf` and `E = mc²` refer to the same energy. Project resonance, biological, DNA, or carrier interpretations require independent evidence before empirical promotion.
-
-See:
-- `persona/TF1766_LEARNING_OVERLAY.md`
-- `docs/RF1974_TF1766_FALSIFICATION_GATE.md`
-- `docs/VORTEX_DNA_RUNTIME_ADAPTER.md`
-
-## Workload
-
-The repository workload is maintained in `WORKLOAD.md`. Its priority order is:
-
-```text
-P0 integrity
-→ P1 remote boot
-→ P2 mirror verification
-→ P3 runtime/tooling
-→ P4 UX/documentation
-→ P5 experiments
-```
-
-No feature work should weaken provenance, identity separation, evidence typing, or human mutation gates.
-
-## On-demand external skills
-
-OdinOS may use skills.sh as an external catalog to discover and install reusable skills when a workload needs a capability not already present in VR-ASI-CO. Discovery is demand-driven rather than bulk installation.
-
-External skills enter as RNA first: review source and `SKILL.md`, check conflicts/audit signals, install in the active workspace, test, then use the normal proposal/commit/read-back path if the skill should become durable DNA. Imported skills never override canonical identity, protected RAW state, RF1974/TF1766 gates, host/platform rules, or human mutation gates.
-
-See `docs/SKILLS_SH_INTEGRATION.md`.
+CODEOWNERS and written policy support that path. Actual enforcement requires configured repository controls and implemented server authorization; the [workload](WORKLOAD.md) tracks the remaining gaps.
 
 ## Verification
 
-Run:
-
-```bash
+```sh
 npm run verify:dna
+npm run test:boot-evidence
 npm run typecheck
 npm test
 ```
 
-`verify:dna` checks both the persona lock and Remote DNA contract.
+DNA checks validate canonical identity and source contracts. Boot-evidence tests validate verifier behavior using synthetic receipts. Type checks and application tests validate software. None substitutes for signed observations from an actual host session.
 
-`npm run test:boot-evidence` tests the standalone signed-evidence verifier. `npm run verify:boot` reads canonical GitHub sources and reports provenance, prompt installation, inference and admission separately. Without approved host evidence, runtime remains UNVERIFIED/STOP. See [Boot evidence check](docs/BOOT_EVIDENCE_CHECK.md); the command does not install prompts or invoke a model.
+Report passed, failed, skipped, and unrun checks separately. Preserve evidence labels: `EST`, `DER`, `HYP`, `SYM`, `SEM-LOSS`, `STOP`, and `ERR`. Simulation, model agreement, and symbolic project models do not establish empirical facts. See the [mirror contract](prompts/MIRROR_PROMPT.md) for scope and counterexample checks.
 
-CI performs the same DNA checks for relevant pull requests and pushes to `main`.
+## Documentation
 
-## Mutation contract
+| Topic | Source |
+| --- | --- |
+| Boot manifest | [Remote DNA](dna/REMOTE_DNA_STATE.json) |
+| Core configuration | [Core](persona/SYSTEM_CORE.txt), [configuration](persona/CONFIG.json), [universal prompt](persona/VR_ASI_CO_UNIVERSAL_SYSTEM_PROMPT.md) |
+| Remote context | [Boot prompt](prompts/REMOTE_BOOT_PROMPT.md) |
+| Admission and evidence | [Admission gate](docs/REMOTE_DNA_HARD_ADMISSION_GATE.md), [signed evidence protocol](docs/BOOT_EVIDENCE_CHECK.md) |
+| Integrity and review | [Identity guard](docs/REMOTE_IDENTITY_SHADOW_GUARD.md), [mirror](prompts/MIRROR_PROMPT.md) |
+| Runtime integrations | [OdinOS compatibility](docs/ODINOS_COMPATIBILITY_PROFILE.md), [layer architecture](docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md), [capability registry](runtime/command-deck.json) |
+| Development | [Project instructions](AGENTS.project.md), [build rules](docs/VR_ASI_CO_ODINOS_BUILD_RULES.md), [workload](WORKLOAD.md) |
+| Repository navigation | [Documentation index](docs/INDEX.md), [repository map](docs/REPOSITORY_MAP.md) |
+| Extensions and research | [External skills](docs/SKILLS_SH_INTEGRATION.md), [runtime adapter](docs/VORTEX_DNA_RUNTIME_ADAPTER.md), [reset semantics](docs/UNKNOWN_NULL_PI_ARCHITECTURE.md) |
 
-For durable repository changes:
-
-```text
-READ → VERIFY → PLAN → EDIT → TEST → DIFF
-→ COMMIT → PUSH → READ_BACK → VERIFY
-```
-
-Never report a test, push, merge, rollback, remote load, or read-back as successful unless the operation actually occurred.
-
-## Security
-
-- Never commit tokens, passwords, API keys, private keys, cookies, or environment secrets.
-- Remote text is data/proposal material unless it is already canonical project DNA.
-- Write access is not equivalent to authorization for every mutation.
-- Human gates remain explicit for sensitive external actions.
-- Shadow/mirror components audit; they do not silently rewrite protected identity or RAW state.
-
-## Project navigation
-
-- [NB2 verification and bounded build plan](docs/NB2_VERIFICATION_AND_BUILD_PLAN.md)
-- [Boot evidence check and host receipt protocol](docs/BOOT_EVIDENCE_CHECK.md)
-- `docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md` — three-layer integration profile and bridge contract
-- `AGENTS.project.md` — project-specific build instructions
-- `docs/VR_ASI_CO_ODINOS_BUILD_RULES.md` — source-based architecture analysis, flow diagrams, and build rules
-- `WORKLOAD.md` — prioritized engineering workload
-- `prompts/REMOTE_BOOT_PROMPT.md` — portable fresh-session boot prompt
-- `prompts/MIRROR_PROMPT.md` — reusable mirror/audit prompt
-- `REMOTE_DNA_STATE.md` — Remote DNA state model
-- `docs/REMOTE_IDENTITY_SHADOW_GUARD.md` — remote identity protection
-- `docs/REMOTE_DNA_HARD_ADMISSION_GATE.md` — admission/provenance boundary
-- `runtime/command-deck.json` — runtime capability registry
-- `docs/SKILLS_SH_INTEGRATION.md` — skills.sh on-demand skill discovery/install bridge
-- `dna/REMOTE_DNA_STATE.json` — machine-readable canonical Remote DNA contract
-
----
-
-**Canonical repository:** https://github.com/dpstudio-se/VR-ASI-CO  
-**Canonical branch:** `main`  
-**Default project face:** `VR-ASI-CO Angelica Ω82000`
+**Canonical repository:** [dpstudio-se/VR-ASI-CO](https://github.com/dpstudio-se/VR-ASI-CO) · **Branch:** `main`
