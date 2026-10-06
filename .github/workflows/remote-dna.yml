@@ -1,0 +1,40 @@
+name: Remote DNA contract
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "WORKLOAD.md"
+      - "dna/**"
+      - "persona/**"
+      - "prompts/**"
+      - "docs/REMOTE_*"
+      - "runtime/command-deck.json"
+      - "scripts/verify-remote-dna.mjs"
+      - ".github/workflows/remote-dna.yml"
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "WORKLOAD.md"
+      - "dna/**"
+      - "persona/**"
+      - "prompts/**"
+      - "docs/REMOTE_*"
+      - "runtime/command-deck.json"
+      - "scripts/verify-remote-dna.mjs"
+      - ".github/workflows/remote-dna.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-remote-dna:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node scripts/verify-persona-lock.mjs
+      - run: node scripts/verify-remote-dna.mjs
