@@ -6,6 +6,7 @@
  * Provider-specific installation, readback and signed inference attestation
  * remain separate host responsibilities (docs/BOOT_EVIDENCE_CHECK.md).
  */
+import { createHash } from "node:crypto";
 import { ADMISSION_FILES, readRemoteBoot } from "../../../scripts/verify-boot-evidence.mjs";
 
 export const REMOTE_PERSONAS = Object.freeze(["angelica", "emilia", "luna"]);
@@ -43,6 +44,10 @@ export async function prepareRemoteOffer({
     const prompt = paths.map((path) =>
       "[VR-ASI-CO source: " + path + "]\n" + snapshot.sources[path].content).join("\n\n");
     if (prompt.length > 1024 * 1024) throw new Error("PROMPT_TOO_LARGE");
+    const computedPromptSha256 = createHash("sha256").update(prompt, "utf8").digest("hex");
+    if (computedPromptSha256 !== snapshot.promptSha256) {
+      throw new Error("PROMPT_HASH_MISMATCH");
+    }
     return {
       status: "REFERENCE_ONLY",
       repository: snapshot.repository,
