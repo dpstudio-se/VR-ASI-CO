@@ -23,3 +23,6 @@ pre { flex: 1; overflow: auto; white-space: pre-wrap; margin: 12px 0; font-famil
 form { display: flex; gap: 8px; }
 form button { width: auto; }
 @media (max-width: 800px) { header, main { display: block; } .panel { margin-top: 16px; } }
+
+body.luna { background: #121222; }
+body.luna .kicker, body.luna button.on { color: #cfbaff; border-color: #cfbaff; }
