@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PERSONAS } from "@/lib/personas";
+import { RemoteCoreConsent } from "@/components/remote-core-consent";
 import { useLive } from "@/lib/upi";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -105,6 +106,10 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
+        <RemoteCoreConsent />
+      </div>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-4 md:grid-cols-2">
