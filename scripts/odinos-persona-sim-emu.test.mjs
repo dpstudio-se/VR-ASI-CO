@@ -91,6 +91,7 @@ test("persona RNA: Luna can accumulate reversible session evidence without chang
 
 
 
+let emulatorOrdinal = 0;
 function emulateHybrid({ missing = null, conflict = false, presetIds = null } = {}) {
   const handlers = new Map(), elements = new Map(), calls = [];
   const buttons = ["angelica","emilia","luna","oga"].map(face => ({
@@ -129,7 +130,7 @@ function emulateHybrid({ missing = null, conflict = false, presetIds = null } = 
     if(req.url.endsWith("/api/chat"))return{ok:true,json:async()=>({response:"MOCK_ODYSSEUS_OK"})};
     return {ok:false,status:404};
   };
-  const window={ODINOS_CONFIG:presetIds?{odysseusBase:"http://127.0.0.1:7011",presetIds}:{}, crypto:{randomUUID:()=> "123e4567-e89b-42d3-a456-426614174000"}};
+  const window={ODINOS_CONFIG:presetIds?{odysseusBase:"http://127.0.0.1:7011",presetIds}:{}, crypto:{randomUUID:()=> "123e4567-e89b-42d3-a456-" + (++emulatorOrdinal).toString(16).padStart(12, "0")}};
   const context=vm.createContext({document,window,fetch,atob:(s)=>Buffer.from(s,"base64").toString("binary"),
     decodeURIComponent,escape,console});
   vm.runInContext(hybridJs,context,{filename:"odinos-hybrid/hybrid.js",timeout:2500});
@@ -178,7 +179,7 @@ test("browser emulation: configured Odysseus preset is passed separately from us
   assert.equal(r.url,"http://127.0.0.1:7011/api/chat");
   assert.equal(r.body.preset_id,"emilia-reviewed-preset");
   assert.equal(r.body.message,"Test Odysseus");
-  assert.equal(r.body.session,"vr-asi-co-emilia-123e4567-e89b-42d3-a456-426614174000");
+  assert.match(r.body.session,/^vr-asi-co-emilia-123e4567-e89b-42d3-a456-[0-9a-f]{12}$/);
   assert.match(a.elements.get("log").textContent,/HOST_PROMPT_READ_BACK: NOT_VERIFIED/);
 });
 test("repository: ψ27D remains unverified and browser cannot mutate persona DNA",()=>{
@@ -201,6 +202,13 @@ test("transport session identifiers are persona-scoped, not shared across users"
   assert.notEqual(requests[0].session,requests[2].session);
   assert.ok(requests[0].session.startsWith("vr-asi-co-emilia-"));
   assert.ok(requests[2].session.startsWith("vr-asi-co-luna-"));
+  const other=emulateHybrid({presetIds:{emilia:"emilia-p"}});
+  await other.settle();
+  other.handlers.get("face:emilia:click")();
+  await other.submit("separate visitor");
+  const otherSession=other.calls.find(r=>r.url.endsWith("/api/chat")).body.session;
+  assert.notEqual(otherSession, requests[0].session);
+
   const code=read("odinos-hybrid/hybrid.js");
   assert.match(code,/randomUUID/);
   assert.doesNotMatch(code,/session: "vr-asi-co-" \+ face/);
