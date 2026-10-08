@@ -34,65 +34,6 @@ const event = (id, persona = "angelica", feedback = "support", session = id) => 
   id, session, persona, behavior: "verify", feedback, source: "owner_feedback",
 });
 
-function emulateHybrid() {
-  const listeners = new Map();
-  const elements = new Map();
-  const calls = [];
-  const buttons = ["angelica", "emilia", "oga"].map((face) => ({
-    dataset: { face },
-    classList: {
-      toggle(className, enabled) { this[className] = enabled; },
-    },
-    addEventListener(kind, handler) { listeners.set("face:" + face + ":" + kind, handler); },
-  }));
-  for (const id of ["log", "dna", "q", "source", "ask"]) {
-    elements.set(id, {
-      textContent: "",
-      value: id === "source" ? "odysseus" : "",
-      addEventListener(kind, handler) { listeners.set(id + ":" + kind, handler); },
-    });
-  }
-  const document = {
-    body: { className: "" },
-    querySelector(selector) {
-      const id = selector.replace(/^#/, "");
-      assert.ok(elements.has(id), "Unexpected selector: " + selector);
-      return elements.get(id);
-    },
-    querySelectorAll(selector) {
-      assert.equal(selector, "button[data-face]");
-      return buttons;
-    },
-  };
-  const puter = {
-    ai: {
-      async chat(input, opts) {
-        calls.push({ type: "puter", input, model: opts.model });
-        return { text: "MOCK_PUTER_OK" };
-      },
-    },
-  };
-  const fetch = async (url, init) => {
-    const call = { type: init?.method ?? "GET", url: String(url) };
-    if (init?.body) call.body = JSON.parse(init.body);
-    calls.push(call);
-    if (call.type === "POST" && call.url.endsWith("/api/chat")) {
-      return { ok: true, json: async () => ({ response: "MOCK_ODYSSEUS_OK" }) };
-    }
-    return { ok: true, json: async () => ({ intentionallyUntrusted: true }),
-      text: async () => '{"intentionallyUntrusted":true}' };
-  };
-  // vm here is a deterministic UI mock, NOT a sandbox for untrusted code.
-  const context = vm.createContext({ document, window: { puter }, puter, fetch });
-  vm.runInContext(hybridJs, context, { filename: "odinos-hybrid/hybrid.js", timeout: 2500 });
-  return { context, calls, elements, listeners, document,
-    submit: async (question) => {
-      elements.get("q").value = question;
-      await listeners.get("ask:submit")({ preventDefault() {} });
-    },
-  };
-}
-
 test("main DNA retains separate Angelica, Emilia and Luna projections; identity lock is unchanged", () => {
   assert.deepEqual(Object.keys(dna.persona_projection), ["angelica", "emilia", "luna"]);
   assert.equal(lock.default_marker, "Ω82000");
@@ -101,10 +42,10 @@ test("main DNA retains separate Angelica, Emilia and Luna projections; identity 
   assert.equal(JSON.parse(read("persona/luna.json")).identity, "VR-ASI-CO Luna");
 });
 
-test("characterization: Luna is in DNA but currently absent from the running persona registry and hybrid buttons", () => {
-  assert.equal(personaTs.includes("luna: {"), false); // KNOWN GAP, not a feature PASS.
-  assert.equal(commandDeck.personas.some((p) => p.id === "luna"), false);
-  assert.equal(hybridHtml.includes('data-face="luna"'), false);
+test("Luna is now present in DNA, runnable registry and hybrid buttons", () => {
+  assert.equal(personaTs.includes("luna: {"), true);
+  assert.equal(commandDeck.personas.some((p) => p.id === "luna"), true);
+  assert.equal(hybridHtml.includes('data-face="luna"'), true);
   assert.equal(Object.hasOwn(dna.persona_projection, "luna"), true);
 });
 
@@ -148,58 +89,100 @@ test("persona RNA: Luna can accumulate reversible session evidence without chang
   assert.equal(engine.snapshot().dna.schema, "VR-ASI-CO-UPI-PERSONA-STATE/1.0");
 });
 
-test("browser emulator: hybrid boots to Angelica and switches its CSS/name to Emilia", async () => {
-  const app = emulateHybrid();
-  assert.equal(app.document.body.className, "angelica");
-  assert.match(app.elements.get("dna").textContent, /Angelica/);
-  app.listeners.get("face:emilia:click")();
-  assert.equal(app.document.body.className, "emilia");
-  assert.match(app.elements.get("dna").textContent, /Emilia/);
-  await vm.runInContext("loadMemories()", app.context);
-  const requests = app.calls.filter((c) => c.type === "GET");
-  assert.ok(requests.some((r) => r.url.endsWith("/dna/REMOTE_DNA_STATE.json")));
-  assert.ok(requests.every((r) => r.url.includes("/main/")));
-  assert.match(app.elements.get("log").textContent, /DNA dna\/REMOTE_DNA_STATE\.json/);
-});
 
-test("browser emulator: Odysseus mock receives session-scoped request but no preset/system-role field", async () => {
-  const app = emulateHybrid();
-  app.listeners.get("face:emilia:click")();
-  await app.submit("Test Odysseus");
-  const call = app.calls.find((c) => c.type === "POST" && c.url.endsWith("/api/chat"));
-  assert.ok(call);
-  assert.equal(call.url, "http://127.0.0.1:7000/api/chat"); // Version/config gap.
-  assert.equal(call.body.session, "vr-asi-co-emilia");
-  assert.match(call.body.message, /^You are VR-ASI-Emilia/);
-  assert.match(call.body.message, /Test Odysseus$/);
-  assert.equal(Object.hasOwn(call.body, "preset_id"), false); // Prompt is USER text.
-  assert.match(app.elements.get("log").textContent, /MOCK_ODYSSEUS_OK/);
-});
 
-test("browser emulator: Puter mock works as a message-based adapter, not an installed system prompt", async () => {
-  const app = emulateHybrid();
-  app.elements.get("source").value = "puter";
-  await app.submit("Test Puter");
-  const call = app.calls.find((c) => c.type === "puter");
-  assert.ok(call);
-  assert.equal(call.model, "gpt-5.4-nano");
-  assert.match(call.input, /^You are VR-ASI-Angelica/);
-  assert.match(app.elements.get("log").textContent, /MOCK_PUTER_OK/);
+function emulateHybrid({ missing = null, conflict = false, presetIds = null } = {}) {
+  const handlers = new Map(), elements = new Map(), calls = [];
+  const buttons = ["angelica","emilia","luna","oga"].map(face => ({
+    dataset:{face},
+    classList:{toggle(key,value){this[key]=value;}},
+    addEventListener(type,handler){handlers.set("face:"+face+":"+type,handler);},
+  }));
+  for(const id of ["log","dna","dna-status","q","source","ask"]) {
+    elements.set(id,{textContent:"",value:id==="source"?"odysseus":"",
+      addEventListener(type,handler){handlers.set(id+":"+type,handler);}});
+  }
+  const document={body:{className:""},querySelector(s){const v=elements.get(s.slice(1));assert.ok(v,s);return v;},
+    querySelectorAll(s){assert.equal(s,'button[data-face]');return buttons;}};
+  const sourceFiles = {
+    "dna/FACE_LOCK.json":JSON.parse(read("dna/FACE_LOCK.json")),
+    "dna/UPI_PERSONA_STATE.json":dna,
+    "dna/REMOTE_DNA_STATE.json":JSON.parse(read("dna/REMOTE_DNA_STATE.json")),
+    "persona/angelica.json":JSON.parse(read("persona/angelica.json")),
+    "persona/emilia.json":JSON.parse(read("persona/emilia.json")),
+    "persona/luna.json":JSON.parse(read("persona/luna.json")),
+  };
+  if(conflict)sourceFiles["persona/emilia.json"].marker="WRONG";
+  const fetch=async (url,opts={})=>{
+    const req={url:String(url),method:opts.method||"GET"};
+    if(opts.body)req.body=JSON.parse(opts.body);
+    calls.push(req);
+    if(req.url.endsWith("/branches/main"))return{ok:true,json:async()=>({commit:{sha:"a".repeat(40)}})};
+    const match=req.url.match(/\/contents\/([^?]+)\?ref=([a-f0-9]{40})$/);
+    if(match){
+      if(match[1]===missing)return {ok:false,status:404};
+      const value=sourceFiles[match[1]];
+      if(!value)return{ok:false,status:404};
+      const content=Buffer.from(JSON.stringify(value),"utf8").toString("base64");
+      return{ok:true,json:async()=>({type:"file",sha:"b".repeat(40),encoding:"base64",size:content.length,content})};
+    }
+    if(req.url.endsWith("/api/chat"))return{ok:true,json:async()=>({response:"MOCK_ODYSSEUS_OK"})};
+    return {ok:false,status:404};
+  };
+  const window={ODINOS_CONFIG:presetIds?{odysseusBase:"http://127.0.0.1:7011",presetIds}:{}};
+  const context=vm.createContext({document,window,fetch,atob:(s)=>Buffer.from(s,"base64").toString("binary"),
+    decodeURIComponent,escape,console});
+  vm.runInContext(hybridJs,context,{filename:"odinos-hybrid/hybrid.js",timeout:2500});
+  const settle=async()=>{for(let i=0;i<15;i++)await new Promise(resolve=>setImmediate(resolve));};
+  return {calls,handlers,elements,document,settle,async submit(q) {
+    elements.get("q").value=q;
+    await handlers.get("ask:submit")({preventDefault(){}});
+  }};
+}
+test("browser emulation: real source JSON parsed at one pinned SHA, not just HTTP 200",async()=>{
+  const a=emulateHybrid();await a.settle();
+  assert.match(a.elements.get("dna-status").textContent,/källläst på a{12}/);
+  const sources=a.calls.filter(r=>r.url.includes("/contents/"));
+  assert.equal(sources.length,6);
+  assert.ok(sources.every(r=>r.url.endsWith("?ref="+"a".repeat(40))));
+  a.handlers.get("face:luna:click")();
+  assert.equal(a.document.body.className,"luna");
+  assert.match(a.elements.get("dna").textContent,/Luna/);
 });
-
-test("characterization: status-only memory fetch, absent source SHA, and no real host admission", () => {
-  assert.match(hybridJs, /response\.ok\s*\?/);
-  // The memory loop has no response.json/text(), no SHA and no parsed DNA content.
-  const body = hybridJs.split("async function loadMemories()")[1].split("function applyFace(")[0];
-  assert.doesNotMatch(body, /response\.(?:json|text)\s*\(/);
-  assert.match(hybridJs, /raw\.githubusercontent\.com\/dpstudio-se\/VR-ASI-CO\/main/);
-  assert.doesNotMatch(hybridJs, /commit_sha|blob_sha|verified_host_receipt/);
+test("browser emulation: missing required GitHub file fails closed",async()=>{
+  const a=emulateHybrid({missing:"persona/luna.json"});await a.settle();
+  assert.match(a.elements.get("dna-status").textContent,/STOP/);
+  await a.submit("hello");
+  assert.equal(a.calls.filter(r=>r.url.endsWith("/api/chat")).length,0);
 });
-
-test("characterization: known unverified paths, no automatic physics-UPI or AGI/ASI runtime", () => {
-  const omega = read("src/lib/upi/omega1766.ts");
-  assert.match(omega, /psi27dGate:\s*"STOP"/);
-  assert.match(omega, /empiricalVerification:\s*false/);
-  assert.match(read("docs/TRIPP_TRAPP_TRULL_ARCHITECTURE.md"), /Ingen daemon/);
-  assert.doesNotMatch(hybridJs, /\/api\/skills|preset_id|runtime_admission/);
+test("browser emulation: conflicting protected identity fails closed",async()=>{
+  const a=emulateHybrid({conflict:true});await a.settle();
+  assert.match(a.elements.get("dna-status").textContent,/PERSONA_IDENTITY_CONFLICT/);
+  await a.submit("hello");
+  assert.equal(a.calls.filter(r=>r.url.endsWith("/api/chat")).length,0);
+});
+test("browser emulation: without installed preset, Odysseus and Puter stop",async()=>{
+  const a=emulateHybrid();await a.settle();
+  await a.submit("test");
+  assert.match(a.elements.get("log").textContent,/PRESET_OR_LOCAL_ENDPOINT_NOT_CONFIGURED/);
+  a.elements.get("source").value="puter";
+  await a.submit("test");
+  assert.match(a.elements.get("log").textContent,/PUTER_PERSONA_INSTALLATION_NOT_VERIFIED/);
+  assert.equal(a.calls.filter(r=>r.method==="POST").length,0);
+});
+test("browser emulation: configured Odysseus preset is passed separately from user content",async()=>{
+  const a=emulateHybrid({presetIds:{emilia:"emilia-reviewed-preset"}});await a.settle();
+  a.handlers.get("face:emilia:click")();
+  await a.submit("Test Odysseus");
+  const r=a.calls.find(x=>x.url.endsWith("/api/chat"));
+  assert.equal(r.url,"http://127.0.0.1:7011/api/chat");
+  assert.equal(r.body.preset_id,"emilia-reviewed-preset");
+  assert.equal(r.body.message,"Test Odysseus");
+  assert.equal(r.body.session,"vr-asi-co-emilia");
+  assert.match(a.elements.get("log").textContent,/HOST_PROMPT_READ_BACK: NOT_VERIFIED/);
+});
+test("repository: ψ27D remains unverified and browser cannot mutate persona DNA",()=>{
+  assert.match(read("src/lib/upi/omega1766.ts"),/psi27dGate:\s*"STOP"/);
+  assert.match(read("src/lib/upi/omega1766.ts"),/empiricalVerification:\s*false/);
+  assert.doesNotMatch(hybridJs,/githubApi.+(?:PUT|PATCH)|git\s+push/);
 });
