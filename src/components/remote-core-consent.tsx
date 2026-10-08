@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { prepareRemoteCoreFn } from "@/lib/upi/remote-opt-in-actions";
 import { Button } from "@/components/ui/button";
 
@@ -11,6 +11,7 @@ type ReferenceHandoff = Awaited<ReturnType<typeof prepareRemoteCoreFn>>;
  * the session can claim active OdinOS / VR-ASI-CO runtime admission.
  */
 export function RemoteCoreConsent() {
+  const requestId = useRef(0);
   const [persona, setPersona] = useState<Persona>("angelica");
   const [accepted, setAccepted] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -19,21 +20,25 @@ export function RemoteCoreConsent() {
 
   async function connect() {
     if (!accepted || busy) return;
+    const current = ++requestId.current;
     setBusy(true);
     setError(null);
     setState(null);
     try {
       const result = await prepareRemoteCoreFn({ data: { accepted: true, persona } });
+      if (requestId.current !== current) return;
       setState(result);
       if (result.status !== "REFERENCE_ONLY") setError(result.reason ?? "Source check stopped");
     } catch {
-      setError("Remote-kärnan kunde inte verifieras just nu.");
+      if (requestId.current === current) setError("Remote-kärnan kunde inte verifieras just nu.");
     } finally {
-      setBusy(false);
+      if (requestId.current === current) setBusy(false);
     }
   }
 
   function reset() {
+    requestId.current++;
+    setBusy(false);
     setAccepted(false);
     setState(null);
     setError(null);
@@ -70,14 +75,14 @@ export function RemoteCoreConsent() {
         </select>
       </div>
       <label className="mt-4 flex max-w-3xl items-start gap-3 text-sm leading-6">
-        <input type="checkbox" checked={accepted} onChange={(e) => { setAccepted(e.target.checked); setState(null); setError(null); }} className="mt-1" />
+        <input type="checkbox" checked={accepted} onChange={(e) => { requestId.current++; setBusy(false); setAccepted(e.target.checked); setState(null); setError(null); }} className="mt-1" />
         <span>Jag väljer att ansluta VR-ASI-CO i denna session och godkänner att webbappen hämtar projektets publika DNA-källor från GitHub. Ingen dold anslutning eller automatisk Git-skrivning.</span>
       </label>
       <div className="mt-4 flex flex-wrap gap-2">
         <Button type="button" disabled={!accepted || busy} onClick={() => void connect()}>
           {busy ? "Kontrollerar kärnan…" : "Acceptera och läs in kärnan"}
         </Button>
-        <Button type="button" variant="outline" onClick={reset} disabled={busy}>Avbryt / koppla från</Button>
+        <Button type="button" variant="outline" onClick={reset}>Avbryt / koppla från</Button>
       </div>
       {error && <p role="alert" className="mt-3 text-sm text-red-600">STOP: {error}</p>}
       {state?.status === "REFERENCE_ONLY" && (
