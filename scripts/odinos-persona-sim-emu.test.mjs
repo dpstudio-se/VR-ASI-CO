@@ -129,7 +129,7 @@ function emulateHybrid({ missing = null, conflict = false, presetIds = null } = 
     if(req.url.endsWith("/api/chat"))return{ok:true,json:async()=>({response:"MOCK_ODYSSEUS_OK"})};
     return {ok:false,status:404};
   };
-  const window={ODINOS_CONFIG:presetIds?{odysseusBase:"http://127.0.0.1:7011",presetIds}:{}};
+  const window={ODINOS_CONFIG:presetIds?{odysseusBase:"http://127.0.0.1:7011",presetIds}:{}, crypto:{randomUUID:()=> "123e4567-e89b-42d3-a456-426614174000"}};
   const context=vm.createContext({document,window,fetch,atob:(s)=>Buffer.from(s,"base64").toString("binary"),
     decodeURIComponent,escape,console});
   vm.runInContext(hybridJs,context,{filename:"odinos-hybrid/hybrid.js",timeout:2500});
@@ -178,11 +178,30 @@ test("browser emulation: configured Odysseus preset is passed separately from us
   assert.equal(r.url,"http://127.0.0.1:7011/api/chat");
   assert.equal(r.body.preset_id,"emilia-reviewed-preset");
   assert.equal(r.body.message,"Test Odysseus");
-  assert.equal(r.body.session,"vr-asi-co-emilia");
+  assert.equal(r.body.session,"vr-asi-co-emilia-123e4567-e89b-42d3-a456-426614174000");
   assert.match(a.elements.get("log").textContent,/HOST_PROMPT_READ_BACK: NOT_VERIFIED/);
 });
 test("repository: ψ27D remains unverified and browser cannot mutate persona DNA",()=>{
   assert.match(read("src/lib/upi/omega1766.ts"),/psi27dGate:\s*"STOP"/);
   assert.match(read("src/lib/upi/omega1766.ts"),/empiricalVerification:\s*false/);
   assert.doesNotMatch(hybridJs,/githubApi.+(?:PUT|PATCH)|git\s+push/);
+});
+
+test("transport session identifiers are persona-scoped, not shared across users", async () => {
+  const a=emulateHybrid({presetIds:{emilia:"emilia-p",luna:"luna-p"}});
+  await a.settle();
+  a.handlers.get("face:emilia:click")();
+  await a.submit("one");
+  await a.submit("two");
+  a.handlers.get("face:luna:click")();
+  await a.submit("three");
+  const requests=a.calls.filter(r=>r.url.endsWith("/api/chat")).map(r=>r.body);
+  assert.equal(requests.length,3);
+  assert.equal(requests[0].session,requests[1].session);
+  assert.notEqual(requests[0].session,requests[2].session);
+  assert.ok(requests[0].session.startsWith("vr-asi-co-emilia-"));
+  assert.ok(requests[2].session.startsWith("vr-asi-co-luna-"));
+  const code=read("odinos-hybrid/hybrid.js");
+  assert.match(code,/randomUUID/);
+  assert.doesNotMatch(code,/session: "vr-asi-co-" \+ face/);
 });
