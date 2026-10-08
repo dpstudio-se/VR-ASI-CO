@@ -1,22 +1,48 @@
 #!/usr/bin/env node
 /**
- * Local, bounded VORTEX command adapter. No host inference, DNA mutation,
- * credentials, external network access or implied permission grants.
- *
- * node scripts/vortex-audit.mjs <r0|exo-f|scale-lock|soft-eos|vortex-read|vortex-write> [input.json]
+ * Bounded local VORTEX assessment: no network, host inference, DNA mutation,
+ * actual ledger persistence or permission grants.
  */
 import fs from "node:fs";
-import { evaluateR0, evaluateExoF, evaluateScaleLock, routeSoftEos, createOpenNoiseLedger } from "../src/lib/upi/vortex-audit.mjs";
+import {
+  evaluateR0, evaluateExoF, evaluateScaleLock, routeSoftEos, createOpenNoiseLedger,
+} from "../src/lib/upi/vortex-audit.mjs";
 
 const command = process.argv[2];
-const path = process.argv[3];
+const inputPath = process.argv[3];
 const commands = new Set(["r0", "exo-f", "scale-lock", "soft-eos", "vortex-read", "vortex-write"]);
-if (!commands.has(command) || (command !== "vortex-read" && !path)) {
-  console.error("Usage: node scripts/vortex-audit.mjs <r0|exo-f|scale-lock|soft-eos|vortex-read|vortex-write> [input.json]");
-  process.exit(2);
+function stop(reason, exitCode = 1) {
+  console.log(JSON.stringify({
+    command: command || null,
+    result: { status: "STOP", reason },
+    hostInferencePerformed: false,
+    dnaWritePerformed: false,
+    remoteAdmission: false,
+  }, null, 2));
+  process.exit(exitCode);
 }
-if (path && fs.statSync(path).size > 65536) throw new RangeError("Input JSON exceeds 64 KiB");
-const input = path ? JSON.parse(fs.readFileSync(path, "utf8")) : {};
+if (!commands.has(command) ||
+    (command !== "vortex-read" && !inputPath) ||
+    (command === "vortex-read" && inputPath) ||
+    process.argv.length > (command === "vortex-read" ? 3 : 4)) {
+  stop("INVALID_COMMAND_OR_ARGUMENTS", 2);
+}
+let input = {};
+if (inputPath) {
+  let data;
+  try {
+    const info = fs.statSync(inputPath);
+    if (!info.isFile() || info.size > 65536) stop("INVALID_INPUT_FILE_OR_SIZE", 2);
+    data = fs.readFileSync(inputPath, "utf8");
+  } catch {
+    stop("INPUT_FILE_UNAVAILABLE", 2);
+  }
+  try {
+    input = JSON.parse(data);
+  } catch {
+    stop("MALFORMED_JSON", 2);
+  }
+}
 let result;
 switch (command) {
   case "r0": result = evaluateR0(input); break;
@@ -24,16 +50,19 @@ switch (command) {
   case "scale-lock": result = evaluateScaleLock(input); break;
   case "soft-eos": result = routeSoftEos(input); break;
   case "vortex-read":
-    // Persistent ledger is deliberately not claimed: this is a local snapshot reader.
-    result = { status: "DER", entries: [], persisted: false, reason: "NO_PERSISTENT_LEDGER_CONFIGURED" };
+    result = { status: "DER", entries: [], persisted: false,
+      reason: "NO_PERSISTENT_LEDGER_CONFIGURED" };
     break;
   case "vortex-write": {
-    // Writes ONLY to the bounded in-memory ledger for this invocation.
+    // Limited to an in-memory invocation snapshot; never a filesystem operation.
     const ledger = createOpenNoiseLedger();
-    const append = ledger.append(input);
-    result = { ...append, ledger: ledger.read(), durableWritePerformed: false };
+    const added = ledger.append(input);
+    result = { ...added, ledger: ledger.read(), durableWritePerformed: false };
     break;
   }
 }
-console.log(JSON.stringify({ command, result, hostInferencePerformed: false, dnaWritePerformed: false, remoteAdmission: false }, null, 2));
+console.log(JSON.stringify({
+  command, result,
+  hostInferencePerformed: false, dnaWritePerformed: false, remoteAdmission: false,
+}, null, 2));
 if (result?.status === "STOP") process.exitCode = 1;
