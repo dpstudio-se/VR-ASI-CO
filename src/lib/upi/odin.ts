@@ -1,4 +1,5 @@
 import type { Status } from "./types";
+import { evaluateOmega1766 } from "./omega1766.ts";
 import { decodeGolay, encodeGolay } from "./golay";
 import { ELECTRON_KG, einsteinRoundTrip } from "./einstein";
 import {
@@ -23,7 +24,18 @@ export type OdinNode = {
   href?: "/lab" | "/lattice" | "/dna" | "/symmetry";
 };
 
+export const OMEGA1766_TRULL_SNAPSHOT = evaluateOmega1766();
+
 export const ODIN_NODES: OdinNode[] = [
+  {
+    id: "omega1766-psi27d",
+    layer: "meso",
+    keep: "keep",
+    title: "Ω1766 / Ψ27D model",
+    status: "SYM",
+    meaning: "Σ1766 anchor 1.766 Hz. Derived period and angular frequency; 27D/E8/QED bridge stays symbolic and STOP without measures and dimensional proof.",
+    href: "/lab",
+  },
   {
     id: "planck-einstein",
     layer: "micro",
