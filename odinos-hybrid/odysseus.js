@@ -14,11 +14,19 @@ export async function askOdysseus(message, face, config) {
       typeof presetId !== "string" || !/^[a-zA-Z0-9_-]{1,100}$/.test(presetId)) {
     return { status: "STOP", reason: "VERIFIED_ODYSSEUS_PRESET_REQUIRED" };
   }
+  // Session identity must be provisioned/bound by the trusted operator host.
+  // Never share a deterministic session ID between different visitors.
+  const session = config?.sessionId;
+  if (typeof session !== "string" ||
+      !/^vr-asi-co-(?:angelica|emilia|luna)-[0-9a-f-]{36}$/.test(session) ||
+      !session.startsWith("vr-asi-co-" + face + "-")) {
+    return { status: "STOP", reason: "BOUND_SESSION_ID_REQUIRED" };
+  }
   try {
     const response = await fetch(base + "/api/chat", {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ message, preset_id: presetId, session: "vr-asi-co-" + face }),
+      body: JSON.stringify({ message, preset_id: presetId, session }),
     });
     if (!response.ok) return { status: "STOP", reason: "HTTP_" + response.status };
     return { status: "DER", response: await response.json(), hostPromptVerified: false };
