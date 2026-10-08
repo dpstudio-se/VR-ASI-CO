@@ -116,7 +116,8 @@
     "Abandoned correction branch remains separate; no silent deletion or merge.",
     "NIST dynamic importer is chat-only, not verified in VR-ASI-CO runtime.",
     "No real host prompt installation, remote inference or admission established by these records.",
-    "Memory journal itself remains an RNA proposal until an authorized merge to main followed by main SHA/blob read-back."
+    "Memory journal itself remains an RNA proposal until an authorized merge to main followed by main SHA/blob read-back.",
+    "Historical handoff dna/.dna_minne/AGENT_HANDOFF_2026-10-08.md is an RNA document on PR #31 until owner-approved merge and main read-back."
   ],
   "protocol": [
     "At session start: resolve fresh main SHA, enumerate dna/.dna_minne, load existing assistant-worklog-*.json at that SAME SHA, and inspect relevant code before action.",
