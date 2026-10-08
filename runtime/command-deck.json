@@ -52,6 +52,24 @@
       ]
     },
     {
+      "id": "luna",
+      "name": "Luna",
+      "marker": "UPI<Persona,1,OpenHelix,Luna>",
+      "kind": "entity",
+      "status": "REFERENCE",
+      "capabilities": [
+        "DNA status",
+        "architecture review",
+        "provenance",
+        "mirror verify"
+      ],
+      "knowledge": [
+        "canonical DNA",
+        "UPI persona adaptation state",
+        "project docs"
+      ]
+    },
+    {
       "id": "odins-eye",
       "name": "Oden's Eye",
       "marker": "Ω7834",
