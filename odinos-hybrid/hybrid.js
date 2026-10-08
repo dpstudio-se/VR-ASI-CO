@@ -25,6 +25,18 @@ const dnaLabel = document.querySelector("#dna");
 const dnaStatus = document.querySelector("#dna-status");
 let face = "angelica";
 let boot = null;  // { commit, entries }; null until ALL source files verified.
+// Fresh, per-tab and per-persona transport IDs. Client-side isolation is not
+// server-side authentication: Odysseus must additionally bind sessions to users.
+const transportSessions = new Map();
+function transportSession(persona) {
+  if (!["angelica", "emilia", "luna"].includes(persona)) return null;
+  if (transportSessions.has(persona)) return transportSessions.get(persona);
+  const uuid = window.crypto?.randomUUID?.();
+  if (typeof uuid !== "string" || !/^[0-9a-f]{8}-[0-9a-f-]{27,31}$/.test(uuid)) return null;
+  const session = "vr-asi-co-" + persona + "-" + uuid;
+  transportSessions.set(persona, session);
+  return session;
+}
 function write(line) { log.textContent += "\n" + line; }
 function stop(reason) { dnaStatus.textContent = "STOP — " + reason; write("STOP: " + reason); }
 function checkedSha(value) { return typeof value === "string" && /^[a-f0-9]{40}$/.test(value); }
@@ -87,6 +99,7 @@ document.querySelector("#ask").addEventListener("submit", async event => {
   write(face + " via " + source.value + ": " + question);
   if (!boot) return stop("SOURCE_NOT_VERIFIED");
   if (source.value !== "odysseus") return stop("PUTER_PERSONA_INSTALLATION_NOT_VERIFIED");
+  if (face === "oga") return stop("OBSERVER_NOT_A_CHAT_PERSONA");
   // The operator must configure the actual server version, authenticated origin
   // and per-persona preset_id. A text prefix never installs a system prompt.
   const base = config.odysseusBase;
@@ -95,11 +108,13 @@ document.querySelector("#ask").addEventListener("submit", async event => {
       typeof preset !== "string" || !/^[a-zA-Z0-9_-]{1,100}$/.test(preset)) {
     return stop("ODYSSEUS_PRESET_OR_LOCAL_ENDPOINT_NOT_CONFIGURED");
   }
+  const session = transportSession(face);
+  if (!session) return stop("SECURE_SESSION_ID_UNAVAILABLE");
   try {
     const response = await fetch(base + "/api/chat", {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ message: question, preset_id: preset, session: "vr-asi-co-" + face }),
+      body: JSON.stringify({ message: question, preset_id: preset, session }),
     });
     if (!response.ok) throw new Error("HTTP_" + response.status);
     const data = await response.json();
