@@ -30,7 +30,8 @@
     "test:repo-audit": "node --test scripts/audit-repository.test.mjs",
     "test:workspace": "node --test scripts/startup.test.mjs",
     "workspace:check": "npm run verify:dna && npm run audit:repo && npm run test:workspace",
-    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check"
+    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check",
+    "vortex:audit": "node scripts/vortex-audit.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
