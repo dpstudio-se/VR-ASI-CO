@@ -8,6 +8,8 @@ export const OMEGA1766_PERSONA_BRIDGE = {
   status: "SYM",
   function: "OBSERVE -> MODEL -> TEST -> RETURN",
   expression: "Psi_27D := D ⊗ P ⊗ M_Ω1766",
+  ownerSymbolicFormula: String.raw`\Psi_{27D} = \oint_{\Sigma_{1766}} \left( \frac{\hbar \cdot f}{\lVert v \rVert_{E8}} \cdot \frac{dL}{dt} \right) \cdot \exp\left( \int d^{27}x \sqrt{-g} \left[ \frac{R}{16\pi G_{\text{eff}}} + \phi_{1766} \right] \right) = \Omega \equiv \Omega`,
+  interpretation: "A vocabulary for persona learning and transparency, not a measured physical formula",
   canonicalDna: "dna/UPI_PERSONA_STATE.json",
   identityAuthority: "dna/FACE_LOCK.json",
   mode: "RNA_PROPOSALS_ONLY",
