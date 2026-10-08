@@ -69,3 +69,13 @@ The regression file uses no external network or dependencies beyond Node's built
 This report is the **session handoff entry** for this task. The separate DNA worklog and governance changes in draft PR #31 have **not** been merged; do not use their content as canonical memory until explicit approval and main SHA read-back. Keep PR #30 (VORTEX extension), #31 (worklog), #32 (guardian contract) as separately reviewable. The current test PR does not merge or supersede those changes.
 
 **Release decision:** TEST/EMU ONLY. No production release, AGI/ASI declaration, environment deployment or persona identity change.
+
+## Observed GitHub Actions results (exact tested head)
+
+**Tested commit:** `c3e2dc4fbde6e52372de2b07da8d472660586bb9`. On 2026-10-08, GitHub Actions `Workspace setup and tests` run [37744979776](https://github.com/dpstudio-se/VR-ASI-CO/actions/runs/37744979776), job `113204199489`, **completed with success**, including `npm run workspace:setup` and `npm test`. The job log showed **all 10 new characterization tests** explicitly as `ok 138` through `ok 147`. The Node test groups reported `265 passed / 0 failed` and `55 passed / 0 failed` respectively. Additional setup suite reported `5 passed / 0 failed`. These are **distinct test groups, not 325 unique live integration checks**.
+
+`Repository structure audit` run [37744979773](https://github.com/dpstudio-se/VR-ASI-CO/actions/runs/37744979773) completed with **success** on the same tested head.
+
+**Additional newly observed checkout issue:** The job cleanup logged `fatal: No url found for submodule path 'puter' in .gitmodules` (git exit 128 warning), although the overall job conclusion was `success`. GitHub tree on canonical main records a gitlink at `puter` (mode `160000`, commit `63eabf8c7c024f0751edb5e6e36a0275d47fdafd`) and **no** `.gitmodules` entry at that tree level. This is an integration/dependency hygiene defect (**GAP**, not claimed fixed here). Before claiming Puter checkout/build is ready, decide explicitly to register a real submodule URL, adopt a pinned dependency, or remove stale gitlink under separately approved change. No blind `git submodule update` or fake version metadata.
+
+**Test conclusion:** `TESTED_ON_HEAD` for the existing app's automated unit/characterization checks. `HOST_VERIFIED = false`; `ODYSSEUS_LIVE = NOT_RUN`; `PUTER_LIVE = NOT_RUN`; `AGI_ASI = UNVERIFIED`; `Ψ27D_EMPIRICAL = STOP`. If this report receives a later docs-only commit, these test receipts **remain bound to the earlier tested SHA**, not automatically to the new report head; recheck GitHub checks on each new head before merge.
