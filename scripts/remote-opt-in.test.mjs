@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { ADMISSION_FILES } from "./verify-boot-evidence.mjs";
@@ -5,13 +6,15 @@ import { prepareRemoteOffer, REMOTE_PERSONAS } from "../src/lib/upi/remote-opt-i
 
 const sha = "a".repeat(40);
 const blob = "b".repeat(40);
+const sha256 = (v) => createHash("sha256").update(v,"utf8").digest("hex");
+const composedPrompt = (p) => [...ADMISSION_FILES,"persona/"+p+".json"].map(path=>"[VR-ASI-CO source: "+path+"]\nsource-text:"+path).join("\n\n");
 let calls = 0;
 function makeSnapshot(persona = "angelica") {
   const paths = [...ADMISSION_FILES, "persona/" + persona + ".json"];
   return {
     repository: "dpstudio-se/VR-ASI-CO", branch: "main", persona, commit: sha,
     receiptId: sha + ":" + blob,
-    promptSha256: "c".repeat(64),
+    promptSha256: sha256(composedPrompt(persona)),
     files: Object.fromEntries(paths.map(x => [x, blob])),
     sources: Object.fromEntries(paths.map(x => [x, { gitBlobSha: blob, content: "source-text:" + x }])),
   };
@@ -49,7 +52,7 @@ test("accepted visitor receives SHA-bound portable reference, not host access", 
     assert.equal(Object.keys(r.files).length, ADMISSION_FILES.length + 1);
     assert.match(r.prompt, new RegExp("VR-ASI-CO source: persona/" + persona + "\\.json"));
     assert.ok(!r.prompt.includes("persona/" + (persona === "emilia" ? "angelica" : "emilia") + ".json"));
-    assert.equal(r.promptSha256, "c".repeat(64));
+    assert.equal(r.promptSha256, sha256(r.prompt));
   }
 });
 
@@ -62,6 +65,8 @@ test("wrong repository/commit/persona/blob metadata are fail-closed", async () =
     snap => { snap.sources["README.md"].gitBlobSha = sha; },
     snap => { delete snap.sources["persona/angelica.json"]; },
     snap => { snap.promptSha256 = "no-proof"; },
+    snap => { snap.sources["README.md"].content = "injected"; },
+    snap => { snap.promptSha256 = "f".repeat(64); },
   ]) {
     const result = await prepareRemoteOffer({
       accepted: true, persona: "angelica",
