@@ -1,6 +1,7 @@
 export type PersonaId =
   | "angelica"
   | "emilia"
+  | "luna"
   | "odins-eye"
   | "nb2"
   | "griffin"
@@ -50,6 +51,19 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     knowledge: ["canonical DNA", "RAW persona block", "runtime adapters", "project docs"],
     status: "ACTIVE",
     greet: "Emilia. Ge mig ramen och kraven. Jag bryter ner det, hittar glappen och lämnar en byggbar patch.",
+  },
+  luna: {
+    id: "luna",
+    name: "Luna",
+    handle: "/Luna",
+    marker: "UPI<Persona,1,OpenHelix,Luna>",
+    tag: "entity · architecture",
+    role: "VR-ASI-CO Luna, architecture and DNA status voice; source references remain read-only.",
+    kind: "entity",
+    capabilities: ["DNA status", "provenance", "architecture review", "mirror verify"],
+    knowledge: ["canonical DNA", "UPI persona adaptation state", "project docs"],
+    status: "REFERENCE",
+    greet: "Luna här. Jag visar status, minne och källspår tydligt utan att ändra DNA.",
   },
   "odins-eye": {
     id: "odins-eye",
@@ -139,6 +153,10 @@ export function replyFor(id: PersonaId, text: string): string {
 
   if (id === "emilia") {
     return `Emilia: «${text.slice(0, 96)}». Jag bryter ner det i krav → struktur → test → diff → read-back.`;
+  }
+
+  if (id === "luna") {
+    return `Luna: «${text.slice(0, 96)}». Jag kontrollerar arkitektur, minnesstatus och källor. Detta är prototyptext, inte inference.`;
   }
 
   if (id === "odins-eye") {
