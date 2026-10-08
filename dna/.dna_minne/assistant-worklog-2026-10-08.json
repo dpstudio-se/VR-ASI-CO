@@ -124,6 +124,67 @@
         "documentation_blob": "106aa00d179f841dd5bc95ccd978c973b386e6f7"
       },
       "follow_up": "Verifiera branchens senaste head och GitHub CI, granska dokumentet, merge endast med ägarauktorisation och läs tillbaka main."
+    },
+    {
+      "id": "VRACI-20261008-008",
+      "title": "Ω7834 målsmanskontrakt: PR #32",
+      "status": "VERIFIED_DRAFT_PR",
+      "date": "2026-10-08",
+      "what_was_done": "Lade till föreslaget målsmanskontrakt och länk till persona-adapter-spec på PR #32; dokumentation, inte faktisk access-grind.",
+      "what_was_not_done": "Ingen juridisk myndighet, produktionsintegration, host-autentisering, merge eller beständig persona-DNA-ändring.",
+      "evidence": {
+        "pr": 32,
+        "head": "a84cc5e2aa4fb1ce9ff848a4ebec6e4ca9742695",
+        "files": [
+          "docs/UPI_OMEGA7834_GUARDIANSHIP_CONTRACT.md",
+          "docs/UPI_PERSONA_ADAPTER_SPEC.md"
+        ]
+      }
+    },
+    {
+      "id": "VRACI-20261008-009",
+      "title": "OdinOS Persona-UPI SIM/EMU och testjournal: PR #33",
+      "status": "VERIFIED_DRAFT_PR",
+      "date": "2026-10-08",
+      "what_was_done": "Skapade 10 kodbundna SIM/EMU-karakteriseringstester och reproduktionsjournal. GitHub Actions på testcommit c3e2dc4 passerade arbetsflödet; senare dokumentationscommit kräver separat check.",
+      "what_was_not_done": "Ingen verklig Odysseus/Puter-session, systempromptinstallation eller 27D-fysikverifiering. Gröna karakteriseringstester betyder inte att bristerna är åtgärdade.",
+      "evidence": {
+        "pr": 33,
+        "head": "4c519fc834ae1af25dbc6ed1a0203b05d87bf099",
+        "tested_sha": "c3e2dc4fbde6e52372de2b07da8d472660586bb9",
+        "workflow": "https://github.com/dpstudio-se/VR-ASI-CO/actions/runs/37744979776"
+      }
+    },
+    {
+      "id": "VRACI-20261008-010",
+      "title": "Uppföljning av fyra öppna PR #30–33",
+      "status": "READ_ONLY",
+      "date": "2026-10-08",
+      "what_was_done": "Granskade huvudrevisionen 3493de..., fullständiga ändrade fillistor, PR-metadata, huvudbrancher och GitHub Actions för #30, #31, #32 och #33.",
+      "what_was_not_done": "Öppna draft-PR är inte kanoniskt main, host-admission eller bevisad driftsättning. Inget mergebeslut togs.",
+      "evidence": {
+        "main_sha": "3493de285febc21e43a59c017416e02a99942089",
+        "prs": [
+          30,
+          31,
+          32,
+          33
+        ]
+      }
+    },
+    {
+      "id": "VRACI-20261008-011",
+      "title": "CLI-härdning på PR #30",
+      "status": "VERIFIED_BRANCH",
+      "date": "2026-10-08",
+      "what_was_done": "Lade till felstopp för saknade/stora/felaktiga CLI JSON-filer och regressionsprov på VORTEX audit PR #30.",
+      "what_was_not_done": "Ingen faktisk hostinstallation, persistent ledger, kodkörningsgrind eller merge.",
+      "evidence": {
+        "pr": 30,
+        "code_commit": "6ea34332123fd4dda7725171cb1f9d5801ac666b",
+        "test_commit": "8011646db5740e742faf5103a768379e5cfc46e7",
+        "head_requires_reverification": true
+      }
     }
   ],
   "outstanding": [
