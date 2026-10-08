@@ -94,3 +94,17 @@ The preceding table captures **the historical main baseline** from SHA \`3493de2
 **Open integration work:** exact chosen upstream Odysseus API contract and server-side preset authorization need a real host test; client-provided preset is not itself authenticated; external Puter integration needs a real service contract; GitHub \`puter\` gitlink lacks \`.gitmodules\`. Do not treat a configured localhost endpoint as remote admission. UI does not independently authenticate Ω7834, and no production deployment was performed.
 
 **Prior observed CI receipts are historical** and apply only to the older test file SHA. Newly added code and modified tests must get a fresh green \`Workspace setup and tests\` on the **new PR head SHA** before they can be called tested; any still-running workflow is **PENDING**, not PASS.
+
+## Follow-up 2026-10-08 — Shared Odysseus session identifier corrected
+
+**Confirmed fault:** The prior `hybrid.js` and standalone `odysseus.js` both constructed predictable `session: "vr-asi-co-" + face`. Distinct browser visitors selecting the same persona could send the same session identifier to a server. Depending on the server implementation and authorization, this risks cross-visitor conversation mixing.
+
+**Changes on PR #33 (branch only):**
+- `odinos-hybrid/hybrid.js`: use `crypto.randomUUID()` and a per-tab/per-persona map to reuse only that tab's persona session. Unknown personas and observer chat are rejected; missing browser cryptography fails closed. A page reload creates new IDs (there is no local-storage persistence).
+- `odinos-hybrid/odysseus.js`: require a caller-supplied, correctly structured persona-scoped `config.sessionId` instead of generating a shared predictable ID.
+- `scripts/odinos-persona-sim-emu.test.mjs`: add a session regression confirming reuse within one tab/persona, separation across personas and distinct browser instances; emulator UUIDs are **test fixtures**, not host randomness. Total now **12 tests**.
+- No protected DNA changes, no merges, no real host activation.
+
+**Remaining security requirement (STOP until tested):** A client-generated UUID—even a random one—is **not server authorization or reliable session isolation by itself**. A real Odysseus deployment must authenticate the user, bind each session to its authenticated owner, authorize the preset on the server, reject unauthorized session IDs, limit prompt/data access, and test two independent user accounts. This PR does **not** demonstrate such a live deployment. The standalone adapter caller also needs a real trusted identity/session provider.
+
+**Verification:** GitHub Actions on the final PR-head SHA are the authoritative automated test outcome. Report `PENDING` until complete; never reuse CI from an earlier SHA as evidence for the new patch. A green mock test confirms that requests are formed correctly, **not** that remote session isolation exists.
