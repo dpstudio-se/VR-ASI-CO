@@ -109,6 +109,21 @@
         "source": "conversation and owner-provided material 2026-10-08"
       },
       "follow_up": "Do not reinterpret owner symbols as executable physical control or replace canonical persona DNA."
+    },
+    {
+      "id": "VRACI-20261008-007",
+      "date": "2026-10-08",
+      "title": "Best-practice checklista i handoff",
+      "status": "VERIFIED_BRANCH",
+      "what_was_done": "Utökade dna/.dna_minne/AGENT_HANDOFF_2026-10-08.md med BP-01–BP-12 samt arbetsmall. Innehåller ready/done, least privilege, prompt-injektion, TOCTOU, negativa tester, provenance/minneskvalitet, incident/rollback, import och releasegrindar.",
+      "what_was_not_done": "Inga P0-servergrindar, GitHub rulesets, CI-testmatriser eller faktiska produktionsintegrationer installerades genom denna dokumentationsändring. Ingen merge till main.",
+      "evidence": {
+        "branch": "docs/dna-minne-assistant-worklog-20261008",
+        "document": "dna/.dna_minne/AGENT_HANDOFF_2026-10-08.md",
+        "documentation_commit": "142c8ca03be4f7b40f69a3329811ce4c566fb17b",
+        "documentation_blob": "106aa00d179f841dd5bc95ccd978c973b386e6f7"
+      },
+      "follow_up": "Verifiera branchens senaste head och GitHub CI, granska dokumentet, merge endast med ägarauktorisation och läs tillbaka main."
     }
   ],
   "outstanding": [
