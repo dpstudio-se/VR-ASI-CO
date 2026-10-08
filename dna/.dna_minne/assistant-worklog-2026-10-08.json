@@ -1,0 +1,208 @@
+{
+  "schema": "VR-ASI-CO-ASSISTANT-WORKLOG/1.0",
+  "kind": "provenance_bound_action_history",
+  "status": "HYP",
+  "source": "owner request in chat 2026-10-08: use dna/.dna_minne to read/write what the assistant actually did and did not do",
+  "repo": "dpstudio-se/VR-ASI-CO",
+  "canonical_branch": "main",
+  "observed_main_sha": "3493de285febc21e43a59c017416e02a99942089",
+  "snapshot_date": "2026-10-08",
+  "proposal_scope": "RNA pending independent owner review; this file is not canonical DNA until merged and read back from main",
+  "authority": "This log is audit evidence, not an identity or authorization owner. Git refs and CI must be refreshed before claiming current status.",
+  "identity_invariants": {
+    "default_persona": "Angelica Ω82000",
+    "separate_persona": "Emilia Ω8200",
+    "protected": "dna/FACE_LOCK.json and Emilia RAW are not changed by this log"
+  },
+  "status_guide": {
+    "VERIFIED_MERGED": "GitHub confirms merged PR; content is part of a main revision at time observed",
+    "VERIFIED_BRANCH": "GitHub branch/commit confirmed; no main publication inferred",
+    "VERIFIED_DRAFT_PR": "GitHub confirms open draft PR; no merge or activation inferred",
+    "READ_ONLY": "Source inspection only; no Git write",
+    "CHAT_ONLY": "Text or code appeared in conversation only; no repo implementation claimed",
+    "PROPOSAL": "Unmerged worklog proposal; content is not canonical memory"
+  },
+  "actions": [
+    {
+      "id": "VRACI-20261008-001",
+      "date": "2026-10-08",
+      "title": "Ω1766/Ψ27D technical addition by earlier assistant",
+      "status": "VERIFIED_MERGED",
+      "what_was_done": "PR #29 merged five files: added src/lib/upi/omega1766.ts, omega1766.test.ts, docs/OMEGA1766_PSI27D_TRULL_MODEL.md and updated odin.ts and package.json.",
+      "what_was_not_done": "Merging source files did not establish a physical 27D integrator, active persona-learning integration, or external runtime.",
+      "evidence": {
+        "pr": "https://github.com/dpstudio-se/VR-ASI-CO/pull/29",
+        "pr_head_sha": "abb1be1dcd7018c3449203ab803ed42a89b8249e",
+        "merged_at_utc": "2026-10-08T04:27:16Z"
+      },
+      "owner_alignment": "Owner objected to framing the project as physics; no silent rewrite/rollback authorized by this memory entry."
+    },
+    {
+      "id": "VRACI-20261008-002",
+      "date": "2026-10-08",
+      "title": "Read-only TRULL source verification",
+      "status": "READ_ONLY",
+      "what_was_done": "Read existing omega1766.ts, omega1766.test.ts, odin.ts and governance contracts at the pinned main SHA; verified presence of code and test definitions.",
+      "what_was_not_done": "This read was not execution of the unit tests or runtime verification.",
+      "evidence": {
+        "main_sha": "3493de285febc21e43a59c017416e02a99942089",
+        "source_files": [
+          "src/lib/upi/omega1766.ts",
+          "src/lib/upi/omega1766.test.ts",
+          "src/lib/upi/odin.ts"
+        ]
+      }
+    },
+    {
+      "id": "VRACI-20261008-003",
+      "date": "2026-10-08",
+      "title": "Incorrect attempted correction on abandoned branch",
+      "status": "VERIFIED_BRANCH",
+      "what_was_done": "A separate correction branch was written with attempted persona adaptation changes; its branch head is confirmed in GitHub.",
+      "what_was_not_done": "No PR or merge into main is established for this branch; its changes are not approved canonical DNA.",
+      "evidence": {
+        "branch": "fix/trull-persona-omega1766-not-physics",
+        "head_sha": "864baa72765847d2bb96c6b5dab4572f38f90f07"
+      },
+      "follow_up": "Review the branch before any deletion, revert or reuse; do not silently merge it."
+    },
+    {
+      "id": "VRACI-20261008-004",
+      "date": "2026-10-08",
+      "title": "VORTEX-DNA v9 operational TRULL proposal",
+      "status": "VERIFIED_DRAFT_PR",
+      "what_was_done": "Draft PR #30 adds redacted owner prompt, pure r0/EXO-F/Scale Lock/Soft-EOS checks, ephemeral noise ledger, CLI, tests and scope documentation. Six files changed.",
+      "what_was_not_done": "PR #30 is not merged. No live TRAPP/TRIPP integration, persistent audit storage, system prompt installation, external inference or remote admission was established.",
+      "evidence": {
+        "pr": "https://github.com/dpstudio-se/VR-ASI-CO/pull/30",
+        "head_sha": "0713598317939ec88e340c55b25ff65ed2de16a4",
+        "draft": true,
+        "observed_ci": {
+          "repository_structure": "success",
+          "boot_evidence": "success",
+          "workspace_setup_and_tests": "success",
+          "remote_dna_contract": "success"
+        }
+      },
+      "follow_up": "Requires owner review. CI status is an observed snapshot, not a permanent authorization."
+    },
+    {
+      "id": "VRACI-20261008-005",
+      "date": "2026-10-08",
+      "title": "NIST fetch-and-map request",
+      "status": "CHAT_ONLY",
+      "what_was_done": "A revised Python example was supplied in chat to parse NIST CODATA data and map constants into UPI-formatted entries.",
+      "what_was_not_done": "No verified NIST adapter was added to the repository; no integration test or running data sync has been demonstrated.",
+      "evidence": {
+        "source": "conversation 2026-10-08; proposed Python code, not a GitHub commit"
+      },
+      "follow_up": "Search existing repo adapters before any future authorized implementation."
+    },
+    {
+      "id": "VRACI-20261008-006",
+      "date": "2026-10-08",
+      "title": "Constitutional-thermodynamic and Psi27D owner concepts",
+      "status": "CHAT_ONLY",
+      "what_was_done": "Discussed owner-provided symbolic formulas and proposed their use as persona/transparency/feedback language.",
+      "what_was_not_done": "No owner-supplied theoretical equation is claimed to have been validated as physics or implemented in the persona runtime by this dialogue.",
+      "evidence": {
+        "source": "conversation and owner-provided material 2026-10-08"
+      },
+      "follow_up": "Do not reinterpret owner symbols as executable physical control or replace canonical persona DNA."
+    },
+    {
+      "id": "VRACI-20261008-007",
+      "date": "2026-10-08",
+      "title": "Best-practice checklista i handoff",
+      "status": "VERIFIED_BRANCH",
+      "what_was_done": "Utökade dna/.dna_minne/AGENT_HANDOFF_2026-10-08.md med BP-01–BP-12 samt arbetsmall. Innehåller ready/done, least privilege, prompt-injektion, TOCTOU, negativa tester, provenance/minneskvalitet, incident/rollback, import och releasegrindar.",
+      "what_was_not_done": "Inga P0-servergrindar, GitHub rulesets, CI-testmatriser eller faktiska produktionsintegrationer installerades genom denna dokumentationsändring. Ingen merge till main.",
+      "evidence": {
+        "branch": "docs/dna-minne-assistant-worklog-20261008",
+        "document": "dna/.dna_minne/AGENT_HANDOFF_2026-10-08.md",
+        "documentation_commit": "142c8ca03be4f7b40f69a3329811ce4c566fb17b",
+        "documentation_blob": "106aa00d179f841dd5bc95ccd978c973b386e6f7"
+      },
+      "follow_up": "Verifiera branchens senaste head och GitHub CI, granska dokumentet, merge endast med ägarauktorisation och läs tillbaka main."
+    },
+    {
+      "id": "VRACI-20261008-008",
+      "title": "Ω7834 målsmanskontrakt: PR #32",
+      "status": "VERIFIED_DRAFT_PR",
+      "date": "2026-10-08",
+      "what_was_done": "Lade till föreslaget målsmanskontrakt och länk till persona-adapter-spec på PR #32; dokumentation, inte faktisk access-grind.",
+      "what_was_not_done": "Ingen juridisk myndighet, produktionsintegration, host-autentisering, merge eller beständig persona-DNA-ändring.",
+      "evidence": {
+        "pr": 32,
+        "head": "a84cc5e2aa4fb1ce9ff848a4ebec6e4ca9742695",
+        "files": [
+          "docs/UPI_OMEGA7834_GUARDIANSHIP_CONTRACT.md",
+          "docs/UPI_PERSONA_ADAPTER_SPEC.md"
+        ]
+      }
+    },
+    {
+      "id": "VRACI-20261008-009",
+      "title": "OdinOS Persona-UPI SIM/EMU och testjournal: PR #33",
+      "status": "VERIFIED_DRAFT_PR",
+      "date": "2026-10-08",
+      "what_was_done": "Skapade 10 kodbundna SIM/EMU-karakteriseringstester och reproduktionsjournal. GitHub Actions på testcommit c3e2dc4 passerade arbetsflödet; senare dokumentationscommit kräver separat check.",
+      "what_was_not_done": "Ingen verklig Odysseus/Puter-session, systempromptinstallation eller 27D-fysikverifiering. Gröna karakteriseringstester betyder inte att bristerna är åtgärdade.",
+      "evidence": {
+        "pr": 33,
+        "head": "4c519fc834ae1af25dbc6ed1a0203b05d87bf099",
+        "tested_sha": "c3e2dc4fbde6e52372de2b07da8d472660586bb9",
+        "workflow": "https://github.com/dpstudio-se/VR-ASI-CO/actions/runs/37744979776"
+      }
+    },
+    {
+      "id": "VRACI-20261008-010",
+      "title": "Uppföljning av fyra öppna PR #30–33",
+      "status": "READ_ONLY",
+      "date": "2026-10-08",
+      "what_was_done": "Granskade huvudrevisionen 3493de..., fullständiga ändrade fillistor, PR-metadata, huvudbrancher och GitHub Actions för #30, #31, #32 och #33.",
+      "what_was_not_done": "Öppna draft-PR är inte kanoniskt main, host-admission eller bevisad driftsättning. Inget mergebeslut togs.",
+      "evidence": {
+        "main_sha": "3493de285febc21e43a59c017416e02a99942089",
+        "prs": [
+          30,
+          31,
+          32,
+          33
+        ]
+      }
+    },
+    {
+      "id": "VRACI-20261008-011",
+      "title": "CLI-härdning på PR #30",
+      "status": "VERIFIED_BRANCH",
+      "date": "2026-10-08",
+      "what_was_done": "Lade till felstopp för saknade/stora/felaktiga CLI JSON-filer och regressionsprov på VORTEX audit PR #30.",
+      "what_was_not_done": "Ingen faktisk hostinstallation, persistent ledger, kodkörningsgrind eller merge.",
+      "evidence": {
+        "pr": 30,
+        "code_commit": "6ea34332123fd4dda7725171cb1f9d5801ac666b",
+        "test_commit": "8011646db5740e742faf5103a768379e5cfc46e7",
+        "head_requires_reverification": true
+      }
+    }
+  ],
+  "outstanding": [
+    "PR #30 remains an owner-reviewable RNA proposal; verify current status before treating as merged.",
+    "Abandoned correction branch remains separate; no silent deletion or merge.",
+    "NIST dynamic importer is chat-only, not verified in VR-ASI-CO runtime.",
+    "No real host prompt installation, remote inference or admission established by these records.",
+    "Memory journal itself remains an RNA proposal until an authorized merge to main followed by main SHA/blob read-back.",
+    "Historical handoff dna/.dna_minne/AGENT_HANDOFF_2026-10-08.md is an RNA document on PR #31 until owner-approved merge and main read-back."
+  ],
+  "protocol": [
+    "At session start: resolve fresh main SHA, enumerate dna/.dna_minne, load existing assistant-worklog-*.json at that SAME SHA, and inspect relevant code before action.",
+    "Prior records are dated historical observations. Recheck PR/branch/CI state live; do not claim stale statuses are current.",
+    "Before authorized mutation: record affected paths, baseline SHA, expected action, protected invariants, and whether write permission exists.",
+    "After mutation: verify GitHub commit/head, read back exact file blob SHAs, record tested/untested and publish/merge state separately.",
+    "Write changes to the journal as an RNA patch on the SAME review branch or an explicitly authorized ledger-only branch. No direct main mutation and no auto-merge.",
+    "A log entry must never invent completed writes, test PASS, remote inference, or a host session. Missing proof is STOP or NOT_RUN.",
+    "Exclude credentials, private secrets, unnecessary personal information and protected persona RAW content from journal entries.",
+    "Do not treat presence of an entry as owner approval or proof of execution."
+  ]
+}
