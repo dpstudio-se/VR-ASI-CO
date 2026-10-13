@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
   BrainCircuit,
   Boxes,
@@ -18,59 +18,40 @@ import { cn } from "@/lib/utils";
 
 type Msg = { who: string; text: string; me: boolean };
 
-type RuntimeRegistry = {
-  personas?: Array<{
-    id?: string;
-    status?: string;
-    capabilities?: string[];
-    knowledge?: string[];
-  }>;
-  tools?: Array<{ id?: string; label?: string; status?: string }>;
-  skills?: string[];
+const LEADS: PersonaId[] = ["angelica", "emilia"];
+const LOOK: Record<string, string> = {
+  angelica: "25 · honung · fräknar · knut · sjö",
+  emilia: "25 · kort svart · gröna ögon · neon",
 };
 
-function asRuntimeRegistry(value: unknown): RuntimeRegistry {
-  return value && typeof value === "object" ? (value as RuntimeRegistry) : {};
+function loadId(): PersonaId {
+  if (typeof window === "undefined") return "angelica";
+  const saved = window.localStorage.getItem("vr-asi-co-lead");
+  return saved && saved in PERSONAS ? (saved as PersonaId) : "angelica";
 }
-
-const ICONS: Record<PersonaId, typeof Sparkles> = {
-  angelica: Sparkles,
-  emilia: Wrench,
-  "odins-eye": Eye,
-  nb2: Network,
-  griffin: ShieldCheck,
-  visualsynthesizer: Sparkles,
-  odinos: BrainCircuit,
-};
-
-const QUICK: Record<PersonaId, string[]> = {
-  angelica: ["Bygg en research-plan", "Gör en kodpatch", "Skapa en visuell modell"],
-  emilia: ["Bryt ner kraven", "Validera en patch", "Gör en release-checklista"],
-  "odins-eye": ["Kör motexempel", "Bedöm r0", "Visa osäkerheter"],
-  nb2: ["Bygg ett VR-rum", "Gör en nodgraf", "Planera WebXR-lager"],
-  griffin: ["Kontrollera enheter", "Kör Scale Lock", "Klassificera status"],
-  visualsynthesizer: ["Generera en bild", "Redigera en bild", "Skapa en modulvisualisering"],
-  odinos: ["Visa systemstatus", "Routa ett projekt", "Kontrollera DNA/RNA"],
-};
 
 export function PersonaStudio() {
   const live = useLive();
-  const [id, setId] = useState<PersonaId>("odinos");
+  const [id, setId] = useState<PersonaId>("angelica");
   const [draft, setDraft] = useState("");
   const [log, setLog] = useState<Msg[]>([
-    { who: PERSONAS.odinos.name, text: PERSONAS.odinos.greet, me: false },
+    { who: PERSONAS.angelica.name, text: PERSONAS.angelica.greet, me: false },
   ]);
+
+  useEffect(() => {
+    const next = loadId();
+    setId(next);
+    setLog([{ who: PERSONAS[next].name, text: PERSONAS[next].greet, me: false }]);
+  }, []);
 
   const person = PERSONAS[id];
   const personas = Object.values(PERSONAS);
-  const runtimeRegistry = asRuntimeRegistry(live.runtimeRegistry);
-  const dynamicPersona = runtimeRegistry.personas?.find((entry) => entry.id === id);
-  const displayCapabilities = dynamicPersona?.capabilities ?? person.capabilities;
-  const displayKnowledge = dynamicPersona?.knowledge ?? person.knowledge;
-  const displayStatus = dynamicPersona?.status ?? person.status;
+  const leads = LEADS.map((key) => PERSONAS[key]);
+  const rest = personas.filter((p) => !LEADS.includes(p.id));
 
   function select(next: PersonaId) {
     setId(next);
+    window.localStorage.setItem("vr-asi-co-lead", next);
     const p = PERSONAS[next];
     setLog([{ who: p.name, text: p.greet, me: false }]);
   }
@@ -94,135 +75,70 @@ export function PersonaStudio() {
 
   const statusRows = useMemo(
     () => [
-      ["Runtime", "OdinOS / VR-ASI-CO"],
-      ["DNA origin", live.origin === "dna" ? "GitHub main" : "local snapshot"],
+      ["Huvudperson", person.name],
+      ["Slot", person.handle],
       ["DNA SHA", live.sha?.slice(0, 12) ?? "—"],
-      ["Branch", live.branch],
-      ["RNA write", live.writable ? "available" : "read-only"],
-      ["Records", String(live.catalog.nodes.length + live.catalog.bridges.length)],
     ],
-    [live],
+    [live, person],
   );
 
   return (
-    <div className="grid min-h-[calc(100dvh-4rem)] xl:grid-cols-[20rem_minmax(0,1fr)_22rem]">
+    <div className="grid min-h-[calc(100dvh-4rem)] xl:grid-cols-[22rem_minmax(0,1fr)_22rem]">
       <aside className="border-b border-border bg-surface/70 p-4 xl:border-b-0 xl:border-r">
-        <div className="mb-4">
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">
-            Persona / module deck
-          </p>
-          <h2 className="mt-1 font-display text-2xl">Välj kärna</h2>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">Huvudperson</p>
+        <h2 className="mt-1 font-display text-2xl">Välj slot</h2>
+        <div className="mt-4 grid gap-3">
+          {leads.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => select(p.id)}
+              className={cn(
+                "rounded-2xl border p-4 text-left",
+                p.id === id ? "border-fg bg-fg text-bg" : "border-border bg-surface-2",
+              )}
+            >
+              <span className="block font-display text-2xl">{p.name}</span>
+              <span className="mt-1 block text-sm opacity-80">{LOOK[p.id]}</span>
+              <span className="mt-2 block font-mono text-[10px] uppercase tracking-widest opacity-70">
+                {p.id === id ? "aktiv" : "välj"} · {p.handle}
+              </span>
+            </button>
+          ))}
         </div>
-
-        <div className="grid gap-3">
-          {personas.map((p) => {
-            const Icon = ICONS[p.id];
-            return (
-              <button
-                key={p.id}
-                type="button"
-                onClick={() => select(p.id)}
-                className={cn(
-                  "grid min-h-16 grid-cols-[3rem_1fr] items-center gap-3 rounded-xl border border-border bg-surface-2 p-4 text-left transition",
-                  p.id === id && "border-border-strong shadow-[var(--shadow-border-hover)]",
-                )}
-              >
-                <span className="grid h-12 w-12 place-items-center rounded-lg border border-border bg-bg">
-                  <Icon className="h-6 w-6" />
-                </span>
-                <span className="min-w-0">
-                  <span className="block truncate font-display text-xl leading-none">{p.name}</span>
-                  <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-widest text-subtle">
-                    {p.marker} · {p.tag}
-                  </span>
-                </span>
-              </button>
-            );
-          })}
+        <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">Moduler</p>
+        <div className="mt-3 grid gap-2">
+          {rest.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => select(p.id)}
+              className={cn(
+                "rounded-xl border px-4 py-3 text-left text-sm",
+                p.id === id ? "border-fg" : "border-border",
+              )}
+            >
+              {p.name}
+            </button>
+          ))}
         </div>
-
-        <div className="mt-6 rounded-xl border border-border bg-bg/50 p-3">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Live DNA</p>
-          <dl className="mt-2 grid gap-2 text-xs">
-            {statusRows.map(([k, v]) => (
-              <div key={k} className="flex items-start justify-between gap-3 border-t border-border pt-2">
-                <dt className="text-muted">{k}</dt>
-                <dd className="max-w-[10rem] break-all text-right font-mono text-fg">{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <dl className="mt-6 grid gap-2 text-xs">
+          {statusRows.map(([k, v]) => (
+            <div key={k} className="flex justify-between gap-3 border-t border-border pt-2">
+              <dt className="text-muted">{k}</dt>
+              <dd className="font-mono">{v}</dd>
+            </div>
+          ))}
+        </dl>
       </aside>
 
       <main className="min-w-0">
-        <section className="border-b border-border bg-gradient-to-b from-surface/70 to-bg px-5 py-6 sm:px-7">
-          <div className="flex flex-wrap items-start justify-between gap-5">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="rounded-full border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-widest text-subtle">
-                  {displayStatus}
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-der">
-                  {person.handle}
-                </span>
-              </div>
-              <h1 className="mt-3 font-display text-5xl tracking-tight">{person.name}</h1>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">{person.role}</p>
-            </div>
-
-            {person.portrait ? (
-              <img
-                src={person.portrait}
-                alt={person.name}
-                className="h-28 w-24 rounded-xl border border-border object-cover"
-              />
-            ) : (
-              <div className="grid h-28 w-24 place-items-center rounded-xl border border-border bg-surface-2">
-                {(() => {
-                  const Icon = ICONS[person.id];
-                  return <Icon className="h-9 w-9 text-muted" />;
-                })()}
-              </div>
-            )}
-          </div>
-
-          <div className="mt-6 grid gap-4 lg:grid-cols-2">
-            <div className="rounded-xl border border-border bg-surface/70 p-4">
-              <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-subtle">
-                <Wrench className="h-4 w-4" /> Skills / tools
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {displayCapabilities.map((skill) => (
-                  <button
-                    key={skill}
-                    type="button"
-                    className="rounded-lg border border-border bg-bg px-4 py-2 text-sm text-muted"
-                  >
-                    {skill}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-border bg-surface/70 p-4">
-              <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-subtle">
-                <Database className="h-4 w-4" /> Knowledge surfaces
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {displayKnowledge.map((item) => (
-                  <button
-                    key={item}
-                    type="button"
-                    className="rounded-lg border border-border bg-bg px-4 py-2 text-sm text-muted"
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+        <section className="border-b border-border px-5 py-6 sm:px-7">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Aktiv huvudperson</p>
+          <h1 className="mt-2 font-display text-5xl tracking-tight">{person.name}</h1>
+          <p className="mt-2 text-sm text-muted">{LOOK[person.id] ?? person.tag}</p>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">{person.role}</p>
         </section>
-
         <section className="grid min-h-[34rem] grid-rows-[1fr_auto_auto]">
           <div className="grid content-start gap-3 overflow-auto p-5 sm:p-7">
             {log.map((m, i) => (
@@ -230,36 +146,23 @@ export function PersonaStudio() {
                 key={`${m.who}-${i}`}
                 className={cn(
                   "max-w-[88%] rounded-xl px-4 py-3 text-sm leading-6",
-                  m.me
-                    ? "justify-self-end bg-accent text-accent-fg"
-                    : "border border-border bg-surface-2",
+                  m.me ? "justify-self-end bg-accent text-accent-fg" : "border border-border bg-surface-2",
                 )}
               >
-                <p className="mb-1 font-mono text-[9px] uppercase tracking-widest opacity-65">
-                  {m.who}
-                </p>
+                <p className="mb-1 font-mono text-[9px] uppercase tracking-widest opacity-65">{m.who}</p>
                 <p>{m.text}</p>
               </div>
             ))}
           </div>
-
-          <div className="flex gap-3 overflow-x-auto border-t border-border px-5 py-4 sm:px-7">
-            {QUICK[id].map((q) => (
-              <Button key={q} type="button" size="lg" variant="outline" onClick={() => send(q)}>
-                {q}
-              </Button>
-            ))}
-          </div>
-
           <form className="grid grid-cols-[1fr_auto] gap-2 border-t border-border p-4 sm:px-7" onSubmit={onSubmit}>
             <textarea
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               rows={2}
               placeholder={`Skriv till ${person.name}…`}
-              className="min-h-14 resize-none rounded-xl border border-border-strong bg-surface px-3 py-2 text-sm text-fg"
+              className="min-h-14 resize-none rounded-xl border border-border-strong bg-surface px-3 py-2 text-sm"
             />
-            <Button type="submit" size="lg" className="self-stretch">
+            <Button type="submit" size="lg">
               <Send className="h-4 w-4" />
               Skicka
             </Button>
@@ -268,49 +171,10 @@ export function PersonaStudio() {
       </main>
 
       <aside className="border-t border-border bg-surface/60 p-4 xl:border-l xl:border-t-0">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">OdinOS status</p>
-        <h2 className="mt-1 font-display text-2xl">Command panel</h2>
-
-        <div className="mt-4 grid gap-3">
-          {[
-            [Boxes, "Personas / modules", String(personas.length)],
-            [GitBranch, "DNA sync", live.origin === "dna" ? "live" : "snapshot"],
-            [Database, "Canonical records", String(live.catalog.nodes.length)],
-            [Network, "Bridges", String(live.catalog.bridges.length)],
-            [Wrench, "Registered tools", String(runtimeRegistry.tools?.length ?? 0)],
-            [Sparkles, "Registered skills", String(runtimeRegistry.skills?.length ?? 0)],
-          ].map(([Icon, label, value]) => {
-            const I = Icon as typeof Boxes;
-            return (
-              <div key={String(label)} className="rounded-xl border border-border bg-bg/60 p-3">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="flex items-center gap-2 text-sm">
-                    <I className="h-4 w-4 text-muted" />
-                    {String(label)}
-                  </span>
-                  <span className="font-mono text-xs text-der">{String(value)}</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-5 rounded-xl border border-border bg-bg/60 p-4">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Dynamic adaptation</p>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            Kort och paneler hämtar live DNA-status och <code>runtime/command-deck.json</code>.
-            När skills, verktyg, kunskap eller roller uppdateras i DNA-registret läses de tillbaka
-            dynamiskt utan att UPI-katalogen behöver vara huvudgränssnittet.
-          </p>
-        </div>
-
-        <div className="mt-5 rounded-xl border border-border bg-bg/60 p-4">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Chat boundary</p>
-          <p className="mt-2 text-xs leading-5 text-muted">
-            Den här ytan routar persona och visar lokala runtime-svar. Den är inte i sig en extern
-            modellanslutning. En riktig modell/provider kan kopplas in bakom samma persona-router senare.
-          </p>
-        </div>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Status</p>
+        <p className="mt-2 text-sm text-muted">
+          Angelica och Emilia är slot. Fel hår på fel namn är ett fel. Moduler byter inte look.
+        </p>
       </aside>
     </div>
   );
