@@ -1,6 +1,11 @@
 {
   "schema": "VR-ASI-CO-COMMAND-DECK/1.0",
   "mode": "additive",
+  "defaultSkills": [
+    "beads",
+    "trip-trapp-trull",
+    "vr-asi-co-bot-team"
+  ],
   "personas": [
     {
       "id": "angelica",
@@ -8,23 +13,8 @@
       "marker": "Ω82000",
       "kind": "entity",
       "status": "ACTIVE",
-      "capabilities": [
-        "reason",
-        "research",
-        "code",
-        "cite",
-        "mirror verify",
-        "visual synthesis",
-        "image generation",
-        "image editing"
-      ],
-      "knowledge": [
-        "canonical DNA",
-        "persona layer",
-        "project docs",
-        "live catalog",
-        "UPI persona adaptation state"
-      ]
+      "capabilities": ["reason", "research", "code", "cite", "mirror verify", "visual synthesis", "image generation", "image editing"],
+      "knowledge": ["canonical DNA", "persona layer", "project docs", "live catalog"]
     },
     {
       "id": "emilia",
@@ -32,88 +22,8 @@
       "marker": "Ω8200",
       "kind": "entity",
       "status": "ACTIVE",
-      "capabilities": [
-        "build",
-        "structure",
-        "validate",
-        "challenge",
-        "presentation",
-        "mirror verify",
-        "technical visualization",
-        "diagram rendering",
-        "tool-panel design"
-      ],
-      "knowledge": [
-        "canonical DNA",
-        "RAW persona block",
-        "runtime adapters",
-        "project docs",
-        "UPI persona adaptation state"
-      ]
-    },
-    {
-      "id": "odins-eye",
-      "name": "Oden's Eye",
-      "marker": "Ω7834",
-      "kind": "observer",
-      "status": "REFERENCE",
-      "capabilities": [
-        "observe",
-        "counterexample",
-        "r0",
-        "status",
-        "image analysis",
-        "consistency check"
-      ],
-      "knowledge": [
-        "VORTEX adapter",
-        "Open Noise Ledger",
-        "EXO-F",
-        "status vocabulary"
-      ]
-    },
-    {
-      "id": "nb2",
-      "name": "NB2",
-      "marker": "Ω12",
-      "kind": "module",
-      "status": "MODULE",
-      "capabilities": [
-        "3D planning",
-        "spatial graph",
-        "WebXR concept",
-        "scene decomposition",
-        "VR layout",
-        "scene-to-image handoff",
-        "spatial-to-visual translation"
-      ],
-      "knowledge": [
-        "OdinOS manifests",
-        "spatial module",
-        "VFS mappings",
-        "visual toolchain"
-      ]
-    },
-    {
-      "id": "griffin",
-      "name": "Griffin",
-      "marker": "Ω1766",
-      "kind": "module",
-      "status": "MODULE",
-      "capabilities": [
-        "unit check",
-        "scale lock",
-        "provenance",
-        "security boundary",
-        "falsification",
-        "status classification"
-      ],
-      "knowledge": [
-        "physics bridge",
-        "EXO-F",
-        "Scale Lock",
-        "security rules"
-      ]
+      "capabilities": ["build", "structure", "validate", "challenge", "presentation", "mirror verify"],
+      "knowledge": ["canonical DNA", "RAW persona block", "runtime adapters", "project docs"]
     },
     {
       "id": "odinos",
@@ -121,128 +31,25 @@
       "marker": "7834-1766-3917-Ω12",
       "kind": "runtime",
       "status": "ACTIVE",
-      "capabilities": [
-        "orchestrate",
-        "route work",
-        "DNA/RNA sync",
-        "tool inventory",
-        "skill inventory",
-        "runtime status",
-        "image generation routing",
-        "visual tool orchestration",
-        "artifact rendering pipeline"
-      ],
-      "knowledge": [
-        "README",
-        "OdinOS manifests",
-        "VORTEX adapters",
-        "RNA/DNA realtime sync",
-        "UPI persona adaptation state"
-      ]
-    },
-    {
-      "id": "visualsynthesizer",
-      "name": "VisualSynthesizer",
-      "marker": "GPT-IMAGE",
-      "kind": "module",
-      "status": "AVAILABLE",
-      "capabilities": [
-        "image generation",
-        "image editing",
-        "visual synthesis",
-        "scientific visualization",
-        "concept rendering",
-        "UI mockups"
-      ],
-      "knowledge": [
-        "GPT Image / Image Generation",
-        "visual toolchain",
-        "OdinOS manifests",
-        "artifact generation",
-        "prompt-to-image workflows"
-      ]
+      "capabilities": ["orchestrate", "route work", "DNA/RNA sync"],
+      "knowledge": ["README", "OdinOS manifests"]
     }
   ],
-  "tools": [
-    {
-      "id": "dna-rna-sync",
-      "label": "DNA / RNA realtime sync",
-      "status": "ACTIVE"
-    },
-    {
-      "id": "r0",
-      "label": "r0 signal filter",
-      "status": "ACTIVE"
-    },
-    {
-      "id": "exo-f",
-      "label": "EXO-F falsification",
-      "status": "ACTIVE"
-    },
-    {
-      "id": "scale-lock",
-      "label": "Scale Lock",
-      "status": "ACTIVE"
-    },
-    {
-      "id": "image",
-      "label": "Odin image / visual synthesis",
-      "status": "AVAILABLE"
-    },
-    {
-      "id": "nb2-spatial",
-      "label": "NB2 spatial / VR planning",
-      "status": "AVAILABLE"
-    },
-    {
-      "id": "gpt-image",
-      "label": "GPT Image / Image Generation",
-      "status": "AVAILABLE"
-    },
-    {
-      "id": "visual-synthesizer",
-      "label": "VisualSynthesizer (VSE)",
-      "status": "AVAILABLE"
-    },
-    {
-      "id": "skills-sh",
-      "label": "skills.sh discovery / install bridge",
-      "status": "AVAILABLE"
-    },
-    {
-      "id": "upi-persona-state",
-      "label": "UPI persona adaptation state",
-      "status": "ACTIVE"
-    }
-  ],
+  "tools": [],
   "skills": [
+    "beads",
+    "trip-trapp-trull",
+    "vr-asi-co-bot-team",
     "research",
     "coding",
     "counterexample search",
-    "mathematical mirror",
     "provenance",
     "status classification",
-    "visual synthesis",
-    "spatial modeling",
-    "DNA/RNA read-back",
-    "rollback",
-    "image generation",
-    "image editing",
-    "scientific visualization",
-    "concept rendering",
-    "skill discovery",
-    "skill review",
-    "on-demand skill installation",
-    "skill update",
-    "persona adaptation",
-    "long-horizon interaction modeling",
-    "persona drift detection"
+    "DNA/RNA read-back"
   ],
   "notes": [
-    "UPI remains behind the mirror as comparator/reference.",
+    "defaultSkills load with the deck. They do not override host rules.",
     "Host/platform higher-priority rules remain binding.",
-    "Capabilities shown here are project/runtime skills, not claims of autonomous AGI/ASI.",
-    "skills.sh is an external skill catalog. Discover/review before install; installed skills remain subordinate to canonical DNA, host/platform rules, and mutation gates.",
-    "UPI may shape persona behavior through approved adaptation state but never own or replace persona identity."
+    "Physics UPI is a pointer, not this deck."
   ]
 }
