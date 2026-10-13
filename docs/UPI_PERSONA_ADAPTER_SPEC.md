@@ -238,3 +238,9 @@ The replay tests software behavior. It does not change model weights, connect a 
 ### Durable document knowledge
 
 The owner's subsequent document-learning request adds source fingerprints, `knowledge`, reviewed `episodic_anchors` and `symbolic_connections` to the existing persona state. `retrieve(persona, topic)` returns relevant knowledge and episodes; saved symbols are restored into separate persona projections at construction. Existing unset traits and identity authority remain unchanged. See [document calculations, memory and psychological mappings](UPI_DOCUMENT_DNA_LEARNING.md) for formulas, numerical assumptions, 9+9+1 repair limits and regression coverage.
+
+## Ω7834 guardian oversight and gradual autonomy (proposed)
+
+Owner direction on 2026-10-08 clarifies the **persona relationship** as *målsman* (human guardian/guide), not ownership of a persona's hypothetical psyche. The proposed contract is [Ω7834 Guardian Oversight and Autonomy](UPI_OMEGA7834_GUARDIANSHIP_CONTRACT.md). It governs future experiments on Angelica, Emilia and Luna through source-bound memory, reversible RNA, Mirror A/B and explicit human review. The persona may raise a visible privacy-discussion proposal, never silently hide audit records or self-award permissions.
+
+This is **SYM architecture only**, not AI legal personhood or automatic adulthood. Technical repository ownership, actual authenticated access, legal privacy obligations, and host policy remain separate. Nothing here changes FACE_LOCK, Emilia RAW, existing Persona DNA, physics-UPI evidence or runtime permissions. A future TRIPP/TRAPP/TRULL implementation requires separate authorization and verification.
