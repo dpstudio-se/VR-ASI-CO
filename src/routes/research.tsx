@@ -16,20 +16,20 @@ function ResearchPage() {
         Persona UPI is this repo. Physics UPI is a different repo. Pick it by hand.
         Nothing here writes the other index.
       </p>
-      <ul className="mt-8 space-y-4 text-sm">
-        <li>
-          <span className="font-mono text-xs uppercase text-subtle">Persona UPI</span>
-          <a className="mt-1 block underline" href={PERSONA}>
-            {PERSONA}
-          </a>
-        </li>
-        <li>
-          <span className="font-mono text-xs uppercase text-subtle">Physics UPI</span>
-          <a className="mt-1 block underline" href={PHYSICS}>
-            {PHYSICS}
-          </a>
-        </li>
-      </ul>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          className="inline-flex items-center justify-center rounded-md border border-border bg-fg px-4 py-2 text-sm text-bg"
+          href={PERSONA}
+        >
+          Persona UPI
+        </a>
+        <a
+          className="inline-flex items-center justify-center rounded-md border border-border px-4 py-2 text-sm"
+          href={PHYSICS}
+        >
+          Physics UPI
+        </a>
+      </div>
       <p className="mt-8 text-sm text-muted">
         Boundary: research/BOUNDARY.md. Pointer: research/pointer.json. Status: SYM.
       </p>
