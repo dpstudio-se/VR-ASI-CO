@@ -1,4 +1,0 @@
-[submodule "puter"]
-	path = puter
-	url = https://github.com/HeyPuter/puter.git
-	branch = main
