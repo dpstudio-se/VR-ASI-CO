@@ -1,16 +1,5 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import {
-  BrainCircuit,
-  Boxes,
-  Database,
-  Eye,
-  GitBranch,
-  Network,
-  Send,
-  ShieldCheck,
-  Sparkles,
-  Wrench,
-} from "lucide-react";
+import { Send } from "lucide-react";
 import { PERSONAS, replyFor, type PersonaId } from "@/lib/personas";
 import { Button } from "@/components/ui/button";
 import { useLive } from "@/lib/upi/live";
@@ -139,7 +128,7 @@ export function PersonaStudio() {
           <p className="mt-2 text-sm text-muted">{LOOK[person.id] ?? person.tag}</p>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">{person.role}</p>
         </section>
-        <section className="grid min-h-[34rem] grid-rows-[1fr_auto_auto]">
+        <section className="grid min-h-[34rem] grid-rows-[1fr_auto]">
           <div className="grid content-start gap-3 overflow-auto p-5 sm:p-7">
             {log.map((m, i) => (
               <div
