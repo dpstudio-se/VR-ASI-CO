@@ -1,25 +1,22 @@
-# Repair GitHub Desktop / git submodule fetch for puter.
-# Cause: HeyPuter/puter has a broken dependabot ref. Fetching all refs fails.
-# Fix: fetch only main, drop the bad local remote ref, then pull the parent without recurse.
-# Run from the VR-ASI-CO checkout root.
+# Local cleanup after the puter gitlink was removed from main.
+# Run from the VR-ASI-CO checkout root. Then Pull origin in GitHub Desktop.
 
 $ErrorActionPreference = "Stop"
-$root = (git rev-parse --show-toplevel)
-Set-Location $root
+Set-Location (git rev-parse --show-toplevel)
 
-git config submodule.puter.url "https://github.com/HeyPuter/puter.git"
-git config submodule.puter.fetch "+refs/heads/main:refs/remotes/origin/main"
+git config --unset-all submodule.puter.url 2>$null
+git config --unset-all submodule.puter.fetch 2>$null
+git config submodule.recurse false
+git config fetch.recurseSubmodules false
 
-if (-not (Test-Path "puter\.git")) {
-  git submodule update --init --depth 1 puter
+if (Test-Path "puter") {
+  if (Test-Path "puter\.git") { git submodule deinit -f puter 2>$null }
+  Remove-Item -Recurse -Force puter
 }
 
-Push-Location puter
-git config remote.origin.fetch "+refs/heads/main:refs/remotes/origin/main"
-$bad = Join-Path (git rev-parse --git-dir) "refs\remotes\origin\dependabot"
-if (Test-Path $bad) { Remove-Item -Recurse -Force $bad }
-git fetch origin main --depth=1
-Pop-Location
+if (Test-Path ".git\modules\puter") {
+  Remove-Item -Recurse -Force ".git\modules\puter"
+}
 
 git -c submodule.recurse=false pull
-Write-Host "puter fetch restricted to main. Parent pull done without recurse."
+Write-Host "puter gitlink removed locally. Desktop should no longer fetch it."
