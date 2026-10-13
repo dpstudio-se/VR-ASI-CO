@@ -105,7 +105,7 @@ export function PersonaStudio() {
   );
 
   return (
-    <div className="grid min-h-[calc(100dvh-4rem)] xl:grid-cols-[18rem_minmax(0,1fr)_22rem]">
+    <div className="grid min-h-[calc(100dvh-4rem)] xl:grid-cols-[20rem_minmax(0,1fr)_22rem]">
       <aside className="border-b border-border bg-surface/70 p-4 xl:border-b-0 xl:border-r">
         <div className="mb-4">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">
@@ -114,7 +114,7 @@ export function PersonaStudio() {
           <h2 className="mt-1 font-display text-2xl">Välj kärna</h2>
         </div>
 
-        <div className="grid gap-2">
+        <div className="grid gap-3">
           {personas.map((p) => {
             const Icon = ICONS[p.id];
             return (
@@ -123,16 +123,16 @@ export function PersonaStudio() {
                 type="button"
                 onClick={() => select(p.id)}
                 className={cn(
-                  "grid grid-cols-[2.5rem_1fr] items-center gap-3 rounded-xl border border-border bg-surface-2 p-3 text-left transition",
+                  "grid min-h-16 grid-cols-[3rem_1fr] items-center gap-3 rounded-xl border border-border bg-surface-2 p-4 text-left transition",
                   p.id === id && "border-border-strong shadow-[var(--shadow-border-hover)]",
                 )}
               >
-                <span className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-bg">
-                  <Icon className="h-5 w-5" />
+                <span className="grid h-12 w-12 place-items-center rounded-lg border border-border bg-bg">
+                  <Icon className="h-6 w-6" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block truncate font-display text-lg leading-none">{p.name}</span>
-                  <span className="mt-1 block truncate font-mono text-[9px] uppercase tracking-widest text-subtle">
+                  <span className="block truncate font-display text-xl leading-none">{p.name}</span>
+                  <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-widest text-subtle">
                     {p.marker} · {p.tag}
                   </span>
                 </span>
@@ -193,12 +193,13 @@ export function PersonaStudio() {
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {displayCapabilities.map((skill) => (
-                  <span
+                  <button
                     key={skill}
-                    className="rounded-md border border-border bg-bg px-2.5 py-1.5 text-xs text-muted"
+                    type="button"
+                    className="rounded-lg border border-border bg-bg px-4 py-2 text-sm text-muted"
                   >
                     {skill}
-                  </span>
+                  </button>
                 ))}
               </div>
             </div>
@@ -209,12 +210,13 @@ export function PersonaStudio() {
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {displayKnowledge.map((item) => (
-                  <span
+                  <button
                     key={item}
-                    className="rounded-md border border-border bg-bg px-2.5 py-1.5 text-xs text-muted"
+                    type="button"
+                    className="rounded-lg border border-border bg-bg px-4 py-2 text-sm text-muted"
                   >
                     {item}
-                  </span>
+                  </button>
                 ))}
               </div>
             </div>
@@ -241,9 +243,9 @@ export function PersonaStudio() {
             ))}
           </div>
 
-          <div className="flex gap-2 overflow-x-auto border-t border-border px-5 py-3 sm:px-7">
+          <div className="flex gap-3 overflow-x-auto border-t border-border px-5 py-4 sm:px-7">
             {QUICK[id].map((q) => (
-              <Button key={q} type="button" size="sm" variant="outline" onClick={() => send(q)}>
+              <Button key={q} type="button" size="lg" variant="outline" onClick={() => send(q)}>
                 {q}
               </Button>
             ))}
@@ -257,7 +259,7 @@ export function PersonaStudio() {
               placeholder={`Skriv till ${person.name}…`}
               className="min-h-14 resize-none rounded-xl border border-border-strong bg-surface px-3 py-2 text-sm text-fg"
             />
-            <Button type="submit" className="self-stretch">
+            <Button type="submit" size="lg" className="self-stretch">
               <Send className="h-4 w-4" />
               Skicka
             </Button>
