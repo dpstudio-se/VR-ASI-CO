@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Send } from "lucide-react";
 import { PERSONAS, replyFor, type PersonaId } from "@/lib/personas";
 import { Button } from "@/components/ui/button";
@@ -26,37 +26,9 @@ function loadId(): PersonaId {
   return saved && saved in PERSONAS ? (saved as PersonaId) : "angelica";
 }
 
-function Card({
-  active,
-  title,
-  line,
-  meta,
-  onClick,
-}: {
-  active: boolean;
-  title: string;
-  line: string;
-  meta: string;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={cn(
-        "rounded-2xl border p-4 text-left transition hover:border-border-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
-        active ? "border-fg bg-fg text-bg" : "border-border bg-surface-2",
-      )}
-    >
-      <span className="block font-display text-2xl">{title}</span>
-      <span className="mt-1 block text-sm opacity-80">{line}</span>
-      <span className="mt-2 block font-mono text-[10px] uppercase tracking-widest opacity-70">{meta}</span>
-    </button>
-  );
-}
-
 export function PersonaStudio() {
   const live = useLive();
+  const writeRef = useRef<HTMLTextAreaElement>(null);
   const [id, setId] = useState<PersonaId>("angelica");
   const [draft, setDraft] = useState("");
   const [log, setLog] = useState<Msg[]>([
@@ -67,6 +39,14 @@ export function PersonaStudio() {
     const next = loadId();
     setId(next);
     setLog([{ who: PERSONAS[next].name, text: PERSONAS[next].greet, me: false }]);
+  }, []);
+
+  useEffect(() => {
+    function onHash() {
+      if (window.location.hash === "#step-write") writeRef.current?.focus();
+    }
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   const person = PERSONAS[id];
@@ -108,42 +88,31 @@ export function PersonaStudio() {
 
   return (
     <div className="grid min-h-[calc(100dvh-4rem)] xl:grid-cols-[24rem_minmax(0,1fr)_20rem]">
-      <aside className="max-h-[calc(100dvh-4rem)] overflow-auto border-b border-border bg-surface/70 p-4 xl:sticky xl:top-0 xl:border-b-0 xl:border-r">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">Huvudperson</p>
+      <aside id="step-slot" className="max-h-[calc(100dvh-4rem)] scroll-mt-4 overflow-auto border-b border-border bg-surface/70 p-4 xl:sticky xl:top-0 xl:border-b-0 xl:border-r">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">1 · Huvudperson</p>
         <h2 className="mt-1 font-display text-2xl">Välj slot</h2>
         <div className="mt-4 grid gap-3">
           {leads.map((p) => (
-            <Card
-              key={p.id}
-              active={p.id === id}
-              title={p.name}
-              line={LOOK[p.id]}
-              meta={`${p.id === id ? "aktiv" : "välj"} · ${p.handle}`}
-              onClick={() => select(p.id)}
-            />
+            <button key={p.id} type="button" onClick={() => select(p.id)} className={cn("rounded-2xl border p-4 text-left", p.id === id ? "border-fg bg-fg text-bg" : "border-border bg-surface-2")}>
+              <span className="block font-display text-2xl">{p.name}</span>
+              <span className="mt-1 block text-sm opacity-80">{LOOK[p.id]}</span>
+            </button>
           ))}
         </div>
         <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">Moduler</p>
-        <h2 className="mt-1 font-display text-2xl">Välj modul</h2>
         <div className="mt-4 grid gap-3">
           {rest.map((p) => (
-            <Card
-              key={p.id}
-              active={p.id === id}
-              title={p.name}
-              line={MODULE_LINE[p.id] ?? p.tag}
-              meta={`${p.id === id ? "aktiv modul" : "välj modul"} · ${p.handle}`}
-              onClick={() => select(p.id)}
-            />
+            <button key={p.id} type="button" onClick={() => select(p.id)} className={cn("rounded-2xl border p-4 text-left", p.id === id ? "border-fg bg-fg text-bg" : "border-border bg-surface-2")}>
+              <span className="block font-display text-xl">{p.name}</span>
+              <span className="mt-1 block text-sm opacity-80">{MODULE_LINE[p.id] ?? p.tag}</span>
+            </button>
           ))}
         </div>
       </aside>
 
       <main className="min-w-0">
-        <section className="border-b border-border px-5 py-6 sm:px-7">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">
-            {isLead ? "Aktiv huvudperson" : "Aktiv modul"}
-          </p>
+        <section id="step-role" className="scroll-mt-4 border-b border-border px-5 py-6 sm:px-7">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">2 · {isLead ? "Aktiv huvudperson" : "Aktiv modul"}</p>
           <h1 className="mt-2 font-display text-5xl tracking-tight">{person.name}</h1>
           <p className="mt-2 text-sm text-muted">{LOOK[person.id] ?? MODULE_LINE[person.id] ?? person.tag}</p>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">{person.role}</p>
@@ -151,20 +120,15 @@ export function PersonaStudio() {
         <section className="grid min-h-[34rem] grid-rows-[1fr_auto]">
           <div className="grid content-start gap-3 overflow-auto p-5 sm:p-7">
             {log.map((m, i) => (
-              <div
-                key={`${m.who}-${i}`}
-                className={cn(
-                  "max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6",
-                  m.me ? "justify-self-end bg-fg text-bg" : "border border-border bg-surface-2",
-                )}
-              >
+              <div key={`${m.who}-${i}`} className={cn("max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6", m.me ? "justify-self-end bg-fg text-bg" : "border border-border bg-surface-2")}>
                 <p className="mb-1 font-mono text-[9px] uppercase tracking-widest opacity-65">{m.who}</p>
                 <p>{m.text}</p>
               </div>
             ))}
           </div>
-          <form className="grid grid-cols-[1fr_auto] gap-2 border-t border-border p-4 sm:px-7" onSubmit={onSubmit}>
+          <form id="step-write" className="scroll-mt-4 grid grid-cols-[1fr_auto] gap-2 border-t border-border p-4 sm:px-7" onSubmit={onSubmit}>
             <textarea
+              ref={writeRef}
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               onKeyDown={(e) => {
@@ -195,11 +159,6 @@ export function PersonaStudio() {
             </div>
           ))}
         </dl>
-        <p className="mt-4 text-sm text-muted">
-          {isLead
-            ? "Fel hår på fel namn är ett fel."
-            : "Modulen byter inte Angelicas eller Emilias look."}
-        </p>
       </aside>
     </div>
   );

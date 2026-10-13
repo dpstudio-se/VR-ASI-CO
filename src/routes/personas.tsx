@@ -3,7 +3,11 @@ import { PersonaStudio } from "@/components/persona-studio";
 
 export const Route = createFileRoute("/personas")({ component: PersonasPage });
 
-const STEPS = ["1 Välj slot", "2 Läs rollen", "3 Skriv"];
+const STEPS = [
+  { label: "1 Välj slot", href: "#step-slot" },
+  { label: "2 Läs rollen", href: "#step-role" },
+  { label: "3 Skriv", href: "#step-write" },
+];
 
 function PersonasPage() {
   return (
@@ -13,8 +17,13 @@ function PersonasPage() {
         <h1 className="mt-1 font-display text-4xl tracking-tight">Personas</h1>
         <ol className="mt-4 flex flex-wrap gap-2">
           {STEPS.map((step) => (
-            <li key={step} className="rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted">
-              {step}
+            <li key={step.href}>
+              <a
+                href={step.href}
+                className="inline-flex rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted hover:border-border-strong hover:text-fg"
+              >
+                {step.label}
+              </a>
             </li>
           ))}
         </ol>
