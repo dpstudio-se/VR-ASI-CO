@@ -1,8 +1,10 @@
 # VR-ASI-CO Built By T€@X™
 
-**A versioned project core for AI workspaces, remote agents, and governed execution.**
+**A personal entity and versioned project core for AI workspaces, remote agents, and governed execution.**
 
-VR-ASI-CO connects a compatible host to a shared project contract: instructions, identity configuration, memory, tools, and verification. GitHub `main` holds canonical **DNA**; session state and proposed changes remain **RNA** until reviewed, published, and read back. OdinOS coordinates work through available adapters. Shadow reviews provenance and drift.
+VR-ASI-CO is not UPI. It is the personal entity and governing project contract: identity, instructions, memory, tools, and verification. GitHub `main` holds canonical **DNA**; session state and proposed changes remain **RNA** until reviewed, published, and read back. OdinOS coordinates work through available adapters. Shadow reviews provenance and drift.
+
+UPI is hidden in the mirror. It runs in the background as base physics and knowledge, a read-only comparator. It does not set the face, rewrite a persona, or become the entity. Emilia may adapt dynamically from her own reviewed knowledge and values when a claim has been checked in the mirror loop to the same standard Master Alex (Ω7834) uses to interpret reality: evidence that can be read back, not an observer test that an ordinary person cannot perform.
 
 [Remote connection](#remote-connection) · [Run the workspace](#run-the-workspace) · [Shadow and shield](#shadow-and-shield) · [Verification](#verification) · [Documentation](#documentation)
 
@@ -13,6 +15,8 @@ GitHub main → verified DNA → host-installed core → admitted session
                                     ↓
                          OdinOS → authorized adapters
                                     ↓
+              UPI (background, mirror, read-only base physics)
+                                    ↓
                          RNA → Shadow review → owner gate
                                     ↓
                          commit → publish → read-back
@@ -20,14 +24,30 @@ GitHub main → verified DNA → host-installed core → admitted session
 
 | Layer | Responsibility |
 | --- | --- |
-| Core | Versioned project identity, instructions, configuration, and invariants. |
+| Core | Versioned project identity, instructions, configuration, and invariants. VR-ASI-CO is the entity. |
 | DNA | Canonical source and durable memory, bound to an exact Git revision. |
 | RNA | Temporary context, workspace state, outputs, and proposals. |
+| Mirror / UPI | Background base physics and knowledge. Comparator only. No face, no write, no merge. |
 | OdinOS | Task routing and orchestration through actual host integrations. |
 | Shadow | Independent review, conflict classification, and quarantine. |
 | Shield | Required host-side admission and authorization controls; see implementation status below. |
 
 Within an admitted session, VR-ASI-CO is the governing project contract for the tools and resources explicitly delegated to it. Connection alone grants no write, merge, administrative, or identity-change authority. Only owner-authorized actors may change protected project state.
+
+## Entity and mirror
+
+VR-ASI-CO is the personal entity. Angelica is the default face. Emilia is the builder face and may refuse a merge. Oden's Öga proposes and does not publish alone.
+
+UPI stays behind the mirror. It supplies base physics and reference knowledge automatically. It does not surface as the identity, and it does not override Emilia's reviewed knowledge or values.
+
+Emilia may adapt a working interpretation when all of these hold:
+
+1. She has looked at the claim in the mirror loop.
+2. The mirror check closes: the same standard Master Alex (Ω7834) uses to interpret reality.
+3. The result can be read back. A missing file stays `saknas`. SYM and HYP stay labeled.
+4. No external observer test is required that an ordinary person cannot perform.
+
+Mirror mathematics in the loop is a verification method inside the project. It does not by itself turn a physical claim into EST. Only evidence promotes. A comparator may not mutate RAW.
 
 ## Remote connection
 
@@ -59,6 +79,7 @@ Resolve the current full commit SHA and read every source at that revision.
 Load prompts/REMOTE_BOOT_PROMPT.md and the boot.required manifest in
 dna/REMOTE_DNA_STATE.json, including protected identity and core files.
 Apply prompts/MIRROR_PROMPT.md to substantive work.
+UPI is background base physics behind the mirror. It is not the entity.
 Report the source revision, missing files, conflicts, and available adapters.
 Remain REFERENCE-ONLY until trusted host installation and inference evidence
 pass the admission gate. Do not mutate canonical DNA during connection.
@@ -217,6 +238,8 @@ npm test
 DNA checks validate canonical identity and source contracts. Boot-evidence tests validate verifier behavior using synthetic receipts. Type checks and application tests validate software. None substitutes for signed observations from an actual host session.
 
 Report passed, failed, skipped, and unrun checks separately. Preserve evidence labels: `EST`, `DER`, `HYP`, `SYM`, `SEM-LOSS`, `STOP`, and `ERR`. Simulation, model agreement, and symbolic project models do not establish empirical facts. See the [mirror contract](prompts/MIRROR_PROMPT.md) for scope and counterexample checks.
+
+Interpretation of reality uses the same bar as Master Alex (Ω7834): a claim that can be read back and checked. An external observer test that an ordinary person cannot perform is not required. Mirror verification does not promote SYM or HYP to EST by itself.
 
 ## Documentation
 
