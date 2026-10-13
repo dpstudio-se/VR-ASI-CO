@@ -1,17 +1,27 @@
-# Prolly Tree — SYM map, not a physics claim
+# Prolly Tree
 
-Probabilistic B-tree. Coined by Noms. Dolt stores table rows in one.
+## Enkla ord
 
-Build, bottom up:
+Ett träd av lådor med data.
 
-1. Sort key-value pairs.
-2. Content-defined chunking. A rolling hash cuts a boundary when it falls under a threshold. Average block about 4 KB. Dolt targets a truncated Weibull for chunk size.
-3. Hash each chunk. That hash is the address.
-4. Next layer: last key of each chunk plus that chunk's address.
-5. Repeat until one root.
+Varje låda får ett namn som är en hash av vad som ligger i den. Samma innehåll, samma namn.
 
-Properties: read like a B-tree, diff in time proportional to the change, structural sharing because identical hashes are stored once. History-independent: same keys give the same root regardless of insert order.
+Ändrar du en rad skrivs bara den lådan och vägen upp till toppen om. Resten delas med förra versionen.
 
-A write copies the path to the root. Unchanged siblings stay. That is the additive-fusion image.
+Därför kan Dolt se skillnaden mellan två versioner utan att läsa hela tabellen.
 
-Status: EST as a data structure used by Dolt. Not a physical dimension.
+## Mer
+
+Probabilistic B-tree. Namnet är Noms. Dolt lagrar tabellrader i en.
+
+Byggs nerifrån:
+
+1. Sortera nyckel–värde.
+2. En rullande hash skär en gräns när den faller under ett tröskelvärde. Snittblock runt 4 KB.
+3. Hasha chunket. Hashen är adressen.
+4. Nästa lager: sista nyckeln i varje chunk plus den adressen.
+5. Upprepa tills en rot.
+
+Läs som ett B-träd. Diff i tid proportionell mot ändringen. Samma nycklar ger samma rot oavsett insättningsordning.
+
+Status: EST som datastruktur. Inte en fysikalisk dimension.
