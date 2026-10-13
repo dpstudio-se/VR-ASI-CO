@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PersonaStudio } from "@/components/persona-studio";
 
 export const Route = createFileRoute("/personas")({ component: PersonasPage });
@@ -18,6 +18,21 @@ function PersonasPage() {
           knowledge surfaces och DNA-status visas i samma panel och kan växa med nya färdigheter,
           verktyg och runtime-moduler.
         </p>
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <Link
+            to="/research"
+            className="inline-flex min-h-14 items-center justify-center rounded-lg border border-border bg-fg px-6 py-4 text-base font-medium text-bg"
+          >
+            Research
+          </Link>
+          <a
+            href="/upi-tf-protocol.pdf"
+            download
+            className="inline-flex min-h-14 items-center justify-center rounded-lg border border-border px-6 py-4 text-base font-medium"
+          >
+            Ladda ner PDF
+          </a>
+        </div>
       </div>
       <PersonaStudio />
     </div>
