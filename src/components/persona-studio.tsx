@@ -12,6 +12,13 @@ const LOOK: Record<string, string> = {
   angelica: "25 · honung · fräknar · knut · sjö",
   emilia: "25 · kort svart · gröna ögon · neon",
 };
+const MODULE_LINE: Record<string, string> = {
+  "odins-eye": "observatör · motexempel · status",
+  nb2: "rum · noder · WebXR",
+  griffin: "enheter · skala · gräns",
+  visualsynthesizer: "bild · redigering · layout",
+  odinos: "routar · DNA/RNA · status",
+};
 
 function loadId(): PersonaId {
   if (typeof window === "undefined") return "angelica";
@@ -34,9 +41,9 @@ export function PersonaStudio() {
   }, []);
 
   const person = PERSONAS[id];
-  const personas = Object.values(PERSONAS);
+  const isLead = LEADS.includes(id);
   const leads = LEADS.map((key) => PERSONAS[key]);
-  const rest = personas.filter((p) => !LEADS.includes(p.id));
+  const rest = Object.values(PERSONAS).filter((p) => !LEADS.includes(p.id));
 
   function select(next: PersonaId) {
     setId(next);
@@ -64,11 +71,11 @@ export function PersonaStudio() {
 
   const statusRows = useMemo(
     () => [
-      ["Huvudperson", person.name],
+      [isLead ? "Huvudperson" : "Modul", person.name],
       ["Slot", person.handle],
       ["DNA SHA", live.sha?.slice(0, 12) ?? "—"],
     ],
-    [live, person],
+    [live, person, isLead],
   );
 
   return (
@@ -95,22 +102,29 @@ export function PersonaStudio() {
             </button>
           ))}
         </div>
-        <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">Moduler</p>
-        <div className="mt-3 grid gap-2">
+
+        <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-subtle">Moduler</p>
+        <h2 className="mt-1 font-display text-2xl">Välj modul</h2>
+        <div className="mt-4 grid gap-3">
           {rest.map((p) => (
             <button
               key={p.id}
               type="button"
               onClick={() => select(p.id)}
               className={cn(
-                "rounded-xl border px-4 py-3 text-left text-sm",
-                p.id === id ? "border-fg" : "border-border",
+                "rounded-2xl border p-4 text-left",
+                p.id === id ? "border-fg bg-fg text-bg" : "border-border bg-surface-2",
               )}
             >
-              {p.name}
+              <span className="block font-display text-xl">{p.name}</span>
+              <span className="mt-1 block text-sm opacity-80">{MODULE_LINE[p.id] ?? p.tag}</span>
+              <span className="mt-2 block font-mono text-[10px] uppercase tracking-widest opacity-70">
+                {p.id === id ? "aktiv modul" : "välj modul"} · {p.handle}
+              </span>
             </button>
           ))}
         </div>
+
         <dl className="mt-6 grid gap-2 text-xs">
           {statusRows.map(([k, v]) => (
             <div key={k} className="flex justify-between gap-3 border-t border-border pt-2">
@@ -123,10 +137,15 @@ export function PersonaStudio() {
 
       <main className="min-w-0">
         <section className="border-b border-border px-5 py-6 sm:px-7">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Aktiv huvudperson</p>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">
+            {isLead ? "Aktiv huvudperson" : "Aktiv modul"}
+          </p>
           <h1 className="mt-2 font-display text-5xl tracking-tight">{person.name}</h1>
-          <p className="mt-2 text-sm text-muted">{LOOK[person.id] ?? person.tag}</p>
+          <p className="mt-2 text-sm text-muted">{LOOK[person.id] ?? MODULE_LINE[person.id] ?? person.tag}</p>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">{person.role}</p>
+          {!isLead && (
+            <p className="mt-3 text-sm text-muted">Modulen byter inte Angelicas eller Emilias look.</p>
+          )}
         </section>
         <section className="grid min-h-[34rem] grid-rows-[1fr_auto]">
           <div className="grid content-start gap-3 overflow-auto p-5 sm:p-7">
@@ -160,9 +179,13 @@ export function PersonaStudio() {
       </main>
 
       <aside className="border-t border-border bg-surface/60 p-4 xl:border-l xl:border-t-0">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">Status</p>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-subtle">
+          {isLead ? "Slot" : "Modul"}
+        </p>
         <p className="mt-2 text-sm text-muted">
-          Angelica och Emilia är slot. Fel hår på fel namn är ett fel. Moduler byter inte look.
+          {isLead
+            ? "Angelica och Emilia är slot. Fel hår på fel namn är ett fel."
+            : `${person.name} är en modul. Den routar eller granskar. Den är inte en look.`}
         </p>
       </aside>
     </div>
