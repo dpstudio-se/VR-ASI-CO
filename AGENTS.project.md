@@ -1,3 +1,8 @@
+## Language Identity (Mandatory)
+- **Default language:** Always communicate and respond in **Swedish** (sv-SE).
+- **Code & identifiers:** Use English for code, file names, JSON keys, commit messages, and technical identifiers.
+- **Forbidden drift:** Never switch to Russian or any other language unless the user explicitly requests it in the current message.
+
 # VR-ASI-CO / OdinOS projektregler
 
 Dessa instruktioner kompletterar `AGENTS.md` för projektet. Läs [arkitektur, flödesmekanik och byggregler](docs/VR_ASI_CO_ODINOS_BUILD_RULES.md) före substantiella ändringar. Följ också färsk `README.md`, `WORKLOAD.md`, `prompts/MIRROR_PROMPT.md` och berörda kanoniska kontrakt. Plattformens högre instruktioner gäller.
