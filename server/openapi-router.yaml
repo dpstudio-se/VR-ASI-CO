@@ -1,0 +1,303 @@
+openapi: 3.1.0
+info:
+  title: VR-ASI-CO Remote Repo Router (safe preview profile)
+  version: 0.1.0
+  description: >-
+    Loopback-only status and bounded text access, plus in-memory proposal diff
+    previews. This service does not execute commands, write repositories,
+    create branches or worktrees, push, or merge.
+servers:
+  - url: http://127.0.0.1:8766
+security:
+  - bearerAuth: []
+paths:
+  /api/router/status:
+    get:
+      operationId: getRepoStatus
+      parameters:
+        - $ref: "#/components/parameters/AgentId"
+        - name: repo
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [vr-asi-co, upi]
+      responses:
+        "200":
+          description: Repository identity and locally discoverable metadata.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StatusResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "503":
+          $ref: "#/components/responses/Unavailable"
+  /api/router/read:
+    get:
+      operationId: readRepoText
+      parameters:
+        - $ref: "#/components/parameters/AgentId"
+        - name: repo
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [vr-asi-co, upi]
+        - name: path
+          in: query
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 512
+      responses:
+        "200":
+          description: UTF-8 text file within the configured repository.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReadResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "413":
+          $ref: "#/components/responses/TooLarge"
+        "415":
+          $ref: "#/components/responses/UnsupportedMedia"
+  /api/router/propose:
+    post:
+      operationId: previewProposal
+      description: Returns a diff only; it does not persist or execute the proposal.
+      parameters:
+        - $ref: "#/components/parameters/AgentId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProposalRequest"
+      responses:
+        "200":
+          description: In-memory unified diff preview.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProposalResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "409":
+          description: The requested base SHA differs from current local HEAD.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "413":
+          $ref: "#/components/responses/TooLarge"
+        "411":
+          $ref: "#/components/responses/LengthRequired"
+        "415":
+          $ref: "#/components/responses/UnsupportedMedia"
+        "503":
+          $ref: "#/components/responses/Unavailable"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+      description: >-
+        GET uses VR_ASI_ROUTER_READ_TOKEN; POST uses
+        VR_ASI_ROUTER_WRITE_TOKEN. Tokens are never returned by the API.
+  parameters:
+    AgentId:
+      name: X-Agent-Id
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 80
+        pattern: "^[A-Za-z0-9._:@/-]+$"
+  schemas:
+    Repo:
+      type: string
+      enum: [vr-asi-co, upi]
+    Error:
+      type: object
+      additionalProperties: false
+      required: [error]
+      properties:
+        error:
+          type: string
+    StatusResponse:
+      type: object
+      additionalProperties: false
+      required: [repos]
+      properties:
+        repos:
+          type: array
+          items:
+            $ref: "#/components/schemas/RepoStatus"
+        repo:
+          $ref: "#/components/schemas/Repo"
+        branch:
+          type: string
+        head_sha:
+          type: string
+          pattern: "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+        dirty:
+          type: [boolean, "null"]
+        conflict:
+          type: [boolean, "null"]
+        worktree_status:
+          const: not_checked_no_subprocesses
+        tools:
+          type: object
+          additionalProperties:
+            type: [boolean, string]
+    RepoStatus:
+      type: object
+      additionalProperties: false
+      required:
+        [repo, branch, head_sha, dirty, conflict, worktree_status, tools]
+      properties:
+        repo:
+          $ref: "#/components/schemas/Repo"
+        branch:
+          type: string
+        head_sha:
+          type: string
+          pattern: "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+        dirty:
+          type: [boolean, "null"]
+        conflict:
+          type: [boolean, "null"]
+        worktree_status:
+          const: not_checked_no_subprocesses
+        tools:
+          type: object
+          additionalProperties:
+            type: [boolean, string]
+    ReadResponse:
+      type: object
+      additionalProperties: false
+      required: [repo, path, content, bytes]
+      properties:
+        repo:
+          $ref: "#/components/schemas/Repo"
+        path:
+          type: string
+        content:
+          type: string
+        bytes:
+          type: integer
+          minimum: 0
+          maximum: 262144
+    ProposalRequest:
+      type: object
+      additionalProperties: false
+      required: [repo, base_sha, files]
+      properties:
+        repo:
+          $ref: "#/components/schemas/Repo"
+        base_sha:
+          type: string
+          pattern: "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+        files:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items:
+            type: object
+            additionalProperties: false
+            required: [path, content]
+            properties:
+              path:
+                type: string
+                minLength: 1
+                maxLength: 512
+              content:
+                type: string
+                maxLength: 131072
+    ProposalResponse:
+      type: object
+      additionalProperties: false
+      required: [repo, base_sha, status, applied, branch_created, pushed, diff]
+      properties:
+        repo:
+          $ref: "#/components/schemas/Repo"
+        base_sha:
+          type: string
+        status:
+          const: PREVIEW_ONLY
+        applied:
+          const: false
+        branch_created:
+          const: false
+        pushed:
+          const: false
+        diff:
+          type: string
+  responses:
+    BadRequest:
+      description: Invalid request.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Unauthorized:
+      description: Missing bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Forbidden:
+      description: Invalid bearer token or X-Agent-Id.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NotFound:
+      description: Repo or file is unavailable.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    TooLarge:
+      description: Request or file exceeds configured limits.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    LengthRequired:
+      description: Content-Length is required for proposal requests.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    UnsupportedMedia:
+      description: Binary or unsupported file.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Unavailable:
+      description: Repo metadata or authorization is unavailable.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"

@@ -20,3 +20,6 @@ SESSION_HANDOFF.md
 
 # Portable development lifecycle output
 .cache/vr-asi-co/
+
+__pycache__/
+.pytest_cache/
