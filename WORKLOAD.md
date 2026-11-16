@@ -55,6 +55,7 @@ Keep VR-ASI-CO reproducible across fresh chats, local workspaces, and compatible
 
 - [x] Reusable Mirror Prompt.
 - [x] Shadow is audit/quarantine, not autonomous writer.
+- [x] Add static quarantine audit for scoped paths, protected identity paths, Python AST safety checks, and JSON `EST` gating; no proposal code is executed.
 - [ ] Add structured mirror result schema.
 - [ ] Add deterministic unit/status checks to runtime.
 - [ ] Add explicit conflict report for protected identity files.
