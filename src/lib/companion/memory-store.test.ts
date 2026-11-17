@@ -48,7 +48,7 @@ describe("Companion memory store", () => {
     storage.setItem(COMPANION_MEMORY_KEY, JSON.stringify({ schemaVersion: 99, entries: [] }));
     assert.equal(readCompanionMemory(storage).status, "INVALID");
     assert.throws(() => addCompanionMemory(storage, entry, { enabled: true }), /ogiltigt/i);
-    assert.equal(exportCompanionMemory(storage), (() => { throw new Error("unreachable"); })());
+    assert.throws(() => exportCompanionMemory(storage), /ogiltigt/i);
   });
 
   it("rejects invalid entries", () => {
