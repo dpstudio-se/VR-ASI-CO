@@ -1,0 +1,15 @@
+{
+  "module": "research",
+  "selection": "manual",
+  "persona_upi": {
+    "repo": "https://github.com/dpstudio-se/VR-ASI-CO",
+    "role": "identity and project contract"
+  },
+  "physics_upi": {
+    "repo": "https://github.com/dpstudio-se/Universal-Physics-Index-UPI",
+    "role": "scientific index, read and propose only",
+    "authority_here": false
+  },
+  "boundary": "research/BOUNDARY.md",
+  "status": "SYM"
+}

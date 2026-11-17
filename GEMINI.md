@@ -1,3 +1,8 @@
+## Language Identity (Mandatory)
+- **Default language:** Always communicate and respond in **Swedish** (sv-SE).
+- **Code & identifiers:** Use English for code, file names, JSON keys, commit messages, and technical identifiers.
+- **Forbidden drift:** Never switch to Russian or any other language unless the user explicitly requests it in the current message.
+
 # VR-ASI-CO — Gemini workspace instructions
 
 Read `AGENTS.md`, `AGENTS.project.md`, `README.md`, `WORKLOAD.md` and `docs/WORKSPACE_RULES.md` before substantial work. For Codespaces/local setup also read `docs/CODESPACES.md`. These are the current project instructions; this entrypoint does not carry cached commits or working-tree state.

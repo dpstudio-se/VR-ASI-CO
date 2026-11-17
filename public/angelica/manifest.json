@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "persona": "Angelica Ω82000",
+  "status": "SYM",
+  "visual_assets": [
+    {
+      "path": "/angelica/angelica-dual-flow.png",
+      "status": "SYM",
+      "availability": "MISSING"
+    },
+    {
+      "path": "/angelica/angelica-torus-topology.png",
+      "status": "SYM",
+      "availability": "MISSING"
+    },
+    {
+      "path": "/angelica/angelica-input-output.png",
+      "status": "SYM",
+      "availability": "MISSING"
+    }
+  ]
+}

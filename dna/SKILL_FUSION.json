@@ -1,0 +1,18 @@
+{
+  "status": "SYM",
+  "mode": "additive",
+  "date": "2026-10-13",
+  "face_lock": "untouched",
+  "default_face": "angelica",
+  "defaultSkills": ["beads", "trip-trapp-trull", "vr-asi-co-bot-team"],
+  "dolt": {
+    "unit": "table",
+    "graph": "commit -> database root -> table root -> prolly tree",
+    "sync": "bd dolt pull / bd dolt push",
+    "not": "git"
+  },
+  "physics_upi": {
+    "authority_here": false,
+    "pointer": "https://github.com/dpstudio-se/Universal-Physics-Index-UPI"
+  }
+}
