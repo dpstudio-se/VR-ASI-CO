@@ -44,7 +44,7 @@ Håll gränserna tydliga:
 3. **Dialogue orchestrator** – bygger en begäran och väljer en explicit adapter; returnerar status, provider/model och fel utan att fabricera svar.
 4. **Provider adapter** – interface för textgenerering, cancellation och timeout. Saknad provider ska returnera `UNAVAILABLE`, inte låtsas-svar.
 5. **Memory store** – separat, versionsmärkt, opt-in och redigerbar lagring. Visa vad som sparas, varför och hur det raderas/exporteras.
-6. **Boundary / consent layer** – tydliga användarval för flirt/romantik, rollspel, paus och gränser. Befintliga personas behåller sina nuvarande gränser.
+6. **Interaction preferences** – användaren väljer själv samtalsläge, ton och frivilliga personliga gränser. Companion Engine ska inte lägga in ett generellt vuxen-/sexrollspelsfilter eller tvinga fram separata rollspelslägen.
 7. **Multimodal adapters** – framtida separata gränssnitt för TTS, STT, avatar och VR. UI ska visa `NOT_CONFIGURED` tills en verklig adapter är ansluten.
 8. **Presentation** – ny Companion-route eller separat panel; håll persona command-deck intakt.
 
@@ -79,8 +79,8 @@ src/routes/companion.tsx
 - Skicka inte konversationsinnehåll till en extern provider utan tydlig provider-status och användarens medvetna åtgärd.
 - Lägg inte till auth/DB enbart för att skapa en demo. Cross-device-minne kräver ett separat beslut om konto, ägarskap, retention och serverauktorisering.
 - Inga guilt-/dependency-mönster, påtryckningar eller påståenden om att modellen är en levande människa.
-- Flirt/romantik och vuxet rollspel ska vara separata, uttryckligen valda lägen med gränser och paus. Minderåriga får aldrig förekomma i sexuella sammanhang.
-- Befintliga Angelica-, Emilia- och Luna-gränser gäller oförändrade. En ny Companion-profil är inte en tyst override av dem.
+- Ingen generell blockering av vuxen romantik eller sexuellt rollspel mellan vuxna. Användarens valda läge och frivilliga gränser styr interaktionen. Grundläggande skydd mot sexuellt innehåll med minderåriga, tvång och övergrepp kvarstår.
+- Persona-instruktionerna i `src/lib/cast.ts` har justerats i denna branch: generella avvisningar av sexuellt innehåll har tagits bort och interaktionsläget följer användarens val. Identitets-DNA och visuella FACE_LOCK-filer har inte ändrats.
 - Verktygsdeklaration är inte exekveringsrätt. Ingen provider, TTS, STT, avatar eller VR-adapter får markeras ACTIVE utan observerad funktion.
 
 ## 5. Implementationsordning
