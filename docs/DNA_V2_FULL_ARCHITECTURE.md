@@ -344,3 +344,19 @@ Recommended adoption sequence:
 - [ ] CI checks pass and all changed files are read back from the reviewed commit.
 
 **Current decision:** DRAFT / REVIEW REQUIRED. No canonical main update or runtime activation is implied.
+
+
+## 10. Scientific knowledge filesystem
+
+The scientific knowledge tree is implemented under `physics/`, organized by discipline and epistemic workflow rather than by persona. The complete directory contract is in `physics/README.md`.
+
+- `physics/foundations/`, `quantities/`, `constants/`, `laws/`, `theories/`, `models/`, `interactions/`, `fields/`, and `particles/` separate kinds of scientific knowledge.
+- `physics/domains/` groups domain-specific material such as quantum physics, relativity, thermodynamics, electromagnetism, statistical mechanics, geophysics, astrophysics, and biophysics.
+- `physics/experiments/` and `observations/` keep protocols and measurements distinct.
+- `physics/derivations/` stores explicit premise-to-result reasoning.
+- `physics/hypotheses/` stores falsifiable proposals, not accepted laws.
+- `physics/registry/` is the stable machine-readable claim index; `schemas/`, `tools/`, and `tests/` enforce record structure.
+
+The initial registry is `physics/registry/known-anchors.json`. It contains eight baseline records with per-claim status, scope, provenance, limitations, and (where applicable) derivation or falsification gates. `physics/schemas/claim.schema.json` defines the claim data contract. `physics/tools/validate-registry.mjs` and `physics/tests/registry.test.mjs` validate metadata and governance invariants; they do not prove physical truth.
+
+Do not create empty directories just to complete the diagram. Add a directory when there is real content to maintain. Keep one canonical record per claim and reference it by ID from other documents.
