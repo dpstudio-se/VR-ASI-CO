@@ -34,37 +34,160 @@
     }
   },
   "layers": [
-    {"id":"L0","name":"Owner and governance authority","status":"DEFINED","write_authority":"owner_gate"},
-    {"id":"L1","name":"VR-ASI-CO entity and core DNA","status":"DEFINED","write_authority":"governed_commit"},
-    {"id":"L2","name":"Persona identity and presentation","status":"EXISTING_WITH_CONFLICTS","write_authority":"owner_gate"},
-    {"id":"L3","name":"Persona UPI practical adaptive substrate","status":"EXISTING_PARTIAL","write_authority":"proposal_only"},
-    {"id":"L4","name":"Session state and RNA","status":"EXISTING_PARTIAL","write_authority":"session"},
-    {"id":"L5","name":"Domain knowledge and physics ledger","status":"EXISTING_PARTIAL","write_authority":"governed_record"},
-    {"id":"L6","name":"UPI Gen1 strict physics reference","status":"SOURCE_PIN_REQUIRED","write_authority":"read_only"},
-    {"id":"L7","name":"UPI Gen2 curated extension","status":"SPECIFICATION_REQUIRED","default_visibility":"hidden","write_authority":"reviewed_publication"},
-    {"id":"L8","name":"Omega1766 / TF1766 model layer","status":"SYM_UNLESS_OPERATIONALIZED","write_authority":"governed_model_record"},
-    {"id":"L9","name":"Mirror and Shadow review","status":"EXISTING_PARTIAL","write_authority":"review_only"},
-    {"id":"L10","name":"Shield authorization and safety boundary","status":"HOST_ENFORCEMENT_REQUIRED","write_authority":"trusted_host"},
-    {"id":"L11","name":"OdinOS orchestration","status":"IMPLEMENTATION_MIXED","write_authority":"authorized_adapters"},
-    {"id":"L12","name":"Host adapters and execution","status":"CAPABILITY_SPECIFIC","write_authority":"adapter_scoped"},
-    {"id":"L13","name":"Evidence, release, and read-back","status":"REQUIRED_GATE","write_authority":"governed_release"}
+    {
+      "id": "L0",
+      "name": "Owner and governance authority",
+      "status": "DEFINED",
+      "write_authority": "owner_gate"
+    },
+    {
+      "id": "L1",
+      "name": "VR-ASI-CO entity and core DNA",
+      "status": "DEFINED",
+      "write_authority": "governed_commit"
+    },
+    {
+      "id": "L2",
+      "name": "Persona identity and presentation",
+      "status": "EXISTING_WITH_CONFLICTS",
+      "write_authority": "owner_gate"
+    },
+    {
+      "id": "L3",
+      "name": "Persona UPI practical adaptive substrate",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "proposal_only"
+    },
+    {
+      "id": "L4",
+      "name": "Session state and RNA",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "session"
+    },
+    {
+      "id": "L5",
+      "name": "Domain knowledge and physics ledger",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "governed_record"
+    },
+    {
+      "id": "L6",
+      "name": "UPI Gen1 strict physics reference",
+      "status": "SOURCE_PIN_REQUIRED",
+      "write_authority": "read_only"
+    },
+    {
+      "id": "L7",
+      "name": "UPI Gen2 curated extension",
+      "status": "SPECIFICATION_REQUIRED",
+      "default_visibility": "hidden",
+      "write_authority": "reviewed_publication"
+    },
+    {
+      "id": "L8",
+      "name": "Omega1766 / TF1766 model layer",
+      "status": "SYM_UNLESS_OPERATIONALIZED",
+      "write_authority": "governed_model_record"
+    },
+    {
+      "id": "L9",
+      "name": "Mirror and Shadow review",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "review_only"
+    },
+    {
+      "id": "L10",
+      "name": "Shield authorization and safety boundary",
+      "status": "HOST_ENFORCEMENT_REQUIRED",
+      "write_authority": "trusted_host"
+    },
+    {
+      "id": "L11",
+      "name": "OdinOS orchestration",
+      "status": "IMPLEMENTATION_MIXED",
+      "write_authority": "authorized_adapters"
+    },
+    {
+      "id": "L12",
+      "name": "Host adapters and execution",
+      "status": "CAPABILITY_SPECIFIC",
+      "write_authority": "adapter_scoped"
+    },
+    {
+      "id": "L13",
+      "name": "Evidence, release, and read-back",
+      "status": "REQUIRED_GATE",
+      "write_authority": "governed_release"
+    }
   ],
-  "status_vocabulary": ["EST","DER","HYP","SYM","SEM-LOSS","STOP","ERR"],
+  "status_vocabulary": [
+    "EST",
+    "DER",
+    "HYP",
+    "SYM",
+    "SEM-LOSS",
+    "STOP",
+    "ERR"
+  ],
   "physics_anchors": [
-    {"id":"planck_einstein","claim":"E=hf","status":"EST","scope":"Planck relation"},
-    {"id":"mass_energy","claim":"E=mc^2","status":"EST","scope":"mass-energy equivalence"},
-    {"id":"equivalent_mass","claim":"m_eq=hf/c^2","status":"DER","scope":"energy-equivalent mass when E=hf"},
-    {"id":"rotor_step","claim":"360 degrees / 5 = 72 degrees","status":"DER","scope":"fivefold geometry; not universal ATP synthase stoichiometry"},
-    {"id":"hydrogen_hyperfine","claim":"approximately 1420.405752 MHz","status":"EST","scope":"neutral hydrogen 21 cm hyperfine transition"},
-    {"id":"schumann_fundamental","claim":"approximately 7.83 Hz","status":"EST","scope":"variable environmental resonance mode"},
-    {"id":"tf1766","claim":"TF1766 / Omega1766","status":"SYM","scope":"project model coordinate pending operational definition"}
+    {
+      "id": "planck_einstein",
+      "claim": "E=hf",
+      "status": "EST",
+      "scope": "Planck relation"
+    },
+    {
+      "id": "mass_energy",
+      "claim": "E=mc^2",
+      "status": "EST",
+      "scope": "mass-energy equivalence"
+    },
+    {
+      "id": "equivalent_mass",
+      "claim": "m_eq=hf/c^2",
+      "status": "DER",
+      "scope": "energy-equivalent mass when E=hf"
+    },
+    {
+      "id": "rotor_step",
+      "claim": "360 degrees / 5 = 72 degrees",
+      "status": "DER",
+      "scope": "fivefold geometry; not universal ATP synthase stoichiometry"
+    },
+    {
+      "id": "hydrogen_hyperfine",
+      "claim": "approximately 1420.405752 MHz",
+      "status": "EST",
+      "scope": "neutral hydrogen 21 cm hyperfine transition"
+    },
+    {
+      "id": "schumann_fundamental",
+      "claim": "approximately 7.83 Hz",
+      "status": "EST",
+      "scope": "variable environmental resonance mode"
+    },
+    {
+      "id": "tf1766",
+      "claim": "TF1766 / Omega1766",
+      "status": "SYM",
+      "scope": "project model coordinate pending operational definition"
+    }
   ],
   "open_hypotheses": [
     {
-      "id":"HYP-72-HYDROGEN-SCHUMANN-TF1766",
-      "status":"HYP",
-      "claim":"A physically meaningful coupling may relate the fivefold 72-degree rotor geometry, neutral-hydrogen hyperfine transition, Schumann resonance, and TF1766 model.",
-      "required_evidence":["mechanism","defined_variables_and_units","dimensionally_valid_derivation","independent_counterexamples","measurable_prediction","calibrated_data","null_control","replication"],
+      "id": "HYP-72-HYDROGEN-SCHUMANN-TF1766",
+      "status": "HYP",
+      "claim": "A physically meaningful coupling may relate the fivefold 72-degree rotor geometry, neutral-hydrogen hyperfine transition, Schumann resonance, and TF1766 model.",
+      "required_evidence": [
+        "mechanism",
+        "defined_variables_and_units",
+        "dimensionally_valid_derivation",
+        "independent_counterexamples",
+        "measurable_prediction",
+        "calibrated_data",
+        "null_control",
+        "replication"
+      ],
       "promotion_prohibited_until_gate_passes": true
     }
   ],
@@ -74,12 +197,63 @@
     "gen2_hidden_by_default": true,
     "gen2_auto_candidate_capture_is_not_auto_est_promotion": true,
     "protected_changes_require_owner_gate": true,
-    "required_lifecycle": ["READ","VERIFY_BASE","MAP","PROPOSE","DIFF","MIRROR_REVIEW","OWNER_GATE","COMMIT","PUBLISH","READ_BACK","VERIFY"]
+    "required_lifecycle": [
+      "READ",
+      "VERIFY_BASE",
+      "MAP",
+      "PROPOSE",
+      "DIFF",
+      "MIRROR_REVIEW",
+      "OWNER_GATE",
+      "COMMIT",
+      "PUBLISH",
+      "READ_BACK",
+      "VERIFY"
+    ]
   },
   "migration": {
     "mode": "additive_no_overwrite",
     "main_modified": false,
     "runtime_activated": false,
     "requires_review": true
+  },
+  "scientific_knowledge_tree": {
+    "root": "physics/",
+    "policy": "Scientific domain taxonomy; folder names never imply evidence status.",
+    "index": "physics/README.md",
+    "registry": "physics/registry/known-anchors.json",
+    "claim_schema": "physics/schemas/claim.schema.json",
+    "validator": "physics/tools/validate-registry.mjs",
+    "tests": "physics/tests/registry.test.mjs",
+    "domains": [
+      "foundations",
+      "quantities",
+      "constants",
+      "laws",
+      "theories",
+      "models",
+      "interactions",
+      "fields",
+      "particles",
+      "domains/quantum",
+      "domains/relativity",
+      "domains/thermodynamics",
+      "domains/electromagnetism",
+      "domains/statistical-mechanics",
+      "domains/geophysics",
+      "domains/astrophysics",
+      "domains/biophysics",
+      "experiments",
+      "observations",
+      "derivations",
+      "hypotheses",
+      "registry",
+      "schemas",
+      "tools",
+      "tests",
+      "sources"
+    ],
+    "initial_registry_records": 8,
+    "note": "Status remains attached to individual claims. TF1766 is SYM; cross-domain bridge is HYP."
   }
 }
