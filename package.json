@@ -16,7 +16,7 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts src/lib/upi/agent-boot-mirror.test.ts src/lib/upi/einstein.test.ts src/lib/upi/hydrate.test.ts src/lib/upi/information-cooling.test.ts src/lib/upi/omega1766.test.ts src/lib/companion/memory-store.test.ts",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts src/lib/upi/agent-boot-mirror.test.ts src/lib/upi/einstein.test.ts src/lib/upi/hydrate.test.ts src/lib/upi/information-cooling.test.ts src/lib/upi/omega1766.test.ts src/lib/companion/memory-store.test.ts && npm run test:upi:gen2",
     "lint": "eslint .",
     "format": "prettier --write .",
     "verify:persona": "node scripts/verify-persona-lock.mjs",
@@ -30,7 +30,9 @@
     "test:repo-audit": "node --test scripts/audit-repository.test.mjs",
     "test:workspace": "node --test scripts/startup.test.mjs",
     "workspace:check": "npm run verify:dna && npm run audit:repo && npm run test:workspace",
-    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check"
+    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check",
+    "upi:gen2:validate": "node upi/gen2/physics/tools/validate-registry.mjs",
+    "test:upi:gen2": "node --test upi/gen2/physics/tests/registry.test.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
