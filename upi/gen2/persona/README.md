@@ -10,3 +10,6 @@ It can maintain:
 - evidence-linked lessons from successful and unsuccessful work.
 
 A pattern is scoped to its context and remains revisable. Do not infer sensitive psychological diagnoses or treat a conversational pattern as a clinical fact. Persona records do not independently establish physical laws or override protected identity.
+
+
+Machine-readable observation contract: `upi/gen2/persona/schemas/experience.schema.json`. Store Persona observations and candidate patterns with provenance and links to Fysik claim IDs; do not duplicate physics claims in Persona records.
