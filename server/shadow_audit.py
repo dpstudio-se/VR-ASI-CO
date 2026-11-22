@@ -13,6 +13,8 @@ from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from server.shadow_audit_rotate import rotate_audit_reports
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_ROOT = REPO_ROOT / "artifacts"
 QUARANTINE_DIR = ARTIFACT_ROOT / "router-quarantine"
@@ -394,6 +396,11 @@ def process_pending_jobs() -> int:
         if report.get("audited_at_utc"):
             processed += 1
             LOGGER.info("job=%s status=%s", job_id, report["status"])
+    # Additive: rotate after processing so live reports stay bounded.
+    try:
+        rotate_audit_reports(audit_dir)
+    except OSError as exc:
+        LOGGER.warning("rotation skipped: %s", exc)
     return processed
 
 
