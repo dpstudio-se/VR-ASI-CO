@@ -23,6 +23,7 @@ on:
       - "startup.sh"
       - "scripts/**"
       - "src/**"
+      - "upi/**"
       - "package.json"
       - "package-lock.json"
       - "docs/CODESPACES.md"
