@@ -1,11 +1,14 @@
 # UPI Gen2 — VR-ASI-CO internal knowledge architecture
 
-UPI Gen2 lives inside VR-ASI-CO. It is composed of two cooperating subsystems: UPI Fysik and UPI Persona. This directory is the canonical home for Gen2 records and code.
+UPI Gen2 lives inside the priority-1 repository VR-ASI-CO. It has two cooperating subsystems:
 
-- `physics/`: physics knowledge, models, evidence and falsifiable research.
-- `persona/`: practical experience, behavioral patterns, feedback and interaction models.
-- `links/`: traceable cross-domain links between records in the two subsystems.
+- `upi/gen2/physics/` — UPI Fysik: practical, adaptive physics knowledge with explicit evidence and provenance.
+- `upi/gen2/persona/` — UPI Persona: experience, persona, behavior/workflow patterns, feedback and contextual learning.
+- `upi/gen2/links/` — typed links between Persona observations and Fysik claims.
+- `upi/gen2/learning/` — shared learning lifecycle and review gates.
 
-Gen2 can learn automatically by capturing observations and creating candidates. Consolidation and status promotion require explicit evidence and review. Persona experience may inform physics research but is not itself proof of a physical law. Physics models may inform persona interpretation but do not define identity.
+Gen2 learns from both UPI Fysik and UPI Persona. Persona can surface practical patterns and candidate relationships; Fysik formalizes, tests and models physical interpretations; reviewed Fysik knowledge can then improve Persona's contextual models.
 
-UPI Gen1 is not stored here. It remains the independent fallback/reference repository: `dpstudio-se/Universal-Physics-Index-UPI`.
+UPI Gen1 is a separate repository and strict-physics fallback/reference only: `dpstudio-se/Universal-Physics-Index-UPI`. It is used if Gen2 is unavailable, corrupted, inconsistent or needs strict cross-checking. Gen1 does not own VR-ASI-CO identity and is never automatically overwritten by Gen2.
+
+Automatic learning means capture and candidate generation when the runtime supports it. Review, provenance, privacy, correction, and evidence gates remain mandatory. Repeated experience is valuable evidence for practical learning, but is not by itself proof of a universal physical law.
