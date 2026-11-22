@@ -82,3 +82,7 @@ node --test physics/tests/*.test.mjs
 ```
 
 These checks validate structure and metadata only. They do not establish the truth of a physical claim.
+
+## Repository placement in VR-ASI-CO
+
+The shared `physics/` directory at the repository root holds common claim registry, schemas, and validation tools. The active UPI Gen2 physics knowledge subsystem lives at `upi/gen2/physics/`. Its companion learning subsystem is `upi/gen2/persona/`, with typed cross-links in `upi/gen2/links/`. UPI Gen1 is a separate repository (`dpstudio-se/Universal-Physics-Index-UPI`) and is used as strict-physics fallback/reference; it is not a subfolder of Gen2 and is never automatically modified.
