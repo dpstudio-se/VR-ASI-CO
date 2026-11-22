@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/dpstudio-se/VR-ASI-CO/blob/main/physics/schemas/claim.schema.json",
+  "$id": "https://github.com/dpstudio-se/VR-ASI-CO/blob/main/upi/gen2/physics/schemas/claim.schema.json",
   "title": "VR-ASI-CO Scientific Claim",
   "type": "object",
   "required": ["id", "statement", "status", "domain", "scope", "sources", "limitations"],
