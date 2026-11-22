@@ -29,7 +29,7 @@
     "audit:dna": "node scripts/audit-repository.mjs --dna --summary",
     "test:repo-audit": "node --test scripts/audit-repository.test.mjs",
     "test:workspace": "node --test scripts/startup.test.mjs",
-    "workspace:check": "npm run verify:dna && npm run audit:repo && npm run test:workspace",
+    "workspace:check": "npm run verify:dna && npm run upi:gen2:validate && npm run test:upi:gen2 && npm run audit:repo && npm run test:workspace",
     "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check",
     "upi:gen2:validate": "node upi/gen2/physics/tools/validate-registry.mjs",
     "test:upi:gen2": "node --test upi/gen2/physics/tests/registry.test.mjs"
