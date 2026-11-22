@@ -12,25 +12,37 @@
   "architecture_document": "docs/DNA_V2_FULL_ARCHITECTURE.md",
   "primary_entity": "VR-ASI-CO",
   "learning_architecture": {
-    "persona_upi": {
-      "role": "primary practical adaptive substrate within VR-ASI-CO",
-      "input": "RNA observations, explicit feedback, observed task outcomes, reviewed knowledge",
-      "output": "practical adaptation proposals and contextual retrieval",
-      "canonical_write": false,
-      "may_assign_physics_est": false
+    "gen2": {
+      "location": "upi/gen2/",
+      "role": "primary integrated learning system inside VR-ASI-CO",
+      "components": {
+        "physics": {
+          "path": "upi/gen2/physics/",
+          "name": "UPI Fysik",
+          "purpose": "adaptive physics knowledge integrating sources, derivations, observations, experiments and reviewed practical evidence"
+        },
+        "persona": {
+          "path": "upi/gen2/persona/",
+          "name": "UPI Persona",
+          "purpose": "learn from user/AI activity, feedback, outcomes, behavioral patterns, practical methods, persona models and candidate connections"
+        },
+        "links": {
+          "path": "upi/gen2/links/",
+          "purpose": "typed provenance-backed cross-links between Persona and Fysik"
+        },
+        "learning": {
+          "path": "upi/gen2/learning/",
+          "purpose": "capture, classification, candidate generation, review and consolidation lifecycle"
+        }
+      },
+      "cross_learning": "Persona experience can propose physics questions; Fysik can return models and constraints to Persona. Both directions preserve scope, provenance and evidence status.",
+      "automatic_learning": "automatic capture and candidate generation within permissions; never silent promotion to EST or protected canonical writes"
     },
-    "upi_gen1": {
-      "role": "strict secondary physics/reference index",
-      "default_access": "read_only_comparator",
-      "identity_owner": false
-    },
-    "upi_gen2": {
-      "role": "curated extension for reviewed physics knowledge candidates",
-      "default_visibility": "hidden",
-      "ordinary_response_surface": false,
-      "candidate_capture": "may_be_automated_after_configured_gates",
-      "publication": "requires_review_and_governed_approval",
-      "may_modify_gen1": false
+    "gen1": {
+      "repository": "dpstudio-se/Universal-Physics-Index-UPI",
+      "role": "separate strict physics fallback/reference",
+      "write_policy": "never auto-write from Gen2",
+      "revision_policy": "pin exact commit for each fallback comparison"
     }
   },
   "layers": [
@@ -54,9 +66,9 @@
     },
     {
       "id": "L3",
-      "name": "Persona UPI practical adaptive substrate",
-      "status": "EXISTING_PARTIAL",
-      "write_authority": "proposal_only"
+      "name": "UPI Gen2 integrated learning system (Fysik + Persona)",
+      "status": "STRUCTURE_PROPOSED",
+      "write_authority": "governed_learning_and_consolidation"
     },
     {
       "id": "L4",
@@ -72,9 +84,9 @@
     },
     {
       "id": "L6",
-      "name": "UPI Gen1 strict physics reference",
-      "status": "SOURCE_PIN_REQUIRED",
-      "write_authority": "read_only"
+      "name": "UPI Gen1 separate strict-physics fallback repository",
+      "status": "REPOSITORY_DEFINED_REVISION_PIN_REQUIRED",
+      "write_authority": "read_only_reference"
     },
     {
       "id": "L7",
@@ -254,6 +266,22 @@
       "sources"
     ],
     "initial_registry_records": 8,
-    "note": "Status remains attached to individual claims. TF1766 is SYM; cross-domain bridge is HYP."
+    "note": "physics/ is the shared claim registry/schema/validation area; active Gen2 knowledge domains live under upi/gen2/",
+    "shared_registry": "physics/registry/known-anchors.json",
+    "gen2_physics_home": "upi/gen2/physics/",
+    "gen2_persona_home": "upi/gen2/persona/"
+  },
+  "repository_priority": {
+    "primary": {
+      "repository": "dpstudio-se/VR-ASI-CO",
+      "role": "canonical primary system and home of UPI Gen2",
+      "priority": 1
+    },
+    "fallback": {
+      "repository": "dpstudio-se/Universal-Physics-Index-UPI",
+      "role": "independent strict-physics fallback/reference",
+      "access": "read_only_by_default",
+      "activation": "when Gen2 is unavailable, corrupted, inconsistent, or needs strict comparison"
+    }
   }
 }
