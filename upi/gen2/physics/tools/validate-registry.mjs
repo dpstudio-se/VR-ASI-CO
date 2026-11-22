@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const registryPath = resolve("physics/registry/known-anchors.json");
+const registryPath = resolve("upi/gen2/physics/registry/known-anchors.json");
 const allowed = new Set(["EST", "DER", "HYP", "SYM", "SEM-LOSS", "STOP", "ERR"]);
 
 function fail(message) {
