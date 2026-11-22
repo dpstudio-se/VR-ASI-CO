@@ -408,3 +408,28 @@ Do not create empty directories just to complete a diagram. Add a directory when
 - UPI Gen1 is the independent fallback repository: `dpstudio-se/Universal-Physics-Index-UPI`.
 - Fallback is read-only by default, revision-pinned, and used when Gen2 is unavailable, suspect, or needs a strict reference comparison.
 - Gen2 learns from both subsystems. Persona observations can become physics research candidates; physics constraints/models can inform persona interpretation. Neither side can silently rewrite the other's canonical records.
+
+
+## 11. Gen2 runtime readiness and implementation sequence
+
+The runtime contract is maintained at `upi/gen2/learning/GEN2_RUNTIME_CONTRACT.md`; event and health contracts are versioned JSON Schemas alongside it.
+
+The architecture must be delivered in stages rather than treating a folder map as a running learning system:
+
+1. **Contracts and deterministic checks:** event envelope, health state, physics claim schema, registry validator and CI entry points.
+2. **Durable event ledger:** authenticated event intake, append-only storage, idempotency, digest verification, migrations, backups and read-back.
+3. **Persona integration:** adapt the bounded RNA proposal engine to consume permitted ledger events; preserve its no-DNA-write boundary until review.
+4. **Fysik integration:** resolve claim references, validate units/dimensions, store derivations and evidence, track contradictions and falsification.
+5. **Cross-learning:** typed links and controlled return of reviewed findings between Persona and Fysik.
+6. **Gen1 fallback adapter:** pinned commit reads, integrity checks, explicit fallback labels, outage handling and reconciliation.
+7. **Operational admission:** authenticated host adapter, health endpoint, monitoring, recovery drills and end-to-end acceptance tests.
+
+### Current readiness classification
+
+- **Specified:** Gen2 two-subsystem architecture, learning lifecycle, event envelope, health contract, Gen1 fallback policy and governance boundaries.
+- **Existing groundwork:** bounded Persona RNA learning, local replay, physics claim registry, boot provenance checks and companion memory (not the Gen2 canonical ledger).
+- **Added in this proposal:** canonical Gen2 physics tree, event/health schemas, runtime contract, registry validator path correction, test commands and CI path filters.
+- **Not yet implemented:** durable canonical event ledger, production event intake, cross-learning worker, Fysik model/claim service, automatic Gen1 failover controller, operational health endpoint and authenticated host runtime admission.
+- **Not yet verified:** repository CI, full test suite, deployment, autonomous capture, failover drills and end-to-end durable read-back.
+
+A capability may be labelled RUNNING only when runtime health evidence and a verified read-back demonstrate it. Until then use PLANNED, SPECIFIED or IMPLEMENTATION_PARTIAL.
