@@ -77,15 +77,15 @@ Pin source title, author/institution, DOI/URL, publication/version/date, retriev
 Run:
 
 ```sh
-node physics/tools/validate-registry.mjs
-node --test physics/tests/*.test.mjs
+npm run upi:gen2:validate
+npm run test:upi:gen2
 ```
 
 These checks validate structure and metadata only. They do not establish the truth of a physical claim.
 
 ## Repository placement in VR-ASI-CO
 
-The shared `physics/` directory at the repository root holds common claim registry, schemas, and validation tools. The active UPI Gen2 physics knowledge subsystem lives at `upi/gen2/physics/`. Its companion learning subsystem is `upi/gen2/persona/`, with typed cross-links in `upi/gen2/links/`. UPI Gen1 is a separate repository (`dpstudio-se/Universal-Physics-Index-UPI`) and is used as strict-physics fallback/reference; it is not a subfolder of Gen2 and is never automatically modified.
+This directory is the canonical UPI Gen2 Fysik subsystem inside the priority-1 VR-ASI-CO repository. Its companion learning subsystem is `upi/gen2/persona/`, with typed cross-links in `upi/gen2/links/` and runtime contracts in `upi/gen2/learning/`. UPI Gen1 is a separate repository (`dpstudio-se/Universal-Physics-Index-UPI`) and is used as strict-physics fallback/reference; it is not a subfolder of Gen2 and is never automatically modified.
 
 
-Canonical Gen2 Fysik register and validation tools are stored under this directory; the former top-level `physics/` staging path is transitional only.
+The canonical Gen2 Fysik registry and validation tools are stored under this directory.
