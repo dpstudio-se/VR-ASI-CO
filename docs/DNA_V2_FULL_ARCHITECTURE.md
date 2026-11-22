@@ -388,19 +388,18 @@ Recommended adoption sequence:
 
 ## 10. Scientific knowledge filesystem
 
-The scientific knowledge tree is implemented under `physics/`, organized by discipline and epistemic workflow rather than by persona. The complete directory contract is in `physics/README.md`.
+The canonical scientific knowledge tree for UPI Gen2 lives under `upi/gen2/physics/`, inside the priority-1 VR-ASI-CO repository. The companion practical/persona tree lives under `upi/gen2/persona/`; cross-links live under `upi/gen2/links/`, and shared learning workflow contracts under `upi/gen2/learning/`.
 
-- `physics/foundations/`, `quantities/`, `constants/`, `laws/`, `theories/`, `models/`, `interactions/`, `fields/`, and `particles/` separate kinds of scientific knowledge.
-- `physics/domains/` groups domain-specific material such as quantum physics, relativity, thermodynamics, electromagnetism, statistical mechanics, geophysics, astrophysics, and biophysics.
-- `physics/experiments/` and `observations/` keep protocols and measurements distinct.
-- `physics/derivations/` stores explicit premise-to-result reasoning.
-- `physics/hypotheses/` stores falsifiable proposals, not accepted laws.
-- `physics/registry/` is the stable machine-readable claim index; `schemas/`, `tools/`, and `tests/` enforce record structure.
+The Fysik tree follows scientific disciplines and evidence workflows:
+- `foundations/`, `quantities/`, `constants/`, `laws/`, `theories/`, `models/`, `interactions/`, `fields/`, and `particles/` separate types of scientific knowledge.
+- `domains/` groups domain-specific material (quantum physics, relativity, thermodynamics, electromagnetism, statistical mechanics, geophysics, astrophysics and biophysics).
+- `experiments/` and `observations/` keep protocols and measurements distinct.
+- `derivations/` stores premise-to-result reasoning; `hypotheses/` stores falsifiable proposals, not accepted laws.
+- `registry/` is the stable machine-readable claim index; `schemas/`, `tools/`, and `tests/` enforce record structure; `sources/` stores provenance.
 
-The initial registry is `physics/registry/known-anchors.json`. It contains eight baseline records with per-claim status, scope, provenance, limitations, and (where applicable) derivation or falsification gates. `physics/schemas/claim.schema.json` defines the claim data contract. `physics/tools/validate-registry.mjs` and `physics/tests/registry.test.mjs` validate metadata and governance invariants; they do not prove physical truth.
+The initial registry is `upi/gen2/physics/registry/known-anchors.json`. It contains eight baseline records with per-claim status, scope, provenance, limitations and (where applicable) derivation or falsification gates. The claim schema, deterministic validator and tests are stored beside it. Persona observations use `upi/gen2/persona/schemas/experience.schema.json`. Links between subsystems use stable record IDs and never change evidence status automatically.
 
-Do not create empty directories just to complete the diagram. Add a directory when there is real content to maintain. Keep one canonical record per claim and reference it by ID from other documents.
-
+Do not create empty directories just to complete a diagram. Add a directory when there is real content to maintain. Keep one canonical record per claim and reference it by ID from other documents.
 
 ## 10. Corrected repository priority and Gen2 topology
 
