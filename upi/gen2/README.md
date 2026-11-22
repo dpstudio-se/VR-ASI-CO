@@ -1,10 +1,10 @@
 # UPI Gen2
 
-Primary evolving knowledge system inside VR-ASI-CO.
+Primary evolving knowledge system inside VR-ASI-CO. UPI Gen2 is composed of UPI Fysik and UPI Persona; it is not the separate Gen1 repository.
 
 ## Components
-- `physics/` — UPI Fysik
-- `persona/` — UPI Persona
+- `physics/` — UPI Fysik, canonical scientific tree with registry, schemas, tools and tests
+- `persona/` — UPI Persona, experience learning and observation schemas
 - `links/` — cross-learning and traceable candidate relationships
 
 ## Learning loop
