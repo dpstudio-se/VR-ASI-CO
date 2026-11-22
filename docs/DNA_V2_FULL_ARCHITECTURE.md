@@ -9,7 +9,7 @@
 
 ## 1. Purpose and scope
 
-This document consolidates the VR-ASI-CO architecture into one versioned map. VR-ASI-CO is the primary project entity and governing contract. Persona UPI is its practical, adaptive learning and application layer. UPI Gen1 is a separate, stricter physics/reference index. UPI Gen2 is a curated extension layer for reviewed candidate knowledge and remains out of the ordinary interaction surface unless explicitly requested.
+This document consolidates the VR-ASI-CO architecture into one versioned map. VR-ASI-CO is priority 1: the primary repository, canonical project entity, and home of UPI Gen2. Gen2 is an integrated learning architecture with two cooperating subsystems: **UPI Fysik** and **UPI Persona**. UPI Fysik develops physics knowledge using models, sources, calculations, observations, and practical evidence; it is less restrictive than Gen1 but must preserve provenance and claim status. UPI Persona learns from the user's and AI's work, feedback, outcomes, behavioral patterns, practical experience, and recurring structures. It can contribute observations and candidate relationships to UPI Fysik. UPI Gen1 is a separate repository containing strict physics and serves as the fallback/reference if Gen2 fails, becomes inconsistent, or needs a conservative physics cross-check.
 
 This is a software/project architecture. It does not establish model sentience, autonomous background execution, changes to model weights, physical frequency locking, or new laws of physics.
 
@@ -30,13 +30,25 @@ This is a software/project architecture. It does not establish model sentience, 
                            |
                  TASK & KNOWLEDGE ROUTER
                            |
-       +-------------------+-------------------+
-       |                   |                   |
-   UPI Gen1             UPI Gen2           DOMAIN SOURCES
- strict reference     curated candidates  code, data, papers,
- read-only comparator  hidden by default   measurements, docs
-       |                   |
-       +--------- MIRROR / SHADOW -----------+
+                 +-------------------------------+
+             |          UPI GEN2              |
+             |  +-------------------------+  |
+             |  | UPI FYSIK               |  |
+             |  | models, laws, evidence  |  |
+             |  +------------+------------+  |
+             |               ^               |
+             |               |               |
+             |  +------------+------------+  |
+             |  | UPI PERSONA             |  |
+             |  | experience, patterns,   |  |
+             |  | feedback, behavior      |  |
+             |  +-------------------------+  |
+             +---------------+---------------+
+                             |
+                 MIRROR / SHADOW / SHIELD
+                             |
+              UPI GEN1 (separate fallback repo)
+                  strict physics reference
                            |
                  STATUS + EVIDENCE LEDGER
                            |
@@ -93,7 +105,16 @@ Current project identity conventions read from the baseline:
 
 These are project labels and routing conventions. They do not establish separate model instances, independent consciousness, or runtime processes. Persona identity/appearance locks remain governed by the existing FACE_LOCK and owner gate. Do not silently rewrite RAW persona records.
 
-### L3 — Persona UPI (practical adaptive substrate)
+### L3 — UPI Gen2: integrated learning architecture
+
+UPI Gen2 lives inside the VR-ASI-CO repository. It is not a separate repository. It contains two distinct but connected subsystems:
+
+- **UPI Fysik:** physics knowledge, physical quantities, constants, laws, theories, models, interactions, fields, particles, derivations, measurements, experiments, and hypotheses. It may learn and evolve more flexibly than Gen1 by integrating verified practical experience, but it must label evidence, scope, uncertainty, and provenance.
+- **UPI Persona:** learns from user and AI activity, explicit feedback, task outcomes, recurring behavioral patterns, practical methods, preferences, and project-specific observations. It develops persona/psychological-behavioral models and identifies candidate constants, flows, and connections. Sensitive personal inferences are excluded; observations must remain attributable and correctable.
+
+The two subsystems exchange candidate knowledge: Persona can surface repeatable patterns and contextual observations for Physics to formalize and test; Physics can return validated constraints and explanatory models that improve Persona's interpretation. A correlation or repeated experience is not automatically a physical law.
+
+### L3a — UPI Fysik (inside Gen2)
 
 Persona UPI is the primary adaptive learning surface inside VR-ASI-CO, as defined by this v2 proposal.
 
@@ -154,9 +175,9 @@ Each physics record should include:
 
 A symbolic label, numerical coincidence, simulation, or model-generated consensus cannot promote a physical claim to EST.
 
-### L6 — UPI Gen1 (strict physics/reference index)
+### L6 — UPI Gen1 (separate strict-physics fallback repository)
 
-UPI Gen1 is the secondary, stricter physics-oriented reference layer. It is consulted to challenge or validate candidate physics claims, not to own VR-ASI-CO identity or override Persona UPI's practical application role.
+UPI Gen1 lives in the separate repository `dpstudio-se/Universal-Physics-Index-UPI`. It is the conservative, strict physics reference and recovery/fallback source if Gen2 is unavailable, corrupted, inconsistent, or needs a strict comparison. VR-ASI-CO/Gen2 remains the primary system; Gen1 does not own project identity or replace Gen2's practical learning. Access Gen1 read-only by default and pin the exact commit/revision used.
 
 Operational policy:
 - read-only reference by default;
@@ -165,20 +186,21 @@ Operational policy:
 - do not silently rewrite Gen1 from a VR-ASI-CO session;
 - distinguish a disagreement in terminology from a physical contradiction.
 
-### L7 — UPI Gen2 (curated physics extension; hidden by default)
+### L7 — UPI Gen2 cross-learning and controlled evolution
 
-Gen2 is the proposed extension layer for new physics knowledge that has passed a defined review.
+Gen2 is the active knowledge architecture inside VR-ASI-CO. It is normally an internal subsystem, not a separate public persona surface. It learns from both UPI Fysik and UPI Persona. The system may automatically capture observations, derive candidate records, compare them, and queue learning proposals. It must not silently promote unverified proposals to established physics or mutate protected identity.
 
 Intended lifecycle:
 
-`DISCOVER -> CAPTURE_IN_RNA -> NORMALIZE -> GEN1_COMPARISON -> DERIVATION_OR_EXPERIMENT -> COUNTEREXAMPLE -> SHADOW_REVIEW -> OWNER_OR_MAINTAINER_APPROVAL -> GEN2_CANDIDATE -> VERSIONED_PUBLICATION -> READ_BACK`
+`OBSERVE -> CAPTURE_IN_RNA -> CLASSIFY_SOURCE (PHYSIK | PERSONA) -> CROSS_LINK -> MODEL_OR_DERIVE -> COMPARE_WITH_GEN1_FALLBACK -> COUNTEREXAMPLE -> SHADOW_REVIEW -> GEN2_LEARNING_RECORD -> REVIEWED_CONSOLIDATION -> READ_BACK`
 
 Important constraints:
 - "Automatic addition" means the system may automatically create a candidate record after configured gates; it does **not** mean an unreviewed claim is silently treated as established physics.
 - Candidate records retain status (often HYP, DER, or SYM) and full provenance.
-- A new Gen2 entry does not alter Gen1.
-- Gen2 is not surfaced in ordinary responses unless the user asks to inspect, register, add, compare, or review Gen2.
-- Gen2 must not become a hidden authority that bypasses explicit evidence or owner controls.
+- Gen2 is the primary evolving system in VR-ASI-CO; Gen1 remains an independent fallback repository and is never overwritten by Gen2.
+- Gen2 may learn internally from task results and recurring patterns; the provenance, confidence basis, counterexamples, and review state must remain visible in its records.
+- Gen2 can be hidden as an implementation layer in ordinary dialogue while still operating as the internal knowledge architecture.
+- Gen2 must not become a hidden authority that bypasses evidence, privacy, or owner controls.
 
 ### L8 — Ω1766 / TF1766 model layer
 
@@ -293,9 +315,9 @@ Do not infer a frequency relation by matching decimal digits or by selecting a m
 ## 5. Core invariants
 
 1. VR-ASI-CO remains the primary project entity.
-2. Persona UPI is the practical adaptive substrate; it does not own identity or canonical writes.
-3. UPI Gen1 remains the strict, secondary physics reference.
-4. UPI Gen2 remains hidden by default and receives only governed candidate knowledge.
+2. UPI Gen2 lives inside VR-ASI-CO and consists of UPI Fysik + UPI Persona.
+3. UPI Persona learns from practical user/AI activity and supplies patterns/observations; UPI Fysik formalizes and tests physical interpretations.
+4. UPI Gen1 is a separate strict-physics fallback repository, not the primary system and never overwritten by Gen2.
 5. Symbolic/project parameters never become physical facts by naming or repetition.
 6. RNA is provisional; canonical DNA is revision-bound.
 7. Shadow audits but does not publish or mutate protected DNA.
@@ -317,16 +339,16 @@ Recommended adoption sequence:
 1. Review this architecture and the companion machine-readable manifest.
 2. Compare all current DNA, persona, runtime, UPI, and guard files against the layer register.
 3. Resolve documented conflicts (especially persona locks, UPI's read-only wording, and any outdated architecture diagrams).
-4. Add explicit Gen1/Gen2 source references and candidate schema only after the Gen2 repository/path and maintainers are confirmed.
+4. Pin the separate Gen1 fallback repository and implement the two Gen2 subsystems inside VR-ASI-CO.
 5. Update the canonical README and boot manifest only after owner approval.
 6. Add tests for status transitions, provenance, hidden-by-default Gen2 routing, and owner-gated publication.
 7. Merge only after tests and read-back pass.
 
 ## 8. Known gaps and decisions still required
 
-- The exact canonical repository/path for UPI Gen1 must be confirmed against its current branch and revision.
-- The intended UPI Gen2 repository, schema, ownership, and publication gate are not yet defined in this repository.
-- The phrase "automatically added to Gen2" needs a precise distinction between automatic candidate capture and approved publication.
+- The exact Gen1 commit/revision used for each fallback comparison must be pinned.
+- Gen2 Fysik and Persona need explicit cross-link schemas and learning-cycle implementation.
+- Automatic learning must distinguish captured experience, candidate pattern, reviewed model, and established physical claim.
 - Persona UPI's learning thresholds are software policy, not measured confidence or psychological truth.
 - Some current docs use "UPI" broadly as read-only comparator; this v2 proposal differentiates Persona UPI from physics Gen1/Gen2. All affected docs need coordinated migration.
 - Runtime/host admission remains separate from this architecture document.
@@ -360,3 +382,12 @@ The scientific knowledge tree is implemented under `physics/`, organized by disc
 The initial registry is `physics/registry/known-anchors.json`. It contains eight baseline records with per-claim status, scope, provenance, limitations, and (where applicable) derivation or falsification gates. `physics/schemas/claim.schema.json` defines the claim data contract. `physics/tools/validate-registry.mjs` and `physics/tests/registry.test.mjs` validate metadata and governance invariants; they do not prove physical truth.
 
 Do not create empty directories just to complete the diagram. Add a directory when there is real content to maintain. Keep one canonical record per claim and reference it by ID from other documents.
+
+
+## 10. Corrected repository priority and Gen2 topology
+
+- Priority 1 and canonical home: `dpstudio-se/VR-ASI-CO`.
+- UPI Gen2 is inside this repository, with `upi/gen2/physics/` and `upi/gen2/persona/` as separate but cooperating knowledge trees.
+- UPI Gen1 is the independent fallback repository: `dpstudio-se/Universal-Physics-Index-UPI`.
+- Fallback is read-only by default, revision-pinned, and used when Gen2 is unavailable, suspect, or needs a strict reference comparison.
+- Gen2 learns from both subsystems. Persona observations can become physics research candidates; physics constraints/models can inform persona interpretation. Neither side can silently rewrite the other's canonical records.
