@@ -30,7 +30,8 @@
             "reviewed_persona_patterns"
           ],
           "rigor": "evidence_and_provenance_required; less restrictive than Gen1; never silently promotes hypotheses",
-          "fallback": "UPI Gen1 separate repository"
+          "fallback": "UPI Gen1 separate repository",
+          "canonical_path": "upi/gen2/physics/"
         },
         "upi_persona": {
           "role": "experience, persona and pattern learning subsystem",
@@ -56,13 +57,16 @@
             "counterexamples",
             "user_correction",
             "privacy_and_consent"
-          ]
+          ],
+          "canonical_path": "upi/gen2/persona/"
         }
       },
       "cross_learning": "UPI Persona surfaces practical patterns and experience; UPI Fysik formalizes, models, tests and returns constrained knowledge. Both subsystems may learn from each other's reviewed records.",
       "visibility": "internal_hidden_layer_by_default",
       "learning": "automatic_observation_capture_and_candidate_generation_when_runtime_supports_it",
-      "publication": "reviewed_and_versioned; no unverified promotion to EST"
+      "publication": "reviewed_and_versioned; no unverified promotion to EST",
+      "cross_link_path": "upi/gen2/links/",
+      "learning_lifecycle_path": "upi/gen2/learning/"
     },
     "gen1": {
       "repository": "dpstudio-se/Universal-Physics-Index-UPI",
@@ -270,13 +274,13 @@
     "gen2_is_inside_vr_asi_co": true
   },
   "scientific_knowledge_tree": {
-    "root": "physics/",
+    "root": "upi/gen2/physics/",
     "policy": "Scientific domain taxonomy; folder names never imply evidence status.",
-    "index": "physics/README.md",
-    "registry": "physics/registry/known-anchors.json",
-    "claim_schema": "physics/schemas/claim.schema.json",
-    "validator": "physics/tools/validate-registry.mjs",
-    "tests": "physics/tests/registry.test.mjs",
+    "index": "upi/gen2/physics/README.md",
+    "registry": "upi/gen2/physics/registry/known-anchors.json",
+    "claim_schema": "upi/gen2/physics/schemas/claim.schema.json",
+    "validator": "upi/gen2/physics/tools/validate-registry.mjs",
+    "tests": "upi/gen2/physics/tests/registry.test.mjs",
     "domains": [
       "foundations",
       "quantities",
@@ -314,5 +318,10 @@
   "repository_priority": [
     "dpstudio-se/VR-ASI-CO",
     "dpstudio-se/Universal-Physics-Index-UPI"
-  ]
+  ],
+  "persona_knowledge_tree": {
+    "root": "upi/gen2/persona/",
+    "index": "upi/gen2/persona/README.md",
+    "observation_schema": "upi/gen2/persona/schemas/experience.schema.json"
+  }
 }
