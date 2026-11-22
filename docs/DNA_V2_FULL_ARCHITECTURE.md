@@ -114,29 +114,47 @@ UPI Gen2 lives inside the VR-ASI-CO repository. It is not a separate repository.
 
 The two subsystems exchange candidate knowledge: Persona can surface repeatable patterns and contextual observations for Physics to formalize and test; Physics can return validated constraints and explanatory models that improve Persona's interpretation. A correlation or repeated experience is not automatically a physical law.
 
-### L3a — UPI Fysik (inside Gen2)
+### L3a — UPI Fysik (Gen2 subsystem)
 
-Persona UPI is the primary adaptive learning surface inside VR-ASI-CO, as defined by this v2 proposal.
+UPI Fysik is the physics knowledge subsystem inside Gen2 and inside VR-ASI-CO. It is designed to learn from both formal physics sources and tested practical experience. It is more adaptive than the strict Gen1 reference, but remains evidence-aware.
 
 Responsibilities:
-- translate explicit user feedback and observed task outcomes into practical working preferences;
-- preserve useful lessons, context, and domain-specific experience;
-- distinguish a one-off correction from a repeated, durable pattern;
-- adapt how a persona explains, plans, checks, and collaborates;
-- retrieve reviewed knowledge and approved episodic anchors when relevant;
-- record uncertainty and counterexamples rather than forcing agreement.
+- maintain quantities, dimensions, constants, relations, theories, models, mechanisms, experiments, observations, and hypotheses;
+- combine sourced physics with reproducible practical experience and task-derived observations;
+- distinguish measured evidence, mathematical derivation, model output, and experiential pattern;
+- accept candidate patterns from UPI Persona, then formalize and test them;
+- preserve uncertainty, scope, provenance, counterexamples, and revision history;
+- consult the separate UPI Gen1 repository as fallback when Gen2 is unavailable, corrupted, inconsistent, or requires a strict physics cross-check.
 
-Learning pipeline:
+UPI Fysik is not the Gen1 repository and does not replace it. Gen1 remains read-only by default and is never modified by Gen2.
 
-`OBSERVE -> RECORD -> CLASSIFY -> MODEL -> APPLY -> CHECK_RESULT -> REFLECT -> PROPOSE`
+### L3b — UPI Persona (Gen2 subsystem)
 
-Rules:
-1. Raw observations enter RNA first.
-2. A successful task demonstrates only the result within that task's scope.
-3. Repeated behavior can support a preference candidate; it does not prove a universal rule.
-4. Explicit owner direction may propose a durable preference, but identity-sensitive changes still use governance.
-5. Persona UPI may adapt practical behavior; it cannot promote physics claims to EST.
-6. Persona UPI does not write canonical DNA directly.
+UPI Persona is the experience-learning and persona-pattern subsystem inside Gen2 and inside VR-ASI-CO.
+
+It learns from:
+- explicit user feedback and corrections;
+- AI work performed, methods used, and task outcomes;
+- recurring practical patterns and repeatable workflows;
+- contextual observations and project-specific behavior;
+- reviewed findings returned by UPI Fysik.
+
+It may model persona preferences, behavioral/psychological patterns, project constants, flows, and candidate connections. Such models are working interpretations, not clinical diagnoses or universal facts. Sensitive inferences must be minimized, attributable, correctable, and governed by privacy and consent.
+
+Its output to UPI Fysik is a structured candidate containing context, observations, repeat count, counterexamples, confidence basis, provenance, and a proposed test. A pattern is not a physical law merely because it repeats.
+
+### L3c — Gen2 cross-learning loop
+
+`OBSERVE -> CAPTURE_RNA -> CLASSIFY (PHYSICS | PERSONA | TASK) -> CROSS_LINK -> MODEL -> TEST_OR_DERIVE -> COUNTEREXAMPLE -> SHADOW_REVIEW -> UPDATE_GEN2_CANDIDATE -> REVIEWED_LEARNING_RECORD`
+
+The two subsystems learn together:
+1. Persona notices recurring practical structure and submits a candidate pattern.
+2. Fysik checks whether it can be defined as quantities, relations, or a mechanism.
+3. Fysik returns established constraints and tested explanations to Persona.
+4. Both retain links to original observations and failed predictions.
+5. Gen1 is consulted as a separate strict fallback when needed.
+
+Automatic capture or candidate generation is an intended capability, not a claim that an always-on background learner is currently running. Runtime implementation and evidence are required before claiming autonomous operation.
 
 ### L4 — Session state and RNA
 
