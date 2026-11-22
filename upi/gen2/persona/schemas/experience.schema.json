@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dpstudio-se/VR-ASI-CO/blob/main/upi/gen2/persona/schemas/experience.schema.json",
+  "title": "UPI Persona Experience Observation",
+  "type": "object",
+  "required": ["id","source_type","observed_at","context","observation","scope","status","provenance"],
+  "properties": {
+    "id": {"type":"string","pattern":"^PER-[A-Z0-9._-]{4,100}$"},
+    "source_type": {"enum":["user_feedback","ai_task","task_outcome","workflow","contextual_observation","reviewed_physics"]},
+    "observed_at": {"type":"string","format":"date-time"},
+    "context": {"type":"string","minLength":3},
+    "observation": {"type":"string","minLength":3},
+    "scope": {"type":"string","minLength":3},
+    "status": {"enum":["OBSERVED","CANDIDATE","REVIEWED","REJECTED","SUPERSEDED"]},
+    "repeat_count": {"type":"integer","minimum":1},
+    "outcome": {"type":"string"},
+    "counterexamples": {"type":"array","items":{"type":"string"}},
+    "confidence_basis": {"type":"string"},
+    "related_physics_claims": {"type":"array","items":{"type":"string"}},
+    "proposed_test": {"type":"string"},
+    "provenance": {"type":"array","items":{"type":"string"},"minItems":1},
+    "privacy_basis": {"type":"string"},
+    "review": {"type":"object","properties":{"reviewer":{"type":"string"},"decision":{"enum":["PASS","REVISE","QUARANTINE","STOP"]},"date":{"type":"string","format":"date"}},"additionalProperties":false}
+  },
+  "additionalProperties": false
+}

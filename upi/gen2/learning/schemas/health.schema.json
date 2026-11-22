@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dpstudio-se/VR-ASI-CO/blob/main/upi/gen2/learning/schemas/health.schema.json",
+  "title": "UPI Gen2 Runtime Health",
+  "type": "object",
+  "required": ["schema_version","state","checked_at","gen2_revision","storage","persona","physics","fallback"],
+  "properties": {
+    "schema_version": {"const":"upi-gen2-health/1.0"},
+    "state": {"enum":["PLANNED","IMPLEMENTED","RUNNING","DEGRADED","STOPPED"]},
+    "checked_at": {"type":"string","format":"date-time"},
+    "runtime_build": {"type":"string"},
+    "gen2_revision": {"type":"string"},
+    "last_verified_readback": {"type":"string","format":"date-time"},
+    "event_queue_depth": {"type":"integer","minimum":0},
+    "storage": {"type":"object","required":["state"],"properties":{"state":{"enum":["HEALTHY","READ_ONLY","CORRUPT","UNAVAILABLE","NOT_CONFIGURED"]},"backup_revision":{"type":"string"},"integrity_checked_at":{"type":"string","format":"date-time"}},"additionalProperties":false},
+    "persona": {"type":"object","required":["state"],"properties":{"state":{"enum":["HEALTHY","DEGRADED","STOPPED","NOT_CONFIGURED"]},"last_processed_at":{"type":"string","format":"date-time"}},"additionalProperties":false},
+    "physics": {"type":"object","required":["state"],"properties":{"state":{"enum":["HEALTHY","DEGRADED","STOPPED","NOT_CONFIGURED"]},"last_validated_at":{"type":"string","format":"date-time"},"registry_revision":{"type":"string"}},"additionalProperties":false},
+    "fallback": {"type":"object","required":["state"],"properties":{"state":{"enum":["INACTIVE","ACTIVE","UNAVAILABLE","STOPPED"]},"repository":{"const":"dpstudio-se/Universal-Physics-Index-UPI"},"commit":{"type":"string"},"reason":{"type":"string"}},"additionalProperties":false},
+    "blocked_reason": {"type":"string"},
+    "recovery_action": {"type":"string"}
+  },
+  "additionalProperties": false
+}

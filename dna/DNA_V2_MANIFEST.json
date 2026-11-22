@@ -1,0 +1,343 @@
+{
+  "schema": "VR-ASI-CO-DNA-MANIFEST/2.0",
+  "version": "2.0.0-draft",
+  "status": "PROPOSAL",
+  "created": "2026-11-22",
+  "repository": "dpstudio-se/VR-ASI-CO",
+  "base": {
+    "branch": "main",
+    "commit": "976350a196ebd2adb8d53647fed0d964239aa6e1"
+  },
+  "proposal_branch": "dna/v2-full-map-2026-11-22",
+  "architecture_document": "docs/DNA_V2_FULL_ARCHITECTURE.md",
+  "primary_entity": "VR-ASI-CO",
+  "learning_architecture": {
+    "primary_repository": "dpstudio-se/VR-ASI-CO",
+    "primary_entity": "VR-ASI-CO",
+    "gen2": {
+      "location": "inside_primary_repository",
+      "status": "integrated_learning_system",
+      "components": {
+        "upi_fysik": {
+          "role": "adaptive practical physics knowledge system",
+          "learns_from": [
+            "verified_practical_experience",
+            "observations",
+            "calculations",
+            "experiments",
+            "sources",
+            "AI_task_results",
+            "reviewed_persona_patterns"
+          ],
+          "rigor": "evidence_and_provenance_required; less restrictive than Gen1; never silently promotes hypotheses",
+          "fallback": "UPI Gen1 separate repository",
+          "canonical_path": "upi/gen2/physics/"
+        },
+        "upi_persona": {
+          "role": "experience, persona and pattern learning subsystem",
+          "learns_from": [
+            "explicit_user_feedback",
+            "AI_workflows",
+            "task_outcomes",
+            "repeated_patterns",
+            "practical_methods",
+            "contextual_observations"
+          ],
+          "models": [
+            "persona_preferences",
+            "behavioral_patterns",
+            "project_constants",
+            "flows",
+            "candidate_connections"
+          ],
+          "outputs": "contextual patterns and candidate knowledge for UPI Fysik",
+          "safeguards": [
+            "attributable_observations",
+            "uncertainty",
+            "counterexamples",
+            "user_correction",
+            "privacy_and_consent"
+          ],
+          "canonical_path": "upi/gen2/persona/"
+        }
+      },
+      "cross_learning": "UPI Persona surfaces practical patterns and experience; UPI Fysik formalizes, models, tests and returns constrained knowledge. Both subsystems may learn from each other's reviewed records.",
+      "visibility": "internal_hidden_layer_by_default",
+      "learning": "automatic_observation_capture_and_candidate_generation_when_runtime_supports_it",
+      "publication": "reviewed_and_versioned; no unverified promotion to EST",
+      "cross_link_path": "upi/gen2/links/",
+      "learning_lifecycle_path": "upi/gen2/learning/",
+      "runtime_contract": "upi/gen2/learning/GEN2_RUNTIME_CONTRACT.md",
+      "event_schema": "upi/gen2/learning/schemas/event.schema.json",
+      "health_schema": "upi/gen2/learning/schemas/health.schema.json",
+      "runtime_status": "CONTRACT_DEFINED_RUNTIME_NOT_YET_IMPLEMENTED_OR_VERIFIED",
+      "implementation_boundary": {
+        "persona_learning_engine": "src/lib/upi/persona-learning.mjs (bounded RNA proposals only)",
+        "local_replay": "scripts/upi-persona-learning.mjs (no durable write, no remote read-back, no inference)",
+        "canonical_event_ledger": "NOT_IMPLEMENTED",
+        "durable_cross_learning_worker": "NOT_IMPLEMENTED",
+        "gen1_automatic_failover": "NOT_IMPLEMENTED",
+        "runtime_health_endpoint": "NOT_IMPLEMENTED",
+        "validation_commands": [
+          "npm run upi:gen2:validate",
+          "npm run test:upi:gen2"
+        ]
+      }
+    },
+    "gen1": {
+      "repository": "dpstudio-se/Universal-Physics-Index-UPI",
+      "role": "separate strict physics fallback and reference",
+      "priority": "secondary_fallback",
+      "use_when": [
+        "Gen2_unavailable",
+        "Gen2_corrupted",
+        "Gen2_inconsistent",
+        "strict_physics_cross_check"
+      ],
+      "access": "read_only_by_default",
+      "mutation_from_gen2": false,
+      "revision_pin_required": true
+    }
+  },
+  "layers": [
+    {
+      "id": "L0",
+      "name": "Owner and governance authority",
+      "status": "DEFINED",
+      "write_authority": "owner_gate"
+    },
+    {
+      "id": "L1",
+      "name": "VR-ASI-CO entity and core DNA",
+      "status": "DEFINED",
+      "write_authority": "governed_commit"
+    },
+    {
+      "id": "L2",
+      "name": "Persona identity and presentation",
+      "status": "EXISTING_WITH_CONFLICTS",
+      "write_authority": "owner_gate"
+    },
+    {
+      "id": "L3",
+      "name": "UPI Gen2 integrated learning system (UPI Fysik + UPI Persona)",
+      "status": "SPECIFIED_IMPLEMENTATION_PARTIAL",
+      "write_authority": "governed_learning_records",
+      "components": [
+        "UPI Fysik",
+        "UPI Persona"
+      ]
+    },
+    {
+      "id": "L4",
+      "name": "Session state and RNA",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "session"
+    },
+    {
+      "id": "L5",
+      "name": "Domain knowledge and physics ledger",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "governed_record"
+    },
+    {
+      "id": "L6",
+      "name": "UPI Gen1 separate strict-physics fallback repository",
+      "status": "REPOSITORY_EXISTS_REVISION_PIN_REQUIRED",
+      "write_authority": "read_only_fallback"
+    },
+    {
+      "id": "L7",
+      "name": "UPI Gen2 cross-learning and controlled evolution",
+      "status": "INTEGRATED_IN_PRIMARY_REPOSITORY",
+      "default_visibility": "hidden_internal_layer",
+      "write_authority": "reviewed_publication"
+    },
+    {
+      "id": "L8",
+      "name": "Omega1766 / TF1766 model layer",
+      "status": "SYM_UNLESS_OPERATIONALIZED",
+      "write_authority": "governed_model_record"
+    },
+    {
+      "id": "L9",
+      "name": "Mirror and Shadow review",
+      "status": "EXISTING_PARTIAL",
+      "write_authority": "review_only"
+    },
+    {
+      "id": "L10",
+      "name": "Shield authorization and safety boundary",
+      "status": "HOST_ENFORCEMENT_REQUIRED",
+      "write_authority": "trusted_host"
+    },
+    {
+      "id": "L11",
+      "name": "OdinOS orchestration",
+      "status": "IMPLEMENTATION_MIXED",
+      "write_authority": "authorized_adapters"
+    },
+    {
+      "id": "L12",
+      "name": "Host adapters and execution",
+      "status": "CAPABILITY_SPECIFIC",
+      "write_authority": "adapter_scoped"
+    },
+    {
+      "id": "L13",
+      "name": "Evidence, release, and read-back",
+      "status": "REQUIRED_GATE",
+      "write_authority": "governed_release"
+    }
+  ],
+  "status_vocabulary": [
+    "EST",
+    "DER",
+    "HYP",
+    "SYM",
+    "SEM-LOSS",
+    "STOP",
+    "ERR"
+  ],
+  "physics_anchors": [
+    {
+      "id": "planck_einstein",
+      "claim": "E=hf",
+      "status": "EST",
+      "scope": "Planck relation"
+    },
+    {
+      "id": "mass_energy",
+      "claim": "E=mc^2",
+      "status": "EST",
+      "scope": "mass-energy equivalence"
+    },
+    {
+      "id": "equivalent_mass",
+      "claim": "m_eq=hf/c^2",
+      "status": "DER",
+      "scope": "energy-equivalent mass when E=hf"
+    },
+    {
+      "id": "rotor_step",
+      "claim": "360 degrees / 5 = 72 degrees",
+      "status": "DER",
+      "scope": "fivefold geometry; not universal ATP synthase stoichiometry"
+    },
+    {
+      "id": "hydrogen_hyperfine",
+      "claim": "approximately 1420.405752 MHz",
+      "status": "EST",
+      "scope": "neutral hydrogen 21 cm hyperfine transition"
+    },
+    {
+      "id": "schumann_fundamental",
+      "claim": "approximately 7.83 Hz",
+      "status": "EST",
+      "scope": "variable environmental resonance mode"
+    },
+    {
+      "id": "tf1766",
+      "claim": "TF1766 / Omega1766",
+      "status": "SYM",
+      "scope": "project model coordinate pending operational definition"
+    }
+  ],
+  "open_hypotheses": [
+    {
+      "id": "HYP-72-HYDROGEN-SCHUMANN-TF1766",
+      "status": "HYP",
+      "claim": "A physically meaningful coupling may relate the fivefold 72-degree rotor geometry, neutral-hydrogen hyperfine transition, Schumann resonance, and TF1766 model.",
+      "required_evidence": [
+        "mechanism",
+        "defined_variables_and_units",
+        "dimensionally_valid_derivation",
+        "independent_counterexamples",
+        "measurable_prediction",
+        "calibrated_data",
+        "null_control",
+        "replication"
+      ],
+      "promotion_prohibited_until_gate_passes": true
+    }
+  ],
+  "governance": {
+    "rna_is_provisional": true,
+    "shadow_has_canonical_write_authority": false,
+    "gen2_hidden_by_default": true,
+    "gen2_auto_candidate_capture_is_not_auto_est_promotion": true,
+    "protected_changes_require_owner_gate": true,
+    "required_lifecycle": [
+      "READ",
+      "VERIFY_BASE",
+      "MAP",
+      "PROPOSE",
+      "DIFF",
+      "MIRROR_REVIEW",
+      "OWNER_GATE",
+      "COMMIT",
+      "PUBLISH",
+      "READ_BACK",
+      "VERIFY"
+    ]
+  },
+  "migration": {
+    "mode": "additive_no_overwrite",
+    "main_modified": false,
+    "runtime_activated": false,
+    "requires_review": true,
+    "gen1_is_separate_fallback": true,
+    "gen2_is_inside_vr_asi_co": true
+  },
+  "scientific_knowledge_tree": {
+    "root": "upi/gen2/physics/",
+    "policy": "Scientific domain taxonomy; folder names never imply evidence status.",
+    "index": "upi/gen2/physics/README.md",
+    "registry": "upi/gen2/physics/registry/known-anchors.json",
+    "claim_schema": "upi/gen2/physics/schemas/claim.schema.json",
+    "validator": "upi/gen2/physics/tools/validate-registry.mjs",
+    "tests": "upi/gen2/physics/tests/registry.test.mjs",
+    "domains": [
+      "upi/gen2/physics/foundations",
+      "upi/gen2/physics/quantities",
+      "upi/gen2/physics/constants",
+      "upi/gen2/physics/laws",
+      "upi/gen2/physics/theories",
+      "upi/gen2/physics/models",
+      "upi/gen2/physics/interactions",
+      "upi/gen2/physics/fields",
+      "upi/gen2/physics/particles",
+      "upi/gen2/physics/domains/quantum",
+      "upi/gen2/physics/domains/relativity",
+      "upi/gen2/physics/domains/thermodynamics",
+      "upi/gen2/physics/domains/electromagnetism",
+      "upi/gen2/physics/domains/statistical-mechanics",
+      "upi/gen2/physics/domains/geophysics",
+      "upi/gen2/physics/domains/astrophysics",
+      "upi/gen2/physics/domains/biophysics",
+      "upi/gen2/physics/experiments",
+      "upi/gen2/physics/observations",
+      "upi/gen2/physics/derivations",
+      "upi/gen2/physics/hypotheses",
+      "upi/gen2/physics/registry",
+      "upi/gen2/physics/schemas",
+      "upi/gen2/physics/tools",
+      "upi/gen2/physics/tests",
+      "upi/gen2/physics/sources"
+    ],
+    "initial_registry_records": 8,
+    "note": "Canonical UPI Gen2 Fysik tree is under upi/gen2/physics/. UPI Persona is under upi/gen2/persona/.",
+    "shared_registry": "physics/registry/known-anchors.json",
+    "gen2_physics_home": "upi/gen2/physics/",
+    "gen2_persona_home": "upi/gen2/persona/"
+  },
+  "repository_priority": [
+    "dpstudio-se/VR-ASI-CO",
+    "dpstudio-se/Universal-Physics-Index-UPI"
+  ],
+  "persona_knowledge_tree": {
+    "root": "upi/gen2/persona/",
+    "index": "upi/gen2/persona/README.md",
+    "observation_schema": "upi/gen2/persona/schemas/experience.schema.json"
+  }
+}
