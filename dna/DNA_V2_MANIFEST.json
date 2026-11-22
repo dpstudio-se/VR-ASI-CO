@@ -66,7 +66,23 @@
       "learning": "automatic_observation_capture_and_candidate_generation_when_runtime_supports_it",
       "publication": "reviewed_and_versioned; no unverified promotion to EST",
       "cross_link_path": "upi/gen2/links/",
-      "learning_lifecycle_path": "upi/gen2/learning/"
+      "learning_lifecycle_path": "upi/gen2/learning/",
+      "runtime_contract": "upi/gen2/learning/GEN2_RUNTIME_CONTRACT.md",
+      "event_schema": "upi/gen2/learning/schemas/event.schema.json",
+      "health_schema": "upi/gen2/learning/schemas/health.schema.json",
+      "runtime_status": "CONTRACT_DEFINED_RUNTIME_NOT_YET_IMPLEMENTED_OR_VERIFIED",
+      "implementation_boundary": {
+        "persona_learning_engine": "src/lib/upi/persona-learning.mjs (bounded RNA proposals only)",
+        "local_replay": "scripts/upi-persona-learning.mjs (no durable write, no remote read-back, no inference)",
+        "canonical_event_ledger": "NOT_IMPLEMENTED",
+        "durable_cross_learning_worker": "NOT_IMPLEMENTED",
+        "gen1_automatic_failover": "NOT_IMPLEMENTED",
+        "runtime_health_endpoint": "NOT_IMPLEMENTED",
+        "validation_commands": [
+          "npm run upi:gen2:validate",
+          "npm run test:upi:gen2"
+        ]
+      }
     },
     "gen1": {
       "repository": "dpstudio-se/Universal-Physics-Index-UPI",
