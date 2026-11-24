@@ -17,8 +17,7 @@ function argsOf(argv) {
     root = args[i + 1];
     args.splice(i, 2);
   }
-  if (!root) throw new Error("Set ODINOS_BRAIN_HOME or pass --root PATH; refusing to guess a vault.");
-  return { args, root: path.resolve(root) };
+  return { args, root: root ? path.resolve(root) : "" };
 }
 function safePath(root, rel) {
   if (typeof rel !== "string" || !rel.trim()) throw new Error("Expected a relative path");
