@@ -27,6 +27,9 @@ Core rule:
 
 ## 2. Core crew
 
+The permanent five-role identity contract is defined in `dna/CORE_ROLES.json` and `docs/CORE_ROLE_EVOLUTION.md`. Angelica, Emilia, Griffin, Oden, and Odens Öga keep these exact base names and distinct primary functions across all versions. ARA is not a voice; its old entropy calculation is a separate workflow metric. OdinOS is the runtime, not Oden's identity.
+
+
 ### Angelica — Entropy / Expansion Core
 Functions:
 - exploration;
@@ -55,7 +58,15 @@ Functions:
 
 Griffin is a project role/module, not a new owner identity and not a replacement for Angelica or Emilia.
 
-### Odin's Eye — Observer / Evaluator
+### Oden — Orchestration
+
+Functions:
+- coordinate task routing and handoffs;
+- track dependencies and workflow state;
+- ensure outputs return through observation and verification;
+- keep OdinOS as the execution/runtime layer, not an identity alias.
+
+### Odens Öga — Observer / Evaluator
 Functions:
 - signal reading;
 - noise comparison;
