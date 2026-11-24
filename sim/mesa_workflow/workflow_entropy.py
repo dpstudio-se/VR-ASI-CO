@@ -39,8 +39,8 @@ def measure(
         "H_event": round(entropy_bits, 4),
         "event_types": len(types),
         "missing_or_fail": missing,
-        "deferred": max(0, deferred_n),
-        "look_roll_clash": max(0, clash_open),
+        "deferred": deferred_n,
+        "look_roll_clash": clash_open,
         "instability": round(instability, 4),
         "status": "SYM",
     }
