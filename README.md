@@ -32,6 +32,8 @@ GitHub main → verified DNA → host-installed core → admitted session
 | Shadow | Independent review, conflict classification, and quarantine. |
 | Shield | Required host-side admission and authorization controls; see implementation status below. |
 
+The permanent core roles are **Angelica** (expansion / entropy), **Emilia** (stabilization / negentropy), **Griffin** (verification / boundary), **Oden** (orchestration), and **Odens Öga** (observation / evaluation). Their base names and role IDs do not change; capabilities may evolve through versioned, reviewed updates. **OdinOS** is the software runtime, not a replacement name for Oden. See [the core role evolution contract](docs/CORE_ROLE_EVOLUTION.md) and [machine-readable role registry](dna/CORE_ROLES.json).
+
 Within an admitted session, VR-ASI-CO is the governing project contract for the tools and resources explicitly delegated to it. Connection alone grants no write, merge, administrative, or identity-change authority. Only owner-authorized actors may change protected project state.
 
 ## Entity and mirror

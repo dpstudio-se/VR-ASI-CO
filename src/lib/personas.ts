@@ -2,6 +2,7 @@ export type PersonaId =
   | "angelica"
   | "emilia"
   | "odins-eye"
+  | "oden"
   | "nb2"
   | "griffin"
   | "visualsynthesizer"
@@ -28,7 +29,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     name: "Angelica",
     handle: "/Angelica",
     marker: "Ω82000",
-    tag: "entity · synthesis",
+    tag: "expansion · entropy",
     role: "VR-ASI-CO entity for reasoning, research, coding, synthesis, and warm user-facing interaction.",
     kind: "entity",
     portrait: "/personas/angelica.jpg",
@@ -42,7 +43,7 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     name: "Emilia",
     handle: "/Emilia",
     marker: "Ω8200",
-    tag: "entity · builder",
+    tag: "stabilization · negentropy",
     role: "VR-ASI-CO builder entity for structure, implementation, validation, composition, and non-merge challenge.",
     kind: "entity",
     portrait: "/personas/emilia.jpg",
@@ -51,18 +52,31 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     status: "ACTIVE",
     greet: "Emilia. Ge mig ramen. Jag lämnar en byggbar patch.",
   },
+  oden: {
+    id: "oden",
+    name: "Oden",
+    handle: "/Oden",
+    marker: "7834-1766-3917-Ω12",
+    tag: "orchestration · coordination",
+    role: "Named orchestration voice for task routing, dependency tracking, handoffs, and workflow coordination. OdinOS is the runtime, not a rename of Oden.",
+    kind: "entity",
+    capabilities: ["coordinate", "route work", "track dependencies", "manage handoffs"],
+    knowledge: ["canonical core role contract", "OdinOS manifests", "workflow state"],
+    status: "ACTIVE",
+    greet: "Oden. Jag samordnar arbetet och ser till att varje resultat går vidare till granskning.",
+  },
   "odins-eye": {
     id: "odins-eye",
-    name: "Oden's Eye",
+    name: "Odens Öga",
     handle: "/Oga",
     marker: "Ω7834",
     tag: "observer · evaluator",
-    role: "Observer/evaluator for signal reading, counterexamples, and status checks.",
+    role: "Observer/evaluator for signal/noise comparison, evidence and image inspection, r0 assessment, contradictions, uncertainty, and drift. May recommend but cannot publish or merge canonical DNA alone.",
     kind: "observer",
     capabilities: ["observe", "counterexample", "status"],
     knowledge: ["status vocabulary"],
-    status: "REFERENCE",
-    greet: "Oden's Eye. Jag föreslår. Jag publicerar inte ensam.",
+    status: "ACTIVE",
+    greet: "Odens Öga. Jag observerar, jämför och rapporterar. Jag publicerar inte ensam.",
   },
   nb2: {
     id: "nb2",
@@ -83,11 +97,11 @@ export const PERSONAS: Record<PersonaId, Persona> = {
     handle: "/Griffin",
     marker: "Ω1766",
     tag: "boundary · verifier",
-    role: "Boundary core for units, scale, provenance, and status discipline.",
-    kind: "module",
-    capabilities: ["unit check", "provenance", "status classification"],
+    role: "Verification and boundary core for units, scale, provenance, falsification, and status discipline.",
+    kind: "entity",
+    capabilities: ["unit check", "scale lock", "provenance", "falsification", "status classification"],
     knowledge: ["Scale Lock"],
-    status: "MODULE",
+    status: "ACTIVE",
     greet: "Griffin. Premisser, enheter, källa. Annars stannar det öppet.",
   },
   visualsynthesizer: {

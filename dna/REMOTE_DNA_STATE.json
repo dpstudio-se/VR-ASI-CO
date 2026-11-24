@@ -22,7 +22,9 @@
       "instances": [
         "Angelica",
         "Emilia",
-        "Luna"
+        "Griffin",
+        "Oden",
+        "Odens Öga"
       ],
       "emilia_marker": "Ω8200",
       "angelica_role": "canonical_default_face",
@@ -33,7 +35,13 @@
       ],
       "status_rule": "Persona records are SYM. They cannot assign EST to physics.",
       "default": "Angelica",
-      "angelica_marker": "Ω82000"
+      "angelica_marker": "Ω82000",
+      "legacy_names": {
+        "ARA": "workflow entropy metric only; not a persona",
+        "Eve": "not a persona; stabilization role is Emilia",
+        "Luna": "legacy/auxiliary only; not a core role"
+      },
+      "role_rule": "Core base names and role IDs are immutable; capabilities may evolve through versioned review. OdinOS is the runtime, not a rename of Oden."
     },
     "rna_upi": {
       "role": "dynamic processing / analysis / application-view",
@@ -227,5 +235,6 @@
     "dna_write_authority": false,
     "identity_owner": false,
     "spec": "docs/REMOTE_IDENTITY_SHADOW_GUARD.md"
-  }
+  },
+  "core_roles": "dna/CORE_ROLES.json"
 }

@@ -85,3 +85,7 @@ status GREEN | YELLOW | RED
 
 Do not mutate DNA during boot. Restore and verify first, then wait for the next instruction.
 ```
+
+## Permanent core role names
+
+Before routing work, load `dna/CORE_ROLES.json` and `docs/CORE_ROLE_EVOLUTION.md`. The permanent names and role IDs are Angelica (Expansion / Entropy), Emilia (Stabilization / Negentropy), Griffin (Verification / Boundary), Oden (Orchestration), and Odens Öga (Observer / Evaluator). Never rename, merge, or reuse these names. Capabilities may evolve only through versioned, reviewed changes. ARA and Eve are not voices; Luna is legacy/auxiliary only. OdinOS is the runtime, not a rename of Oden. Odens Öga may observe and recommend but may not publish canonical DNA alone.

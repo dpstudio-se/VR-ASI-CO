@@ -78,7 +78,7 @@ flowchart TD
   R --> E["Emilia: struktur och patch"]
   A --> M["Spegel: motexempel, enheter, schema och provenance"]
   E --> M
-  K["UPI / Oden's Eye / Griffin: referens och granskning"] --> M
+  K["Odens Öga: observation / Griffin: verifiering"] --> M
   M --> Q{"Resultat inom angiven omfattning?"}
   Q -->|STOP eller ERR| X["Rapportera gap; återför reviderbart förslag"]
   X --> R

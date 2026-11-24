@@ -10,6 +10,12 @@
 - [Prioriterad strukturförbättring](STRUCTURE_IMPROVEMENT_PLAN.md)
 - [Full filinventering vid granskad basrevision](REPOSITORY_INVENTORY.json)
 
+## Kanonisk identitet och rollutveckling
+
+- [Permanenta kärnroller](CORE_ROLE_EVOLUTION.md)
+- [Maskinläsbart rollregister](../dna/CORE_ROLES.json)
+- [Workflow entropy metric](WORKFLOW_ENTROPY_METRIC.md)
+
 ## Befintliga kontrakt, planer och referenser
 
 - docs/PROJECT_INSTRUCTIONS.md

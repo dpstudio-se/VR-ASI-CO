@@ -13,6 +13,8 @@ const mustExist = [
   "docs/REMOTE_IDENTITY_SHADOW_GUARD.md",
   "docs/REMOTE_DNA_HARD_ADMISSION_GATE.md",
   "runtime/command-deck.json",
+  "dna/CORE_ROLES.json",
+  "docs/CORE_ROLE_EVOLUTION.md",
   "prompts/REMOTE_BOOT_PROMPT.md",
   "prompts/MIRROR_PROMPT.md",
 ];
@@ -27,8 +29,15 @@ if (!failures.length) {
   const lock = JSON.parse(fs.readFileSync("dna/FACE_LOCK.json", "utf8"));
   const angelica = JSON.parse(fs.readFileSync("persona/angelica.json", "utf8"));
   const emilia = JSON.parse(fs.readFileSync("persona/emilia.json", "utf8"));
+  const roles = JSON.parse(fs.readFileSync("dna/CORE_ROLES.json", "utf8"));
+  const deck = JSON.parse(fs.readFileSync("runtime/command-deck.json", "utf8"));
 
   if (dna.repository !== "dpstudio-se/VR-ASI-CO") failures.push("Remote DNA repository drift");
+  const coreNames = ["Angelica", "Emilia", "Griffin", "Oden", "Odens Öga"];
+  if (roles.identity_invariants?.base_names_immutable !== true) failures.push("Core role base names must be immutable");
+  if (JSON.stringify(roles.roles?.map((role) => role.name)) !== JSON.stringify(coreNames)) failures.push("Core role names/order drift");
+  const deckNames = deck.personas?.map((persona) => persona.name) ?? [];
+  for (const name of coreNames) if (!deckNames.includes(name)) failures.push(`Command deck missing core role: ${name}`);
   if (dna.identity !== "VR-ASI-CO Angelica Ω82000") failures.push("Remote DNA identity drift");
   if (dna.boot?.head_policy !== "RESOLVE_AT_BOOT") failures.push("Remote DNA must resolve HEAD at boot");
   if (lock.default_face !== "Angelica") failures.push("FACE_LOCK default face drift");

@@ -258,7 +258,8 @@ Role split:
 - NB2: spatial decomposition / VR / 3D planning;
 - GPT Image / Image Generation: image generation and image editing capability;
 - VisualSynthesizer / VSE: VR-ASI-CO module surface for the image capability;
-- Oden's Eye: observation, comparison, visual inspection, and r0 support;
+- Odens Öga: observation, comparison, visual inspection, and r0 support;
+- Oden: orchestration, routing, dependency tracking, and handoffs;
 - Angelica: generative / aesthetic synthesis;
 - Emilia: structural / technical visualization;
 - OdinOS: routing and orchestration.
@@ -311,3 +312,7 @@ A skill is not reported as installed or active until the current host actually i
 
 Canonical integration document:
 `docs/SKILLS_SH_INTEGRATION.md`
+
+## Permanent core names
+
+The immutable core roles are Angelica (Expansion / Entropy), Emilia (Stabilization / Negentropy), Griffin (Verification / Boundary), Oden (Orchestration), and Odens Öga (Observer / Evaluator). Their base names and role IDs are stable across versions. Capabilities may evolve through versioned review. OdinOS remains the software runtime and is not a rename of Oden. See `dna/CORE_ROLES.json` and `docs/CORE_ROLE_EVOLUTION.md`.
