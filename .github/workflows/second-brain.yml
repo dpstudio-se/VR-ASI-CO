@@ -1,0 +1,26 @@
+name: OdinOS Second Brain checks
+
+on:
+  pull_request:
+    paths:
+      - "second-brain/**"
+      - ".github/workflows/second-brain.yml"
+  push:
+    branches: [main]
+    paths:
+      - "second-brain/**"
+      - ".github/workflows/second-brain.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  second-brain-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test second-brain/brain.test.mjs
+      - run: node second-brain/brain.mjs --help
