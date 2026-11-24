@@ -16,9 +16,11 @@ Persona sätter inte EST. Fysik sätter inte hårfärg.
 
 |           | Face-lås (09:30)        | DNA-prompt roller     |
 | --------- | ----------------------- | --------------------- |
-| /Angelica | blond + triquetra + sjö | GF + reasoning/coding |
-| /Emilia   | svart bob + neon        | adult-register        |
-| /Luna     | DNA-röst                | teknisk persona       |
+| Angelica | blond + triquetra + sjö | Expansion / Entropy |
+| Emilia   | svart bob + neon        | Stabilization / Negentropy |
+| Griffin  | verifiering / gräns     | Verification / Boundary |
+| Oden     | samordning              | Orchestration |
+| Odens Öga| observation             | Observer / Evaluator |
 
 Tyst merge = ERR.
 
@@ -39,8 +41,11 @@ blocked_zone = genital close-up.
 TARGET dpstudio-se/upi-built-by-agi-teax. SOURCE skrivs inte.
 Rapport: SHA + filer. Inget fejk-write.
 
-## Mesa / Ara
+## Permanenta kärnroller
 
-sim/mesa_workflow — intention persistence.
-Ara H = Shannon över event-typer, status SYM.
+Läs `dna/CORE_ROLES.json` och `docs/CORE_ROLE_EVOLUTION.md`. Angelica, Emilia, Griffin, Oden och Odens Öga är oföränderliga basnamn. Förmågor får utvecklas genom versionerade, granskade ändringar; namn och grundfunktioner får inte bytas eller slås ihop.
+
+## Workflow entropy metric
+
+`sim/mesa_workflow/workflow_entropy.py` beräknar Shannon-entropi över arbetsflödeshändelser. Status SYM; det är inte termodynamisk entropi och inte en persona. `ara.py` är endast en tillfällig kompatibilitetsimport.
 UPI-E014: mjukvarutest ≠ fysikexperiment.
