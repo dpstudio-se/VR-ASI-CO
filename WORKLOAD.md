@@ -22,6 +22,7 @@ Keep VR-ASI-CO reproducible across fresh chats, local workspaces, and compatible
 - [x] Remote identity/shadow guard.
 - [x] CODEOWNERS for identity/control surfaces.
 - [x] Persona-lock CI verifier.
+- [ ] Canonicalize permanent core roles: Angelica, Emilia, Griffin, Oden, Odens Öga; align runtime, Mesa, boot DNA, legacy labels, and regression tests. Proposal: `chore/stable-core-role-identities`; merge only after checks and review.
 - [ ] F01: enforce server-verified actor/repository/action authorization; shared tokens do not authorize visitors.
 - [ ] F02: paginate PR files/reviews/checks completely and bind merge to the reviewed head SHA.
 - [ ] F03: fail closed on protected-file conflicts, unknown/unreadable files and unsupported EST promotion.
