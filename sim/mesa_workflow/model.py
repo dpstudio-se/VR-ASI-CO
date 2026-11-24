@@ -4,9 +4,9 @@ from collections import deque
 from mesa import Agent, Model
 from mesa.datacollection import DataCollector
 
-SLOTS = ("Angelica", "Emilia", "Luna")
-LOOK = {"Angelica": "blond+triquetra+lake", "Emilia": "black-bob+neon", "Luna": "voice-only"}
-ROLE = {"Angelica": "gf+reasoning", "Emilia": "adult-register", "Luna": "technical"}
+SLOTS = ("Angelica", "Emilia", "Griffin")
+LOOK = {"Angelica": "blond+triquetra+lake", "Emilia": "black-bob+neon", "Griffin": "verification+boundary"}
+ROLE = {"Angelica": "expansion+entropy", "Emilia": "stabilization+negentropy", "Griffin": "verification+boundary"}
 LEGAL_STATUS = {"EST", "DER", "HYP", "STOP", "ERR", "SYM"}
 TERMINAL = {"SUCCESS", "FAIL"}
 
@@ -51,6 +51,7 @@ class Intention:
         return self.status in TERMINAL or not self.steps
 
 class CoordinatorAgent(Agent):
+    role_name = "Oden"
     def adopt(self, name, steps, replace=False):
         cur = self.model.intention
         if cur and not cur.done and not replace:
@@ -94,6 +95,18 @@ class CoordinatorAgent(Agent):
             it.status = "SUCCESS"
             self.model.events.append(("INTENTION_OK", it.name))
 
+class ObserverAgent(Agent):
+    name = "Odens Öga"
+
+    def observe(self):
+        """Return a read-only snapshot; the observer never mutates workflow state."""
+        return {
+            "name": self.name,
+            "event_count": len(self.model.events),
+            "last_event": self.model.events[-1] if self.model.events else None,
+        }
+
+
 class WorkflowModel(Model):
     def __init__(self, seed=42):
         super().__init__(seed=seed)
@@ -106,6 +119,7 @@ class WorkflowModel(Model):
         self.personas = {s: PersonaAgent(self, s) for s in SLOTS}
         self.filt, self.clf = FilterAgent(self), ClassifierAgent(self)
         self.coord = CoordinatorAgent(self)
+        self.observer = ObserverAgent(self)
         self.datacollector = DataCollector(model_reporters={
             "active": lambda m: m.active_slot,
             "blocks": lambda m: m.block_count,
