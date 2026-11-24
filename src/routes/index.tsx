@@ -25,7 +25,7 @@ function Home() {
       icon: BrainCircuit,
       eyebrow: "Personas / runtime",
       title: "OdinOS Command Deck",
-      copy: "Välj Angelica, Emilia, Oden's Eye, NB2, Griffin eller OdinOS och se skills, tools, knowledge och runtime-status.",
+      copy: "Välj Angelica, Emilia, Griffin, Oden, Odens Öga, NB2 eller OdinOS och se skills, tools, knowledge och runtime-status.",
     },
     {
       to: "/dna" as const,
