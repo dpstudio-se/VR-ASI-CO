@@ -5,6 +5,8 @@ SOURCE UPI remains READ-ONLY.
 
 ## CONFLICT — expose, do not silent-merge
 
+> Historical compatibility note: the unresolved face/role mappings below are retained as source history, not as active role assignments. The current authoritative role mapping is `dna/CORE_ROLES.json` and `docs/CORE_ROLE_EVOLUTION.md`. In particular, Luna is not one of the five core roles.
+
 `docs/FACE_LOCK_CORRECTION.md` (user 09:30):
 - /Angelica = long wavy light brown-blonde + triquetra + lake
 - /Emilia = short black wet bob + neon penthouse
