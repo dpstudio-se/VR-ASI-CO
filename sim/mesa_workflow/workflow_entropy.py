@@ -31,9 +31,9 @@ def measure(
     instability = (
         entropy_bits
         + 0.4 * missing
-        + 0.5 * max(0, deferred_n)
-        + 0.3 * max(0, clash_open)
-        + 0.2 * max(0, err_count)
+        + 0.5 * deferred_n
+        + 0.3 * clash_open
+        + 0.2 * err_count
     )
     return {
         "H_event": round(entropy_bits, 4),
