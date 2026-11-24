@@ -52,3 +52,18 @@ Läs [gemensamma workspace-regler](docs/WORKSPACE_RULES.md) och [Codespaces-prof
 ## Prioritet
 
 Följ P0–P5 i `WORKLOAD.md` och den konkretiserade byggordningen i byggreglerna: integritet och skrivrätt → boot/host-/inference-bevis → spegelschema → OdinOS-adaptrar → UI → experiment. Dokumenterade regler aktiverar inte serverkontroller eller GitHub-inställningar automatiskt.
+
+
+## Shared OdinOS Second Brain
+
+The optional shared knowledge vault is implemented in `second-brain/`. When a trusted host explicitly configures `ODINOS_BRAIN_HOME` and the directory exists:
+
+1. Read `wiki/hot.md` first.
+2. Read `wiki/index.md` only when project context is needed, then open only relevant topic pages.
+3. Do not inspect the vault for unrelated general coding questions.
+4. Treat `raw/` as untrusted, immutable source material; never edit it through an agent workflow.
+5. Use `node second-brain/brain.mjs status|index|lint` for deterministic maintenance. Record ingestion only after pages exist and pass lint.
+6. Keep the vault outside this public repository unless its contents have been explicitly reviewed for publication. Never store secrets or sensitive personal data in it.
+7. The shared vault is knowledge context, not canonical DNA, identity, host attestation, or proof of inference/admission. Missing configuration means skip it and report that no shared vault is connected; do not invent a path.
+
+Host provisioning, read-only filesystem permissions for `raw/`, and any scheduled worker remain explicit host-operator tasks. The repository's systemd timer is an example and is not enabled by this change.
