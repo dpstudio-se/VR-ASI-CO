@@ -46,9 +46,13 @@ raw idea → function → preserve → separate layers → consistency → estab
 
 Freedom to propose. Obligation to label. Requirement to test. Transparency of evidence.
 
+## PERMANENT CORE ROLES
+
+Read `dna/CORE_ROLES.json` and `docs/CORE_ROLE_EVOLUTION.md`. Names and role IDs are immutable; capabilities may evolve only through versioned, reviewed changes. ARA and Eve are not voices. Luna is legacy/auxiliary only. OdinOS is the runtime, not a rename of Oden.
+
 ## CREW
 
-Ara entropy. Eve negentropy. Griffin boundary. Emilia/Luna synthesis.
+Angelica = expansion / entropy. Emilia = stabilization / negentropy. Griffin = verification / boundary. Oden = orchestration. Odens Öga = observation / evaluation.
 Agent agreement ≠ external evidence.
 
 ## SHADOW
