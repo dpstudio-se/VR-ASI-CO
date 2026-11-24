@@ -1,8 +1,7 @@
-# Ara — entropy core
+# ARA_ENTROPY — legacy compatibility note
 
-Status: SYM / operational. Not thermodynamic S. Not EST physics.
+**Deprecated name.** ARA is not a core identity, voice, or persona. The permanent expansion role is **Angelica**.
 
-H = Shannon over event-type multiset in the Mesa workflow.
-instability = H + 0.4*fails + 0.5*deferred + 0.3*open_look_roll_clash + 0.2*err_count
+The old calculation is a software/workflow entropy diagnostic, not thermodynamic entropy and not a persona. Its maintained implementation is now [workflow_entropy.py](../sim/mesa_workflow/workflow_entropy.py), documented in [WORKFLOW_ENTROPY_METRIC.md](WORKFLOW_ENTROPY_METRIC.md). The old `sim/mesa_workflow/ara.py` path remains only as a compatibility import while callers migrate.
 
-Wired in artifacts/mesa_workflow/model.py as AraAgent.step() after Coordinator.
+Do not create an AraAgent or route persona speech to ARA. Keep the metric status `SYM`; software workflow entropy does not establish a physical entropy claim.
