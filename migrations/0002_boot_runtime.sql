@@ -47,3 +47,18 @@ create index if not exists boot_sessions_session_idx
   on boot_sessions (session_id);
 create index if not exists boot_audit_events_boot_version_idx
   on boot_audit_events (boot_id, to_version);
+
+create or replace function reject_boot_audit_mutation() returns trigger
+language plpgsql as $$ begin
+  raise exception 'BOOT_AUDIT_IS_APPEND_ONLY';
+end $$;
+
+drop trigger if exists boot_audit_events_no_mutation on boot_audit_events;
+create trigger boot_audit_events_no_mutation
+before update or delete on boot_audit_events
+for each row execute function reject_boot_audit_mutation();
+
+drop trigger if exists boot_nonce_claims_no_mutation on boot_nonce_claims;
+create trigger boot_nonce_claims_no_mutation
+before update or delete on boot_nonce_claims
+for each row execute function reject_boot_audit_mutation();
