@@ -5,6 +5,7 @@ on:
     paths:
       - "scripts/verify-boot-evidence*.mjs"
       - "src/lib/upi/agent-boot-mirror*.ts"
+      - "src/runtime/boot-state/**/*.ts"
       - "docs/BOOT_EVIDENCE_CHECK.md"
       - "docs/REMOTE_DNA_HARD_ADMISSION_GATE.md"
       - "package.json"
@@ -32,6 +33,6 @@ jobs:
           node-version: "22"
       - run: node --check scripts/verify-boot-evidence.mjs
       - run: node --test scripts/verify-boot-evidence.test.mjs
-      - run: node --experimental-strip-types --test src/lib/upi/agent-boot-mirror.test.ts
+      - run: node --experimental-strip-types --test src/lib/upi/agent-boot-mirror.test.ts src/runtime/boot-state/state-machine.test.ts
       - run: node scripts/verify-persona-lock.mjs
       - run: node scripts/verify-remote-dna.mjs
