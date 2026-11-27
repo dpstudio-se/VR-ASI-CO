@@ -210,3 +210,14 @@ test("operation completion is one-way and records audit", async () => {
   assert.equal((await pg.query("select * from runtime_grant_events")).rows.length, 3);
   await pg.close();
 });
+
+test("late completion after lease expiry is permanently UNKNOWN", async () => {
+  const { pg, service, setNow } = await setup({ lease: 1_000 });
+  const grant = await issue(service);
+  await service.startOperation(startInput(grant.grantId));
+  setNow(now + 1_001);
+  assert.equal(await service.finishOperation("operation-1", "COMPLETED", principalId, sessionId), true);
+  const rows = await pg.query("select status from runtime_operations where operation_id = 'operation-1'");
+  assert.equal(rows.rows[0].status, "UNKNOWN");
+  await pg.close();
+});
