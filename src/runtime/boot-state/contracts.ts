@@ -39,7 +39,7 @@ export interface VerifiedEvidence {
 
 export interface AuditEvent {
   eventId: string;
-  eventType: "BOOT_STATE_TRANSITION" | "BOOT_STOPPED" | "BOOT_EXPIRED";
+  eventType: "BOOT_CREATED" | "BOOT_STATE_TRANSITION" | "BOOT_STOPPED" | "BOOT_EXPIRED";
   bootId: string;
   fromState: BootState;
   toState: BootState;
