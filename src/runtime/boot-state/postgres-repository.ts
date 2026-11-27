@@ -53,7 +53,11 @@ function toRecord(row: BootRow): BootRecord {
  * database transaction supplied by getSql(). No KV/read-then-write emulation.
  */
 export class PostgresBootRepository implements BootRepository {
-  constructor(private readonly sql: Sql) {}
+  private readonly sql: Sql;
+
+  constructor(sql: Sql) {
+    this.sql = sql;
+  }
 
   async createBootWithNonce(command: CreateBootCommand): Promise<void> {
     const { record, audit } = command;
