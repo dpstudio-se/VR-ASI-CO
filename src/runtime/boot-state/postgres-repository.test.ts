@@ -152,3 +152,20 @@ test("expired nonce claim is retained and cannot be reused", async () => {
   assert.equal((await pg.query("select * from boot_nonce_claims")).rows.length, 1);
   await pg.close();
 });
+
+test("repository rejects a skipped transition before opening a transaction", async () => {
+  const { pg, repository } = await setup();
+  await repository.createBootWithNonce(fixture());
+  const command: TransitionCommand = {
+    bootId: "boot-1", expectedState: "CHALLENGE_ISSUED", expectedVersion: 0,
+    nextState: "ADMITTED", updatedAt: now + 1,
+    audit: {
+      eventId: "forged-event", eventType: "BOOT_STATE_TRANSITION", bootId: "boot-1",
+      fromState: "CHALLENGE_ISSUED", toState: "ADMITTED",
+      fromVersion: 0, toVersion: 1, occurredAt: now + 1,
+    },
+  };
+  await assert.rejects(repository.transitionWithAudit(command), { message: "BOOT_TRANSITION_COMMAND_INVALID" });
+  assert.equal((await repository.get("boot-1"))?.state, "CHALLENGE_ISSUED");
+  await pg.close();
+});
