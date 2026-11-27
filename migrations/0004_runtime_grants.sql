@@ -44,3 +44,13 @@ create index if not exists runtime_grants_principal_idx
   on runtime_grants (principal_id, status, expires_at_ms);
 create index if not exists runtime_operations_grant_idx
   on runtime_operations (grant_id, started_at_ms desc);
+
+create or replace function reject_runtime_grant_event_mutation() returns trigger
+language plpgsql as $$ begin
+  raise exception 'RUNTIME_GRANT_EVENTS_ARE_APPEND_ONLY';
+end $$;
+
+drop trigger if exists runtime_grant_events_no_mutation on runtime_grant_events;
+create trigger runtime_grant_events_no_mutation
+before update or delete on runtime_grant_events
+for each row execute function reject_runtime_grant_event_mutation();
