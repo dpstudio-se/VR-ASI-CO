@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { PGlite } from "@electric-sql/pglite";
 import type { Sql } from "../../lib/db.ts";
@@ -30,24 +31,7 @@ function pgliteSql(pg: PGlite): Sql {
   return make(run);
 }
 
-const schema = `
-create table boot_sessions (
- boot_id text primary key, principal_id text not null, session_id text not null,
- dna_commit char(40) not null, nonce_hash char(64) not null, state text not null,
- version bigint not null, created_at_ms bigint not null, expires_at_ms bigint not null,
- updated_at_ms bigint not null, failure_code text
-);
-create table boot_nonce_claims (
- nonce_hash char(64) primary key, boot_id text not null unique references boot_sessions(boot_id),
- claimed_at_ms bigint not null, expires_at_ms bigint not null
-);
-create table boot_audit_events (
- event_id text primary key, event_type text not null,
- boot_id text not null references boot_sessions(boot_id),
- from_state text not null, to_state text not null, from_version bigint not null,
- to_version bigint not null, occurred_at_ms bigint not null, reason text,
- evidence_hash char(64)
-);`;
+
 
 const now = 1_800_000_000_000;
 function fixture(bootId = "boot-1", nonce = "b".repeat(64)) {
@@ -67,7 +51,8 @@ function fixture(bootId = "boot-1", nonce = "b".repeat(64)) {
 async function setup() {
   const pg = new PGlite();
   await pg.waitReady;
-  await pg.exec(schema);
+  const migration = await readFile(new URL("../../../migrations/0002_boot_runtime.sql", import.meta.url), "utf8");
+  await pg.exec(migration);
   return { pg, repository: new PostgresBootRepository(pgliteSql(pg)) };
 }
 
