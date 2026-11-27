@@ -355,3 +355,16 @@ test("does not append an audit event for a rejected transition", async () => {
   await assert.rejects(machine.startInference("boot-1"));
   assert.equal(repository.audit.length, 0);
 });
+
+test("two concurrent transitions from the same version cannot both commit", async () => {
+  const { machine, repository } = setup();
+  const results = await Promise.allSettled([
+    machine.startInstallation("boot-1"),
+    machine.startInstallation("boot-1"),
+  ]);
+  assert.equal(results.filter((result) => result.status === "fulfilled").length, 1);
+  assert.equal(results.filter((result) => result.status === "rejected").length, 1);
+  assert.equal(repository.record.state, "INSTALLATION_PENDING");
+  assert.equal(repository.record.version, 1);
+  assert.equal(repository.audit.length, 1);
+});
