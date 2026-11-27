@@ -6,6 +6,7 @@ on:
       - "scripts/verify-boot-evidence*.mjs"
       - "src/lib/upi/agent-boot-mirror*.ts"
       - "src/runtime/boot-state/**/*.ts"
+      - "migrations/0002_boot_runtime.sql"
       - "docs/BOOT_EVIDENCE_CHECK.md"
       - "docs/REMOTE_DNA_HARD_ADMISSION_GATE.md"
       - "package.json"
