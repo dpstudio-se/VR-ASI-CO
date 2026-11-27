@@ -35,6 +35,7 @@ export interface Sql {
     text: string,
     params?: unknown[],
   ): Promise<T[]>;
+  transaction<T>(work: (tx: Sql) => Promise<T>): Promise<T>;
 }
 
 /**
@@ -70,18 +71,22 @@ const identity = (v: string) => v;
 type Run = <T>(text: string, params: unknown[]) => Promise<T[]>;
 
 /** Wrap a query runner in the tagged-template + `.query()` `Sql` surface. */
-function toSql(run: Run): Sql {
+function toSql(
+  run: Run,
+  transact: <T>(work: (tx: Sql) => Promise<T>) => Promise<T>,
+): Sql {
   const sql = (async <T = Record<string, unknown>>(
     strings: TemplateStringsArray,
     ...values: unknown[]
   ): Promise<T[]> => {
     // Rebuild with $1, $2, … placeholders so values stay parameterized.
     let text = strings[0];
-    for (let i = 0; i < values.length; i += 1) text += `$${i + 1}${strings[i + 1]}`;
+    for (let i = 0; i < values.length; i += 1) text += `${i + 1}${strings[i + 1]}`;
     return run<T>(text, values);
   }) as unknown as Sql;
   sql.query = <T = Record<string, unknown>>(text: string, params: unknown[] = []) =>
     run<T>(text, params);
+  sql.transaction = transact;
   return sql;
 }
 
@@ -94,9 +99,30 @@ function createNeonSql(): Promise<Sql> {
     types.setTypeParser(OID_DATE, identity);
     types.setTypeParser(OID_INTERVAL, identity);
     const pool = new Pool({ connectionString: databaseUrl });
-    return toSql(async <T>(text: string, params: unknown[]) => {
+    const run: Run = async <T>(text: string, params: unknown[]) => {
       const res = await pool.query(text, params);
       return res.rows as T[];
+    };
+    return toSql(run, async <T>(work: (tx: Sql) => Promise<T>) => {
+      const client = await pool.connect();
+      try {
+        await client.query("BEGIN");
+        const tx = toSql(
+          async <R>(text: string, params: unknown[]) => {
+            const result = await client.query(text, params);
+            return result.rows as R[];
+          },
+          async () => { throw new Error("NESTED_TRANSACTION_NOT_SUPPORTED"); },
+        );
+        const result = await work(tx);
+        await client.query("COMMIT");
+        return result;
+      } catch (error) {
+        try { await client.query("ROLLBACK"); } catch { /* preserve original failure */ }
+        throw error;
+      } finally {
+        client.release();
+      }
     });
   })().catch((err) => {
     globalRef.__pgSqlPromise__ = undefined;
@@ -161,10 +187,22 @@ async function createPgliteSql(): Promise<Sql> {
   globalRef.__pgliteMigrateChain__ = pass;
   await pass;
 
-  return toSql(async <T>(text: string, params: unknown[]) => {
+  const run: Run = async <T>(text: string, params: unknown[]) => {
     const result = await pg.query<T>(text, params);
     return result.rows;
-  });
+  };
+  return toSql(run, async <T>(work: (tx: Sql) => Promise<T>) =>
+    pg.transaction(async (tx) => {
+      const txRun: Run = async <R>(text: string, params: unknown[]) => {
+        const result = await tx.query<R>(text, params);
+        return result.rows;
+      };
+      const txSql = toSql(txRun, async () => {
+        throw new Error("NESTED_TRANSACTION_NOT_SUPPORTED");
+      });
+      return work(txSql);
+    }),
+  );
 }
 
 let sqlPromise: Promise<Sql> | null = null;

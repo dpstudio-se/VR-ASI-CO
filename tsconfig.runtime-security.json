@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/lib/db.ts",
+    "src/runtime/boot-state/**/*.ts",
+    "src/runtime/host-attestation/**/*.ts",
+    "src/runtime/grants/**/*.ts",
+    "src/runtime/capabilities/**/*.ts"
+  ]
+}
