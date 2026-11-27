@@ -5,8 +5,8 @@ import type {
   BootStateMachineOptions,
   EvidenceKind,
   VerifiedEvidence,
-} from "./contracts";
-import { canTransition } from "./transitions";
+} from "./contracts.ts";
+import { canTransition } from "./transitions.ts";
 
 const HEX40 = /^[a-f0-9]{40}$/;
 const HEX64 = /^[a-f0-9]{64}$/;
