@@ -184,7 +184,7 @@ test("revocation atomically blocks new operation starts", async () => {
   const grant = await issue(service);
   assert.equal(await service.revokeGrant(grant.grantId, principalId, sessionId), true);
   await assert.rejects(service.startOperation(startInput(grant.grantId, { operationId: "operation-2" })), /RUNTIME_GRANT_DENIED/);
-  assert.equal((await pg.query("select status from runtime_grants")).rows[0].status, "REVOKED");
+  assert.equal((await pg.query<{ status: string }>("select status from runtime_grants")).rows[0].status, "REVOKED");
   await pg.close();
 });
 
@@ -205,7 +205,7 @@ test("operation completion is one-way and records audit", async () => {
   await service.startOperation(startInput(grant.grantId));
   assert.equal(await service.finishOperation("operation-1", "COMPLETED", principalId, sessionId), true);
   assert.equal(await service.finishOperation("operation-1", "FAILED", principalId, sessionId), false);
-  const rows = await pg.query("select status from runtime_operations where operation_id = 'operation-1'");
+  const rows = await pg.query<{ status: string }>("select status from runtime_operations where operation_id = 'operation-1'");
   assert.equal(rows.rows[0].status, "COMPLETED");
   assert.equal((await pg.query("select * from runtime_grant_events")).rows.length, 3);
   await pg.close();
@@ -217,7 +217,7 @@ test("late completion after lease expiry is permanently UNKNOWN", async () => {
   await service.startOperation(startInput(grant.grantId));
   setNow(now + 1_001);
   assert.equal(await service.finishOperation("operation-1", "COMPLETED", principalId, sessionId), true);
-  const rows = await pg.query("select status from runtime_operations where operation_id = 'operation-1'");
+  const rows = await pg.query<{ status: string }>("select status from runtime_operations where operation_id = 'operation-1'");
   assert.equal(rows.rows[0].status, "UNKNOWN");
   await pg.close();
 });
