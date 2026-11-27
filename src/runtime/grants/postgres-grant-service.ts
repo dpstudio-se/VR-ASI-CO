@@ -250,12 +250,13 @@ export class PostgresRuntimeGrantService {
       if (!operation || operation.status !== "STARTED" ||
           operation.principal_id !== principalId || operation.session_id !== sessionId) return false;
       const now = this.now();
+      const finalOutcome = asNumber(operation.lease_expires_at_ms) <= now ? "UNKNOWN" : outcome;
       await tx.query(
         "update runtime_operations set status = $1, finished_at_ms = $2 where operation_id = $3",
-        [outcome, now, operationId],
+        [finalOutcome, now, operationId],
       );
-      const type = outcome === "COMPLETED" ? "OPERATION_COMPLETED" :
-        outcome === "FAILED" ? "OPERATION_FAILED" : "OPERATION_UNKNOWN";
+      const type = finalOutcome === "COMPLETED" ? "OPERATION_COMPLETED" :
+        finalOutcome === "FAILED" ? "OPERATION_FAILED" : "OPERATION_UNKNOWN";
       await this.insertEvent(tx, {
         grantId: operation.grant_id, type, principalId, sessionId,
         operationId, capability: operation.capability as RuntimeCapability, occurredAt: now,
