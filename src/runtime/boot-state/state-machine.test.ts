@@ -8,9 +8,9 @@ import type {
   BootState,
   TransitionCommand,
   VerifiedEvidence,
-} from "./contracts";
-import { BootStateError, BootStateMachine } from "./state-machine";
-import { canTransition } from "./transitions";
+} from "./contracts.ts";
+import { BootStateError, BootStateMachine } from "./state-machine.ts";
+import { canTransition } from "./transitions.ts";
 
 const NOW = 1_800_000_000_000;
 const COMMIT = "a".repeat(40);
