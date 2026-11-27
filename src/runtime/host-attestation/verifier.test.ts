@@ -19,6 +19,7 @@ const trusted: TrustedHostAttestorKey = {
   hostId: "puter-host-test",
   audience: "vr-asi-co-runtime",
   publicKeyPem: publicKey.export({ type: "spki", format: "pem" }).toString(),
+  allowedEndpointHosts: ["api.example.test"],
 };
 const expected: ExpectedHostBinding = {
   audience: "vr-asi-co-runtime",
