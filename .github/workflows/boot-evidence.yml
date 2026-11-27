@@ -8,6 +8,7 @@ on:
       - "src/runtime/boot-state/**/*.ts"
       - "src/runtime/host-attestation/**/*.ts"
       - "src/runtime/grants/**/*.ts"
+      - "src/runtime/capabilities/**/*.ts"
       - "migrations/0004_runtime_grants.sql"
       - "migrations/0003_host_attestations.sql"
       - "src/runtime/grants/**/*.ts"
@@ -44,6 +45,6 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --check scripts/verify-boot-evidence.mjs
       - run: node --test scripts/verify-boot-evidence.test.mjs
-      - run: node --experimental-strip-types --test src/lib/upi/agent-boot-mirror.test.ts src/runtime/boot-state/state-machine.test.ts src/runtime/boot-state/postgres-repository.test.ts src/runtime/host-attestation/verifier.test.ts src/runtime/host-attestation/postgres-replay-store.test.ts src/runtime/grants/postgres-grant-service.test.ts
+      - run: node --experimental-strip-types --test src/lib/upi/agent-boot-mirror.test.ts src/runtime/boot-state/state-machine.test.ts src/runtime/boot-state/postgres-repository.test.ts src/runtime/host-attestation/verifier.test.ts src/runtime/host-attestation/postgres-replay-store.test.ts src/runtime/grants/postgres-grant-service.test.ts src/runtime/capabilities/execute-with-grant.test.ts
       - run: node scripts/verify-persona-lock.mjs
       - run: node scripts/verify-remote-dna.mjs
