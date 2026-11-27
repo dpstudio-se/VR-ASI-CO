@@ -116,7 +116,7 @@ export function verifyHostAttestation(
     typeof claims.provider !== "string" || !claims.provider.trim() ||
     typeof claims.model !== "string" || !claims.model.trim() ||
     typeof claims.inferenceRequestId !== "string" || !claims.inferenceRequestId.trim() ||
-    typeof claims.endpoint !== "string" || !validEndpoint(claims.endpoint)
+    typeof claims.endpoint !== "string" || !validEndpoint(claims.endpoint, trusted.allowedEndpointHosts)
   ) {
     throw new Error("HOST_ATTESTATION_BINDING_INVALID");
   }
