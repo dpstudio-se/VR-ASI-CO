@@ -6,6 +6,8 @@ on:
       - "scripts/verify-boot-evidence*.mjs"
       - "src/lib/upi/agent-boot-mirror*.ts"
       - "src/runtime/boot-state/**/*.ts"
+      - "src/runtime/host-attestation/**/*.ts"
+      - "migrations/0003_host_attestations.sql"
       - "migrations/0002_boot_runtime.sql"
       - "migrations/0002_boot_runtime.sql"
       - "docs/BOOT_EVIDENCE_CHECK.md"
@@ -39,6 +41,6 @@ jobs:
       - run: npm run typecheck:runtime-security
       - run: node --check scripts/verify-boot-evidence.mjs
       - run: node --test scripts/verify-boot-evidence.test.mjs
-      - run: node --experimental-strip-types --test src/lib/upi/agent-boot-mirror.test.ts src/runtime/boot-state/state-machine.test.ts src/runtime/boot-state/postgres-repository.test.ts
+      - run: node --experimental-strip-types --test src/lib/upi/agent-boot-mirror.test.ts src/runtime/boot-state/state-machine.test.ts src/runtime/boot-state/postgres-repository.test.ts src/runtime/host-attestation/verifier.test.ts src/runtime/host-attestation/postgres-replay-store.test.ts
       - run: node scripts/verify-persona-lock.mjs
       - run: node scripts/verify-remote-dna.mjs
