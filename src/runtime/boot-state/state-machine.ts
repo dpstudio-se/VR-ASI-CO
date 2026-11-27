@@ -13,12 +13,12 @@ const HEX64 = /^[a-f0-9]{64}$/;
 const TERMINAL = new Set<BootState>(["ADMITTED", "STOP", "EXPIRED"]);
 
 export class BootStateError extends Error {
-  constructor(
-    public readonly code: string,
-    message = code,
-  ) {
+  public readonly code: string;
+
+  constructor(code: string, message = code) {
     super(message);
     this.name = "BootStateError";
+    this.code = code;
   }
 }
 
