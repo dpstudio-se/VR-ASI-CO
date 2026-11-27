@@ -29,7 +29,7 @@ create table if not exists boot_nonce_claims (
 create table if not exists boot_audit_events (
   event_id text primary key,
   event_type text not null check (event_type in (
-    'BOOT_STATE_TRANSITION','BOOT_STOPPED','BOOT_EXPIRED'
+    'BOOT_CREATED','BOOT_STATE_TRANSITION','BOOT_STOPPED','BOOT_EXPIRED'
   )),
   boot_id text not null references boot_sessions(boot_id) on delete restrict,
   from_state text not null,
