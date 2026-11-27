@@ -57,7 +57,7 @@ function fixture(bootId = "boot-1", nonce = "b".repeat(64)) {
     version: 0, createdAt: now, expiresAt: now + 60_000, updatedAt: now,
   };
   const audit: AuditEvent = {
-    eventId: `created-${bootId}`, eventType: "BOOT_STATE_TRANSITION",
+    eventId: `created-${bootId}`, eventType: "BOOT_CREATED",
     bootId, fromState: "CHALLENGE_ISSUED", toState: "CHALLENGE_ISSUED",
     fromVersion: 0, toVersion: 0, occurredAt: now,
   };
