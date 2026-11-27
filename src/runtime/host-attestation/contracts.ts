@@ -33,6 +33,7 @@ export interface TrustedHostAttestorKey {
   hostId: string;
   audience: string;
   publicKeyPem: string;
+  allowedEndpointHosts: readonly string[];
 }
 
 export interface ExpectedHostBinding {
