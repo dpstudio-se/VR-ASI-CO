@@ -15,6 +15,7 @@
     "preview:restart": "node scripts/preview.mjs restart",
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
+    "typecheck:runtime-security": "tsc --noEmit -p tsconfig.runtime-security.json",
     "check:auth": "node scripts/check-auth-invariant.mjs",
     "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts src/lib/upi/agent-boot-mirror.test.ts src/lib/upi/einstein.test.ts src/lib/upi/hydrate.test.ts src/lib/upi/information-cooling.test.ts src/lib/upi/omega1766.test.ts src/lib/companion/memory-store.test.ts src/runtime/boot-state/state-machine.test.ts src/runtime/boot-state/postgres-repository.test.ts src/runtime/host-attestation/verifier.test.ts src/runtime/host-attestation/postgres-replay-store.test.ts",
     "lint": "eslint .",
@@ -30,7 +31,7 @@
     "test:repo-audit": "node --test scripts/audit-repository.test.mjs",
     "test:workspace": "node --test scripts/startup.test.mjs",
     "workspace:check": "npm run verify:dna && npm run audit:repo && npm run test:workspace",
-    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check && npm run typecheck"
+    "workspace:setup": "npm ci --ignore-scripts --no-audit --no-fund && npm run workspace:check && npm run typecheck:runtime-security"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
