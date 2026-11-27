@@ -26,7 +26,10 @@ export class BootStateMachine {
   private readonly now: () => number;
   private readonly createEventId: () => string;
 
-  constructor(private readonly options: BootStateMachineOptions) {
+  private readonly options: BootStateMachineOptions;
+
+  constructor(options: BootStateMachineOptions) {
+    this.options = options;
     this.now = options.now ?? Date.now;
     this.createEventId = options.createEventId ?? randomUUID;
   }
