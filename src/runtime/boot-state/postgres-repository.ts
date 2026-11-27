@@ -1,4 +1,5 @@
 import type { Sql } from "../../lib/db.ts";
+import { canTransition } from "./transitions.ts";
 import type {
   AuditEvent,
   BootRecord,
@@ -56,6 +57,21 @@ export class PostgresBootRepository implements BootRepository {
 
   async createBootWithNonce(command: CreateBootCommand): Promise<void> {
     const { record, audit } = command;
+    if (
+      record.state !== "CHALLENGE_ISSUED" ||
+      record.version !== 0 ||
+      !/^[a-f0-9]{40}$/.test(record.dnaCommit) ||
+      !/^[a-f0-9]{64}$/.test(record.nonceHash) ||
+      !Number.isSafeInteger(record.createdAt) ||
+      !Number.isSafeInteger(record.expiresAt) ||
+      record.expiresAt <= record.createdAt ||
+      audit.eventType !== "BOOT_CREATED" ||
+      audit.bootId !== record.bootId ||
+      audit.fromState !== record.state ||
+      audit.toState !== record.state ||
+      audit.fromVersion !== 0 ||
+      audit.toVersion !== 0
+    ) throw new Error("BOOT_CREATE_COMMAND_INVALID");
     await this.sql.transaction(async (tx) => {
       await tx.query(
         `insert into boot_sessions
@@ -88,13 +104,28 @@ export class PostgresBootRepository implements BootRepository {
   }
 
   async transitionWithAudit(command: TransitionCommand): Promise<boolean> {
+    const expectedEventType =
+      command.nextState === "STOP" ? "BOOT_STOPPED" :
+      command.nextState === "EXPIRED" ? "BOOT_EXPIRED" : "BOOT_STATE_TRANSITION";
+    if (
+      !canTransition(command.expectedState, command.nextState) ||
+      command.audit.eventType !== expectedEventType ||
+      command.audit.bootId !== command.bootId ||
+      command.audit.fromState !== command.expectedState ||
+      command.audit.toState !== command.nextState ||
+      command.audit.fromVersion !== command.expectedVersion ||
+      command.audit.toVersion !== command.expectedVersion + 1 ||
+      command.audit.occurredAt !== command.updatedAt ||
+      (command.audit.evidenceHash !== undefined && !/^[a-f0-9]{64}$/.test(command.audit.evidenceHash))
+    ) throw new Error("BOOT_TRANSITION_COMMAND_INVALID");
+
     return this.sql.transaction(async (tx) => {
       const updated = await tx.query<{ boot_id: string }>(
         `update boot_sessions
             set state = $1, version = version + 1, updated_at_ms = $2,
                 failure_code = $3
           where boot_id = $4 and state = $5 and version = $6
-            and ($1 = 'EXPIRED' or expires_at_ms > $2)
+            and (($1 = 'EXPIRED' and expires_at_ms <= $2)\n                 or ($1 <> 'EXPIRED' and expires_at_ms > $2))
           returning boot_id`,
         [
           command.nextState,
