@@ -60,11 +60,11 @@ function assertClaimsShape(value: unknown): asserts value is HostAttestationClai
   }
 }
 
-function validEndpoint(value: string): boolean {
+function validEndpoint(value: string, allowedHosts: readonly string[]): boolean {
   try {
     const url = new URL(value);
     const host = url.hostname.toLowerCase();
-    return url.protocol === "https:" &&
+    return allowedHosts.includes(host) && url.protocol === "https:" &&
       !url.username && !url.password &&
       !url.search && !url.hash &&
       host !== "localhost" && host !== "127.0.0.1" &&
