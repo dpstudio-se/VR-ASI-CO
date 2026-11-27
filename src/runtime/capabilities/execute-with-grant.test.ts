@@ -94,7 +94,7 @@ test("capability broker runs a granted operation once and persists completion", 
   assert.equal(first.result, "inference-result");
   assert.equal(second.executed, false);
   assert.equal(calls, 1);
-  assert.equal((await pg.query("select status from runtime_operations")).rows[0].status, "COMPLETED");
+  assert.equal((await pg.query<{ status: string }>("select status from runtime_operations")).rows[0].status, "COMPLETED");
   await pg.close();
 });
 
