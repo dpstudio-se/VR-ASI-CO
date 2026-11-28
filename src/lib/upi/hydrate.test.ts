@@ -19,7 +19,7 @@ describe("Remote DNA hydration", () => {
       "test",
     );
 
-    assert.equal(DNA.repo, "upi-built-by-agi-teax-main");
+    assert.equal(DNA.repo, "Universal-Physics-Index-UPI");
     assert.equal(catalog.sourceRepo, DNA.html);
     assert.equal(catalog.nodes.length, 2);
     assert.equal(catalog.nodes[0]?.address, "UPI<calc,1,research,E_hf>");
