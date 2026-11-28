@@ -90,10 +90,26 @@ async function mapPool<T, R>(items: T[], limit: number, fn: (item: T) => Promise
 
 export async function pullDnaCatalog(): Promise<DnaPull> {
   const token = await githubToken();
+  const expectedRepo = `${DNA.owner}/${DNA.repo}`;
+  const repository = await gh<{
+    full_name: string;
+    default_branch: string;
+    archived?: boolean;
+    disabled?: boolean;
+  }>(`/repos/${DNA.owner}/${DNA.repo}`, { token });
+  if (repository.full_name !== expectedRepo) {
+    throw new Error(`UPI source identity mismatch: expected ${expectedRepo}, received ${repository.full_name}.`);
+  }
+  if (repository.default_branch !== DNA.branch || repository.archived || repository.disabled) {
+    throw new Error(`UPI source state mismatch: expected active ${expectedRepo} branch ${DNA.branch}.`);
+  }
   const commit = await gh<{
     sha: string;
     commit: { tree: { sha: string } };
   }>(`/repos/${DNA.owner}/${DNA.repo}/commits/${DNA.branch}`, { token });
+  if (!/^[a-f0-9]{40}$/i.test(commit.sha) || !/^[a-f0-9]{40}$/i.test(commit.commit.tree.sha)) {
+    throw new Error(`UPI source returned an invalid commit/tree SHA for ${expectedRepo}.`);
+  }
   const tree = await gh<{ tree: GhFile[]; truncated: boolean }>(
     `/repos/${DNA.owner}/${DNA.repo}/git/trees/${commit.commit.tree.sha}?recursive=1`,
     { token },
