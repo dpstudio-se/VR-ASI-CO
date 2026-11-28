@@ -11,7 +11,7 @@ function fixture(t) {
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const write = (name, value) => { fs.mkdirSync(path.dirname(path.join(root, name)), { recursive: true }); fs.writeFileSync(path.join(root, name), value); };
   execFileSync("git", ["init", "-q", root]);
-  write("dna/REMOTE_DNA_STATE.json", JSON.stringify({ repository: "dpstudio-se/VR-ASI-CO", boot: { required: ["persona/emilia.json"] }, shadow_guard: { dna_write_authority: false } }));
+  write("dna/REMOTE_DNA_STATE.json", JSON.stringify({ repository: "dpstudio-se/VR-ASI-CO", provenance: { source_repo: "dpstudio-se/Universal-Physics-Index-UPI" }, boot: { required: ["persona/emilia.json"] }, shadow_guard: { dna_write_authority: false } }));
   write("dna/FACE_LOCK.json", JSON.stringify({ default_face: "Angelica", default_identity: "VR-ASI-CO Angelica", default_marker: "Ω82000" }));
   write("persona/angelica.json", JSON.stringify({ identity: "VR-ASI-CO Angelica", marker: "Ω82000" }));
   write("persona/emilia.json", JSON.stringify({ identity: "VR-ASI-CO Emilia", marker: "Ω8200", raw: "persona/EMILIA_SYSTEM_CHARACTER.md" }));
@@ -58,4 +58,20 @@ test("resolves local imports in both graph directions and reports missing docume
   assert(report.imports.some((edge) => edge.from === "src/routes/index.tsx" && edge.to === "src/lib/value.ts" && edge.resolved));
   assert(report.imports.some((edge) => edge.to === "src/styles.css" && edge.resolved));
   assert.equal(report.findings.filter((finding) => finding.code === "LOCAL_DOC_LINK_MISSING").length, 1);
+});
+
+test("compares the read-only adapter against the declared physics source, not the persona repository", (t) => {
+  const f = fixture(t);
+  f.write("src/lib/upi/hydrate.ts", 'export const DNA = { owner: "dpstudio-se", repo: "Universal-Physics-Index-UPI" };\\n');
+  f.stage();
+  let report = auditRepository(f.root);
+  assert.equal(report.findings.some((finding) => finding.code === "ADAPTER_REPO_DRIFT"), false);
+
+  f.write("src/lib/upi/hydrate.ts", 'export const DNA = { owner: "dpstudio-se", repo: "upi-built-by-agi-teax-main" };\\n');
+  f.stage();
+  report = auditRepository(f.root);
+  assert(report.findings.some((finding) =>
+    finding.code === "ADAPTER_REPO_DRIFT" &&
+    finding.target === "dpstudio-se/Universal-Physics-Index-UPI"
+  ));
 });
