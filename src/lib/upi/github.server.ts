@@ -15,6 +15,18 @@ const UA = "UPI-RNA-engine";
 // Physics UPI is a read-only source. Persona/RNA proposals target this repository via branch + PR.
 export const PROPOSAL_TARGET = { owner: "dpstudio-se", repo: "VR-ASI-CO", branch: "main" } as const;
 
+
+/** Fail closed: only explicitly configured project-owner accounts may create or merge proposals. */
+export function assertProposalOwner(userId: string): void {
+  const allowed = (process.env.VR_ASI_CO_OWNER_USER_IDS ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  if (!allowed.length || !allowed.includes(userId)) {
+    throw new Error("Forbidden: verified session is not an authorized VR-ASI-CO proposal owner.");
+  }
+}
+
 export type DnaPull = {
   catalog: Catalog;
   sha: string;
@@ -199,7 +211,7 @@ export async function dnaHead() {
   return {
     sha: head.object.sha,
     branch: DNA.branch,
-    writable: Boolean(token),
+    writable: false,
     checkedAt: new Date().toISOString(),
   };
 }
@@ -416,7 +428,7 @@ export async function listPullRequests(state: "open" | "closed" | "all" = "all")
       head: { ref: string; sha: string };
       base: { ref: string };
     }[]
-  >(`/repos/${DNA.owner}/${DNA.repo}/pulls?state=${state}&per_page=20&sort=updated&direction=desc`, { token });
+  >(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls?state=${state}&per_page=20&sort=updated&direction=desc`, { token });
   return pulls.map(toListItem);
 }
 
@@ -441,7 +453,7 @@ export async function getPullRequest(number: number): Promise<PrDetail> {
       additions: number;
       deletions: number;
       changed_files: number;
-    }>(`/repos/${DNA.owner}/${DNA.repo}/pulls/${number}`, { token }),
+    }>(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}`, { token }),
     gh<
       {
         filename: string;
@@ -451,15 +463,15 @@ export async function getPullRequest(number: number): Promise<PrDetail> {
         patch?: string;
         raw_url: string;
       }[]
-    >(`/repos/${DNA.owner}/${DNA.repo}/pulls/${number}/files?per_page=100`, { token }),
+    >(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/files?per_page=100`, { token }),
     gh<{ user: { login: string } | null; state: string; body: string | null }[]>(
-      `/repos/${DNA.owner}/${DNA.repo}/pulls/${number}/reviews`,
+      `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/reviews`,
       { token },
     ),
   ]);
 
   const checkRuns = await gh<{ check_runs: { name: string; status: string; conclusion: string | null }[] }>(
-    `/repos/${DNA.owner}/${DNA.repo}/commits/${pr.head.sha}/check-runs`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/commits/${pr.head.sha}/check-runs`,
     { token },
   ).catch(() => ({ check_runs: [] as { name: string; status: string; conclusion: string | null }[] }));
 
@@ -518,7 +530,7 @@ export async function mergePullRequest(number: number) {
   if (detail.item.merged) throw new Error("Already merged.");
   if (detail.item.state !== "open") throw new Error("Pull request is not open.");
   const result = await gh<{ merged: boolean; sha: string; message: string }>(
-    `/repos/${DNA.owner}/${DNA.repo}/pulls/${number}/merge`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/merge`,
     {
       method: "PUT",
       token,
