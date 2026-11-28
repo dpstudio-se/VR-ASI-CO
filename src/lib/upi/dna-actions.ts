@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { authMiddleware } from "@/lib/auth/middleware";
 
 const status = z.enum(["EST", "DER", "HYP", "STOP", "ERR", "SYM"]);
 const address = z.string().regex(/^UPI<[^,]+,[0-9]+,[^,]+,[^,>]+>$/);
@@ -34,6 +35,7 @@ export const headDnaFn = createServerFn({ method: "POST" }).handler(async () => 
 });
 
 export const proposeNodeFn = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
   .validator(
     z.object({
       domain: z.string().min(1),
@@ -51,8 +53,9 @@ export const proposeNodeFn = createServerFn({ method: "POST" })
       tags: z.string().optional(),
     }),
   )
-  .handler(async ({ data }) => {
-    const { proposeNode } = await import("./github.server");
+  .handler(async ({ data, context }) => {
+    const { assertProposalOwner, proposeNode } = await import("./github.server");
+    assertProposalOwner(context.userId);
     return proposeNode({
       ...data,
       tags: (data.tags ?? "")
@@ -63,6 +66,7 @@ export const proposeNodeFn = createServerFn({ method: "POST" })
   });
 
 export const proposeBridgeFn = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
   .validator(
     z.object({
       filename: z.string().min(1),
@@ -77,8 +81,9 @@ export const proposeBridgeFn = createServerFn({ method: "POST" })
       stop_reason: z.string().optional(),
     }),
   )
-  .handler(async ({ data }) => {
-    const { proposeBridge } = await import("./github.server");
+  .handler(async ({ data, context }) => {
+    const { assertProposalOwner, proposeBridge } = await import("./github.server");
+    assertProposalOwner(context.userId);
     return proposeBridge(data);
   });
 
@@ -97,8 +102,10 @@ export const getPrFn = createServerFn({ method: "POST" })
   });
 
 export const mergePrFn = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
   .validator(z.object({ number: z.number().int().positive() }))
-  .handler(async ({ data }) => {
-    const { mergePullRequest } = await import("./github.server");
+  .handler(async ({ data, context }) => {
+    const { assertProposalOwner, mergePullRequest } = await import("./github.server");
+    assertProposalOwner(context.userId);
     return mergePullRequest(data.number);
   });

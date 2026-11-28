@@ -12,6 +12,21 @@ const API = "https://api.github.com";
 const RAW = "https://raw.githubusercontent.com";
 const UA = "UPI-RNA-engine";
 
+// Physics UPI is a read-only source. Persona/RNA proposals target this repository via branch + PR.
+export const PROPOSAL_TARGET = { owner: "dpstudio-se", repo: "VR-ASI-CO", branch: "main" } as const;
+
+
+/** Fail closed: only explicitly configured project-owner accounts may create or merge proposals. */
+export function assertProposalOwner(userId: string): void {
+  const allowed = (process.env.VR_ASI_CO_OWNER_USER_IDS ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  if (!allowed.length || !allowed.includes(userId)) {
+    throw new Error("Forbidden: verified session is not an authorized VR-ASI-CO proposal owner.");
+  }
+}
+
 export type DnaPull = {
   catalog: Catalog;
   sha: string;
@@ -87,10 +102,26 @@ async function mapPool<T, R>(items: T[], limit: number, fn: (item: T) => Promise
 
 export async function pullDnaCatalog(): Promise<DnaPull> {
   const token = await githubToken();
+  const expectedRepo = `${DNA.owner}/${DNA.repo}`;
+  const repository = await gh<{
+    full_name: string;
+    default_branch: string;
+    archived?: boolean;
+    disabled?: boolean;
+  }>(`/repos/${DNA.owner}/${DNA.repo}`, { token });
+  if (repository.full_name !== expectedRepo) {
+    throw new Error(`UPI source identity mismatch: expected ${expectedRepo}, received ${repository.full_name}.`);
+  }
+  if (repository.default_branch !== DNA.branch || repository.archived || repository.disabled) {
+    throw new Error(`UPI source state mismatch: expected active ${expectedRepo} branch ${DNA.branch}.`);
+  }
   const commit = await gh<{
     sha: string;
     commit: { tree: { sha: string } };
   }>(`/repos/${DNA.owner}/${DNA.repo}/commits/${DNA.branch}`, { token });
+  if (!/^[a-f0-9]{40}$/i.test(commit.sha) || !/^[a-f0-9]{40}$/i.test(commit.commit.tree.sha)) {
+    throw new Error(`UPI source returned an invalid commit/tree SHA for ${expectedRepo}.`);
+  }
   const tree = await gh<{ tree: GhFile[]; truncated: boolean }>(
     `/repos/${DNA.owner}/${DNA.repo}/git/trees/${commit.commit.tree.sha}?recursive=1`,
     { token },
@@ -158,7 +189,7 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
     catalog,
     sha: commit.sha,
     branch: DNA.branch,
-    writable: Boolean(token),
+    writable: false,
     files: parsed.length,
     skipped,
     promptSources,
@@ -167,7 +198,8 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
 }
 
 export async function dnaWritable() {
-  return Boolean(await githubToken());
+  // The canonical physics source is intentionally read-only, regardless of token scope.
+  return false;
 }
 
 export async function dnaHead() {
@@ -179,7 +211,7 @@ export async function dnaHead() {
   return {
     sha: head.object.sha,
     branch: DNA.branch,
-    writable: Boolean(token),
+    writable: false,
     checkedAt: new Date().toISOString(),
   };
 }
@@ -207,11 +239,11 @@ export async function commitRecord(opts: {
     );
   }
   const head = await gh<{ object: { sha: string } }>(
-    `/repos/${DNA.owner}/${DNA.repo}/git/ref/heads/${DNA.branch}`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/git/ref/heads/${PROPOSAL_TARGET.branch}`,
     { token },
   );
   const branch = branchName(opts.path.replace(/^data\//, "").replace(/\.json$/, ""));
-  await gh(`/repos/${DNA.owner}/${DNA.repo}/git/refs`, {
+  await gh(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/git/refs`, {
     method: "POST",
     token,
     headers: { "content-type": "application/json" },
@@ -221,7 +253,7 @@ export async function commitRecord(opts: {
   let existingSha: string | undefined;
   try {
     const existing = await gh<{ sha: string }>(
-      `/repos/${DNA.owner}/${DNA.repo}/contents/${opts.path}?ref=${branch}`,
+      `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/contents/${opts.path}?ref=${branch}`,
       { token },
     );
     existingSha = existing.sha;
@@ -230,7 +262,7 @@ export async function commitRecord(opts: {
   }
 
   const put = await gh<{ content: { html_url: string }; commit: { sha: string } }>(
-    `/repos/${DNA.owner}/${DNA.repo}/contents/${opts.path}`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/contents/${opts.path}`,
     {
       method: "PUT",
       token,
@@ -246,14 +278,14 @@ export async function commitRecord(opts: {
 
   let prUrl: string | null = null;
   try {
-    const pr = await gh<{ html_url: string }>(`/repos/${DNA.owner}/${DNA.repo}/pulls`, {
+    const pr = await gh<{ html_url: string }>(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls`, {
       method: "POST",
       token,
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         title: opts.title,
         head: branch,
-        base: DNA.branch,
+        base: PROPOSAL_TARGET.branch,
         body: opts.body,
       }),
     });
@@ -396,7 +428,7 @@ export async function listPullRequests(state: "open" | "closed" | "all" = "all")
       head: { ref: string; sha: string };
       base: { ref: string };
     }[]
-  >(`/repos/${DNA.owner}/${DNA.repo}/pulls?state=${state}&per_page=20&sort=updated&direction=desc`, { token });
+  >(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls?state=${state}&per_page=20&sort=updated&direction=desc`, { token });
   return pulls.map(toListItem);
 }
 
@@ -421,7 +453,7 @@ export async function getPullRequest(number: number): Promise<PrDetail> {
       additions: number;
       deletions: number;
       changed_files: number;
-    }>(`/repos/${DNA.owner}/${DNA.repo}/pulls/${number}`, { token }),
+    }>(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}`, { token }),
     gh<
       {
         filename: string;
@@ -431,15 +463,15 @@ export async function getPullRequest(number: number): Promise<PrDetail> {
         patch?: string;
         raw_url: string;
       }[]
-    >(`/repos/${DNA.owner}/${DNA.repo}/pulls/${number}/files?per_page=100`, { token }),
+    >(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/files?per_page=100`, { token }),
     gh<{ user: { login: string } | null; state: string; body: string | null }[]>(
-      `/repos/${DNA.owner}/${DNA.repo}/pulls/${number}/reviews`,
+      `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/reviews`,
       { token },
     ),
   ]);
 
   const checkRuns = await gh<{ check_runs: { name: string; status: string; conclusion: string | null }[] }>(
-    `/repos/${DNA.owner}/${DNA.repo}/commits/${pr.head.sha}/check-runs`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/commits/${pr.head.sha}/check-runs`,
     { token },
   ).catch(() => ({ check_runs: [] as { name: string; status: string; conclusion: string | null }[] }));
 
@@ -497,8 +529,18 @@ export async function mergePullRequest(number: number) {
   }
   if (detail.item.merged) throw new Error("Already merged.");
   if (detail.item.state !== "open") throw new Error("Pull request is not open.");
+  if (detail.item.draft) throw new Error("Draft pull requests cannot be merged.");
+  if (detail.item.base !== PROPOSAL_TARGET.branch || !detail.item.head.startsWith("rna/")) {
+    throw new Error("Merge denied: only RNA proposal branches targeting the canonical proposal branch are eligible.");
+  }
+  if (!detail.checks.length || detail.checks.some((check) => check.status !== "completed" || check.conclusion !== "success")) {
+    throw new Error("Merge denied: all required GitHub checks must be present and successful.");
+  }
+  if (!detail.reviews.some((review) => review.state === "APPROVED" && review.user !== detail.item.user)) {
+    throw new Error("Merge denied: an independent human approval is required.");
+  }
   const result = await gh<{ merged: boolean; sha: string; message: string }>(
-    `/repos/${DNA.owner}/${DNA.repo}/pulls/${number}/merge`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/merge`,
     {
       method: "PUT",
       token,

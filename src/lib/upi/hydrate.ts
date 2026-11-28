@@ -2,9 +2,9 @@ import type { Catalog, Status, UpiBridge, UpiNode, UpiSource } from "./types";
 
 export const DNA = {
   owner: "dpstudio-se",
-  repo: "upi-built-by-agi-teax-main",
+  repo: "Universal-Physics-Index-UPI",
   branch: "main",
-  html: "https://github.com/dpstudio-se/upi-built-by-agi-teax-main",
+  html: "https://github.com/dpstudio-se/Universal-Physics-Index-UPI",
 } as const;
 
 const STATUSES: Status[] = ["EST", "DER", "HYP", "STOP", "ERR", "SYM"];
