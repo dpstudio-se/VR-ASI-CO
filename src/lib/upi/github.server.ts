@@ -529,6 +529,16 @@ export async function mergePullRequest(number: number) {
   }
   if (detail.item.merged) throw new Error("Already merged.");
   if (detail.item.state !== "open") throw new Error("Pull request is not open.");
+  if (detail.item.draft) throw new Error("Draft pull requests cannot be merged.");
+  if (detail.item.base !== PROPOSAL_TARGET.branch || !detail.item.head.startsWith("rna/")) {
+    throw new Error("Merge denied: only RNA proposal branches targeting the canonical proposal branch are eligible.");
+  }
+  if (!detail.checks.length || detail.checks.some((check) => check.status !== "completed" || check.conclusion !== "success")) {
+    throw new Error("Merge denied: all required GitHub checks must be present and successful.");
+  }
+  if (!detail.reviews.some((review) => review.state === "APPROVED" && review.user !== detail.item.user)) {
+    throw new Error("Merge denied: an independent human approval is required.");
+  }
   const result = await gh<{ merged: boolean; sha: string; message: string }>(
     `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls/${number}/merge`,
     {
