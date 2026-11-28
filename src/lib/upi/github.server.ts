@@ -170,7 +170,8 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
 }
 
 export async function dnaWritable() {
-  return Boolean(await githubToken());
+  // The canonical physics source is intentionally read-only, regardless of token scope.
+  return false;
 }
 
 export async function dnaHead() {
