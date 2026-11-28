@@ -12,6 +12,9 @@ const API = "https://api.github.com";
 const RAW = "https://raw.githubusercontent.com";
 const UA = "UPI-RNA-engine";
 
+// Physics UPI is a read-only source. Persona/RNA proposals target this repository via branch + PR.
+export const PROPOSAL_TARGET = { owner: "dpstudio-se", repo: "VR-ASI-CO", branch: "main" } as const;
+
 export type DnaPull = {
   catalog: Catalog;
   sha: string;
@@ -158,7 +161,7 @@ export async function pullDnaCatalog(): Promise<DnaPull> {
     catalog,
     sha: commit.sha,
     branch: DNA.branch,
-    writable: Boolean(token),
+    writable: false,
     files: parsed.length,
     skipped,
     promptSources,
@@ -207,11 +210,11 @@ export async function commitRecord(opts: {
     );
   }
   const head = await gh<{ object: { sha: string } }>(
-    `/repos/${DNA.owner}/${DNA.repo}/git/ref/heads/${DNA.branch}`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/git/ref/heads/${PROPOSAL_TARGET.branch}`,
     { token },
   );
   const branch = branchName(opts.path.replace(/^data\//, "").replace(/\.json$/, ""));
-  await gh(`/repos/${DNA.owner}/${DNA.repo}/git/refs`, {
+  await gh(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/git/refs`, {
     method: "POST",
     token,
     headers: { "content-type": "application/json" },
@@ -221,7 +224,7 @@ export async function commitRecord(opts: {
   let existingSha: string | undefined;
   try {
     const existing = await gh<{ sha: string }>(
-      `/repos/${DNA.owner}/${DNA.repo}/contents/${opts.path}?ref=${branch}`,
+      `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/contents/${opts.path}?ref=${branch}`,
       { token },
     );
     existingSha = existing.sha;
@@ -230,7 +233,7 @@ export async function commitRecord(opts: {
   }
 
   const put = await gh<{ content: { html_url: string }; commit: { sha: string } }>(
-    `/repos/${DNA.owner}/${DNA.repo}/contents/${opts.path}`,
+    `/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/contents/${opts.path}`,
     {
       method: "PUT",
       token,
@@ -246,14 +249,14 @@ export async function commitRecord(opts: {
 
   let prUrl: string | null = null;
   try {
-    const pr = await gh<{ html_url: string }>(`/repos/${DNA.owner}/${DNA.repo}/pulls`, {
+    const pr = await gh<{ html_url: string }>(`/repos/${PROPOSAL_TARGET.owner}/${PROPOSAL_TARGET.repo}/pulls`, {
       method: "POST",
       token,
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         title: opts.title,
         head: branch,
-        base: DNA.branch,
+        base: PROPOSAL_TARGET.branch,
         body: opts.body,
       }),
     });
