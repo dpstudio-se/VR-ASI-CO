@@ -99,7 +99,17 @@ export function auditRepository(root, { dnaOnly = false } = {}) {
   ];
   for (const [value, wanted, file, code] of expected) if (value !== wanted) note("error", code, file);
   const adapter = content.get("src/lib/upi/hydrate.ts");
-  if (adapter && !/repo:\s*["']VR-ASI-CO["']/.test(adapter)) note("warning", "ADAPTER_REPO_DRIFT", "src/lib/upi/hydrate.ts");
+  if (adapter) {
+    const owner = /owner:\s*["']([^"']+)["']/.exec(adapter)?.[1];
+    const repo = /repo:\s*["']([^"']+)["']/.exec(adapter)?.[1];
+    const declaredSource = dna?.provenance?.source_repo;
+    const adapterSource = owner && repo ? owner + "/" + repo : null;
+    if (typeof declaredSource !== "string" || !declaredSource) {
+      note("warning", "ADAPTER_SOURCE_UNDECLARED", "src/lib/upi/hydrate.ts");
+    } else if (adapterSource !== declaredSource) {
+      note("warning", "ADAPTER_REPO_DRIFT", "src/lib/upi/hydrate.ts", declaredSource);
+    }
+  }
 
   const imports = [];
   if (!dnaOnly) for (const [file, text] of content) {
